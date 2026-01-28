@@ -158,6 +158,10 @@ nav ul {
     gap: var(--space-md);
 }
 
+nav li {
+    position: relative;
+}
+
 nav a {
     font-family: 'JetBrains Mono', monospace;
     font-size: var(--text-sm);
@@ -165,6 +169,7 @@ nav a {
     border: none;
     padding: var(--space-xs) 0;
     position: relative;
+    display: block;
 }
 
 nav a::after {
@@ -180,6 +185,54 @@ nav a::after {
 
 nav a:hover::after {
     width: 100%;
+}
+
+/* Dropdown functionality */
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    cursor: pointer;
+}
+
+.dropdown > a.has-dropdown::before {
+    content: '▾ ';
+    font-size: 0.9em;
+    margin-right: 2px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--cream-light);
+    min-width: 240px;
+    box-shadow: 0 8px 16px rgba(90, 130, 121, 0.3);
+    z-index: 100;
+    border-radius: var(--border-radius);
+    padding: var(--space-sm) 0;
+    margin-top: var(--space-xs);
+    border: 1px solid var(--border-accent);
+    left: 0;
+}
+
+.dropdown-content a {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+    border-radius: 0;
+}
+
+.dropdown-content a::after {
+    display: none;
+}
+
+.dropdown-content a:hover {
+    background: var(--teal-primary);
+    color: var(--cream-light);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Main Content Areas */
