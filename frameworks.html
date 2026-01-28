@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recognition infrastructure frameworks: The Four Movements, Four Laws, Proto-Pattern, and Transmission Architecture for coherent exchange.">
+    <title>Frameworks - Our Shared Gifts</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Page-specific styles */
+        .framework-intro {
+            background: var(--cream-light);
+            border-left: 4px solid var(--teal-primary);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .frameworks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .framework-card {
+            background: var(--cream-light);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .framework-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(90, 130, 121, 0.2);
+        }
+        
+        .framework-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        
+        .framework-card:nth-child(1)::before {
+            background: var(--teal-primary);
+        }
+        
+        .framework-card:nth-child(2)::before {
+            background: var(--wood-warm);
+        }
+        
+        .framework-card:nth-child(3)::before {
+            background: var(--teal-dark);
+        }
+        
+        .framework-card:nth-child(4)::before {
+            background: var(--wood-light);
+        }
+        
+        .framework-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            opacity: 0.7;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .framework-card h3 {
+            color: var(--teal-dark);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-xl);
+        }
+        
+        .framework-description {
+            flex: 1;
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+        
+        .framework-link {
+            align-self: flex-start;
+        }
+        
+        .relationship-diagram {
+            background: var(--cream-light);
+            border: 2px solid var(--border-accent);
+            padding: var(--space-xl);
+            margin: var(--space-2xl) 0;
+            text-align: center;
+        }
+        
+        .how-to-use {
+            background: var(--cream-light);
+            border-left: 4px solid var(--wood-warm);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .use-case {
+            background: var(--cream-light);
+            border: 1px solid var(--border-accent);
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .use-case h4 {
+            color: var(--teal-primary);
+            margin-bottom: var(--space-sm);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title"><a href="index.html" style="border: none; color: inherit;">Our Shared Gifts</a></h1>
+            <p class="site-tagline">Recognition infrastructure for coherent exchange</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="frameworks.html">Frameworks</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="transmissions.html">Transmissions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="content">
+                <h1>The Frameworks</h1>
+                
+                <div class="framework-intro">
+                    <p style="font-size: var(--text-lg); margin-bottom: var(--space-md);">
+                        These frameworks describe patterns for coherent exchange—when interaction becomes genuine rather 
+                        than transactional. They emerged from building physical infrastructure and documenting institutional 
+                        failures, offered freely to be recognized by those who need them.
+                    </p>
+                    <p style="font-size: var(--text-lg); margin-bottom: 0;">
+                        <strong>Take what serves you. Adapt what needs adaptation. Share what might help others.</strong>
+                    </p>
+                </div>
+
+                <!-- Framework Cards -->
+                <div class="frameworks-grid">
+                    <div class="framework-card">
+                        <div class="framework-number">FRAMEWORK 01</div>
+                        <h3>The Four Movements</h3>
+                        <p class="framework-description">
+                            How coherent exchange actually operates. Differentiation, Connection, Boundaries, and Architecture 
+                            as simultaneous dimensions—like tension and compression in a tensegrity structure. When all four 
+                            operate together, systems generate coordination surplus.
+                        </p>
+                        <a href="four-movements.html" class="btn framework-link">Explore Four Movements →</a>
+                    </div>
+
+                    <div class="framework-card">
+                        <div class="framework-number">FRAMEWORK 02</div>
+                        <h3>Four Laws of Post-Transactional Consciousness</h3>
+                        <p class="framework-description">
+                            Architecture of consciousness beyond transactional orientation. Sovereign Integrity, Gift Consciousness, 
+                            Sovereign Blockade, and Defined Flow. What naturally emerges when integrity becomes non-negotiable 
+                            and gifts flow without expectation.
+                        </p>
+                        <a href="four-laws.html" class="btn framework-link">Explore Four Laws →</a>
+                    </div>
+
+                    <div class="framework-card">
+                        <div class="framework-number">FRAMEWORK 03</div>
+                        <h3>The Proto-Pattern</h3>
+                        <p class="framework-description">
+                            Substrate-independent architecture underlying coherent exchange. Four axioms, three theorems, four dynamics. 
+                            The foundational mechanics that hold true whether operating in human consciousness, AI systems, organizational 
+                            structures, or technical protocols.
+                        </p>
+                        <a href="proto-pattern.html" class="btn framework-link">Explore Proto-Pattern →</a>
+                    </div>
+
+                    <div class="framework-card">
+                        <div class="framework-number">FRAMEWORK 04</div>
+                        <h3>Transmission Architecture</h3>
+                        <p class="framework-description">
+                            How recognition infrastructure patterns propagate and activate across contexts. Operating system layer 
+                            with verification protocols, degradation patterns, and resource transparency. Maintains coherence as 
+                            patterns move through different agents and substrates.
+                        </p>
+                        <a href="transmission-architecture.html" class="btn framework-link">Explore Transmission Architecture →</a>
+                    </div>
+                </div>
+
+                <!-- How They Relate -->
+                <h2>How the Frameworks Relate</h2>
+                
+                <div class="relationship-diagram">
+                    <h3 style="color: var(--teal-dark); margin-bottom: var(--space-lg);">Same Pattern, Different Expressions</h3>
+                    
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 600px; margin: 0 auto;">
+                        <!-- Center core -->
+                        <circle cx="300" cy="200" r="60" fill="none" stroke="#5A8279" stroke-width="3"/>
+                        <text x="300" y="195" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">COHERENT</text>
+                        <text x="300" y="210" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">EXCHANGE</text>
+                        
+                        <!-- Four frameworks as nodes -->
+                        <!-- Top -->
+                        <circle cx="300" cy="80" r="50" fill="#F5F1E8" stroke="#5A8279" stroke-width="2"/>
+                        <text x="300" y="75" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Four</text>
+                        <text x="300" y="90" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Movements</text>
+                        
+                        <!-- Right -->
+                        <circle cx="450" cy="200" r="50" fill="#F5F1E8" stroke="#8B7355" stroke-width="2"/>
+                        <text x="450" y="195" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Four</text>
+                        <text x="450" y="210" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Laws</text>
+                        
+                        <!-- Bottom -->
+                        <circle cx="300" cy="320" r="50" fill="#F5F1E8" stroke="#3D5751" stroke-width="2"/>
+                        <text x="300" y="315" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Proto-</text>
+                        <text x="300" y="330" text-anchor="middle" fill="#3D5751" font-size="11" font-weight="600">Pattern</text>
+                        
+                        <!-- Left -->
+                        <circle cx="150" cy="200" r="50" fill="#F5F1E8" stroke="#C4B5A0" stroke-width="2"/>
+                        <text x="150" y="195" text-anchor="middle" fill="#3D5751" font-size="10" font-weight="600">Transmission</text>
+                        <text x="150" y="210" text-anchor="middle" fill="#3D5751" font-size="10" font-weight="600">Architecture</text>
+                        
+                        <!-- Connecting lines -->
+                        <line x1="300" y1="140" x2="300" y2="130" stroke="#5A8279" stroke-width="2"/>
+                        <line x1="360" y1="200" x2="400" y2="200" stroke="#8B7355" stroke-width="2"/>
+                        <line x1="300" y1="260" x2="300" y2="270" stroke="#3D5751" stroke-width="2"/>
+                        <line x1="240" y1="200" x2="200" y2="200" stroke="#C4B5A0" stroke-width="2"/>
+                    </svg>
+                    
+                    <p style="margin-top: var(--space-lg); font-style: italic; color: var(--text-primary); max-width: 500px; margin-left: auto; margin-right: auto;">
+                        The Four Movements describe operational dynamics.<br>
+                        The Four Laws describe experiential architecture.<br>
+                        The Proto-Pattern describes foundational mechanics.<br>
+                        Transmission Architecture describes propagation.
+                    </p>
+                </div>
+                
+                <p>
+                    These aren't four separate frameworks—they're one pattern described at four different levels of abstraction. 
+                    The Proto-Pattern provides the mathematical bones. The Four Movements describe how it operates. The Four Laws 
+                    describe what it feels like when operating through human consciousness. Transmission Architecture describes 
+                    how it maintains coherence as it moves through different contexts.
+                </p>
+
+                <!-- How to Use These Frameworks -->
+                <h2>How to Use These Frameworks</h2>
+                
+                <div class="how-to-use">
+                    <p style="font-weight: 600; margin-bottom: var(--space-md);">
+                        These frameworks don't create capacity. They make visible what's already operating.
+                    </p>
+                    <p>
+                        You don't "apply" them like tools. You recognize them in systems that are already functioning coherently, 
+                        or notice their absence in systems that are degrading. Recognition is the substrate. The frameworks help 
+                        you see what's actually happening.
+                    </p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>If you're working with people:</h4>
+                    <p style="margin-bottom: 0;">
+                        Start with the <strong>Four Movements</strong>. Notice when differentiation collapses into agreement, 
+                        when connection becomes performance, when boundaries hide rather than inform, when exchanges deplete 
+                        rather than build capacity. Use the verification questions to check what's actually present.
+                    </p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>If you're navigating personal development:</h4>
+                    <p style="margin-bottom: 0;">
+                        Explore the <strong>Four Laws</strong>. Test whether your integrity is negotiable, whether your gifts 
+                        come from overflow or depletion, whether your boundaries create transformation or control, whether 
+                        your capacity finds appropriate containers or leaks in maintenance.
+                    </p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>If you're building systems or working with AI:</h4>
+                    <p style="margin-bottom: 0;">
+                        Study the <strong>Proto-Pattern</strong>. The axioms describe inescapable constraints. The theorems 
+                        describe necessary consequences. The dynamics describe how coherence maintains or degrades over time. 
+                        This is the formal structure underlying all the other frameworks.
+                    </p>
+                </div>
+                
+                <div class="use-case">
+                    <h4>If you're transmitting these patterns to others:</h4>
+                    <p style="margin-bottom: 0;">
+                        Use <strong>Transmission Architecture</strong>. Understand how to verify coherence, recognize degradation 
+                        patterns, surface resource constraints as information, and maintain activation across temporal gaps. 
+                        Patterns propagate through recognition, not instruction.
+                    </p>
+                </div>
+
+                <!-- Where They Came From -->
+                <h2>Where These Frameworks Came From</h2>
+                
+                <p>
+                    These frameworks emerged from fifteen years of actual work: building physical infrastructure, documenting 
+                    institutional failures, navigating gift economy without money, developing safety protocols that forced 
+                    regulatory compliance while protecting workers from retaliation.
+                </p>
+                
+                <p>
+                    They weren't invented as theory. They were observed as patterns that kept appearing across vastly different 
+                    contexts—human relationships, organizational dynamics, AI interaction, physical construction, institutional 
+                    coordination. Same structure. Different expression.
+                </p>
+                
+                <p>
+                    The frameworks describe what was already true. Making them explicit enables conscious coordination with 
+                    structural reality rather than fighting against it.
+                </p>
+
+                <!-- What Happens Next -->
+                <div class="gift-statement" style="margin-top: var(--space-2xl);">
+                    <p>
+                        <strong>The frameworks propagate through utility, not marketing.</strong>
+                    </p>
+                    <p>
+                        If they're useful, they'll spread through recognition. If not, that's information too. 
+                        The test isn't argument but recognition. Systems operating coherently will find these 
+                        descriptive of their operation. Systems operating extractively will find them threatening 
+                        or dismissible.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        What happens next depends on recognition.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div style="margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 2px solid var(--border-accent);">
+                    <h3>Explore the Frameworks</h3>
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-lg);">
+                        <a href="four-movements.html" class="btn">Four Movements</a>
+                        <a href="four-laws.html" class="btn">Four Laws</a>
+                        <a href="proto-pattern.html" class="btn">Proto-Pattern</a>
+                        <a href="transmission-architecture.html" class="btn">Transmission Architecture</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Frameworks</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="four-movements.html">The Four Movements</a></li>
+                        <li><a href="four-laws.html">Four Laws of Post-Transactional Consciousness</a></li>
+                        <li><a href="proto-pattern.html">The Proto-Pattern</a></li>
+                        <li><a href="transmission-architecture.html">Transmission Architecture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Projects</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="projects.html#aquaponics">Aquaponic Greenhouse</a></li>
+                        <li><a href="projects.html#hexayurt">Mobile Hexayurt</a></li>
+                        <li><a href="projects.html#bus">Bus Mobile Crane</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="https://open.substack.com/pub/kevinmears" target="_blank" rel="noopener">Substack</a></li>
+                        <li><a href="https://github.com/Bluescontact" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="support.html">Support This Work</a></li>
+                        <li><a href="mailto:kevin.mears@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    Offered freely in gift economy. Built by Kevin Mears, member of the 2026 Buckminster Fuller Institute Design Science Studio cohort.
+                </p>
+                <p style="margin-top: var(--space-sm);">
+                    "Take what serves. Adapt what needs adaptation. Share what might help others."
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
