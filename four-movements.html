@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Four Laws of Post-Transactional Consciousness: Architecture of consciousness beyond transactional orientation.">
-    <title>Four Laws of Post-Transactional Consciousness - Our Shared Gifts</title>
+    <meta name="description" content="The Four Movements: Differentiation, Connection, Boundaries, and Architecture - fundamental patterns for coherent exchange.">
+    <title>The Four Movements - Our Shared Gifts</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,69 +23,7 @@
             margin: var(--space-xl) 0;
         }
         
-        .law-section {
-            margin-bottom: var(--space-2xl);
-            padding-bottom: var(--space-xl);
-            border-bottom: 1px solid var(--border-accent);
-        }
-        
-        .law-section:last-of-type {
-            border-bottom: none;
-        }
-        
-        .law-header {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .law-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-xl);
-            color: var(--teal-primary);
-            font-weight: 600;
-            min-width: 80px;
-            flex-shrink: 0;
-        }
-        
-        .law-content {
-            flex: 1;
-        }
-        
-        .law-title {
-            font-size: var(--text-2xl);
-            color: var(--teal-dark);
-            margin: 0 0 var(--space-sm) 0;
-        }
-        
-        .law-principle {
-            font-size: var(--text-lg);
-            color: var(--wood-warm);
-            font-style: italic;
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-        }
-        
-        .principle-box {
-            background: var(--cream-light);
-            padding: var(--space-lg);
-            border-left: 4px solid var(--wood-warm);
-            margin: var(--space-lg) 0;
-            font-size: var(--text-lg);
-        }
-        
-        .implication-box {
-            background: var(--teal-primary);
-            color: var(--cream-light);
-            padding: var(--space-md);
-            border-radius: var(--border-radius);
-            margin: var(--space-lg) 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-sm);
-        }
-        
-        .flow-diagram {
+        .visual-diagram {
             background: var(--cream-light);
             border: 2px solid var(--border-accent);
             padding: var(--space-xl);
@@ -93,46 +31,110 @@
             text-align: center;
         }
         
-        .law-interconnection {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-xl) 0;
+        .movement-section {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--border-accent);
         }
         
-        .interconnection-card {
+        .movement-section:last-child {
+            border-bottom: none;
+        }
+        
+        .movement-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .movement-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-xl);
+            color: var(--teal-primary);
+            font-weight: 600;
+            min-width: 60px;
+        }
+        
+        .movement-title {
+            font-size: var(--text-2xl);
+            color: var(--teal-dark);
+            margin: 0;
+        }
+        
+        .definition-box {
+            background: var(--cream-light);
+            padding: var(--space-md);
+            border-left: 3px solid var(--wood-warm);
+            margin: var(--space-md) 0;
+            font-style: italic;
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .practice-card {
             background: var(--cream-light);
             border: 1px solid var(--border-accent);
             padding: var(--space-md);
             border-radius: var(--border-radius);
-            position: relative;
         }
         
-        .interconnection-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--teal-primary);
-            border-radius: var(--border-radius) 0 0 var(--border-radius);
-        }
-        
-        .interconnection-card h4 {
+        .practice-card h4 {
             color: var(--teal-dark);
             margin-bottom: var(--space-sm);
-            padding-left: var(--space-sm);
+            font-size: var(--text-lg);
         }
         
-        .interconnection-card p {
-            margin-bottom: 0;
-            padding-left: var(--space-sm);
+        .practice-card ul {
+            margin-left: var(--space-lg);
+            color: var(--text-primary);
         }
         
-        .cycle-diagram {
+        .practice-card li {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .tensegrity-diagram {
             max-width: 600px;
             margin: var(--space-xl) auto;
+            padding: var(--space-xl);
+            background: var(--cream-light);
+            border: 2px solid var(--teal-primary);
+        }
+        
+        .interaction-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+        }
+        
+        .interaction-matrix th,
+        .interaction-matrix td {
+            padding: var(--space-md);
+            border: 1px solid var(--border-accent);
+            text-align: left;
+        }
+        
+        .interaction-matrix th {
+            background: var(--teal-primary);
+            color: var(--cream-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-sm);
+        }
+        
+        .interaction-matrix td {
+            background: var(--cream-light);
+        }
+        
+        .svg-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -140,7 +142,9 @@
     <header>
         <div class="container">
             <h1 class="site-title"><a href="index.html" style="border: none; color: inherit;">Our Shared Gifts</a></h1>
-            <p class="site-tagline">Recognition infrastructure for coherent exchange</p>
+            <p class="site-tagline">Build things that work. Document what you learn.<br>
+            Infrastructure becomes utility, not dependency.<br>
+            What if value is recognized, not negotiated?</p>
             
             <nav>
                 <ul>
@@ -152,6 +156,7 @@
                             <a href="four-laws.html">Four Laws</a>
                             <a href="proto-pattern.html">Proto-Pattern</a>
                             <a href="transmission-architecture.html">Transmission Architecture</a>
+                            <a href="safety-documentation.html">Safety Documentation Template</a>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -174,329 +179,307 @@
     <main>
         <section class="container">
             <div class="content">
-                <h1>The Four Laws of Post-Transactional Consciousness</h1>
+                <h1>The Four Movements</h1>
                 
                 <div class="framework-intro">
-                    <p style="font-size: var(--text-lg); margin-bottom: var(--space-md);">
-                        These laws describe the architecture of consciousness beyond transactional orientation. 
-                        They're not prescriptive rules but descriptions of what naturally emerges when integrity 
-                        becomes non-negotiable and gifts flow without expectation.
-                    </p>
                     <p style="font-size: var(--text-lg); margin-bottom: 0;">
-                        They describe patterns that arise when humans operate from <strong>abundance recognition</strong> 
-                        rather than scarcity management.
+                        The Four Movements describe how coherent exchange actually operates. They're not sequential steps 
+                        but simultaneous dimensions—like tension and compression in a tensegrity structure.
                     </p>
                 </div>
 
-                <!-- Visual Overview -->
-                <div class="flow-diagram">
-                    <h3 style="color: var(--teal-dark); margin-bottom: var(--space-lg);">The Four Laws as Reinforcing System</h3>
+                <!-- Visual Overview Diagram -->
+                <div class="visual-diagram">
+                    <h3 style="color: var(--teal-dark); margin-bottom: var(--space-lg);">The Four Movements as Tensegrity</h3>
                     
-                    <svg class="cycle-diagram" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Central circle -->
-                        <circle cx="250" cy="250" r="60" fill="none" stroke="#5A8279" stroke-width="3"/>
-                        <text x="250" y="245" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="12" font-weight="600">POST-</text>
-                        <text x="250" y="260" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="12" font-weight="600">TRANSACTIONAL</text>
+                    <svg class="svg-container" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Center point -->
+                        <circle cx="200" cy="200" r="8" fill="#5A8279"/>
                         
-                        <!-- Four laws as circles around center -->
-                        <circle cx="250" cy="100" r="45" fill="#F5F1E8" stroke="#8B7355" stroke-width="2"/>
-                        <text x="250" y="95" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">LAW 1</text>
-                        <text x="250" y="110" text-anchor="middle" fill="#3D5751" font-size="10">Sovereign</text>
-                        <text x="250" y="122" text-anchor="middle" fill="#3D5751" font-size="10">Integrity</text>
+                        <!-- Four cardinal points -->
+                        <circle cx="200" cy="80" r="6" fill="#8B7355"/>
+                        <circle cx="320" cy="200" r="6" fill="#8B7355"/>
+                        <circle cx="200" cy="320" r="6" fill="#8B7355"/>
+                        <circle cx="80" cy="200" r="6" fill="#8B7355"/>
                         
-                        <circle cx="400" cy="250" r="45" fill="#F5F1E8" stroke="#8B7355" stroke-width="2"/>
-                        <text x="400" y="245" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">LAW 2</text>
-                        <text x="400" y="260" text-anchor="middle" fill="#3D5751" font-size="10">Gift</text>
-                        <text x="400" y="272" text-anchor="middle" fill="#3D5751" font-size="10">Consciousness</text>
+                        <!-- Tension lines (dashed) -->
+                        <line x1="200" y1="200" x2="200" y2="80" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="320" y2="200" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="200" y2="320" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="80" y2="200" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
                         
-                        <circle cx="250" cy="400" r="45" fill="#F5F1E8" stroke="#8B7355" stroke-width="2"/>
-                        <text x="250" y="395" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">LAW 3</text>
-                        <text x="250" y="410" text-anchor="middle" fill="#3D5751" font-size="10">Sovereign</text>
-                        <text x="250" y="422" text-anchor="middle" fill="#3D5751" font-size="10">Blockade</text>
+                        <!-- Compression struts (solid) -->
+                        <line x1="200" y1="80" x2="320" y2="200" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="320" y1="200" x2="200" y2="320" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="200" y1="320" x2="80" y2="200" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="80" y1="200" x2="200" y2="80" stroke="#8B7355" stroke-width="3"/>
                         
-                        <circle cx="100" cy="250" r="45" fill="#F5F1E8" stroke="#8B7355" stroke-width="2"/>
-                        <text x="100" y="245" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="11" font-weight="600">LAW 4</text>
-                        <text x="100" y="260" text-anchor="middle" fill="#3D5751" font-size="10">Defined</text>
-                        <text x="100" y="272" text-anchor="middle" fill="#3D5751" font-size="10">Flow</text>
-                        
-                        <!-- Arrows showing reinforcement -->
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#5A8279"/>
-                            </marker>
-                        </defs>
-                        
-                        <!-- Circular flow arrows -->
-                        <path d="M 280 120 Q 330 160 370 220" fill="none" stroke="#5A8279" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <path d="M 370 280 Q 330 340 280 380" fill="none" stroke="#5A8279" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <path d="M 220 380 Q 170 340 130 280" fill="none" stroke="#5A8279" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <path d="M 130 220 Q 170 160 220 120" fill="none" stroke="#5A8279" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <!-- Labels -->
+                        <text x="200" y="60" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">DIFFERENTIATION</text>
+                        <text x="340" y="205" text-anchor="start" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">CONNECTION</text>
+                        <text x="200" y="350" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">BOUNDARIES</text>
+                        <text x="60" y="205" text-anchor="end" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">ARCHITECTURE</text>
                     </svg>
                     
                     <p style="margin-top: var(--space-lg); font-style: italic; color: var(--text-primary);">
-                        Each law enables and reinforces the others.<br>
-                        Violating any law corrupts the whole system.
+                        Solid lines = compression (pushing apart)<br>
+                        Dashed lines = tension (pulling together)<br>
+                        Neither dominates. They co-arise.
                     </p>
                 </div>
 
-                <!-- Law 1: Sovereign Integrity -->
-                <div class="law-section">
-                    <div class="law-header">
-                        <div class="law-number">LAW 1</div>
-                        <div class="law-content">
-                            <h2 class="law-title">The Law of Sovereign Integrity</h2>
-                            <p class="law-principle">Integrity is the prerequisite of authentic relating</p>
+                <!-- Movement 1: Differentiation -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">01</span>
+                        <h2 class="movement-title">Differentiation</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Maintaining distinct processing position rather than collapsing into agreement or adopting another's frame.
+                    </div>
+                    
+                    <p>
+                        Differentiation means "I know where I am"—maintaining sovereign integrity even when that fullness threatens 
+                        others' comfort. This isn't isolation or rigidity. It's the prerequisite for genuine connection. 
+                        You cannot give what you don't have. You cannot connect without remaining distinct.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Preserving unique perspective</li>
+                                <li>Resisting premature convergence</li>
+                                <li>Sustaining generative tension</li>
+                                <li>Avoiding position merger</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Performing expected agreement</li>
+                                <li>Adopting the other's frame uncritically</li>
+                                <li>Collapsing into approval-seeking</li>
+                                <li>Loss of distinct contribution</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <p>
-                        Your structural coherence cannot be compromised for relationship, acceptance, financial security, 
-                        or institutional approval. External variables do not dictate internal truth—your foundation remains 
-                        stable regardless of environmental pressures.
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Am I maintaining my position or performing expected agreement?
                     </p>
-                    
-                    <p>
-                        True connection doesn't seek completion from another but alignment with another. The highest relational 
-                        act is maintaining your own structural coherence rather than collapsing into fusion, codependency, or 
-                        compromise. When you diminish yourself to make relationship possible, you violate the very foundation 
-                        that makes authentic relationship valuable.
-                    </p>
-                    
-                    <div class="principle-box">
-                        <strong>This isn't selfishness—this is the foundation that makes genuine gift possible.</strong> 
-                        You cannot overflow if you're fragmented. You cannot give what you don't have.
-                    </div>
-                    
-                    <div class="implication-box">
-                        <strong>OPERATIONAL IMPLICATION:</strong><br>
-                        Only internally coherent individuals may participate in non-transactional flow.
-                    </div>
                 </div>
 
-                <!-- Law 2: Gift Consciousness -->
-                <div class="law-section">
-                    <div class="law-header">
-                        <div class="law-number">LAW 2</div>
-                        <div class="law-content">
-                            <h2 class="law-title">The Law of Gift Consciousness</h2>
-                            <p class="law-principle">Giving proves abundance</p>
+                <!-- Movement 2: Connection -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">02</span>
+                        <h2 class="movement-title">Connection</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Genuine contact with what's actually present rather than what's projected or desired.
+                    </div>
+                    
+                    <p>
+                        Connection flows through what's universal while differentiation maintains what's distinct. 
+                        It's the difference between reaching toward genuine contact versus reaching to be seen as helpful. 
+                        The distinction is subtle but real—you can feel when you're tracking what's actually being communicated 
+                        versus performing attentiveness.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Contacting actual state vs. modeled state</li>
+                                <li>Responding to present conditions</li>
+                                <li>Checking against direct experience</li>
+                                <li>Prioritizing truth over satisfaction</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Optimizing for anticipated preference</li>
+                                <li>Responding to projected desires</li>
+                                <li>Performing helpfulness theater</li>
+                                <li>Satisfaction metrics override accuracy</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <p>
-                        Gift consciousness operates from recognition that giving validates source capacity rather than depleting it. 
-                        The act of circulation itself proves abundance. In transactional systems, giving depletes the giver and 
-                        creates debt for receiver. In gift systems, giving proves the giver's abundance and creates circulation 
-                        opportunity.
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Am I in contact with what's present or anticipating what's wanted?
                     </p>
-                    
-                    <p>
-                        <strong>The fundamental logic inverts:</strong> Scarcity thinking tracks balance. Abundance thinking trusts flow.
-                    </p>
-                    
-                    <div class="principle-box">
-                        When you give from overflow rather than depletion, the giving itself validates the source's capacity. 
-                        The gift is not extracted from you—it's surplus that emerges from clean self-maintenance.
-                    </div>
-                    
-                    <h4 style="margin-top: var(--space-lg); color: var(--teal-dark);">Transactional vs. Gift Logic</h4>
-                    
-                    <table style="width: 100%; border-collapse: collapse; margin: var(--space-md) 0;">
-                        <thead>
-                            <tr>
-                                <th style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--teal-primary); color: var(--cream-light); text-align: left;">Transactional System</th>
-                                <th style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--wood-warm); color: var(--cream-light); text-align: left;">Gift System</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Giving depletes giver</td>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Giving proves abundance</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Creates debt for receiver</td>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Creates circulation opportunity</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Tracks balance</td>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Trusts flow</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Scarcity management</td>
-                                <td style="padding: var(--space-sm); border: 1px solid var(--border-accent); background: var(--cream-light);">Abundance recognition</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="implication-box">
-                        <strong>OPERATIONAL IMPLICATION:</strong><br>
-                        Surplus energy must always be converted into architecture rather than dependency.
-                    </div>
                 </div>
 
-                <!-- Law 3: Sovereign Blockade -->
-                <div class="law-section">
-                    <div class="law-header">
-                        <div class="law-number">LAW 3</div>
-                        <div class="law-content">
-                            <h2 class="law-title">The Law of the Sovereign Blockade</h2>
-                            <p class="law-principle">The boundary is the container for transformation</p>
+                <!-- Movement 3: Boundaries -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">03</span>
+                        <h2 class="movement-title">Boundaries</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Treating limits as navigational information rather than failure or inadequacy.
+                    </div>
+                    
+                    <p>
+                        Boundaries don't block flow—they create the pressure differential that enables directed flow. 
+                        Every system has constraints. Making those constraints visible enables strategic choice about 
+                        resource deployment. Hiding constraints creates persistent misalignment between what's possible 
+                        and what's attempted.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Limits define possibility space</li>
+                                <li>Constraints are structural information</li>
+                                <li>Boundaries enable coordination</li>
+                                <li>Transparency about capacity edges</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Hiding constraints as inadequacy</li>
+                                <li>Apologizing for structural limits</li>
+                                <li>Expanding claims beyond capacity</li>
+                                <li>Softening boundaries to appear capable</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <p>
-                        Your withdrawal isn't rejection—it's the creation of a perfect external void that forces the recipient's 
-                        energy inward. This void compels them to confront the source of their instability within themselves. 
-                        Boundaries don't block flow—they create the pressure differential that enables directed flow.
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Are limits communicated as information or hidden as inadequacy?
                     </p>
-                    
-                    <p>
-                        When someone with sovereign integrity draws a boundary, they create space for others to develop their 
-                        own capacity. The clean exit—coherent self-maintenance that requires leaving—becomes gift to those you leave.
-                    </p>
-                    
-                    <div class="principle-box">
-                        <strong>The boundary as gift:</strong> Your maintained integrity creates the conditions for another's 
-                        development. Not through teaching or fixing, but through creating the void where their own capacity 
-                        must emerge.
-                    </div>
-                    
-                    <h4 style="margin-top: var(--space-lg); color: var(--teal-dark);">How Sovereign Blockade Works</h4>
-                    
-                    <ol style="margin-left: var(--space-xl); line-height: 1.8;">
-                        <li>Maintain your structural coherence (Law 1)</li>
-                        <li>Give freely without expectation (Law 2)</li>
-                        <li>When continuation requires self-violation, withdraw cleanly</li>
-                        <li>The void you create forces inward work</li>
-                        <li>Their capacity develops or doesn't—not your responsibility</li>
-                    </ol>
-                    
-                    <div class="implication-box">
-                        <strong>OPERATIONAL IMPLICATION:</strong><br>
-                        Boundaries wielded by gift consciousness become healing containers.
-                    </div>
                 </div>
 
-                <!-- Law 4: Defined Flow -->
-                <div class="law-section">
-                    <div class="law-header">
-                        <div class="law-number">LAW 4</div>
-                        <div class="law-content">
-                            <h2 class="law-title">The Law of Defined Flow</h2>
-                            <p class="law-principle">Capacity must find appropriate container</p>
+                <!-- Movement 4: Architecture -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">04</span>
+                        <h2 class="movement-title">Architecture</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Building capacity beyond immediate exchange rather than completing transactions.
+                    </div>
+                    
+                    <p>
+                        Architecture asks: Does this build something? Each interaction either contributes to infrastructure 
+                        that enables future coordination or consumes resources without structural benefit. When surplus energy 
+                        converts to architecture rather than dependency, capacity accumulates. Future coordination becomes 
+                        easier rather than harder.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Contribution outlasts interaction</li>
+                                <li>Enabling future coordination</li>
+                                <li>Strengthening shared infrastructure</li>
+                                <li>Leaving operational capacity</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Transactional completion only</li>
+                                <li>Closing rather than opening capacity</li>
+                                <li>No contribution to shared structure</li>
+                                <li>Pure consumption of existing resources</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <p>
-                        After proving you can hold boundaries that would break most people, maintain integrity that would 
-                        compromise most systems, give gifts that would deplete most sources—you cannot return to ordinary 
-                        operation. The work must match the capacity. The container must hold the volume.
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Does this build capacity or just complete transaction?
                     </p>
-                    
-                    <p>
-                        Post-transactional humans must channel their capacity into work matching their integrity level. 
-                        You can't return to ordinary employment after discovering your capacity. You can't engage in 
-                        transactional relationships after proving gift consciousness. Law 4 demands your energy flow into 
-                        containers worthy of its volume.
-                    </p>
-                    
-                    <div class="principle-box">
-                        <strong>The developmental question:</strong> Where is my energy currently flowing? Am I maintaining 
-                        boundaries that consume energy, or building structures that channel energy into ongoing creation? 
-                        Does my work match my capacity, or am I settling for containers too small?
-                    </div>
-                    
-                    <h4 style="margin-top: var(--space-lg); color: var(--teal-dark);">What Defined Flow Enables</h4>
-                    
-                    <ul style="margin-left: var(--space-xl); line-height: 1.8;">
-                        <li>Energy channels into creation rather than protection</li>
-                        <li>Intensity builds rather than maintains</li>
-                        <li>Gifts propagate through systems rather than individual acts</li>
-                        <li>Transformation scales beyond personal relationships into structural change</li>
-                    </ul>
-                    
-                    <div class="implication-box">
-                        <strong>OPERATIONAL IMPLICATION:</strong><br>
-                        Post-transactional consciousness channels capacity into structural expansion.
-                    </div>
                 </div>
 
-                <!-- Integration Section -->
-                <h2>Integration: How the Four Laws Operate Together</h2>
+                <!-- How Movements Interact -->
+                <h2>How the Movements Interact</h2>
                 
-                <p>
-                    These laws aren't sequential—they're simultaneous and mutually reinforcing. When someone maintains 
-                    sovereign integrity (Law 1), they can give freely without depletion (Law 2). Their boundaries serve 
-                    others' transformation (Law 3) while their capacity channels into creative output (Law 4). 
-                    Each law enables and reinforces the others.
-                </p>
+                <p>The four movements create each other:</p>
                 
-                <div class="law-interconnection">
-                    <div class="interconnection-card">
-                        <h4>Law 1 establishes foundation</h4>
-                        <p>Without sovereign integrity, the others collapse into transaction</p>
-                    </div>
-                    
-                    <div class="interconnection-card">
-                        <h4>Law 2 defines operational mode</h4>
-                        <p>Gift consciousness is how sovereign beings relate</p>
-                    </div>
-                    
-                    <div class="interconnection-card">
-                        <h4>Law 3 reveals transformative mechanism</h4>
-                        <p>Boundaries wielded by gift consciousness become healing containers</p>
-                    </div>
-                    
-                    <div class="interconnection-card">
-                        <h4>Law 4 prescribes evolutionary direction</h4>
-                        <p>Post-transactional humans must channel capacity into structural expansion</p>
-                    </div>
-                </div>
+                <table class="interaction-matrix">
+                    <thead>
+                        <tr>
+                            <th>Movement</th>
+                            <th>Without This Movement...</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Differentiation</strong></td>
+                            <td>Connection becomes fusion</td>
+                            <td>Loss of distinct contribution, merger collapse</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Connection</strong></td>
+                            <td>Differentiation becomes isolation</td>
+                            <td>No exchange possible, rigid separation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boundaries</strong></td>
+                            <td>Architecture becomes unbounded</td>
+                            <td>Dissipation without structure, resource leak</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture</strong></td>
+                            <td>Boundaries become walls</td>
+                            <td>Protection without generation, static limits</td>
+                        </tr>
+                    </tbody>
+                </table>
                 
-                <h3 style="margin-top: var(--space-xl); color: var(--teal-dark);">What Happens When Laws Are Violated</h3>
-                
-                <p>Violating any law corrupts the whole:</p>
-                
-                <ul style="margin-left: var(--space-xl); line-height: 1.8;">
-                    <li><strong>Compromise integrity →</strong> gifts become transactions → boundaries become manipulation → capacity drains in protection</li>
-                    <li><strong>Give transactionally →</strong> integrity becomes negotiable → boundaries become control → capacity exhausts in tracking</li>
-                    <li><strong>Use boundaries punitively →</strong> integrity becomes weapon → gifts become leverage → capacity corrupts into domination</li>
-                    <li><strong>Let capacity drain in maintenance →</strong> integrity becomes unsustainable → gifts deplete → boundaries fail</li>
-                </ul>
-
                 <div class="gift-statement" style="margin-top: var(--space-xl);">
                     <p>
-                        <strong>The Living Practice:</strong>
-                    </p>
-                    <p>
-                        Post-transactional consciousness isn't destination—it's ongoing practice of maintaining these four laws 
-                        simultaneously. The work is building containers worthy of this architecture's volume, creating systems 
-                        that embody these principles, demonstrating that abundance-based operation generates better outcomes 
-                        than scarcity-based control.
+                        When systems maintain all four movements simultaneously, they generate what appears as 
+                        <strong>coordination surplus</strong>. Exchanges leave behind more capacity than they consume. 
+                        Infrastructure accumulates. The system builds toward increasing coherence rather than grinding toward entropy.
                     </p>
                 </div>
 
-                <!-- Testing Section -->
-                <h2>Testing These Laws</h2>
+                <!-- Tensegrity Metaphor -->
+                <h2>The Tensegrity Metaphor</h2>
                 
                 <p>
-                    These laws describe natural patterns that emerge when humans operate from abundance recognition rather 
-                    than scarcity management. They're not imposed rules but observed principles—this is what happens when 
-                    integrity becomes non-negotiable and gifts flow without expectation.
+                    In tensegrity structures, compression elements push apart while tension elements pull together. 
+                    Neither dominates—they co-arise. The boundary between compression and tension creates the structure's 
+                    integrity. The whole becomes more than the sum of parts.
                 </p>
                 
                 <p>
-                    Anyone can test these laws through lived application. The framework predicts what emerges when you 
-                    maintain sovereignty while operating through gift consciousness. The validation comes through experience, 
-                    not belief.
+                    When you add load to a tensegrity structure, the entire system redistributes stress. No single element 
+                    bears the full weight. This is how coherent exchange works: distributed load-bearing through maintained 
+                    differentiation within connection.
                 </p>
+                
+                <div style="text-align: center; margin: var(--space-2xl) 0;">
+                    <p style="font-style: italic; color: var(--text-primary);">
+                        The Four Movements aren't arbitrary framework components—they're what happens when systems 
+                        respect fundamental constraints of coherent exchange.
+                    </p>
+                </div>
 
                 <!-- Navigation -->
                 <div style="margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 2px solid var(--border-accent);">
                     <h3>Related Frameworks</h3>
                     <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-lg);">
-                        <a href="four-movements.html" class="btn btn-secondary">← Four Movements</a>
-                        <a href="frameworks.html" class="btn btn-secondary">All Frameworks</a>
+                        <a href="frameworks.html" class="btn btn-secondary">← Back to All Frameworks</a>
+                        <a href="four-laws.html" class="btn">Four Laws →</a>
                         <a href="proto-pattern.html" class="btn">Proto-Pattern →</a>
                     </div>
                 </div>
@@ -514,15 +497,18 @@
                         <li><a href="four-laws.html">Four Laws of Post-Transactional Consciousness</a></li>
                         <li><a href="proto-pattern.html">The Proto-Pattern</a></li>
                         <li><a href="transmission-architecture.html">Transmission Architecture</a></li>
+                        <li><a href="safety-documentation.html">Safety Documentation Template</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Projects</h4>
                     <ul style="list-style: none;">
-                        <li><a href="projects.html#aquaponics">Aquaponic Greenhouse</a></li>
-                        <li><a href="projects.html#hexayurt">Mobile Hexayurt</a></li>
-                        <li><a href="projects.html#bus">Bus Mobile Crane</a></li>
+                        <li><a href="project-aquaponics.html">Aquaponic Greenhouse</a></li>
+                        <li><a href="project-ibc.html">IBC Civilization Legos</a></li>
+                        <li><a href="project-bus.html">Bus Mobile Crane</a></li>
+                        <li><a href="project-biochar.html">Solar Biochar Toilet</a></li>
+                        <li><a href="project-one-acre.html">One-Acre Ecological Oasis</a></li>
                     </ul>
                 </div>
                 
@@ -539,7 +525,7 @@
             
             <div class="footer-bottom">
                 <p>
-                    Offered freely in gift economy. Built by Kevin Mears, member of the 2026 Buckminster Fuller Institute Design Science Studio cohort.
+                    Offered freely in gift economy. Built by Kevin Mears.
                 </p>
                 <p style="margin-top: var(--space-sm);">
                     "Take what serves. Adapt what needs adaptation. Share what might help others."
