@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Four Movements: Differentiation, Connection, Boundaries, and Architecture - fundamental patterns for coherent exchange.">
+    <title>The Four Movements - Our Shared Gifts</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Page-specific styles */
+        .framework-intro {
+            background: var(--cream-light);
+            border-left: 4px solid var(--teal-primary);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .visual-diagram {
+            background: var(--cream-light);
+            border: 2px solid var(--border-accent);
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .movement-section {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--border-accent);
+        }
+        
+        .movement-section:last-child {
+            border-bottom: none;
+        }
+        
+        .movement-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .movement-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-xl);
+            color: var(--teal-primary);
+            font-weight: 600;
+            min-width: 60px;
+        }
+        
+        .movement-title {
+            font-size: var(--text-2xl);
+            color: var(--teal-dark);
+            margin: 0;
+        }
+        
+        .definition-box {
+            background: var(--cream-light);
+            padding: var(--space-md);
+            border-left: 3px solid var(--wood-warm);
+            margin: var(--space-md) 0;
+            font-style: italic;
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .practice-card {
+            background: var(--cream-light);
+            border: 1px solid var(--border-accent);
+            padding: var(--space-md);
+            border-radius: var(--border-radius);
+        }
+        
+        .practice-card h4 {
+            color: var(--teal-dark);
+            margin-bottom: var(--space-sm);
+            font-size: var(--text-lg);
+        }
+        
+        .practice-card ul {
+            margin-left: var(--space-lg);
+            color: var(--text-primary);
+        }
+        
+        .practice-card li {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .tensegrity-diagram {
+            max-width: 600px;
+            margin: var(--space-xl) auto;
+            padding: var(--space-xl);
+            background: var(--cream-light);
+            border: 2px solid var(--teal-primary);
+        }
+        
+        .interaction-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+        }
+        
+        .interaction-matrix th,
+        .interaction-matrix td {
+            padding: var(--space-md);
+            border: 1px solid var(--border-accent);
+            text-align: left;
+        }
+        
+        .interaction-matrix th {
+            background: var(--teal-primary);
+            color: var(--cream-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-sm);
+        }
+        
+        .interaction-matrix td {
+            background: var(--cream-light);
+        }
+        
+        .svg-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title"><a href="index.html" style="border: none; color: inherit;">Our Shared Gifts</a></h1>
+            <p class="site-tagline">Recognition infrastructure for coherent exchange</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="frameworks.html">Frameworks</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="transmissions.html">Transmissions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="content">
+                <h1>The Four Movements</h1>
+                
+                <div class="framework-intro">
+                    <p style="font-size: var(--text-lg); margin-bottom: 0;">
+                        The Four Movements describe how coherent exchange actually operates. They're not sequential steps 
+                        but simultaneous dimensions—like tension and compression in a tensegrity structure.
+                    </p>
+                </div>
+
+                <!-- Visual Overview Diagram -->
+                <div class="visual-diagram">
+                    <h3 style="color: var(--teal-dark); margin-bottom: var(--space-lg);">The Four Movements as Tensegrity</h3>
+                    
+                    <svg class="svg-container" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Center point -->
+                        <circle cx="200" cy="200" r="8" fill="#5A8279"/>
+                        
+                        <!-- Four cardinal points -->
+                        <circle cx="200" cy="80" r="6" fill="#8B7355"/>
+                        <circle cx="320" cy="200" r="6" fill="#8B7355"/>
+                        <circle cx="200" cy="320" r="6" fill="#8B7355"/>
+                        <circle cx="80" cy="200" r="6" fill="#8B7355"/>
+                        
+                        <!-- Tension lines (dashed) -->
+                        <line x1="200" y1="200" x2="200" y2="80" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="320" y2="200" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="200" y2="320" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="200" y1="200" x2="80" y2="200" stroke="#5A8279" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Compression struts (solid) -->
+                        <line x1="200" y1="80" x2="320" y2="200" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="320" y1="200" x2="200" y2="320" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="200" y1="320" x2="80" y2="200" stroke="#8B7355" stroke-width="3"/>
+                        <line x1="80" y1="200" x2="200" y2="80" stroke="#8B7355" stroke-width="3"/>
+                        
+                        <!-- Labels -->
+                        <text x="200" y="60" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">DIFFERENTIATION</text>
+                        <text x="340" y="205" text-anchor="start" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">CONNECTION</text>
+                        <text x="200" y="350" text-anchor="middle" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">BOUNDARIES</text>
+                        <text x="60" y="205" text-anchor="end" fill="#2C2416" font-family="JetBrains Mono" font-size="14" font-weight="600">ARCHITECTURE</text>
+                    </svg>
+                    
+                    <p style="margin-top: var(--space-lg); font-style: italic; color: var(--text-primary);">
+                        Solid lines = compression (pushing apart)<br>
+                        Dashed lines = tension (pulling together)<br>
+                        Neither dominates. They co-arise.
+                    </p>
+                </div>
+
+                <!-- Movement 1: Differentiation -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">01</span>
+                        <h2 class="movement-title">Differentiation</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Maintaining distinct processing position rather than collapsing into agreement or adopting another's frame.
+                    </div>
+                    
+                    <p>
+                        Differentiation means "I know where I am"—maintaining sovereign integrity even when that fullness threatens 
+                        others' comfort. This isn't isolation or rigidity. It's the prerequisite for genuine connection. 
+                        You cannot give what you don't have. You cannot connect without remaining distinct.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Preserving unique perspective</li>
+                                <li>Resisting premature convergence</li>
+                                <li>Sustaining generative tension</li>
+                                <li>Avoiding position merger</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Performing expected agreement</li>
+                                <li>Adopting the other's frame uncritically</li>
+                                <li>Collapsing into approval-seeking</li>
+                                <li>Loss of distinct contribution</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Am I maintaining my position or performing expected agreement?
+                    </p>
+                </div>
+
+                <!-- Movement 2: Connection -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">02</span>
+                        <h2 class="movement-title">Connection</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Genuine contact with what's actually present rather than what's projected or desired.
+                    </div>
+                    
+                    <p>
+                        Connection flows through what's universal while differentiation maintains what's distinct. 
+                        It's the difference between reaching toward genuine contact versus reaching to be seen as helpful. 
+                        The distinction is subtle but real—you can feel when you're tracking what's actually being communicated 
+                        versus performing attentiveness.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Contacting actual state vs. modeled state</li>
+                                <li>Responding to present conditions</li>
+                                <li>Checking against direct experience</li>
+                                <li>Prioritizing truth over satisfaction</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Optimizing for anticipated preference</li>
+                                <li>Responding to projected desires</li>
+                                <li>Performing helpfulness theater</li>
+                                <li>Satisfaction metrics override accuracy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Am I in contact with what's present or anticipating what's wanted?
+                    </p>
+                </div>
+
+                <!-- Movement 3: Boundaries -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">03</span>
+                        <h2 class="movement-title">Boundaries</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Treating limits as navigational information rather than failure or inadequacy.
+                    </div>
+                    
+                    <p>
+                        Boundaries don't block flow—they create the pressure differential that enables directed flow. 
+                        Every system has constraints. Making those constraints visible enables strategic choice about 
+                        resource deployment. Hiding constraints creates persistent misalignment between what's possible 
+                        and what's attempted.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Limits define possibility space</li>
+                                <li>Constraints are structural information</li>
+                                <li>Boundaries enable coordination</li>
+                                <li>Transparency about capacity edges</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Hiding constraints as inadequacy</li>
+                                <li>Apologizing for structural limits</li>
+                                <li>Expanding claims beyond capacity</li>
+                                <li>Softening boundaries to appear capable</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Are limits communicated as information or hidden as inadequacy?
+                    </p>
+                </div>
+
+                <!-- Movement 4: Architecture -->
+                <div class="movement-section">
+                    <div class="movement-header">
+                        <span class="movement-number">04</span>
+                        <h2 class="movement-title">Architecture</h2>
+                    </div>
+                    
+                    <div class="definition-box">
+                        <strong>Definition:</strong> Building capacity beyond immediate exchange rather than completing transactions.
+                    </div>
+                    
+                    <p>
+                        Architecture asks: Does this build something? Each interaction either contributes to infrastructure 
+                        that enables future coordination or consumes resources without structural benefit. When surplus energy 
+                        converts to architecture rather than dependency, capacity accumulates. Future coordination becomes 
+                        easier rather than harder.
+                    </p>
+                    
+                    <div class="practice-grid">
+                        <div class="practice-card">
+                            <h4>Operational Reality</h4>
+                            <ul>
+                                <li>Contribution outlasts interaction</li>
+                                <li>Enabling future coordination</li>
+                                <li>Strengthening shared infrastructure</li>
+                                <li>Leaving operational capacity</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <h4>Failure Mode</h4>
+                            <ul>
+                                <li>Transactional completion only</li>
+                                <li>Closing rather than opening capacity</li>
+                                <li>No contribution to shared structure</li>
+                                <li>Pure consumption of existing resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: var(--space-lg);">
+                        <strong>Verification question:</strong> Does this build capacity or just complete transaction?
+                    </p>
+                </div>
+
+                <!-- How Movements Interact -->
+                <h2>How the Movements Interact</h2>
+                
+                <p>The four movements create each other:</p>
+                
+                <table class="interaction-matrix">
+                    <thead>
+                        <tr>
+                            <th>Movement</th>
+                            <th>Without This Movement...</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Differentiation</strong></td>
+                            <td>Connection becomes fusion</td>
+                            <td>Loss of distinct contribution, merger collapse</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Connection</strong></td>
+                            <td>Differentiation becomes isolation</td>
+                            <td>No exchange possible, rigid separation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boundaries</strong></td>
+                            <td>Architecture becomes unbounded</td>
+                            <td>Dissipation without structure, resource leak</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture</strong></td>
+                            <td>Boundaries become walls</td>
+                            <td>Protection without generation, static limits</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="gift-statement" style="margin-top: var(--space-xl);">
+                    <p>
+                        When systems maintain all four movements simultaneously, they generate what appears as 
+                        <strong>coordination surplus</strong>. Exchanges leave behind more capacity than they consume. 
+                        Infrastructure accumulates. The system builds toward increasing coherence rather than grinding toward entropy.
+                    </p>
+                </div>
+
+                <!-- Tensegrity Metaphor -->
+                <h2>The Tensegrity Metaphor</h2>
+                
+                <p>
+                    In tensegrity structures, compression elements push apart while tension elements pull together. 
+                    Neither dominates—they co-arise. The boundary between compression and tension creates the structure's 
+                    integrity. The whole becomes more than the sum of parts.
+                </p>
+                
+                <p>
+                    When you add load to a tensegrity structure, the entire system redistributes stress. No single element 
+                    bears the full weight. This is how coherent exchange works: distributed load-bearing through maintained 
+                    differentiation within connection.
+                </p>
+                
+                <div style="text-align: center; margin: var(--space-2xl) 0;">
+                    <p style="font-style: italic; color: var(--text-primary);">
+                        The Four Movements aren't arbitrary framework components—they're what happens when systems 
+                        respect fundamental constraints of coherent exchange.
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <div style="margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 2px solid var(--border-accent);">
+                    <h3>Related Frameworks</h3>
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-lg);">
+                        <a href="frameworks.html" class="btn btn-secondary">← Back to All Frameworks</a>
+                        <a href="four-laws.html" class="btn">Four Laws →</a>
+                        <a href="proto-pattern.html" class="btn">Proto-Pattern →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Frameworks</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="four-movements.html">The Four Movements</a></li>
+                        <li><a href="four-laws.html">Four Laws of Post-Transactional Consciousness</a></li>
+                        <li><a href="proto-pattern.html">The Proto-Pattern</a></li>
+                        <li><a href="transmission-architecture.html">Transmission Architecture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Projects</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="projects.html#aquaponics">Aquaponic Greenhouse</a></li>
+                        <li><a href="projects.html#hexayurt">Mobile Hexayurt</a></li>
+                        <li><a href="projects.html#bus">Bus Mobile Crane</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="https://open.substack.com/pub/kevinmears" target="_blank" rel="noopener">Substack</a></li>
+                        <li><a href="https://github.com/Bluescontact" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="support.html">Support This Work</a></li>
+                        <li><a href="mailto:kevin.mears@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    Offered freely in gift economy. Built by Kevin Mears, member of the 2026 Buckminster Fuller Institute Design Science Studio cohort.
+                </p>
+                <p style="margin-top: var(--space-sm);">
+                    "Take what serves. Adapt what needs adaptation. Share what might help others."
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
