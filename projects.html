@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Physical infrastructure projects: Aquaponics greenhouse, mobile hexayurt, and bus mobile crane platform. Open source documentation.">
+    <title>Projects - Our Shared Gifts</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Page-specific styles */
+        .projects-intro {
+            background: var(--cream-light);
+            border-left: 4px solid var(--teal-primary);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .project-section {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 2px solid var(--border-accent);
+        }
+        
+        .project-section:last-child {
+            border-bottom: none;
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .project-title-group h2 {
+            color: var(--teal-dark);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .project-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-sm);
+            color: var(--teal-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+            background: var(--cream-light);
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+        }
+        
+        .spec-item {
+            border-left: 3px solid var(--wood-warm);
+            padding-left: var(--space-md);
+        }
+        
+        .spec-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-xs);
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .spec-value {
+            font-size: var(--text-base);
+            color: var(--warm-black);
+            font-weight: 600;
+        }
+        
+        .principles-box {
+            background: var(--cream-light);
+            border-left: 4px solid var(--teal-primary);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        
+        .principles-box h4 {
+            color: var(--teal-dark);
+            margin-bottom: var(--space-md);
+        }
+        
+        .principles-box ul {
+            margin-left: var(--space-lg);
+            line-height: 1.8;
+        }
+        
+        .open-source-note {
+            background: var(--warm-black);
+            color: var(--cream-light);
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            margin: var(--space-xl) 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--text-sm);
+        }
+        
+        .open-source-note h4 {
+            color: var(--cream-light);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title"><a href="index.html" style="border: none; color: inherit;">Our Shared Gifts</a></h1>
+            <p class="site-tagline">Recognition infrastructure for coherent exchange</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="frameworks.html">Frameworks</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="transmissions.html">Transmissions</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="content">
+                <h1>Project Library</h1>
+                
+                <div class="projects-intro">
+                    <p style="font-size: var(--text-lg); margin-bottom: var(--space-md);">
+                        Real builds documented in real time. Aquaponics systems, mobile shelter platforms, solar waste 
+                        processing, regenerative agriculture infrastructure. Full documentation, bill of materials, lessons learned.
+                    </p>
+                    <p style="font-size: var(--text-lg); margin-bottom: 0;">
+                        <strong>Open source hardware under CERN Open Hardware License.</strong> Build on this work. 
+                        Adapt what needs adaptation. Document what you learn.
+                    </p>
+                </div>
+
+                <!-- Project 1: Aquaponic Greenhouse -->
+                <div class="project-section" id="aquaponics">
+                    <div class="project-header">
+                        <div class="project-title-group">
+                            <h2>Aquaponic Greenhouse</h2>
+                            <div class="project-status">STATUS: Active Development</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bluescontact" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+                            <a href="support.html#aquaponics" class="btn btn-secondary">Support This Project</a>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        1-acre demonstration site utilizing holistic and systems-based design for rapid biodiversity generation, 
+                        permanent pond infrastructure, and integrated food forest. Combining aquaponics production with regenerative 
+                        land development in New Mexico high desert conditions.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Scale</div>
+                            <div class="spec-value">1 acre demonstration site</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Location</div>
+                            <div class="spec-value">New Mexico</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Design Approach</div>
+                            <div class="spec-value">Holistic, systems-based</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Primary Systems</div>
+                            <div class="spec-value">Aquaponics + Food Forest</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Design Principles</h3>
+                    <div class="principles-box">
+                        <h4>Rapid Biodiversity Generation</h4>
+                        <ul>
+                            <li>Stacking functions within limited space</li>
+                            <li>Permanent water features as ecosystem anchors</li>
+                            <li>Integration of aquatic and terrestrial food production</li>
+                            <li>Native plant integration with productive species</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principles-box">
+                        <h4>Systems Integration</h4>
+                        <ul>
+                            <li>Closed-loop nutrient cycling between fish and plants</li>
+                            <li>Greywater treatment through constructed wetlands</li>
+                            <li>Thermal mass from pond moderating greenhouse temperatures</li>
+                            <li>Excess production feeding food forest establishment</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Current Phase</h3>
+                    <p>
+                        Infrastructure buildout in progress. Establishing pond system, greenhouse foundation, and perimeter 
+                        food forest plantings. Documentation includes site assessment, water system design, greenhouse construction 
+                        details, and aquaponics plumbing specifications.
+                    </p>
+                    
+                    <p>
+                        <strong>Why this matters:</strong> Demonstrates integration of intensive food production with regenerative 
+                        land practices. Proof of concept for rapid establishment of productive ecosystems in challenging climates. 
+                        Documentation enables replication by others working in similar conditions.
+                    </p>
+                </div>
+
+                <!-- Project 2: Mobile Hexayurt Platform -->
+                <div class="project-section" id="hexayurt">
+                    <div class="project-header">
+                        <div class="project-title-group">
+                            <h2>Mobile Hexayurt Platform</h2>
+                            <div class="project-status">STATUS: Design Refinement</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bluescontact" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+                            <a href="support.html#hexayurt" class="btn btn-secondary">Support This Project</a>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        Deployable shelter system based on hexayurt geometry with mobile platform integration. Designed for 
+                        rapid deployment, thermal efficiency in extreme conditions, and minimal-tool assembly. Combines proven 
+                        hexayurt design with custom mounting system for vehicle-based mobility.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Base Design</div>
+                            <div class="spec-value">Hexayurt geometry</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Mobility</div>
+                            <div class="spec-value">Vehicle-mounted platform</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Assembly Time</div>
+                            <div class="spec-value">~2 hours (2 people)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Tools Required</div>
+                            <div class="spec-value">Minimal (tape, knife)</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Design Principles</h3>
+                    <div class="principles-box">
+                        <h4>Rapid Deployment</h4>
+                        <ul>
+                            <li>Pre-cut panels stored flat for transport</li>
+                            <li>Tape-based assembly (no fasteners required)</li>
+                            <li>Single vehicle carries complete system</li>
+                            <li>Two-person setup in under two hours</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principles-box">
+                        <h4>Thermal Performance</h4>
+                        <ul>
+                            <li>Reflective exterior for solar gain management</li>
+                            <li>Insulated panel construction</li>
+                            <li>Hexagonal geometry optimizes volume-to-surface ratio</li>
+                            <li>Natural ventilation through roof geometry</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Current Phase</h3>
+                    <p>
+                        Refining mobile platform design and panel mounting system. Testing material specifications for durability 
+                        under transport conditions. Developing documentation for replication including cut patterns, assembly sequence, 
+                        and platform fabrication details.
+                    </p>
+                    
+                    <p>
+                        <strong>Why this matters:</strong> Provides rapidly deployable shelter solution using accessible materials 
+                        and minimal tools. Addresses nomadic living, emergency response, and temporary work camp applications. 
+                        Open documentation enables local adaptation to regional materials and conditions.
+                    </p>
+                </div>
+
+                <!-- Project 3: Bus Mobile Crane Platform -->
+                <div class="project-section" id="bus">
+                    <div class="project-header">
+                        <div class="project-title-group">
+                            <h2>Bus Mobile Crane Platform</h2>
+                            <div class="project-status">STATUS: Infrastructure Buildout</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bluescontact" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+                            <a href="support.html#bus" class="btn btn-secondary">Support This Project</a>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        Conversion of 1995 school bus into mobile crane platform with integrated workshop, power systems, and 
+                        materials transport capability. Designed to support remote construction projects while providing mobile 
+                        living quarters. Eight years of elevator construction experience applied to mobile infrastructure.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Base Vehicle</div>
+                            <div class="spec-value">1995 School Bus</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Primary Function</div>
+                            <div class="spec-value">Mobile crane + workshop</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Power System</div>
+                            <div class="spec-value">30kWh battery + solar</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Lifting Capacity</div>
+                            <div class="spec-value">Design target: 2 tons</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Design Principles</h3>
+                    <div class="principles-box">
+                        <h4>Integrated Capability</h4>
+                        <ul>
+                            <li>Crane platform for heavy lifting at remote sites</li>
+                            <li>Workshop space with tool storage and work surfaces</li>
+                            <li>Materials transport (lumber, panels, supplies)</li>
+                            <li>Living quarters for extended project work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principles-box">
+                        <h4>Power Independence</h4>
+                        <ul>
+                            <li>30kWh lithium battery bank</li>
+                            <li>Solar charging system</li>
+                            <li>Shore power integration when available</li>
+                            <li>Powers tools, living systems, and auxiliary equipment</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Current Phase</h3>
+                    <p>
+                        Completing electrical system integration and structural reinforcement for crane mounting. Developing 
+                        documentation for power system design, structural modifications, and crane integration. Focus on safety 
+                        systems and load distribution analysis.
+                    </p>
+                    
+                    <p>
+                        <strong>Why this matters:</strong> Demonstrates integration of heavy construction capability with mobile 
+                        living platform. Addresses challenges of remote building projects where crane rental isn't viable. 
+                        Documentation enables others to develop mobile construction platforms suited to their needs.
+                    </p>
+                </div>
+
+                <!-- Project 4: Solar Biochar Toilet -->
+                <div class="project-section" id="biochar-toilet">
+                    <div class="project-header">
+                        <div class="project-title-group">
+                            <h2>Solar Biochar Toilet</h2>
+                            <div class="project-status">STATUS: Detached Processing Container + Heliostat</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bluescontact" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+                            <a href="support.html#biochar-toilet" class="btn btn-secondary">Support This Project</a>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        Solar-powered pyrolysis system converting human waste into sterile biochar through anaerobic thermal 
+                        decomposition. Heliostat concentrates solar energy onto processing container, achieving 400-700°C 
+                        temperatures for complete pathogen destruction and carbon sequestration. Closes nutrient loop while 
+                        eliminating waste stream.
+                    </p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Processing Method</div>
+                            <div class="spec-value">Solar pyrolysis (anaerobic)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Container Size</div>
+                            <div class="spec-value">5-gallon cast iron</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Processing Temperature</div>
+                            <div class="spec-value">400-700°C</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Batch Frequency</div>
+                            <div class="spec-value">Weekly/bi-weekly</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Design Principles</h3>
+                    <div class="principles-box">
+                        <h4>Complete Resource Recovery</h4>
+                        <ul>
+                            <li>Biochar output: sterile carbon soil amendment</li>
+                            <li>Syngas capture: combustible gas (CO, H₂, CH₄) for cooking</li>
+                            <li>Urine separation: nitrogen-rich fertilizer (separate system)</li>
+                            <li>Zero waste stream—complete nutrient loop closure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principles-box">
+                        <h4>Solar Concentration System</h4>
+                        <ul>
+                            <li>Heliostat tracks sun position throughout processing</li>
+                            <li>Concentrates solar energy onto stationary processing container</li>
+                            <li>Cast iron vessel provides thermal mass and even heating</li>
+                            <li>Detached processing—staging area separate from collection point</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Current Phase</h3>
+                    <p>
+                        Developing heliostat tracking system and processing container design. Testing thermal requirements for 
+                        5-gallon batch pyrolysis using cast iron vessel. Refining syngas capture and storage approach. 
+                        Documentation focuses on solar concentration geometry, temperature monitoring, and safety protocols 
+                        for anaerobic pyrolysis.
+                    </p>
+                    
+                    <p>
+                        <strong>Why this matters:</strong> Addresses sanitation in off-grid contexts without creating waste streams 
+                        or requiring infrastructure. Converts liability (human waste) into assets (biochar, syngas, fertilizer). 
+                        Solar-powered processing eliminates fuel requirements. Documentation enables replication for remote 
+                        homesteads, disaster response, and resource-constrained communities.
+                    </p>
+                </div>
+
+                <!-- Open Source Philosophy -->
+                <h2>Open Source Hardware Approach</h2>
+                
+                <div class="open-source-note">
+                    <h4>CERN OPEN HARDWARE LICENSE</h4>
+                    <p>
+                        All projects documented under CERN-OHL (weak reciprocal). You are free to:
+                    </p>
+                    <ul style="margin-left: var(--space-lg); margin-top: var(--space-sm);">
+                        <li>Build these designs for yourself or others</li>
+                        <li>Modify and improve the designs</li>
+                        <li>Use them commercially</li>
+                        <li>Distribute modified versions</li>
+                    </ul>
+                    <p style="margin-top: var(--space-md);">
+                        If you improve the designs, share those improvements back. That's how knowledge compounds.
+                    </p>
+                </div>
+                
+                <p>
+                    These projects aren't just documentation of what I've built—they're invitations to build on this work. 
+                    Take the designs. Adapt them to your context. Document what you learn. Share improvements back to the commons.
+                </p>
+                
+                <p>
+                    The frameworks describe patterns for coherent exchange. These projects demonstrate those patterns in 
+                    physical form. Open source hardware is gift economy made concrete: value that multiplies through circulation 
+                    rather than extraction.
+                </p>
+
+                <!-- How to Contribute -->
+                <h2>How to Contribute</h2>
+                
+                <p>
+                    All project documentation lives on GitHub. You can:
+                </p>
+                
+                <ul style="margin-left: var(--space-xl); line-height: 1.8;">
+                    <li><strong>Report issues</strong> - Found something unclear? Spotted an error? Open an issue.</li>
+                    <li><strong>Submit improvements</strong> - Better approach? Tested modification? Submit a pull request.</li>
+                    <li><strong>Share your builds</strong> - Built one of these? Document your adaptations and share them.</li>
+                    <li><strong>Ask questions</strong> - Stuck on implementation? Open a discussion.</li>
+                </ul>
+                
+                <p>
+                    If you want to support continued development through material contributions, see the 
+                    <a href="support.html">Support page</a> for project-specific donation options.
+                </p>
+
+                <div class="gift-statement" style="margin-top: var(--space-2xl);">
+                    <p>
+                        <strong>Why document freely?</strong>
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        Because knowledge shouldn't be gated by someone's circumstances. Because good design improves 
+                        through collective refinement. Because the frameworks aren't just theory—they're embodied in 
+                        how we share what we build.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Frameworks</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="four-movements.html">The Four Movements</a></li>
+                        <li><a href="four-laws.html">Four Laws of Post-Transactional Consciousness</a></li>
+                        <li><a href="proto-pattern.html">The Proto-Pattern</a></li>
+                        <li><a href="transmission-architecture.html">Transmission Architecture</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Projects</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="projects.html#aquaponics">Aquaponic Greenhouse</a></li>
+                        <li><a href="projects.html#hexayurt">Mobile Hexayurt</a></li>
+                        <li><a href="projects.html#bus">Bus Mobile Crane</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="https://open.substack.com/pub/kevinmears" target="_blank" rel="noopener">Substack</a></li>
+                        <li><a href="https://github.com/Bluescontact" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="support.html">Support This Work</a></li>
+                        <li><a href="mailto:kevin.mears@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    Offered freely in gift economy. Built by Kevin Mears, member of the 2026 Buckminster Fuller Institute Design Science Studio cohort.
+                </p>
+                <p style="margin-top: var(--space-sm);">
+                    "Take what serves. Adapt what needs adaptation. Share what might help others."
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
