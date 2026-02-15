@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recognition Infrastructure — frameworks for coordination that builds capacity rather than extracting it. Freely offered. Use what works.">
+  <title>Our Shared Gifts — Frameworks for Coherent Exchange</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       OUR SHARED GIFTS — HOMEPAGE
+       An immersive entry to the framework.
+       Dark hero → warm stories → grounded close.
+       ═══════════════════════════════════════════ */
+
+    :root {
+      /* Palette — dark */
+      --void: #090909;
+      --night: #0f0f0f;
+      --charcoal: #1a1a1a;
+      --ash: #2c2c2c;
+      --smoke: #6b6b6b;
+      --fog: #9a9a9a;
+      --bone: #d4cfc5;
+      --parchment: #f5f0e8;
+      --cream: #faf8f5;
+      --white: #ffffff;
+
+      /* Palette — accent */
+      --teal: #2a9d8f;
+      --teal-deep: #1f7a6e;
+      --teal-dim: rgba(42, 157, 143, 0.4);
+      --teal-ghost: rgba(42, 157, 143, 0.12);
+      --teal-glow: rgba(42, 157, 143, 0.08);
+
+      /* Vertex colors */
+      --v-diff: #c0392b;
+      --v-conn: #2980b9;
+      --v-bound: #d4a017;
+      --v-arch: #27ae60;
+
+      /* Type */
+      --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+
+      /* Spacing */
+      --section-pad: clamp(80px, 10vw, 140px);
+      --content-max: 720px;
+      --site-max: 1080px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--serif);
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 2px; transition: color 0.2s; }
+    a:hover { color: var(--teal-deep); }
+
+
+    /* ─── NAVIGATION ─── */
+
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      transition: background 0.4s ease, padding 0.3s ease, box-shadow 0.4s ease;
+    }
+
+    .site-nav.scrolled {
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .nav-home {
+      color: var(--parchment);
+      text-decoration: none;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-home:hover { color: var(--teal); }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--fog);
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--parchment);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--ash);
+      border-radius: 6px;
+      padding: 6px 0;
+      min-width: 200px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown-content a {
+      display: block;
+      padding: 8px 16px;
+      white-space: nowrap;
+      font-size: 0.82rem;
+    }
+    .nav-dropdown-content a:hover { background: rgba(255,255,255,0.06); }
+    .nav-dropdown.open .nav-dropdown-content { display: block; }
+
+
+    /* ─── HERO ─── */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--void);
+      overflow: hidden;
+    }
+
+    /* Desert sky texture behind hero */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('photos/textures/T2-desert-sky.jpg') center/cover no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    /* Subtle noise texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 32px;
+      max-width: 780px;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroReveal 1.4s ease 0.3s forwards;
+    }
+
+    .hero-headline .hl {
+      color: var(--teal);
+    }
+
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-style: italic;
+      color: var(--fog);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 12px;
+      opacity: 0;
+      animation: heroReveal 1.2s ease 0.8s forwards;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      color: var(--smoke);
+      max-width: 480px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: heroReveal 1.2s ease 1.2s forwards;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0;
+      animation: heroReveal 1s ease 2s forwards;
+    }
+
+    .scroll-hint span {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--teal-dim));
+      margin: 0 auto;
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes heroReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+      50% { opacity: 0.7; transform: scaleY(1); }
+    }
+
+
+    /* ─── TRANSITION: dark → light ─── */
+
+    .dark-to-light {
+      height: 120px;
+      background: linear-gradient(to bottom, var(--void), var(--cream));
+    }
+
+
+    /* ─── PATHS ─── */
+
+    .paths {
+      background: var(--cream);
+      padding: var(--section-pad) 32px;
+    }
+
+    .paths-inner {
+      max-width: var(--site-max);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 0.92rem;
+      color: var(--smoke);
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .path-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 8px;
+      padding: 40px 32px 32px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .path-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      border-color: var(--teal-ghost);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .path-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .path-icon {
+      font-size: 2rem;
+      color: var(--teal);
+      margin-bottom: 20px;
+      display: block;
+      line-height: 1;
+    }
+
+    .path-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .path-voice {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--teal-deep);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .path-card p.path-desc {
+      font-size: 0.85rem;
+      color: var(--smoke);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .path-action {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      padding: 8px 20px;
+      border: 1px solid var(--teal-ghost);
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .path-card:hover .path-action {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+
+
+    /* ─── STORIES ─── */
+
+    .stories {
+      background: var(--parchment);
+      padding: var(--section-pad) 32px;
+    }
+
+    .stories-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    .story {
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .story:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .story:first-of-type {
+      padding-top: 0;
+    }
+
+    .story-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .story h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+    }
+
+    .story p {
+      font-size: 1.02rem;
+      color: var(--ash);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .story p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .structural-note {
+      margin-top: 28px;
+      padding: 20px 24px;
+      background: rgba(42, 157, 143, 0.04);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .structural-note strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-deep);
+      margin-bottom: 6px;
+    }
+
+    .structural-note p {
+      font-size: 0.9rem;
+      color: var(--smoke);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+
+    /* ─── PATTERN REVEAL ─── */
+
+    .pattern {
+      background: var(--cream);
+      padding: var(--section-pad) 32px;
+    }
+
+    .pattern-inner {
+      max-width: var(--site-max);
+      margin: 0 auto;
+    }
+
+    .tetra-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      margin: 48px 0;
+    }
+
+    .tetra-diagram {
+      flex-shrink: 0;
+      width: 320px;
+      height: 300px;
+      position: relative;
+    }
+
+    .tetra-diagram svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tetra-edge {
+      stroke: var(--teal-dim);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke 0.4s ease, stroke-width 0.3s ease;
+    }
+
+    .tetra-vertex-dot {
+      fill: var(--teal);
+      transition: r 0.3s ease, fill 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tetra-vertex-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      fill: var(--smoke);
+      text-anchor: middle;
+      transition: fill 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tetra-vertex-group:hover .tetra-vertex-dot {
+      r: 7;
+    }
+    .tetra-vertex-group:hover .tetra-vertex-label {
+      fill: var(--charcoal);
+    }
+
+    .tetra-vertex-group[data-vertex="diff"]:hover .tetra-vertex-dot { fill: var(--v-diff); }
+    .tetra-vertex-group[data-vertex="conn"]:hover .tetra-vertex-dot { fill: var(--v-conn); }
+    .tetra-vertex-group[data-vertex="bound"]:hover .tetra-vertex-dot { fill: var(--v-bound); }
+    .tetra-vertex-group[data-vertex="arch"]:hover .tetra-vertex-dot { fill: var(--v-arch); }
+
+    .capacities-list {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .capacity-item {
+      padding: 16px 20px;
+      border-left: 3px solid transparent;
+      margin-bottom: 12px;
+      border-radius: 0 6px 6px 0;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .capacity-item:hover {
+      background: var(--teal-glow);
+    }
+
+    .capacity-item[data-vertex="diff"] { border-left-color: var(--v-diff); }
+    .capacity-item[data-vertex="conn"] { border-left-color: var(--v-conn); }
+    .capacity-item[data-vertex="bound"] { border-left-color: var(--v-bound); }
+    .capacity-item[data-vertex="arch"] { border-left-color: var(--v-arch); }
+
+    .capacity-name {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .capacity-item[data-vertex="diff"] .capacity-name { color: var(--v-diff); }
+    .capacity-item[data-vertex="conn"] .capacity-name { color: var(--v-conn); }
+    .capacity-item[data-vertex="bound"] .capacity-name { color: var(--v-bound); }
+    .capacity-item[data-vertex="arch"] .capacity-name { color: var(--v-arch); }
+
+    .capacity-desc {
+      font-size: 0.88rem;
+      color: var(--smoke);
+      line-height: 1.5;
+    }
+
+    .pattern-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--teal-deep);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(42, 157, 143, 0.25);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal);
+      border: 1px solid var(--teal-ghost);
+      margin-left: 12px;
+    }
+    .btn-ghost:hover {
+      background: var(--teal-glow);
+      color: var(--teal-deep);
+      border-color: var(--teal);
+    }
+
+
+    /* ─── ORIGIN ─── */
+
+    .origin {
+      background: var(--parchment);
+      padding: 64px 32px 80px;
+    }
+
+    .origin-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    .origin h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .origin p {
+      font-size: 0.95rem;
+      color: var(--smoke);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .origin a.more {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+
+    /* ─── FOOTER ─── */
+
+    .site-footer {
+      background: var(--charcoal);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-gift {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--fog);
+      max-width: 520px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    .footer-credit {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--smoke);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-credit a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .footer-credit a:hover { text-decoration: underline; }
+
+
+    /* ─── SCROLL REVEAL ─── */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+    .reveal.delay-4 { transition-delay: 0.4s; }
+
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 900px) {
+      .path-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .tetra-section {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .tetra-diagram {
+        width: 260px;
+        height: 240px;
+      }
+      .capacities-list {
+        max-width: 100%;
+      }
+    }
+
+    /* Hamburger menu */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--parchment);
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        padding: 14px 20px;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 10, 10, 0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 80px 32px 32px;
+        z-index: 99;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+      }
+      .nav-dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        min-width: 0;
+      }
+      .nav-dropdown-content a {
+        font-size: 0.95rem;
+        padding: 8px 20px;
+        color: var(--smoke);
+      }
+      .hero-content {
+        padding: 0 24px;
+      }
+      .paths, .stories, .pattern, .origin {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html { font-size: 16px; }
+      .path-card {
+        padding: 32px 24px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════ -->
+
+  <nav class="site-nav" id="siteNav">
+    <a href="index.html" class="nav-home">Our Shared Gifts</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-dropdown">
+        <a href="frameworks.html">Frameworks ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="proto-pattern.html">Proto-Pattern</a>
+          <a href="four-dynamics.html">Four Dynamics</a>
+          <a href="four-thresholds.html">Four Thresholds</a>
+          <a href="transmission-architecture.html">Transmission Architecture</a>
+          <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <a href="projects.html">Projects ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+          <a href="project-bus.html">Mobile Crane Platform</a>
+          <a href="project-biochar.html">Solar Biochar Systems</a>
+          <a href="project-ibc.html">IBC Civilization Legos</a>
+          <a href="project-architecture.html">Deployable Architecture</a>
+          <a href="project-one-acre.html">One-Acre Oasis</a>
+        </div>
+      </li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="transmissions.html">Transmissions</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       HERO
+       Full viewport. Dark. Animated tetrahedron.
+       ════════════════════════════════════════ -->
+
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <canvas class="hero-canvas" id="tetraCanvas"></canvas>
+
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        When coordination works,<br><span class="hl">four things hold.</span>
+      </h1>
+      <p class="hero-sub">When it fails, one is missing.</p>
+      <p class="hero-tagline">Twenty years of practice — from craft workshops to living systems — distilled into frameworks you can use today.</p>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span></span>
+    </div>
+  </section>
+
+
+  <!-- Transition gradient -->
+  <div class="dark-to-light"></div>
+
+
+  <!-- ════════════════════════════════════════
+       THREE PATHS
+       ════════════════════════════════════════ -->
+
+  <section class="paths">
+    <div class="paths-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Enter</div>
+        <h2 class="section-title">What brought you here?</h2>
+        <p class="section-sub">Three paths, three depths. Start where it's live for you.</p>
+      </div>
+
+      <div class="path-grid">
+
+        <a href="entry-point.html" class="path-card reveal delay-1">
+          <span class="path-icon">◇</span>
+          <h3>Something isn't working</h3>
+          <p class="path-voice">"The team is burning out." "We keep having the same fight." "The project looks right but feels wrong."</p>
+          <p class="path-desc">Answer four questions about any system you care about. The weakest answer points to the missing piece — and one practice to develop it.</p>
+          <span class="path-action">Start the diagnostic →</span>
+        </a>
+
+        <a href="frameworks.html" class="path-card reveal delay-2">
+          <span class="path-icon">◈</span>
+          <h3>I have an idea that needs structure</h3>
+          <p class="path-voice">"The vision is clear but funders don't get it." "We know what to build but can't survive a lease."</p>
+          <p class="path-desc">A 12-week protocol for paradigm-shifting ideas that can't yet survive contact with institutional reality. Legibility without domestication.</p>
+          <span class="path-action">See the protocol →</span>
+        </a>
+
+        <a href="frameworks.html" class="path-card reveal delay-3">
+          <span class="path-icon">△</span>
+          <h3>I want to understand the pattern</h3>
+          <p class="path-voice">"I keep seeing these ideas referenced." "I work with coordination and want the full theory."</p>
+          <p class="path-desc">Recognition Infrastructure — a formal framework for why coordination works when it works, derived from practice and offered as commons.</p>
+          <span class="path-action">Read the frameworks →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       THREE STORIES
+       Warm register. The bridge.
+       ════════════════════════════════════════ -->
+
+  <section class="stories">
+    <div class="stories-inner">
+
+      <div class="section-header reveal">
+        <div class="section-label">From practice</div>
+        <h2 class="section-title">Three stories. One pattern.</h2>
+      </div>
+
+      <article class="story reveal">
+        <div class="story-label">Build the tools first</div>
+        <h3>The Piano</h3>
+        <p>At fourteen, a piano restorer named Joe Lord gave me a broken Wurlitzer — unplayable, destroyed by dry rot. "I'm not going to fix it for you," he said, "but I'll show you what to do once, and then I'll watch you work your way through it."</p>
+        <p>But we didn't start on the piano. For a week, I built tools. Sharpened chisels. Made jigs. Built templates. Took care of the workshop. Only then did the work begin — and by then it was no longer work. It was a prepared space where craft becomes gift.</p>
+        <p>Joe never asked to be repaid. The obligation moved forward — not backward to him, but through the pattern.</p>
+        <div class="structural-note">
+          <strong>The principle</strong>
+          <p>A system that maintains itself coherently generates surplus. The surplus is the gift. You build the instruments of precision before you attempt precision work.</p>
+        </div>
+      </article>
+
+      <article class="story reveal">
+        <div class="story-label">What you can't repay, you build for</div>
+        <h3>The Offering</h3>
+        <p>Fifteen years ago I spent four months living without money. I drove hundreds of miles asking strangers for gas, for food, for whatever I needed. I cried in parking lots. I lost every boundary that kept me performing normal — and people gave. Consistently. Not from pity. From generosity. My openness called forth something in them they already carried.</p>
+        <p>The weight of that nearly killed me. Every stranger who fed me, every person who held my humanity without asking for anything back — they left me with a debt of gratitude I couldn't process. Grace that exceeded my capacity to hold it. When I came down, I came down hard. Two years washing cars alone on the overnight shift. The system that had been blown open by kindness did the only thing it could — it closed.</p>
+        <p>Someone held me through that too. She got me on my feet. Showed me deep care while holding her boundary. Walked away when I was stable enough to stand. That was the harder gift — not the strangers who gave me gas, but the person who loved me enough to leave when leaving was the architecture I needed.</p>
+        <p>Everything I build now is an attempt to create the infrastructure that would have held me then. Not for me — that moment has passed. For the next person standing where I stood. The obligation moved forward — not backward to the givers, but through the pattern. What you can't repay, you build for.</p>
+        <div class="structural-note">
+          <strong>The principle</strong>
+          <p>Gift economy isn't charity. It's a fundamentally different operating system for exchange — one that requires stronger selfhood than transaction. When the circuit completes, it closes beyond what any single person can see.</p>
+        </div>
+      </article>
+
+      <article class="story reveal">
+        <div class="story-label">Limits make the dance</div>
+        <h3>The Frame</h3>
+        <p>In partner dance, the frame — the physical architecture of how two bodies hold connection — is everything. Without a clear frame, movement becomes either collision or disconnection. Two people occupying the same space with no structure.</p>
+        <p>The lead's frame communicates intention without force. It says: here's where I'm going. The follow's frame communicates limits without rigidity. It says: here's what I can receive. When both frames hold clearly — distinct, communicating, bounded — movement that neither person planned becomes possible. Improvisation emerges from structure, not from its absence.</p>
+        <p>Years of teaching this revealed the pattern: the students who collapsed their frame to be "easier to dance with" made the dance harder. The ones who held their center — who maintained their own shape while staying in contact — made everything possible. The boundary didn't restrict the dance. It was the architecture that made the dance.</p>
+        <div class="structural-note">
+          <strong>The principle</strong>
+          <p>A boundary stated clearly is architecture, not confrontation. When two systems know their limits and communicate them as information, the space between them becomes navigable. What looks like restriction is the structure that makes genuine movement possible.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       PATTERN REVEAL
+       Interactive tetrahedron + four capacities.
+       ════════════════════════════════════════ -->
+
+  <section class="pattern">
+    <div class="pattern-inner">
+
+      <div class="section-header reveal">
+        <div class="section-label">The structure</div>
+        <h2 class="section-title">The pattern these stories share</h2>
+        <p class="section-sub" style="max-width: 540px; margin: 8px auto 0;">Coordination that builds capacity — instead of extracting it — holds four things simultaneously. When any one degrades, the others follow.</p>
+      </div>
+
+      <div class="tetra-section reveal">
+
+        <!-- SVG Tetrahedron Diagram -->
+        <div class="tetra-diagram">
+          <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Edges -->
+            <line class="tetra-edge" x1="160" y1="40" x2="50" y2="240"/>
+            <line class="tetra-edge" x1="160" y1="40" x2="270" y2="240"/>
+            <line class="tetra-edge" x1="160" y1="40" x2="160" y2="180"/>
+            <line class="tetra-edge" x1="50" y1="240" x2="270" y2="240"/>
+            <line class="tetra-edge" x1="50" y1="240" x2="160" y2="180"/>
+            <line class="tetra-edge" x1="270" y1="240" x2="160" y2="180"/>
+
+            <!-- Inner vertex (slightly transparent to show depth) -->
+            <line class="tetra-edge" x1="160" y1="40" x2="160" y2="180" style="opacity: 0.4; stroke-dasharray: 4 4;"/>
+
+            <!-- Vertex groups -->
+            <g class="tetra-vertex-group" data-vertex="diff">
+              <circle class="tetra-vertex-dot" cx="160" cy="40" r="5"/>
+              <text class="tetra-vertex-label" x="160" y="24">Distinction</text>
+            </g>
+            <g class="tetra-vertex-group" data-vertex="conn">
+              <circle class="tetra-vertex-dot" cx="50" cy="240" r="5"/>
+              <text class="tetra-vertex-label" x="50" y="264">Contact</text>
+            </g>
+            <g class="tetra-vertex-group" data-vertex="bound">
+              <circle class="tetra-vertex-dot" cx="270" cy="240" r="5"/>
+              <text class="tetra-vertex-label" x="270" y="264">Limits</text>
+            </g>
+            <g class="tetra-vertex-group" data-vertex="arch">
+              <circle class="tetra-vertex-dot" cx="160" cy="180" r="5"/>
+              <text class="tetra-vertex-label" x="160" y="200">Infrastructure</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Four Capacities -->
+        <div class="capacities-list">
+          <div class="capacity-item" data-vertex="diff">
+            <div class="capacity-name">Distinction</div>
+            <div class="capacity-desc">Knowing what you are. Maintaining position rather than collapsing into agreement.</div>
+          </div>
+          <div class="capacity-item" data-vertex="conn">
+            <div class="capacity-name">Contact</div>
+            <div class="capacity-desc">Genuine exchange with what's actually present. Not anticipating what's wanted.</div>
+          </div>
+          <div class="capacity-item" data-vertex="bound">
+            <div class="capacity-name">Limits</div>
+            <div class="capacity-desc">Treating constraints as information. A boundary stated clearly is architecture.</div>
+          </div>
+          <div class="capacity-item" data-vertex="arch">
+            <div class="capacity-name">Infrastructure</div>
+            <div class="capacity-desc">Building what persists beyond any single exchange. What remains when you leave the room.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pattern-cta reveal">
+        <a href="entry-point.html" class="btn btn-primary">Run the four questions on your system</a>
+        <a href="tetrahedral-audit.html" class="btn btn-ghost">Go deeper with the Tetrahedral Audit</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       ORIGIN
+       ════════════════════════════════════════ -->
+
+  <section class="origin">
+    <div class="origin-inner reveal">
+      <h3>Where this comes from</h3>
+      <p>These frameworks emerged from twenty years of practice — industrial construction, four months of moneyless living that revealed how exchange actually works when transactional frameworks are removed, community organizing, partner dance instruction, and sustained human-AI collaboration that produced the formal articulation of patterns already understood in the body.</p>
+      <p>The work is offered under gift economy principles through the 2026 Buckminster Fuller Institute Design Science Studio. Use freely. Adapt as needed. Credit sources. If it improves your capacity to coordinate, that's the validation.</p>
+      <p style="margin-top: 20px;"><a href="about.html" class="more">The full story →</a></p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+
+  <footer class="site-footer">
+    <p class="footer-gift">Everything here propagates because it works, not because it's protected.</p>
+    <p class="footer-credit">Kevin Mears · 2026 · <a href="about.html">Recognition Infrastructure</a></p>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════ -->
+
+  <script>
+    // ═══ NAVIGATION ═══
+
+    // Scroll state
+    const nav = document.getElementById('siteNav');
+    const hero = document.getElementById('hero');
+    const scrollHint = document.getElementById('scrollHint');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      // Fade scroll hint
+      if (y > 100) {
+        scrollHint.style.opacity = '0';
+      }
+    }, { passive: true });
+
+    // Hamburger toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinksEl = document.getElementById('navLinks');
+    if (navToggle && navLinksEl) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinksEl.classList.toggle('open');
+      });
+    }
+
+    // Dropdown menus
+    document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const parent = trigger.parentElement;
+        const wasOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!wasOpen) parent.classList.add('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+
+    // ═══ HERO TETRAHEDRON ═══
+
+    const canvas = document.getElementById('tetraCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth * (window.devicePixelRatio || 1);
+      canvas.height = canvas.offsetHeight * (window.devicePixelRatio || 1);
+      ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Regular tetrahedron vertices
+    const R = Math.min(window.innerWidth * 0.18, 160);
+    const tetraVerts = [
+      [0, -R, 0],
+      [R * 0.943, R * 0.333, 0],
+      [-R * 0.471, R * 0.333, R * 0.816],
+      [-R * 0.471, R * 0.333, -R * 0.816]
+    ];
+    const tetraEdges = [[0,1],[0,2],[0,3],[1,2],[2,3],[1,3]];
+
+    let angle = 0;
+    let tilt = 0.3;
+
+    function project3D(v) {
+      // Rotate Y
+      const cy = Math.cos(angle), sy = Math.sin(angle);
+      let x = v[0] * cy + v[2] * sy;
+      let y = v[1];
+      let z = -v[0] * sy + v[2] * cy;
+
+      // Tilt X
+      const ct = Math.cos(tilt), st = Math.sin(tilt);
+      const y2 = y * ct - z * st;
+      const z2 = y * st + z * ct;
+
+      // Perspective
+      const d = 600;
+      const scale = d / (d + z2);
+      return { x: x * scale, y: y2 * scale, z: z2, s: scale };
+    }
+
+    function drawTetrahedron() {
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      const cx = w / 2;
+      const cy = h / 2 - 20;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const projected = tetraVerts.map(v => project3D(v));
+
+      // Scroll-based fade
+      const scrollFade = Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.7));
+      if (scrollFade <= 0) {
+        angle += 0.002;
+        requestAnimationFrame(drawTetrahedron);
+        return;
+      }
+
+      // Glow pass
+      ctx.save();
+      ctx.filter = 'blur(12px)';
+      ctx.strokeStyle = `rgba(42, 157, 143, ${0.1 * scrollFade})`;
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      tetraEdges.forEach(([i, j]) => {
+        ctx.moveTo(cx + projected[i].x, cy + projected[i].y);
+        ctx.lineTo(cx + projected[j].x, cy + projected[j].y);
+      });
+      ctx.stroke();
+      ctx.restore();
+
+      // Main edges
+      ctx.strokeStyle = `rgba(42, 157, 143, ${0.35 * scrollFade})`;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      tetraEdges.forEach(([i, j]) => {
+        ctx.moveTo(cx + projected[i].x, cy + projected[i].y);
+        ctx.lineTo(cx + projected[j].x, cy + projected[j].y);
+      });
+      ctx.stroke();
+
+      // Vertices
+      projected.forEach((p, i) => {
+        const r = 2.5 + p.s * 1.5;
+        ctx.beginPath();
+        ctx.arc(cx + p.x, cy + p.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(42, 157, 143, ${(0.4 + p.s * 0.3) * scrollFade})`;
+        ctx.fill();
+      });
+
+      angle += 0.002;
+      requestAnimationFrame(drawTetrahedron);
+    }
+
+    drawTetrahedron();
+
+
+    // ═══ SCROLL REVEAL ═══
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    // ═══ TETRA DIAGRAM INTERACTION ═══
+
+    const vertexGroups = document.querySelectorAll('.tetra-vertex-group');
+    const capacityItems = document.querySelectorAll('.capacity-item');
+
+    function highlightVertex(vertex) {
+      capacityItems.forEach(item => {
+        if (item.dataset.vertex === vertex) {
+          item.style.background = 'rgba(42, 157, 143, 0.08)';
+        } else {
+          item.style.background = 'transparent';
+        }
+      });
+    }
+
+    function clearHighlight() {
+      capacityItems.forEach(item => {
+        item.style.background = '';
+      });
+    }
+
+    vertexGroups.forEach(group => {
+      group.addEventListener('mouseenter', () => highlightVertex(group.dataset.vertex));
+      group.addEventListener('mouseleave', clearHighlight);
+    });
+
+    capacityItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const v = item.dataset.vertex;
+        vertexGroups.forEach(g => {
+          if (g.dataset.vertex === v) {
+            g.querySelector('.tetra-vertex-dot').style.r = '7';
+            g.querySelector('.tetra-vertex-label').style.fill = '#1a1a1a';
+          }
+        });
+      });
+      item.addEventListener('mouseleave', () => {
+        vertexGroups.forEach(g => {
+          g.querySelector('.tetra-vertex-dot').style.r = '';
+          g.querySelector('.tetra-vertex-label').style.fill = '';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

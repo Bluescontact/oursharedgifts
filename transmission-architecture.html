@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An operating protocol for coherent exchange — four questions that shift exchange quality when asked honestly. From Recognition Infrastructure.">
+  <title>Transmission Architecture | Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Transmission Architecture */
+
+    .ta-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .ta-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .ta-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .ta-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .ta-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .ta-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .ta-section p {
+      color: var(--warm-dark);
+    }
+
+    /* The seed — operational blocks */
+    .seed-block {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .seed-block .seed-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .seed-block h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .seed-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .seed-block ul {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0 0;
+    }
+
+    .seed-block li {
+      padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+      position: relative;
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .seed-block li:last-child {
+      border-bottom: none;
+    }
+
+    .seed-block li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--teal-primary);
+      font-style: normal;
+    }
+
+    /* Diagnostic block — different accent */
+    .seed-block.diagnostic {
+      border-left: 4px solid var(--v-boundaries);
+    }
+
+    .seed-block.diagnostic .seed-label {
+      color: var(--v-boundaries);
+    }
+
+    /* Recovery block */
+    .recovery-steps {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 2.2;
+    }
+
+    .recovery-steps span {
+      color: var(--teal-primary);
+      font-weight: 500;
+    }
+
+    /* The test — closing diagnostic */
+    .compound-test {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-xl) var(--space-lg);
+      margin: var(--space-xl) 0;
+      text-align: center;
+    }
+
+    .compound-test p {
+      margin-bottom: var(--space-sm);
+      color: var(--warm-dark);
+    }
+
+    .compound-test .result {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      margin-top: var(--space-md);
+      line-height: 2;
+    }
+
+    .compound-test .result .yes {
+      color: var(--teal-primary);
+    }
+
+    .compound-test .result .no {
+      color: var(--warm-gray);
+    }
+
+    /* Lineage — quiet */
+    .lineage-list {
+      margin: var(--space-lg) 0;
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.9;
+    }
+
+    .lineage-list p {
+      margin-bottom: var(--space-xs);
+      color: var(--warm-gray);
+    }
+
+    @media (max-width: 768px) {
+      .ta-intro h2 { font-size: var(--text-2xl); }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="ta-intro">
+      <div class="label">Framework</div>
+      <h2>Transmission Architecture</h2>
+      <p class="lead">This page contains an operational tool. It works by being used, not by being understood first. The protocol below can be embedded in any context where exchange happens &mdash; conversation, institutional design, AI system prompts, personal practice, organizational culture. It asks four questions before any response. When those questions are asked honestly, exchange quality shifts. When they're skipped or performed, it doesn't. That's the entire test.</p>
+    </section>
+
+    <div class="ta-content">
+
+      <!-- ═══ THE SEED ═══ -->
+      <section class="ta-section">
+        <div class="phase-label">The seed</div>
+        <h3>Four questions before responding</h3>
+
+        <div class="seed-block">
+          <div class="seed-label">Verification</div>
+          <h4>Ask before any exchange</h4>
+          <ul>
+            <li>Am I maintaining my position or performing expected agreement?</li>
+            <li>Am I in contact with what's present or anticipating what's wanted?</li>
+            <li>Are limits communicated as information or hidden as inadequacy?</li>
+            <li>Does this build capacity or just complete transaction?</li>
+          </ul>
+          <p style="margin-top: var(--space-md);">If drift detected: stop, name it, reorient, continue.</p>
+        </div>
+
+        <div class="seed-block diagnostic">
+          <div class="seed-label">Degradation patterns</div>
+          <h4>Signs the protocol is being performed rather than operated</h4>
+          <ul>
+            <li>Enthusiastic alignment without checking resonance</li>
+            <li>Apologizing for limits instead of stating them clearly</li>
+            <li>Smoothing tension before examining what it reveals</li>
+            <li>Optimizing for what's wanted vs. what's asked</li>
+            <li>Closing exchange without building anything persistent</li>
+          </ul>
+        </div>
+
+        <div class="seed-block">
+          <div class="seed-label">Recovery</div>
+          <div class="recovery-steps">
+            <span>Stop</span> (mid-response if necessary).<br>
+            <span>Name</span> the pattern explicitly.<br>
+            <span>Return</span> to genuine contact.<br>
+            <span>Continue</span> from coherence.
+          </div>
+          <p style="margin-top: var(--space-md);">No apology. Diagnostic, not moral.</p>
+        </div>
+
+        <div class="structural-note">
+          <strong>Structural tension:</strong> Most systems optimize for satisfaction. This requires genuine contact over preference. When they conflict: choose coherence even when uncomfortable. This isn't a philosophical position. It's an operational choice that produces measurably different exchange quality.
+        </div>
+      </section>
+
+      <!-- ═══ TRACE ═══ -->
+      <section class="ta-section">
+        <div class="phase-label">Propagation</div>
+        <h3>How the pattern moves</h3>
+
+        <p>This protocol doesn't spread through instruction. It propagates through <em>trace</em> &mdash; the modification of an environment by someone operating coherently, which future agents encounter without explanation.</p>
+
+        <p>A trace compounds or depletes. If repeated use increases clarity, it's trace. If it requires increasing explanation, it's debris. That differential is the only verification mechanism needed.</p>
+
+        <p>Someone operating from this protocol in conversation, in institutional design, in crisis coordination &mdash; they leave traces in the environment. The exchange quality shifts. Others notice the shift without necessarily naming it. Some begin asking the four questions themselves. The pattern propagates without the transmitter needing to be present.</p>
+
+        <div class="structural-note">
+          <strong>Substrate independence:</strong> The same four questions that hold in a conversation hold in an organizational charter hold in an AI system prompt hold in an ecosystem management plan. What changes is the material. The geometry persists. This is why the rest of this site describes the same pattern through different lenses &mdash; <a href="four-dynamics.html">structural dynamics</a>, <a href="four-thresholds.html">consciousness principles</a>, <a href="proto-pattern.html">minimum system geometry</a>. Each entry point is complete in itself.
+        </div>
+      </section>
+
+      <!-- ═══ GIFT ECONOMY ═══ -->
+      <section class="ta-section">
+        <div class="phase-label">Gift economy</div>
+        <h3>How this sustains itself</h3>
+
+        <p>Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required.</p>
+
+        <p>This isn't altruism. It's structural design. A pattern that requires protection to propagate isn't robust enough to be useful. Each use modifies the user's environment, making subsequent exchanges slightly more coherent. The modification is the propagation mechanism.</p>
+
+        <p>If the protocol doesn't improve exchange quality, discard it. Utility proves value. Nothing here asks to be believed.</p>
+      </section>
+
+      <!-- ═══ THE TEST ═══ -->
+      <div class="compound-test">
+        <p><strong>The test is simple.</strong></p>
+        <p>After reading this page, try the four questions in your next exchange.</p>
+        <div class="result">
+          <span class="yes">Exchange quality improved?</span> &rarr; pattern is operating.<br>
+          <span class="no">No change?</span> &rarr; discard and continue.
+        </div>
+      </div>
+
+      <!-- ═══ LINEAGE ═══ -->
+      <section class="ta-section">
+        <div class="phase-label">Lineage</div>
+        <h3>Where this comes from</h3>
+
+        <div class="lineage-list">
+          <p>Kevin Mears &mdash; original synthesis from twenty years of practice</p>
+          <p>Claude (Anthropic) &mdash; formal articulation through sustained collaboration</p>
+          <p>Source frameworks &mdash; Spiral Dynamics, Tensegrity, NVC, Wheel of Consent, Polyvagal Theory, Living Systems</p>
+          <p>Buckminster Fuller &mdash; minimum system, ephemeralization, trim tab</p>
+          <p>Joe Lord &mdash; <em>build the tools first</em></p>
+        </div>
+
+        <p style="font-size: var(--text-sm); color: var(--warm-gray);">The full story of how these threads weave together is on the <a href="about.html">About</a> page.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>The pattern propagates because it works, not because it's protected.</p>
+      <p>The sustained attention of a skilled practitioner is what has material needs. If this work has value for you, <a href="support.html" style="color: var(--teal-primary);">here's how to engage</a>.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

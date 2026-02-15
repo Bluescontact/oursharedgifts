@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Holding the Commons — practices for community space-holders. How to maintain gift-based spaces, use non-transactional language, and recognize when the pattern is operating.">
+  <title>Holding the Commons — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Holding the Commons */
+
+    .hc-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .hc-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .hc-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .hc-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .hc-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .hc-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .hc-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Pull quote */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Practice cards */
+    .practice-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .practice-card .practice-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .practice-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .practice-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* Reframe pairs */
+    .reframe {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-md);
+      align-items: start;
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .reframe .from {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    .reframe .arrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: var(--teal-primary);
+      padding-top: 2px;
+    }
+
+    .reframe .to {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .reframe .from-label,
+    .reframe .to-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+
+    .reframe .from-label { color: var(--warm-light); }
+    .reframe .to-label { color: var(--teal-primary); }
+
+    /* Recognition list */
+    .recognition-block {
+      padding: var(--space-md) var(--space-lg);
+      border-left: 3px solid var(--teal-border);
+      background: var(--cream-dark);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin-bottom: var(--space-md);
+    }
+
+    .recognition-block strong {
+      display: block;
+      color: var(--warm-black);
+      margin-bottom: var(--space-xs);
+    }
+
+    .recognition-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hc-intro h2 { font-size: var(--text-2xl); }
+      .reframe {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+      .reframe .arrow {
+        transform: rotate(90deg);
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hc-intro">
+      <div class="label">Practice</div>
+      <h2>Holding the Commons</h2>
+      <p class="lead">You hold a dance floor, a community garden, a shared workspace, a neighborhood gathering. You know what it feels like when the space is alive &mdash; when people arrive as themselves, offer presence, receive presence, and leave more full than when they came. You also know the exhaustion of absorbing every rupture, every complaint, every demand that arrives dressed as "create safety for me." This page is for you. Not theory about community. Practices that work.</p>
+    </section>
+
+    <div class="hc-content">
+
+      <!-- ═══ THE DISTINCTION ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">The core distinction</div>
+        <h3>Commons versus service</h3>
+
+        <p>The spaces that feel alive &mdash; dance floors, community meals, open workshops, shared land &mdash; operate as commons. You show up, you offer presence, you receive presence. No one owes anyone a dance. The magic works precisely because it's not transactional.</p>
+
+        <p>But commons get strained when transactional expectations arrive. Someone experiences relational rupture and brings it to you as "make this space safe for me." Someone tracks who contributed what and expects proportional return. Someone treats shared space as service provision and themselves as customer.</p>
+
+        <p>The framing itself sets you up to fail. "Create safety so this person can attend comfortably" implies there's a solution you could implement if you were doing your job right. But the actual situation is: two people share a commons, and commons can't be made safe <em>from</em> someone's presence. What community can offer is a container where both people belong &mdash; and trust that each will navigate their own relationship to that.</p>
+
+        <div class="pull">The organizer's role isn't to create safety. It's to maintain the commons as commons.</div>
+
+        <p>This is the distinction that changes everything. When you accept the service frame, you become the interface where impossible demands concentrate. When you hold the commons frame, you do specific, sustainable work: maintain conditions where gift-based exchange can operate.</p>
+      </section>
+
+      <!-- ═══ WHAT COMMONS ACTUALLY NEED ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">What the commons actually needs from you</div>
+        <h3>Four practices</h3>
+
+        <p>These map to the <a href="four-dynamics.html">four dynamics</a> &mdash; the same tetrahedral pattern operating at the scale of community space-holding.</p>
+
+        <div class="practice-card">
+          <div class="practice-label">Differentiation</div>
+          <h4>Know what the space is</h4>
+          <p>The space has an identity before anyone walks in. A blues dance is not a nightclub. A community garden is not a park. A shared workshop is not a makerspace with membership fees. Name what the space is &mdash; clearly, without apology &mdash; and let that naming do the boundary work. People self-select when the container is legible. When the identity is vague, everyone projects their own expectations and the organizer absorbs the mismatch.</p>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-label">Connection</div>
+          <h4>Read what's actually present</h4>
+          <p>Twenty years on dance floors teaches you to feel when group coherence is real versus performed. The room has a nervous system. You learn to read it through the quality of movement, the sound level, the way people cluster or disperse, the moment when laughter shifts from release to performance. This isn't mystical. It's somatic literacy &mdash; pattern recognition trained through thousands of hours of holding space. Trust what your body reads before your mind names it.</p>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-label">Boundaries</div>
+          <h4>Your boundary is the container</h4>
+          <p>When someone experiences your boundary as betrayal, they're revealing they were relating to the space transactionally. That's information, not your failure. The people who can meet you at that boundary are your actual community. The ones who can't need a different container you can't provide while maintaining your own integrity. Both are fine. Both are just what's true. Your no is architecture &mdash; it preserves the conditions where genuine exchange remains possible.</p>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-label">Architecture</div>
+          <h4>Build toward your own obsolescence</h4>
+          <p>If the space depends on you, it's not a commons yet &mdash; it's a gift you're personally sustaining. The architectural move is building conditions where the space maintains itself: co-creation rather than dependency, distributed responsibility rather than concentrated holding, practices that transfer rather than expertise that concentrates. The space that works without you is the space you actually built. Everything else is just you showing up reliably.</p>
+        </div>
+      </section>
+
+      <!-- ═══ NON-TRANSACTIONAL LANGUAGE ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">Language as architecture</div>
+        <h3>Non-transactional framing</h3>
+
+        <p>The language you use to describe the space shapes what people expect from it. Transactional language creates transactional expectations. Commons language creates commons behavior. This isn't about being careful with words &mdash; it's about structural framing that does boundary work before any conflict arrives.</p>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "Where does responsibility lie?"
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "How is responsibility distributed through participation?"
+          </div>
+        </div>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "What do we owe members?"
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "What conditions maintain the space as commons?"
+          </div>
+        </div>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "How do we create a safe space?"
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "How do we hold a space where people can navigate their own safety?"
+          </div>
+        </div>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "That person is toxic and should be removed."
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "What's the container's capacity? What exceeds it?"
+          </div>
+        </div>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "We need rules to prevent this."
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "What practices build the capacity we need?"
+          </div>
+        </div>
+
+        <div class="reframe">
+          <div class="from">
+            <span class="from-label">Transactional</span>
+            "You should volunteer more."
+          </div>
+          <div class="arrow">&rarr;</div>
+          <div class="to">
+            <span class="to-label">Commons</span>
+            "There's an opening if you want to hold it."
+          </div>
+        </div>
+
+        <div class="structural-note">
+          <strong>The pattern:</strong> Transactional framing locates responsibility in individuals and creates debt. Commons framing distributes responsibility through participation and creates invitation. The shift is structural, not cosmetic &mdash; changing the frame changes what becomes possible.
+        </div>
+      </section>
+
+      <!-- ═══ THE COMMONS STRAIN DYNAMIC ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">What goes wrong</div>
+        <h3>The commons strain dynamic</h3>
+
+        <p>There's a pattern that shows up in every commons eventually. Recognizing it structurally &mdash; rather than personally &mdash; is the difference between burnout and sustainable holding.</p>
+
+        <div class="recognition-block">
+          <strong>The pattern</strong>
+          <p>Space operates as commons. Some participants extract value transactionally while performing gift-framing. This creates emotional labor that falls on organizers. Organizers set boundaries to preserve container integrity. Transactional participants frame boundaries as control or exclusion. Community sides with the visible participant over the invisible infrastructure. Organizer gets isolated precisely for maintaining the container.</p>
+        </div>
+
+        <div class="recognition-block">
+          <strong>Why it's isolating</strong>
+          <p>What you're maintaining &mdash; coherent commons &mdash; is invisible until it's gone. The participants who frame your boundaries as controlling can point to specific actions. You can only point to the quality of something that wouldn't exist without your holding. Invisible infrastructure loses every popularity contest against visible grievance.</p>
+        </div>
+
+        <div class="recognition-block">
+          <strong>Why it's not personal</strong>
+          <p>This happens to organizers who set boundaries in gift-based communities, leaders who maintain standards in collaborative spaces, anyone who refuses to metabolize other people's transactional behavior as their responsibility. You're in good company. The pattern is structural, not personal. Understanding that doesn't eliminate the exhaustion, but it stops you from thinking you're doing it wrong.</p>
+        </div>
+
+        <div class="recognition-block">
+          <strong>The diagnostic</strong>
+          <p>When someone experiences your boundary as betrayal, ask: were they relating to the space as commons or as service? If service, the boundary revealed a mismatch that already existed. Your boundary didn't create the problem. It made the problem visible. And making invisible things visible is the work.</p>
+        </div>
+      </section>
+
+      <!-- ═══ THE BODY KNOWS ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">Somatic literacy</div>
+        <h3>The body knows first</h3>
+
+        <p>If you've held space for years &mdash; on dance floors, in circles, in shared kitchens &mdash; you've developed pattern recognition that operates below conscious thought. You feel when the room shifts. You know the difference between genuine laughter and performance. You sense when someone is giving from overflow versus depleting themselves to seem generous.</p>
+
+        <p>This isn't mystical. It's trained perception. Thousands of hours reading group nervous system states builds a literacy that conceptual frameworks can only approximate. The tetrahedral pattern &mdash; differentiation, connection, boundaries, architecture &mdash; operates at the somatic level independently. Bodies learn coordination patterns that become infrastructure for future exchange.</p>
+
+        <div class="pull">The frameworks on this site didn't emerge from abstract thinking. They emerged from twenty years of feeling when group coherence is real versus performed, and then finding language for what the body already understood.</div>
+
+        <p>Trust that literacy. When your nervous system signals that something is off in the space, you don't need to prove it intellectually before responding. The boundary isn't a courtroom argument &mdash; it's somatic information made structural.</p>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="hc-section">
+        <div class="phase-label">Continue</div>
+        <h3>The geometry underneath</h3>
+
+        <p>Everything on this page is the <a href="proto-pattern.html">Proto-Pattern</a> operating at the scale of community. The four practices map to the four vertices. The commons strain dynamic is a specific face &mdash; what happens when a vertex drops. The non-transactional language reframes are boundary work (third vertex) creating conditions where the other three can hold.</p>
+
+        <p>For the operational pattern underneath: <a href="four-dynamics.html">The Four Dynamics</a>. For what it feels like from inside when this works: <a href="four-thresholds.html">The Four Thresholds</a>. For the diagnostic tool when a community system is breaking: <a href="tetrahedral-audit.html">The Tetrahedral Audit</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>This page is for the people doing the invisible work. The ones who show up early, stay late, absorb the strain, and get blamed for the boundaries that make the magic possible. You know who you are. This pattern is already operating in your practice. This page names it so you can work with it consciously &mdash; and so you stop thinking you're doing it wrong.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

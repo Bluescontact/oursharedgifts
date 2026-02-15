@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Tetrahedral Integrity Audit — a diagnostic tool for identifying the missing vertex in any system that has lost coherence. From Recognition Infrastructure.">
+  <title>Tetrahedral Integrity Audit | Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific styles for the audit tool */
+
+    .audit-intro {
+      max-width: 720px;
+      margin: 0 auto var(--space-xl) auto;
+    }
+
+    .audit-intro .lead {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      border-left: 3px solid var(--teal-primary);
+      padding-left: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Diagnostic Card */
+    .diagnostic-card {
+      background: var(--cream-dark);
+      border: 1px solid rgba(42, 157, 143, 0.2);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      max-width: 520px;
+      margin: var(--space-xl) auto;
+    }
+
+    .diagnostic-card h3 {
+      margin-top: 0;
+      color: var(--teal-dark);
+      font-size: 1.3rem;
+    }
+
+    .diagnostic-card .card-subtitle {
+      font-size: 0.95rem;
+      color: var(--warm-gray);
+      margin-bottom: var(--space-md);
+    }
+
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .vertex-item {
+      background: var(--cream-light);
+      padding: 14px;
+      border-radius: 4px;
+      transition: transform 0.15s ease;
+    }
+
+    .vertex-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .vertex-item.v-differentiation { border-left: 4px solid #c0392b; }
+    .vertex-item.v-connection { border-left: 4px solid #2980b9; }
+    .vertex-item.v-boundaries { border-left: 4px solid #d4a017; }
+    .vertex-item.v-architecture { border-left: 4px solid #27ae60; }
+
+    .vertex-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--warm-black);
+      margin-bottom: 4px;
+    }
+
+    .vertex-item .vertex-question {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.4;
+    }
+
+    /* Phase sections */
+    .phase {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--space-xl) 0 calc(var(--space-xl) * 1.5);
+      border-bottom: 1px solid rgba(42, 157, 143, 0.15);
+    }
+
+    .phase:last-of-type {
+      border-bottom: none;
+    }
+
+    .phase-label {
+      font-family: monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .phase h2 {
+      font-size: 1.6rem;
+      color: var(--warm-black);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Axiom check table */
+    .axiom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0;
+    }
+
+    .axiom-table th {
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--warm-gray);
+      padding: var(--space-sm) var(--space-sm);
+      border-bottom: 2px solid var(--teal-primary);
+    }
+
+    .axiom-table td {
+      padding: var(--space-sm);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    .axiom-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .axiom-name {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .axiom-name.ax-diff { color: #c0392b; }
+    .axiom-name.ax-conn { color: #2980b9; }
+    .axiom-name.ax-bound { color: #d4a017; }
+    .axiom-name.ax-arch { color: #27ae60; }
+
+    .evidence-example {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      margin-top: 6px;
+    }
+
+    /* Warning signs */
+    .warning-block {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+      margin-bottom: var(--space-xl);
+      border-left: 4px solid var(--teal-primary);
+    }
+
+    .warning-block h4 {
+      font-size: 1.1rem;
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+      line-height: 1.5;
+    }
+
+    .warning-block .warning-label {
+      font-family: monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .warning-block p {
+      font-size: 0.95rem;
+      margin-bottom: var(--space-sm);
+      line-height: 1.65;
+    }
+
+    .warning-block .result {
+      font-weight: 600;
+      color: var(--warm-black);
+      font-size: 0.95rem;
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Strategic intervention */
+    .intervention-frame {
+      background: var(--cream-dark);
+      border: 1px solid rgba(42, 157, 143, 0.25);
+      border-radius: var(--border-radius);
+      padding: var(--space-xl) var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .intervention-frame .diagnostic-question {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--teal-dark);
+      padding: var(--space-lg);
+      background: var(--cream-light);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .move-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .move-list li {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .move-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .move-label {
+      display: block;
+      font-weight: 700;
+      color: var(--teal-dark);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .move-placeholder {
+      display: block;
+      color: var(--warm-gray);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Substrate grid */
+    .substrate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+
+    .substrate-card {
+      background: var(--cream-dark);
+      padding: var(--space-lg);
+      border-radius: var(--border-radius);
+      border-top: 3px solid var(--teal-primary);
+    }
+
+    .substrate-card h4 {
+      font-size: 1.05rem;
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .substrate-card p {
+      font-size: 0.95rem;
+      color: var(--warm-gray);
+      margin: 0 0 var(--space-sm) 0;
+      line-height: 1.6;
+    }
+
+    .substrate-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .substrate-focus {
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+
+    /* Geometry section */
+    .geometry-block {
+      max-width: 680px;
+      margin: var(--space-xl) auto;
+      padding: var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(42, 157, 143, 0.15);
+    }
+
+    .geometry-block blockquote {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--warm-black);
+      border-left: 3px solid var(--teal-primary);
+      padding-left: var(--space-md);
+      margin: 0 0 var(--space-md) 0;
+      font-style: italic;
+    }
+
+    /* Gift footer */
+    .gift-note {
+      text-align: center;
+      padding: var(--space-xl) 0 var(--space-lg);
+      font-style: italic;
+      color: var(--warm-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(42, 157, 143, 0.15);
+      margin-top: var(--space-xl);
+    }
+
+    .gift-note p {
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .vertex-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .substrate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .axiom-table th:last-child,
+      .axiom-table td:last-child {
+        display: none;
+      }
+
+      .intervention-frame {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .diagnostic-card {
+        padding: var(--space-md);
+      }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-metal">
+  <header>
+    <div class="container">
+      <h1><a href="index.html" style="text-decoration: none; color: inherit;">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Intro -->
+    <section class="audit-intro" style="padding-top: var(--space-xl);">
+      <h2 style="font-size: 2rem; color: var(--teal-dark); margin-bottom: var(--space-sm);">The Tetrahedral Integrity Audit</h2>
+      <p class="lead">When a system loses coherence, stop looking for the force that wasn't strong enough to hold it up. Stop looking for the compression. Look for the geometry. Look for the missing vertex.</p>
+
+      <p>Most failing systems are trying to build a world out of triangles. They have strong relationships, rigid agreements, perhaps even perfect clarity. But they stopped at three. They built a plane that could cut the world in two, but never built the fourth point that would let them live inside it.</p>
+
+      <p>A triangle is flat. Three vertices define a plane — a surface that divides but cannot contain. A tetrahedron is the minimum structure that holds volume. Four vertices, six edges, four faces. It is the simplest shape that can enclose space — the simplest geometry in which things can actually happen.</p>
+
+      <p>This audit is a tool for finding the missing vertex.</p>
+    </section>
+
+    <!-- Diagnostic Card -->
+    <div class="diagnostic-card">
+      <h3>Diagnostic: The Missing Vertex</h3>
+      <p class="card-subtitle">When the system loses coherence, which vertex is missing?</p>
+      <div class="vertex-grid">
+        <div class="vertex-item v-differentiation">
+          <strong>Differentiation</strong>
+          <span class="vertex-question">Do we know who we are?</span>
+        </div>
+        <div class="vertex-item v-connection">
+          <strong>Connection</strong>
+          <span class="vertex-question">Are we genuinely in contact?</span>
+        </div>
+        <div class="vertex-item v-boundaries">
+          <strong>Boundaries</strong>
+          <span class="vertex-question">Is the limit legible?</span>
+        </div>
+        <div class="vertex-item v-architecture">
+          <strong>Architecture</strong>
+          <span class="vertex-question">Are we building capacity?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 1: Axiomatic Check -->
+    <section class="phase">
+      <div class="phase-label">Phase 1</div>
+      <h2>Axiomatic Check</h2>
+      <p>Identify which basic laws are currently being violated.</p>
+
+      <table class="axiom-table">
+        <thead>
+          <tr>
+            <th>Axiom</th>
+            <th>The Question</th>
+            <th>Evidence of Violation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="axiom-name ax-diff">Differentiation</span></td>
+            <td>Does everyone know exactly who they are and who they are not?</td>
+            <td class="evidence-example">Role creep. "We do everything for everyone." Positions that collapsed into consensus.</td>
+          </tr>
+          <tr>
+            <td><span class="axiom-name ax-conn">Connection</span></td>
+            <td>Is there genuine contact, or just proximity?</td>
+            <td class="evidence-example">Meetings with no decisions. Emails with no meaningful exchange. Performing presence.</td>
+          </tr>
+          <tr>
+            <td><span class="axiom-name ax-bound">Boundaries</span></td>
+            <td>Are limits treated as information or as failures?</td>
+            <td class="evidence-example">Hiding bad news. Overworking to mask capacity gaps. Apologizing for structural reality.</td>
+          </tr>
+          <tr>
+            <td><span class="axiom-name ax-arch">Architecture</span></td>
+            <td>Is surplus energy building something lasting?</td>
+            <td class="evidence-example">Firefighting the same issues weekly. "Treading water." Nothing accumulates across exchanges.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Phase 2: Theorem Application -->
+    <section class="phase">
+      <div class="phase-label">Phase 2</div>
+      <h2>Theorem Application</h2>
+      <p>Predict the specific failure mode based on the axioms above.</p>
+
+      <div class="warning-block">
+        <div class="warning-label">The Burnout Cycle</div>
+        <h4>Someone is performing beyond their capacity to maintain a boundary.</h4>
+        <p>The organization has adapted to their over-performance rather than the reality of the role. The hero keeps holding. Everyone else calibrates to the hero's output. When the hero finally breaks, the system is shocked — but the structure was already degraded. It was just invisible because one person was absorbing the load.</p>
+        <p class="result">→ Structural degradation disguised as heroism.</p>
+      </div>
+
+      <div class="warning-block">
+        <div class="warning-label">The Transaction Trap</div>
+        <h4>We don't really know who is involved.</h4>
+        <p>Differentiation has collapsed, so no one is sure what anyone actually brings or actually needs. Without that clarity, the system defaults to rigid contracts, score-keeping, and CYA documentation. Trust can't form because there's nothing distinct enough to trust.</p>
+        <p class="result">→ High friction, low speed. Everything requires negotiation that genuine clarity would make unnecessary.</p>
+      </div>
+
+      <div class="warning-block">
+        <div class="warning-label">The Dependency Loop</div>
+        <h4>One side is providing too much.</h4>
+        <p>The giver's capacity becomes the receiver's infrastructure. The receiver never develops their own architecture because the need is always met before it becomes pressure to build. This looks like generosity. It functions as a ceiling on the other party's development.</p>
+        <p class="result">→ Permanent infancy of the dependent party. The gift that prevents growth.</p>
+      </div>
+
+      <div class="warning-block">
+        <div class="warning-label">The Poison Gift</div>
+        <h4>Giving is happening from depletion or obligation.</h4>
+        <p>The giver doesn't have genuine surplus — they're giving from scarcity, duty, or the need to be needed. The gift arrives carrying invisible debt. The receiver senses the weight but can't name it. Connection corrodes from the inside.</p>
+        <p class="result">→ Hidden resentment rather than circulation. Debt disguised as generosity.</p>
+      </div>
+    </section>
+
+    <!-- Phase 3: Strategic Intervention -->
+    <section class="phase">
+      <div class="phase-label">Phase 3</div>
+      <h2>Strategic Intervention</h2>
+      <p>Withdrawal that deposits a gift at the boundary.</p>
+
+      <div class="intervention-frame">
+        <div class="diagnostic-question">"Where must we place a limit to force the system to develop new capacity — and what do we leave at the threshold?"</div>
+
+        <ul class="move-list">
+          <li>
+            <span class="move-label">Where to withdraw</span>
+            <span class="move-placeholder">Identify the specific dependency. What are you providing that the system has adapted to instead of developing its own capacity?</span>
+          </li>
+          <li>
+            <span class="move-label">What to leave at the boundary</span>
+            <span class="move-placeholder">The tool, template, framework, or documented process that enables self-organization. Not instructions that require your interpretation — something the system can pick up and use without you.</span>
+          </li>
+          <li>
+            <span class="move-label">The expected crisis</span>
+            <span class="move-placeholder">Name it honestly. The system was adapted to your presence. It will struggle. That struggle is not failure — it's the pressure differential that forces new architecture to develop.</span>
+          </li>
+          <li>
+            <span class="move-label">The architectural goal</span>
+            <span class="move-placeholder">What new capacity must the system develop? Be specific. Not "they need to step up" but "they need a QA process" or "they need to hold their own emotional space."</span>
+          </li>
+          <li>
+            <span class="move-label">The test</span>
+            <span class="move-placeholder">Does the gift transfer autonomy, or does it create new dependency? If what you leave behind requires you to maintain it, explain it, or administer it — it's not a gift. It's a leash.</span>
+          </li>
+        </ul>
+      </div>
+
+      <p style="margin-top: var(--space-lg);">The withdrawal without the gift is abandonment. The gift without the withdrawal is enabling. Together they create the conditions where the receiving system must develop new architecture — because the old dependency is gone, but the information for how to build is right there at the threshold.</p>
+    </section>
+
+    <!-- Phase 4: Locate Yourself -->
+    <section class="phase">
+      <div class="phase-label">Phase 4</div>
+      <h2>Locate Yourself</h2>
+      <p>Before you design the withdrawal. Before you decide what to leave at the boundary. Find the vertex you've been compensating for.</p>
+
+      <p>Every failing system has someone absorbing the missing piece. A person holding the boundary the organization won't formalize. A team maintaining connection the culture doesn't value. Someone performing the differentiation that leadership collapsed into consensus. An individual whose surplus is being consumed as the architecture the system refuses to build.</p>
+
+      <p>This compensation looks like contribution. You're the reliable one, the one who cares, the one who catches what falls. The system calibrated to your output rather than to the structural reality of the role. And because you're absorbing the load, the gap stays invisible.</p>
+
+      <div class="intervention-frame">
+        <div class="diagnostic-question">"What have I been providing that the system adapted to instead of building?"</div>
+
+        <ul class="move-list">
+          <li>
+            <span class="move-label">What would break if you stopped?</span>
+            <span class="move-placeholder">Name the specific function, not the general contribution. Not "I hold things together" but "I translate between two teams who won't talk directly" or "I absorb emotional volatility so others can focus."</span>
+          </li>
+          <li>
+            <span class="move-label">What would have to develop in your absence?</span>
+            <span class="move-placeholder">This is the capacity the system needs but hasn't built because your presence made it unnecessary. The answer points to the intervention.</span>
+          </li>
+          <li>
+            <span class="move-label">What would you grieve?</span>
+            <span class="move-placeholder">The compensation isn't just structural. It's identity. It's the part of you that knows you're needed, that finds purpose in the gap. Letting go of that role is the price of the deposit.</span>
+          </li>
+        </ul>
+      </div>
+
+      <p>The deposit isn't just what you leave at the boundary. It's what you let go of about yourself. A tool, a template, a framework, a documented process — whatever enables the system to build what it needs without requiring your continued presence. Something the system can pick up and use without you. Something that works whether or not anyone knows who put it there.</p>
+
+      <p>That's how coordination happens without transaction. Not through exchange between agents, but through accumulated deposits at boundaries that modify the terrain for everyone who passes through.</p>
+    </section>
+
+    <!-- Closing geometry -->
+    <div class="geometry-block">
+      <blockquote>When you look at a failing organization or a collapsed relationship, stop looking for the force that wasn't strong enough to hold it up. Instead, look for the geometry. Look for the missing vertex. You will find, almost always, that they were trying to build a world out of triangles.</blockquote>
+      <p style="text-align: center; color: var(--warm-gray); font-size: 0.95rem;">The tetrahedral integrity audit doesn't fix systems. It makes visible what's missing so the system can build what it actually needs.</p>
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>This tool is offered freely as part of the Recognition Infrastructure framework.</p>
+      <p>Use it. Adapt it. Share it. Credit the lineage.</p>
+      <p>If it improves your capacity to coordinate, that's the validation.</p>
+      <p style="margin-top: var(--space-md); font-style: normal; font-size: 0.8rem; color: var(--warm-gray);">Kevin Mears · 2026 · <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

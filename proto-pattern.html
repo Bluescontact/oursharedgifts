@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Proto-Pattern: Why the tetrahedron is the minimum system — four vertices, six edges, four faces, one whole. The geometry of coordination.">
+  <title>The Proto-Pattern — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Proto-Pattern */
+
+    .pp-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .pp-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .pp-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .pp-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .pp-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pp-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .pp-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Numbers display */
+    .numbers-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .numbers-row .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-3xl);
+      font-weight: 600;
+      color: var(--teal-primary);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 48px;
+      text-align: center;
+    }
+
+    .numbers-row .num-content p {
+      margin-bottom: var(--space-xs);
+    }
+
+    .numbers-row .num-content p:first-child {
+      font-weight: 600;
+      color: var(--warm-black);
+    }
+
+    .numbers-row .num-content p:last-child {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      margin-bottom: 0;
+    }
+
+    /* Vertex cards */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .vertex-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 4px solid;
+    }
+
+    .vertex-card.v-diff { border-left-color: var(--v-differentiation); }
+    .vertex-card.v-conn { border-left-color: var(--v-connection); }
+    .vertex-card.v-bound { border-left-color: var(--v-boundaries); }
+    .vertex-card.v-arch { border-left-color: var(--v-architecture); }
+
+    .vertex-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .vertex-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Face/failure blocks */
+    .face-block {
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-md);
+      border-left: 3px solid var(--teal-border);
+      background: var(--cream-dark);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+
+    .face-block strong {
+      display: block;
+      color: var(--warm-black);
+      margin-bottom: var(--space-xs);
+    }
+
+    .face-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Blockquote pull */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pp-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .numbers-row { flex-direction: column; gap: var(--space-sm); }
+      .numbers-row .num { width: auto; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="pp-intro">
+      <div class="label">The Minimum System</div>
+      <h2>The Proto-Pattern</h2>
+      <p class="lead">Three points make a plane. A plane divides, but it doesn't enclose. You can stand on one side or the other, but there is no inside. No outside. No system. Add a fourth point &mdash; not on that plane &mdash; and something happens that can't be undone. You get a tetrahedron. Four vertices, six edges, four faces. And with it, for the first time, you get <em>inside</em> and <em>outside</em> simultaneously. You cannot have enclosure with fewer elements. This is not a design choice. It's a geometric fact.</p>
+    </section>
+
+    <div class="pp-content">
+
+      <!-- ═══ WHY THIS MATTERS ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">The distinction</div>
+        <h3>Shape versus system</h3>
+
+        <p>Fuller called the tetrahedron the minimum system. Not the minimum shape, not the minimum structure &mdash; the minimum <em>system</em>. The distinction matters. A shape is something you look at. A system is something that differentiates. The tetrahedron is the first geometric act that creates a boundary &mdash; and the boundary doesn't block. It relates. It says: here is what's inside, here is what's outside, and here is the surface where they meet.</p>
+
+        <p>Every living system performs this operation. A cell membrane. A skin. A self. Anything that distinguishes what it is from what it isn't has already solved the tetrahedral problem, whether or not it knows the geometry.</p>
+
+        <div class="structural-note">
+          <strong>The structural difference:</strong> Most boundaries are planar &mdash; they divide but don't enclose. Planar boundaries require constant compression to maintain (hierarchy, enforcement, oversight). Tetrahedral boundaries are self-maintaining through their relationships. Every vertex connected to every other vertex. The structure holds because the geometry itself is coherent. The energy goes into exchange across the membrane, which is what boundaries are actually for.
+        </div>
+      </section>
+
+      <!-- ═══ THE NUMBERS ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">The geometry</div>
+        <h3>4 &middot; 6 &middot; 4 &middot; 1</h3>
+
+        <div class="numbers-row">
+          <div class="num">4</div>
+          <div class="num-content">
+            <p>Vertices: Four Capacities</p>
+            <p>Differentiation, Connection, Boundaries, Architecture. Each names something the system must be able to do. Remove one and the structure doesn't degrade gradually &mdash; it collapses into a plane. A phase transition, not a matter of degree.</p>
+          </div>
+        </div>
+
+        <div class="numbers-row">
+          <div class="num">6</div>
+          <div class="num-content">
+            <p>Edges: Six Relationships</p>
+            <p>Every vertex connected to every other vertex. No hierarchy, no sequence. Differentiation relates to Connection. Boundaries relate to Architecture. Weaken any edge and you weaken the whole. The movements are simultaneous, not sequential.</p>
+          </div>
+        </div>
+
+        <div class="numbers-row">
+          <div class="num">4</div>
+          <div class="num-content">
+            <p>Faces: Four Failure Modes</p>
+            <p>Each face is the triangle visible when one vertex is missing. These are the characteristic ways systems fail &mdash; coherent but incomplete. The system trying to build a world out of triangles when it needs a tetrahedron.</p>
+          </div>
+        </div>
+
+        <div class="numbers-row">
+          <div class="num">1</div>
+          <div class="num-content">
+            <p>Whole: The Complete System</p>
+            <p>When all four vertices hold, the system generates capacity beyond what any vertex contributes alone. This is architectural surplus &mdash; the emergent property of complete structure. Pour water onto a plane, it runs off in every direction. Pour it into a tetrahedron and it's held. The difference isn't the water. It's the geometry.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ THE FOUR VERTICES ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">The capacities</div>
+        <h3>Four vertices</h3>
+
+        <p>Each vertex represents a capacity the system must maintain. Not four things to balance &mdash; four structural requirements for enclosure. Together they form the minimum coherence required for genuine exchange.</p>
+
+        <div class="vertex-grid">
+          <div class="vertex-card v-diff">
+            <h4>Differentiation</h4>
+            <p>Knowing what you are. Distinct identity must exist before relationship is possible. Without clear boundaries defining "this is what I am," there's no self to offer anything from. Differentiation precedes connection. It's the prerequisite for authentic presence.</p>
+          </div>
+
+          <div class="vertex-card v-conn">
+            <h4>Connection</h4>
+            <p>Contact with what's outside. Once differentiation exists, connection happens through circulation rather than merger. Value flows between distinct beings. Connection without differentiation becomes fusion. Differentiation without connection becomes isolation.</p>
+          </div>
+
+          <div class="vertex-card v-bound">
+            <h4>Boundaries</h4>
+            <p>Legible surface. Boundaries aren't walls preventing connection. They're information systems revealing what's actually possible, creating containers where transformation can occur. Clarity about limits makes genuine exchange possible.</p>
+          </div>
+
+          <div class="vertex-card v-arch">
+            <h4>Architecture</h4>
+            <p>Building beyond yourself. Surplus must build capacity rather than maintain dependency. Infrastructure that increases collective capability persists beyond any individual's presence. Architecture translates coordination into systems that outlast their founders.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ THE FOUR FACES ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">The failure modes</div>
+        <h3>When the system collapses</h3>
+
+        <p>Remove any single vertex and the tetrahedron collapses into a triangle. Not a slightly degraded system &mdash; a plane. A plane divides but does not hold. This is why partial solutions don't gradually improve with effort. They're structurally incomplete. They need the missing vertex, not more of the ones they have.</p>
+
+        <div class="face-block">
+          <strong>Without Differentiation</strong>
+          <p>Coordinates but doesn't know what it is. Excellent infrastructure, clear boundaries, genuine connection &mdash; but no distinct identity. It serves something external rather than expressing something of its own. The system that does everything for everyone and stands for nothing.</p>
+        </div>
+
+        <div class="face-block">
+          <strong>Without Connection</strong>
+          <p>Structured but isolated. Clear identity, good boundaries, solid infrastructure &mdash; but no genuine contact with others. Beautiful internal coherence. No circulation. No multiplication of value across the membrane.</p>
+        </div>
+
+        <div class="face-block">
+          <strong>Without Boundaries</strong>
+          <p>Flows without holding. Energy disperses. Nothing stays put. Relationships become enmeshment. The gift becomes sacrifice. Connection without boundaries becomes absorption.</p>
+        </div>
+
+        <div class="face-block">
+          <strong>Without Architecture</strong>
+          <p>Coherent but builds nothing. Beautiful relationships, clear identity, permeable boundaries &mdash; but everything dissolves once the moment passes. Nothing gets built. Capacity is spent rather than compounded.</p>
+        </div>
+
+        <div class="structural-note">
+          <strong>The diagnostic:</strong> Count the vertices. Find the missing one. The geometry tells you what the system needs &mdash; not more of what it already has, but the specific capacity whose absence collapses volume into surface.
+        </div>
+      </section>
+
+      <!-- ═══ WHY FOUR ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">The necessity</div>
+        <h3>Why four? The geometry of enough</h3>
+
+        <p>This isn't aesthetic preference. It's structural necessity.</p>
+
+        <p>Three vertices give you a triangle &mdash; structurally rigid in two dimensions but encloses nothing. You can't contain anything. You can't distribute load into volume. You can't create a system; you can only map one dimension onto a plane.</p>
+
+        <p>Five vertices introduce redundancy. The extra vertex doesn't add a new structural capacity; it subdivides an existing one. You get dependency and hierarchy, not equivalence. The system becomes more fragile, not stronger.</p>
+
+        <p>Four is the minimum that encloses space, distributes load equally, creates diagnosable failure when any element is removed, allows every vertex to contact every other vertex directly, and generates emergent properties absent from any subset.</p>
+
+        <div class="pull">The tetrahedron is the geometry of "enough." Not abundance, not scarcity &mdash; sufficiency. Below this threshold, adding more resources doesn't help because you don't have a system to organize them. Above it, the system can grow, adapt, and transform without losing coherence. The tetrahedron isn't a ceiling. It's a floor &mdash; the minimum from which everything else becomes possible.</div>
+
+        <p>The tetrahedron isn't chosen. It's discovered. It's the geometry that nature uses: water molecules, methane, the tetrahedral lattice of silicon. It's not a metaphor. It's a pattern that appears when you ask what's the minimum stable arrangement for genuine coherence.</p>
+      </section>
+
+      <!-- ═══ WHAT COMES NEXT ═══ -->
+      <section class="pp-section">
+        <div class="phase-label">Continue</div>
+        <h3>From geometry to practice</h3>
+
+        <p>The Proto-Pattern explains what must be present for coordination to hold &mdash; the minimum structural requirements. The next step is understanding how these four vertices move and relate dynamically, and then what to actually do about it.</p>
+
+        <p><a href="four-dynamics.html">The Four Dynamics</a> describe how the vertices interact across six source frameworks. <a href="four-thresholds.html">The Four Thresholds</a> provide the minimal viable practice &mdash; the entry point that contains the whole pattern. <a href="tetrahedral-audit.html">The Tetrahedral Audit</a> is the diagnostic tool for when something's broken.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>The Proto-Pattern is a diagnostic tool. Use it to examine any system you're part of &mdash; a family, a team, a community, an economy. Ask: which vertex is strong? Which is missing? The geometry tells you what the system needs. The diagnosis often reveals the path forward more clearly than any prescription could.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

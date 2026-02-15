@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aquaponics Growing Systems — DWC tables, ebb/flow media beds with light deprivation, dual root zone method, fish cascade, and crop planning for year-round restaurant production.">
+  <title>Growing Systems — Aquaponics Greenhouse — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gs-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .gs-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .gs-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .gs-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .gs-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .gs-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .gs-section p {
+      color: var(--warm-dark);
+    }
+
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* System cards */
+    .system-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .system-card .sc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .system-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .system-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .system-card .sc-specs {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--warm-light);
+      line-height: 1.8;
+    }
+
+    /* Cascade flow diagram */
+    .cascade-flow {
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--warm-dark);
+      line-height: 2.2;
+      text-align: center;
+    }
+
+    .cascade-flow .flow-step {
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+
+    .cascade-flow .flow-arrow {
+      display: block;
+      color: var(--teal-primary);
+      font-size: var(--text-sm);
+    }
+
+    /* Zone cards for dual root zone */
+    .zone-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .zone-card {
+      padding: var(--space-lg);
+      border-radius: var(--border-radius);
+    }
+
+    .zone-card.aerobic {
+      background: var(--teal-faint);
+    }
+
+    .zone-card.anaerobic {
+      background: var(--cream-dark);
+    }
+
+    .zone-card .z-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .zone-card.aerobic .z-label { color: var(--teal-primary); }
+    .zone-card.anaerobic .z-label { color: var(--warm-light); }
+
+    .zone-card p {
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .zone-card.aerobic p { color: var(--warm-dark); }
+    .zone-card.anaerobic p { color: var(--warm-gray); }
+
+    /* Vertex grid */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+
+    .v-card .v-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+
+    .v-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .v-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .gs-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .zone-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="gs-intro">
+      <div class="phase-label"><a href="project-aquaponics.html" style="color: inherit; text-decoration: none;">Aquaponics Greenhouse</a> &middot; Growing systems</div>
+      <h2>Growing Systems</h2>
+      <p class="lead">Two production systems running simultaneously in the same water. Deep water culture tables turn over lettuce and greens on 4-6 week cycles for volume and consistency. Media beds hold tomatoes and peppers in perpetual harvest, forced into production year-round by light deprivation. One gravity cascade feeds both. One isolation valve protects both from fish system failure.</p>
+    </section>
+
+    <div class="gs-content">
+
+      <!-- ═══ THE CASCADE ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Water flow</div>
+        <h3>The gravity cascade</h3>
+
+        <p>The entire water system is gravity-fed from the entrance end of the greenhouse, which sits at grade level &mdash; the highest elevation point. A 5,000-gallon round tank serves as the main fish habitat, staged at the entrance with three IBC biofilters and the aeration drum. The three IBC totes function as fish breeding tanks &mdash; maintaining stocking capacity for the main tank without requiring external fish purchases once the system is established. Water overflows from the main tank through the biofilter cascade, through aeration, and into the growing zone in the pit below. One pump at the bottom returns water to the top. Everything else flows downhill.</p>
+
+        <div class="cascade-flow">
+          <span class="flow-step">5,000 gal Round Tank &mdash; main fish habitat at entrance</span>
+          <span class="flow-arrow">&darr; gravity overflow</span>
+          <span class="flow-step">3&times; IBC Biofilters &mdash; ammonia &rarr; nitrite &rarr; nitrate</span>
+          <span class="flow-arrow">&darr; gravity cascade</span>
+          <span class="flow-step">Aeration Drum &mdash; [isolation valve here]</span>
+          <span class="flow-arrow">&darr; gravity flow</span>
+          <span class="flow-step">DWC Tables &amp; Media Beds &mdash; growing zone</span>
+          <span class="flow-arrow">&darr; drain</span>
+          <span class="flow-step">Sump Reservoir &mdash; lowest point</span>
+          <span class="flow-arrow">&uarr; pump return (only powered component in the loop)</span>
+          <span class="flow-step">5,000 gal Round Tank</span>
+        </div>
+
+        <p>Three IBC totes alongside the main tank serve as breeding and nursery tanks, allowing the system to maintain its own fish population indefinitely. This closes the biological loop &mdash; the system doesn't depend on external fish supply once established.</p>
+
+        <p>The isolation valve at the aeration drum exit is the critical boundary. If the fish crash: close the valve, drain contaminated water from the growing zone, switch to hydroponic nutrient solution. Plants continue producing with zero downtime while fish biology is rebuilt in parallel. This prevents cascade failure &mdash; the most expensive failure mode in aquaponics.</p>
+
+        <p>The single-pump design means the system continues flowing by gravity if the pump fails temporarily. No complex manifolds or multiple pump synchronization. Physics-based reliability.</p>
+      </section>
+
+      <!-- ═══ FISH ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Fish system</div>
+        <h3>Goldfish to koi</h3>
+
+        <p>The main habitat is a 5,000-gallon round tank at the entrance staging area. Start with feeder goldfish &mdash; cheap, hardy, proven bioculture. One hundred to two hundred fish establish the bacterial colonies that run the nitrogen cycle. The investment is fifty dollars, not five thousand. Test system failure modes with expendable stock. Once the nitrogen cycle is stable and water chemistry is consistent, transition to koi. Koi tolerate wide temperature ranges, are legal in New Mexico (tilapia are not), and have ornamental market value as a secondary revenue stream once the system matures.</p>
+
+        <p>Three IBC totes serve as breeding and nursery tanks. Once the koi population is established, these tanks maintain stocking capacity for the main tank indefinitely &mdash; no external fish purchases required. This closes the last input dependency in the biological system.</p>
+
+        <p>Continuous aeration in fish tanks is non-negotiable. Minimum 1 CFM per 10 gallons in the DWC zone &mdash; roughly 280 CFM of air pump capacity across the system. Air pumps draw approximately 300 watts continuous. Fish die without oxygen. This is the load that must never be interrupted, which is why the power system phase gate exists on the main project page.</p>
+      </section>
+
+      <!-- ═══ DWC ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Primary revenue</div>
+        <h3>Deep water culture tables</h3>
+
+        <div class="system-card">
+          <div class="sc-label">DWC production</div>
+          <h4>Lettuce, greens, and herbs</h4>
+          <p>Two parallel tables, each 3 feet wide by 75 feet long, maintaining 12 inches of water depth with floating rafts. Standard 3&prime;&times;2&prime; rafts with 12 net cups each &mdash; 37 rafts per table, 888 heads at full capacity across both tables. Roots stay continuously submerged in nutrient solution. Plants show immediate visual signs of nutrient or pH issues, allowing rapid response. Harvest involves lifting the raft and cutting at stem base &mdash; minimal root disturbance, immediate replanting.</p>
+          <p>The tables hold roughly 2,800 gallons of water &mdash; thermal mass that stabilizes root zone temperature regardless of air temperature swings above.</p>
+          <div class="sc-specs">2&times; 75 ft &times; 3 ft tables &middot; 12&Prime; water depth &middot; 888 head capacity &middot; 4-6 week cycles &middot; ~2,800 gal thermal mass</div>
+        </div>
+
+        <p>Mixed production model: 75% whole heads (buttercrunch, romaine) at $3.50 per head wholesale, 25% spring mix at $9-12 per pound. Conservative harvest rate at 6-week cycles: 148 heads per week. At full capacity, the DWC alone generates $27,000-30,000 annually from lettuce. This is the primary revenue engine &mdash; consistent, predictable, fast-cycling crop that restaurants order weekly.</p>
+      </section>
+
+      <!-- ═══ MEDIA BEDS ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Premium production</div>
+        <h3>Ebb/flow media beds with light deprivation</h3>
+
+        <div class="system-card">
+          <div class="sc-label">Media bed production</div>
+          <h4>Tomatoes, peppers, cucumbers &mdash; year-round</h4>
+          <p>A series of 3-foot by 12-foot tables totaling approximately 80 linear feet of growing space. Hydroton expanded clay media with bell siphon automation &mdash; flood to 4 inches, auto-drain when level is reached. No timers, no sensors, no human judgment. Pump flow rate and table volume determine cycle time. Set it once during construction; it runs indefinitely.</p>
+          <p>Integrated light deprivation system controls photoperiod regardless of outdoor day length. A tomato plant can be maintained in vegetative growth indefinitely under long-day conditions, then triggered to flower and fruit on command during winter months when market prices are highest and local supply is nonexistent. Perpetual staggered harvest &mdash; plants at different stages producing continuously.</p>
+          <div class="sc-specs">~80 linear ft &middot; 3 ft &times; 12 ft tables &middot; ~240 sq ft &middot; hydroton media &middot; bell siphon automation &middot; integrated light dep</div>
+        </div>
+
+        <p>Winter tomatoes from local production command premium restaurant prices. This is produce that chefs need year-round and can almost never source locally between October and May in New Mexico. The light deprivation system is what makes year-round fruiting possible &mdash; it's not supplemental lighting, it's photoperiod control. Blackout covers trigger flowering on demand.</p>
+      </section>
+
+      <!-- ═══ DUAL ROOT ZONE ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Soil biology in a soilless system</div>
+        <h3>Dual root zone method</h3>
+
+        <p>The media beds run the Steve Dread dual root zone system with red wiggler worms colonizing the hydroton. This creates two distinct microbial environments in the same bed &mdash; something standard aquaponics doesn't achieve.</p>
+
+        <div class="zone-pair">
+          <div class="zone-card aerobic">
+            <div class="z-label">Upper zone &mdash; aerobic, fungal</div>
+            <p>Drier, oxygen-rich environment above the flood line. Mycorrhizal fungi colonize this zone, providing nutrient diversity and micronutrient access that aquaponic water alone doesn't supply. This mimics the fine feeder root niche in natural soil.</p>
+          </div>
+          <div class="zone-card anaerobic">
+            <div class="z-label">Lower zone &mdash; water, bacterial</div>
+            <p>Saturated during flood cycles. Dominated by lactic acid bacteria. Direct mineral uptake from the aquaponic water. This mimics the tap root niche in natural soil.</p>
+          </div>
+        </div>
+
+        <p>The bell siphon integrates both zones: flood to 4 inches saturates the lower zone and aerates the upper, then complete drain gives both zones fresh oxygen while the upper dries faster, favoring fungal growth. Worms process solid waste into castings within the bed. Fungi extend nutrient reach beyond what water chemistry provides. Bacteria handle nitrogen cycling. Three biological systems in one media bed, each occupying its own niche. Greater nutrient diversity than aquaponics or hydroponics alone, with redundant nutrition pathways.</p>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Connection</h4>
+            <p>The gravity cascade IS connection &mdash; fish waste to bacterial conversion to plant nutrition to filtered water returned to fish. Every component feeds every other. The dual root zone adds a second layer: fungal networks connecting what water chemistry alone can't reach.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>DWC tables, media beds, bell siphons, cascade flow &mdash; production infrastructure designed in detail. The mixed production model and crop rotation create business architecture. 888 heads plus perpetual media bed harvest equals year-round restaurant supply.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Differentiation</h4>
+            <p>DWC and media beds are clearly distinct systems optimized for different crops. But the crop planning &mdash; exactly which varieties, stagger timing, seasonal adjustments &mdash; develops through operation. The system is designed for specificity it hasn't yet achieved.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Boundaries</h4>
+            <p>The isolation valve is the defining boundary. If fish die, close the valve, switch to hydroponic nutrients, and the current crop finishes without interruption. Without this boundary, a fish die-off cascades into total production loss. The valve makes the system's failure mode partial rather than total &mdash; the boundary between fish biology and plant production is what protects revenue continuity.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="gs-section">
+        <div class="phase-label">Continue</div>
+        <h3>The systems that support this one</h3>
+
+        <p>These growing systems depend on stable climate and reliable automation. For how the greenhouse maintains temperature year-round without mechanical heating or cooling: <a href="aq-climate.html">Climate Battery</a>. For the sensor and control layer that enables 3-5 day autonomous operation: <a href="aq-automation.html">Automation &amp; Monitoring</a>. For the full project overview: <a href="project-aquaponics.html">Aquaponics Greenhouse</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>DWC tables, bell siphons, and dual root zone methods are open knowledge built by practitioners over decades. Steve Dread's innovation, the hexayurt community's refinements, and every aquaponics operator who documented what worked and what didn't &mdash; this page compiles what they've shared. The specific configuration documented here is offered in the same register.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="project-aquaponics.html" style="color: var(--teal-primary);">Aquaponics Greenhouse</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Climate Battery — passive geothermal heating and cooling for year-round greenhouse production at 6,000 feet. Buried PVC ground loops, pusher-puller fan system, geological climate control.">
+  <title>Climate Battery — Aquaponics Greenhouse — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cb-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .cb-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .cb-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .cb-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .cb-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .cb-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .cb-section p {
+      color: var(--warm-dark);
+    }
+
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Mode cards — summer vs winter */
+    .mode-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .mode-card {
+      padding: var(--space-lg);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--teal-border);
+    }
+
+    .mode-card.summer {
+      background: rgba(217, 83, 30, 0.06);
+      border-color: rgba(217, 83, 30, 0.2);
+    }
+
+    .mode-card.winter {
+      background: rgba(41, 128, 185, 0.06);
+      border-color: rgba(41, 128, 185, 0.2);
+    }
+
+    .mode-card .m-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .mode-card.summer .m-label { color: #b84c1a; }
+    .mode-card.winter .m-label { color: #2471a3; }
+
+    .mode-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .mode-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Specs grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background-color: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .spec-item {
+      padding: var(--space-md);
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+    }
+
+    .spec-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--warm-light);
+      margin-bottom: var(--space-xs);
+    }
+
+    .spec-value {
+      font-size: 1rem;
+      color: var(--warm-black);
+      font-weight: 600;
+    }
+
+    .spec-note {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      margin-top: 4px;
+    }
+
+    /* Vertex grid */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+
+    .v-card .v-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+
+    .v-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .v-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .cb-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .mode-pair { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="cb-intro">
+      <div class="phase-label"><a href="project-aquaponics.html" style="color: inherit; text-decoration: none;">Aquaponics Greenhouse</a> &middot; Climate battery</div>
+      <h2>Climate Battery</h2>
+      <p class="lead">The energy cost of heating and cooling kills most greenhouse operations at altitude. This system makes climate control geological rather than mechanical. A pit, buried pipes, and earth berms store and release thermal energy passively. The greenhouse runs on sunlight and thermal mass while retaining redundant systems and capacity to adapt to extremes.</p>
+    </section>
+
+    <div class="cb-content">
+
+      <!-- ═══ THE PRINCIPLE ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">The principle</div>
+        <h3>Why a pit</h3>
+
+        <p>At 6,000 feet in central New Mexico, outdoor temperatures swing from over 95&deg;F in summer to below -10&deg;F in winter. Wind regularly exceeds 75 mph. A conventional greenhouse in these conditions requires massive energy input &mdash; heating all winter, cooling all summer, fighting the climate every day of the year. Most operations can't afford it. The ones that try burn through their margins on propane.</p>
+
+        <p>A climate battery inverts the problem. Instead of fighting the environment, it uses the ground itself as a thermal reservoir. Earth below 6 feet stays at a relatively stable temperature year-round &mdash; roughly 55&deg;F in this region. Even at 3.5 to 4 feet of depth, the diurnal temperature swing is dramatically dampened. Bury pipes in that ground, push air through them, and the earth absorbs excess heat in summer and releases stored heat in winter. The greenhouse becomes a system that breathes through the ground rather than battling the sky.</p>
+
+        <div class="pull">This isn't a heated greenhouse. It's a climate battery. The pit gets root zones below freeze line. The berms store and release thermal energy. The greenhouse structure captures solar gain and contains the regulated atmosphere. Every component participates in thermal regulation without consuming fuel.</div>
+      </section>
+
+      <!-- ═══ THE PIT ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Excavation</div>
+        <h3>Pit geometry</h3>
+
+        <p>The greenhouse sits over a 22-foot wide, 80-foot long, 3.5 to 4-foot deep excavated pit. The pit starts 15 feet past the entrance and ends 5 feet before the rear wall. Those 15 feet at the entrance provide utility space at grade level for the fish tanks, biofilters, and equipment staging. The 5 feet at the rear provide processing and harvest workspace.</p>
+
+        <p>Four-foot wide earth shelves remain at original grade on each side, running the full 80-foot length. These become work platforms, propagation staging, harvest container storage, and supplemental growing space. Working from the shelf down into the pit is ergonomically sound &mdash; plants in the pit are at waist to chest height from the shelf.</p>
+
+        <p>The excavated material &mdash; roughly 195 cubic yards of clay-rich soil &mdash; forms wind berms 20 to 30 feet on each side of the greenhouse. Nothing leaves the site. The waste from excavation becomes critical infrastructure: wind protection, thermal mass, and the burial medium for the ground loop pipes.</p>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Pit Dimensions</div>
+            <div class="spec-value">22 ft &times; 80 ft &times; 4 ft</div>
+            <div class="spec-note">~195 cubic yards excavated</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Earth Shelves</div>
+            <div class="spec-value">4 ft wide &times; 80 ft</div>
+            <div class="spec-note">Both sides, at original grade</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Entrance Utility</div>
+            <div class="spec-value">15 ft at grade</div>
+            <div class="spec-note">Fish tanks, biofilters, equipment</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Rear Processing</div>
+            <div class="spec-value">5 ft at grade</div>
+            <div class="spec-note">Harvest, packing, staging</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Wind Berms</div>
+            <div class="spec-value">20-30 ft each side</div>
+            <div class="spec-note">Excavated material, shaped</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Excavation Method</div>
+            <div class="spec-value">Kubota L2501</div>
+            <div class="spec-note">Tractor with excavator attachment</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ GROUND LOOPS ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Thermal exchange</div>
+        <h3>Ground loop system</h3>
+
+        <p>Eight to ten 6-inch PVC pipes are buried in trenches under the wind berms, in runs of roughly 80 feet each. A pusher-puller fan system on a custom manifold circulates greenhouse air through the buried pipe network. The earth surrounding the pipes acts as the thermal exchange medium &mdash; absorbing heat when the air is hot, releasing it when the air is cool.</p>
+
+        <p>The pipe diameter matters. Six-inch PVC provides enough cross-sectional area for meaningful airflow without excessive velocity noise or pressure drop. Ten pipes at 6 inches gives roughly 2 square feet of total cross-section. At 800 feet per minute air velocity &mdash; reasonable for noise and efficiency &mdash; that's approximately 1,600 CFM of air movement through the thermal mass. Enough for a 3,000 square foot greenhouse.</p>
+
+        <p>The pusher-puller configuration &mdash; a fan at each end of the pipe run &mdash; ensures consistent airflow and prevents dead zones in the middle of the 80-foot runs. The manifold system connects all pipe runs to a common plenum so the fan system moves air through the entire network simultaneously. Flow direction can be reversed seasonally.</p>
+
+        <p>Condensation recovery is a side benefit. Hot humid air passing through cool underground pipes drops moisture. The pipes are sloped for drainage. In an arid environment at 6,000 feet, recovered water is irrigation supply that didn't come from the well.</p>
+      </section>
+
+      <!-- ═══ SEASONAL MODES ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Operation</div>
+        <h3>Two modes</h3>
+
+        <div class="mode-pair">
+          <div class="mode-card summer">
+            <div class="m-label">Summer cooling</div>
+            <h4>95&deg;F in &rarr; 65-70&deg;F out</h4>
+            <p>Fans push hot greenhouse air (95&deg;F+) through the buried pipe network. Earth at depth absorbs the heat. Air exits the pipes at 65-70&deg;F and returns to the greenhouse. The ground stores the absorbed heat for winter release. An evaporative cooler on the pre-cooled return air amplifies the effect &mdash; cooling already-cool air is dramatically more efficient than cooling hot air directly. In the driest summer conditions, this combination can maintain growing-zone temperatures below 85&deg;F without any mechanical refrigeration.</p>
+          </div>
+          <div class="mode-card winter">
+            <div class="m-label">Winter heating</div>
+            <h4>Stored solar gain released at night</h4>
+            <p>During sunny winter days, the greenhouse captures solar energy and interior air reaches 80-90&deg;F even when it's below freezing outside. Fans push this warm air into the ground loop, storing heat in the thermal mass. At night, when the greenhouse temperature drops, the stored warmth releases back through the same pipes. The thermal mass acts as a battery with approximately 48-hour lag &mdash; heat stored today releases over the next two nights. Combined with the aquaponics water volume (7,000-8,000 gallons of additional thermal mass), the system maintains growing-zone temperatures above critical thresholds through most winter nights.</p>
+          </div>
+        </div>
+
+        <p>The system has limits. Extended cloudy periods in winter reduce solar gain below what the thermal mass can store. Extreme cold snaps below -10&deg;F for multiple consecutive days may require backup heating for fish survival. These are the boundary conditions &mdash; the climate battery handles 90% of the thermal regulation, and the automation system needs to recognize the 10% that requires intervention.</p>
+      </section>
+
+      <!-- ═══ INTEGRATION ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Thermal integration</div>
+        <h3>Water as thermal mass</h3>
+
+        <p>The aquaponics system contributes its own thermal regulation. Seven to eight thousand gallons of recirculating water is massive thermal mass inside the greenhouse &mdash; water changes temperature slowly, damping the rapid air temperature swings that stress both plants and fish. The DWC tables alone hold roughly 2,800 gallons at root zone depth in the pit, where ground temperature provides baseline stability.</p>
+
+        <p>The climate battery regulates air temperature. The water mass regulates root zone and fish tank temperature. Together they create overlapping thermal buffers that make the greenhouse interior far more stable than either system alone could achieve. The pit depth puts the water mass below grade where it benefits from ground temperature directly &mdash; the same geological stability that makes the ground loop work also stabilizes the aquaponics water.</p>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>The pit, pipes, berms, and manifold system are permanent infrastructure that compounds in value &mdash; thermal mass increases effectiveness over years as surrounding earth reaches deeper equilibrium. Once built, the architecture operates with only fan power as input.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Boundaries</h4>
+            <p>The greenhouse envelope and pit walls define the thermal boundary. The berms create the wind boundary. The system works precisely because these boundaries separate inside from outside &mdash; controlled atmosphere from desert extremes.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Connection</h4>
+            <p>The integration between ground loop, air temperature, water thermal mass, and aquaponics biology is designed but untested as an operating system. How the thermal mass interacts with the biological heat load of growing plants and metabolizing fish &mdash; that connection develops through operational data.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Differentiation</h4>
+            <p>This is not a heated greenhouse. That distinction is the core identity of the system. But articulating exactly where this approach works and where conventional heating remains necessary &mdash; the edge cases, the failure modes, the altitude and latitude limits &mdash; requires performance data this system hasn't generated yet.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="cb-section">
+        <div class="phase-label">Continue</div>
+        <h3>What the climate enables</h3>
+
+        <p>Stable climate is the precondition for biological production. For the growing systems that operate inside this thermal envelope: <a href="aq-growing.html">Growing Systems</a>. For the sensor and control layer that manages the fan cycling, temperature thresholds, and seasonal mode switching: <a href="aq-automation.html">Automation &amp; Monitoring</a>. For the full project overview: <a href="project-aquaponics.html">Aquaponics Greenhouse</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>Climate battery design has been developed and refined by builders across the high-altitude greenhouse community for decades. The principle is simple and the physics are well understood. What's documented here is a specific configuration for a specific site &mdash; 6,000 feet, central New Mexico, high wind, extreme temperature range. Adapt the geometry to your conditions. The ground doesn't care what's above it.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="project-aquaponics.html" style="color: var(--teal-primary);">Aquaponics Greenhouse</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

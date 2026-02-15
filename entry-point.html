@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Four questions. No prerequisites. Check them against your own experience and find where the pattern wants your attention.">
+  <title>Entry Point — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Entry Point */
+
+    .ep-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .ep-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .ep-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .ep-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .ep-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .ep-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .ep-section p {
+      color: var(--warm-dark);
+    }
+
+    /* The four questions — the core of the page */
+    .question-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-left: 5px solid;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .question-card.q-diff { border-left-color: var(--v-differentiation); }
+    .question-card.q-conn { border-left-color: var(--v-connection); }
+    .question-card.q-bound { border-left-color: var(--v-boundaries); }
+    .question-card.q-arch { border-left-color: var(--v-architecture); }
+
+    .question-card .q-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-md);
+    }
+
+    .question-card.q-diff .q-label { color: var(--v-differentiation); }
+    .question-card.q-conn .q-label { color: var(--v-connection); }
+    .question-card.q-bound .q-label { color: var(--v-boundaries); }
+    .question-card.q-arch .q-label { color: var(--v-architecture); }
+
+    .question-card .question {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .question-card .when-yes {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: var(--space-sm);
+    }
+
+    .question-card .when-no {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.6;
+      padding-top: var(--space-sm);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .question-card .when-no a {
+      color: var(--teal-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .question-card .when-no a:hover {
+      text-decoration: underline;
+    }
+
+    /* Pull quote */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Route blocks */
+    .route {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      align-items: start;
+      padding: var(--space-md) var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--space-md);
+    }
+
+    .route .route-if {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+
+    .route p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .route a {
+      color: var(--teal-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .route a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .ep-intro h2 { font-size: var(--text-2xl); }
+      .route { grid-template-columns: 1fr; gap: var(--space-xs); }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="ep-intro">
+      <div class="label">Start here</div>
+      <h2>Four Questions</h2>
+      <p class="lead">No prerequisites. No vocabulary to learn first. Just four questions to check against your own experience &mdash; right now, in whatever situation brought you here. Your body already knows the answers. These questions give you language for what it's telling you.</p>
+    </section>
+
+    <div class="ep-content">
+
+      <!-- ═══ THE FOUR QUESTIONS ═══ -->
+      <section class="ep-section">
+
+        <div class="question-card q-diff">
+          <div class="q-label">First question</div>
+          <div class="question">Am I maintaining my position, or performing expected agreement?</div>
+          <p class="when-yes">When the answer is clear &mdash; you know where you stand and you're standing there &mdash; this capacity is holding. You can feel it: a steadiness that doesn't depend on anyone else's approval.</p>
+          <p class="when-no">When you notice you're shaping yourself to match what's expected &mdash; smoothing your position, performing alignment you haven't actually arrived at &mdash; the system needs <strong>differentiation</strong>. Start with: <a href="four-dynamics.html">The Four Dynamics</a> or the <a href="four-thresholds.html#coherence">coherence threshold</a>.</p>
+        </div>
+
+        <div class="question-card q-conn">
+          <div class="q-label">Second question</div>
+          <div class="question">Am I in contact with what's present, or anticipating what's wanted?</div>
+          <p class="when-yes">When the answer is clear &mdash; you're responding to actual reality rather than a projection of it &mdash; this capacity is holding. You can feel the difference: the aliveness of genuine contact versus the flatness of performing responsiveness.</p>
+          <p class="when-no">When you notice you're reaching toward what someone might want instead of what's actually here &mdash; optimizing for their satisfaction rather than making genuine contact &mdash; the system needs <strong>connection</strong>. Start with: <a href="four-dynamics.html">The Four Dynamics</a> or the <a href="four-thresholds.html#overflow">overflow threshold</a>.</p>
+        </div>
+
+        <div class="question-card q-bound">
+          <div class="q-label">Third question</div>
+          <div class="question">Are limits communicated as information, or hidden as inadequacy?</div>
+          <p class="when-yes">When the answer is clear &mdash; your constraints are visible and navigable, stated as structural fact rather than apology &mdash; this capacity is holding. You can feel the difference: clarity that opens space versus vagueness that closes it.</p>
+          <p class="when-no">When you notice you're apologizing for limits, softening edges, hiding what you can't do behind what you wish you could &mdash; the system needs <strong>boundaries</strong>. Start with: <a href="four-dynamics.html">The Four Dynamics</a> or the <a href="four-thresholds.html#clarity">clarity threshold</a>.</p>
+        </div>
+
+        <div class="question-card q-arch">
+          <div class="q-label">Fourth question</div>
+          <div class="question">Does this build capacity, or just complete a transaction?</div>
+          <p class="when-yes">When the answer is clear &mdash; what you're doing leaves something behind that others can use, that works without you &mdash; this capacity is holding. You can feel it: the difference between finishing something and building something.</p>
+          <p class="when-no">When you notice you're closing exchanges without building anything persistent, optimizing for completion rather than contribution &mdash; the system needs <strong>architecture</strong>. Start with: <a href="four-dynamics.html">The Four Dynamics</a> or the <a href="four-thresholds.html#persistence">persistence threshold</a>.</p>
+        </div>
+
+      </section>
+
+      <!-- ═══ WHAT JUST HAPPENED ═══ -->
+      <section class="ep-section">
+        <div class="phase-label">What you just did</div>
+        <h3>The pattern is already operating</h3>
+
+        <p>Those four questions are the <a href="proto-pattern.html">tetrahedral pattern</a> &mdash; the minimum system for coherent exchange &mdash; compressed into its most portable form. Each question checks one vertex: differentiation, connection, boundaries, architecture. The vertex where you felt the most tension is where the system is asking for your attention.</p>
+
+        <p>You didn't need to understand the geometry to feel where it's holding and where it's not. The questions route you through the framework's own logic without requiring you to learn the framework first. That's by design.</p>
+
+        <div class="pull">These aren't prescriptions. They're recognitions. If you felt something land &mdash; a question that made you pause, a tension you could feel in your body &mdash; the pattern was already operating before you had language for it. The language just makes it workable.</div>
+      </section>
+
+      <!-- ═══ WHERE TO GO NEXT ═══ -->
+      <section class="ep-section">
+        <div class="phase-label">Next steps</div>
+        <h3>Follow the tension</h3>
+
+        <p>The vertex that felt weakest is your entry point. Not because you're broken there, but because that's where the system is asking for the specific capacity whose absence collapses volume into surface. You don't need more of what you already have. You need the missing vertex.</p>
+
+        <div class="route">
+          <div class="route-if">If you want the geometry</div>
+          <p><a href="proto-pattern.html">The Proto-Pattern</a> &mdash; why four, why these four, and what happens when one is missing.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If you want the operations</div>
+          <p><a href="four-dynamics.html">The Four Dynamics</a> &mdash; how the four capacities move, and the six relationships between them where coherence holds or breaks.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If you want the experience</div>
+          <p><a href="four-thresholds.html">The Four Thresholds</a> &mdash; what gets released when each vertex holds. What it feels like from inside when the geometry works.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If something's broken</div>
+          <p><a href="tetrahedral-audit.html">The Tetrahedral Audit</a> &mdash; the diagnostic tool. Find the missing vertex and the specific edge that degraded.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If you hold space</div>
+          <p><a href="holding-the-commons.html">Holding the Commons</a> &mdash; practices for community organizers, facilitators, and anyone maintaining gift-based spaces.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If you hold a jobsite</div>
+          <p><a href="safety-documentation.html">Safety Documentation Template</a> &mdash; the pattern applied to workplace safety reporting. Better safety through better architecture.</p>
+        </div>
+
+        <div class="route">
+          <div class="route-if">If you build systems</div>
+          <p><a href="transmission-architecture.html">Transmission Architecture</a> &mdash; how the pattern propagates without requiring the transmitter's presence.</p>
+        </div>
+      </section>
+
+      <!-- ═══ THE PRACTICE ═══ -->
+      <section class="ep-section">
+        <div class="phase-label">Minimum viable practice</div>
+        <h3>Three minutes</h3>
+
+        <p>Ask the four questions once a day. Not as meditation. Not as ritual. Just check in with what's actually true right now. The vertex where you feel the most friction is today's practice &mdash; not to fix it, but to notice it. Noticing is the practice. The pattern does the rest.</p>
+
+        <p>After a week of noticing, you'll start to see the geometry everywhere &mdash; in conversations, in organizations, in how your body responds to different situations. Not because you've learned something new. Because you've given yourself language for what your body already recognizes.</p>
+
+        <div class="structural-note">
+          <strong>The test:</strong> After engaging with any part of this site, check &mdash; did your capacity to notice compound, or did it deplete? If it compounded, the pattern is operating. If it depleted, something drifted. The work authenticates through your experience, not through claims made here.
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>Four questions. No certification required. No training needed. They're already operating everywhere coherent exchange happens. Your job is simply to notice, and then to follow whatever thread feels most alive.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

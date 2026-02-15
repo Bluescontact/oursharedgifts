@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Four Dynamics — how the tetrahedral pattern operates. Four capacities, six relationships, and what happens when any of them degrades.">
+  <title>The Four Dynamics — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Four Dynamics */
+
+    .fd-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .fd-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .fd-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .fd-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .fd-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .fd-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .fd-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Dynamic cards */
+    .dynamic-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-left: 5px solid;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .dynamic-card.d-diff { border-left-color: var(--v-differentiation); }
+    .dynamic-card.d-conn { border-left-color: var(--v-connection); }
+    .dynamic-card.d-bound { border-left-color: var(--v-boundaries); }
+    .dynamic-card.d-arch { border-left-color: var(--v-architecture); }
+
+    .dynamic-card .dyn-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .dynamic-card.d-diff .dyn-label { color: var(--v-differentiation); }
+    .dynamic-card.d-conn .dyn-label { color: var(--v-connection); }
+    .dynamic-card.d-bound .dyn-label { color: var(--v-boundaries); }
+    .dynamic-card.d-arch .dyn-label { color: var(--v-architecture); }
+
+    .dynamic-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .dynamic-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .dynamic-card .check {
+      font-style: italic;
+      color: var(--warm-dark);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .dynamic-card .drift {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      margin-top: var(--space-sm);
+    }
+
+    /* Edge blocks */
+    .edge-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .edge {
+      padding: var(--space-md) var(--space-lg);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .edge .edge-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .edge .edge-holds {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.6;
+      margin-bottom: var(--space-sm);
+    }
+
+    .edge .edge-breaks {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Source frameworks — compact */
+    .sources {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0;
+    }
+
+    .source {
+      padding: var(--space-md);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      font-size: var(--text-sm);
+    }
+
+    .source strong {
+      display: block;
+      color: var(--warm-dark);
+      margin-bottom: var(--space-xs);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .source span {
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .fd-intro h2 { font-size: var(--text-2xl); }
+      .edge-pair { grid-template-columns: 1fr; }
+      .sources { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .sources { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="fd-intro">
+      <div class="label">Operational Scale</div>
+      <h2>The Four Dynamics</h2>
+      <p class="lead">The <a href="proto-pattern.html">Proto-Pattern</a> names the geometry &mdash; four vertices, six edges, four faces, one whole. This page brings that geometry into motion. These four dynamics aren't sequential steps. They operate simultaneously, and they create each other. When any one degrades, the others compensate temporarily but eventually follow. The diagnostic lives in the edges &mdash; the six relationships between vertices where coherence holds or breaks.</p>
+    </section>
+
+    <div class="fd-content">
+
+      <!-- ═══ THE FOUR DYNAMICS ═══ -->
+      <section class="fd-section">
+        <div class="phase-label">The four vertices in motion</div>
+        <h3>What the system does</h3>
+
+        <div class="dynamic-card d-diff">
+          <div class="dyn-label">Differentiation</div>
+          <h4>Recognize what's distinct</h4>
+          <p>The system knows what it is. Not as assertion or defense, but as structural fact &mdash; the way a cell membrane knows inside from outside. Distinct identity must exist before relationship is possible. Without it, there's nothing to offer and nothing to receive from.</p>
+          <p class="check">Check: Am I maintaining my position or performing expected agreement?</p>
+          <p class="drift">Drift signal: enthusiastic alignment without checking resonance.</p>
+        </div>
+
+        <div class="dynamic-card d-conn">
+          <div class="dyn-label">Connection</div>
+          <h4>Contact what's present</h4>
+          <p>Genuine exchange with what's actually here &mdash; not what's projected, anticipated, or preferred. Connection happens through circulation rather than merger. Value flows between distinct beings, multiplying through movement. The body often knows before the mind: the river trip, the conversation that left you more full than when you arrived.</p>
+          <p class="check">Check: Am I in contact with what's present or anticipating what's wanted?</p>
+          <p class="drift">Drift signal: responding to projected needs rather than actual state.</p>
+        </div>
+
+        <div class="dynamic-card d-bound">
+          <div class="dyn-label">Boundaries</div>
+          <h4>Make limits visible</h4>
+          <p>Constraints are navigational information. A boundary stated clearly is architecture. A boundary hidden behind apology is a trap. Limits don't restrict coordination &mdash; they enable it, the way a riverbank doesn't restrict water but gives it direction and force. The tetrahedral membrane that generates both inside and outside simultaneously.</p>
+          <p class="check">Check: Are limits communicated as information or hidden as inadequacy?</p>
+          <p class="drift">Drift signal: apologizing for structural reality.</p>
+        </div>
+
+        <div class="dynamic-card d-arch">
+          <div class="dyn-label">Architecture</div>
+          <h4>Build what persists</h4>
+          <p>Every exchange either builds future capacity or merely extracts present value. Architecture asks: what remains when you leave the room? The system that maintains itself coherently generates surplus, and the surplus is the gift. Infrastructure that increases collective capability persists beyond any individual's presence.</p>
+          <p class="check">Check: Does this build capacity or just complete a transaction?</p>
+          <p class="drift">Drift signal: closing exchange without building anything persistent.</p>
+        </div>
+      </section>
+
+      <!-- ═══ THE SIX EDGES ═══ -->
+      <section class="fd-section">
+        <div class="phase-label">The six relationships</div>
+        <h3>Where coherence holds or breaks</h3>
+
+        <p>Every vertex connects to every other vertex. Six edges, no hierarchy, no sequence. The health of the system depends not just on strong vertices but on the quality of relationships between them. Each edge has a characteristic way of holding &mdash; and a characteristic way of breaking.</p>
+
+        <div class="edge-pair">
+          <div class="edge">
+            <div class="edge-name">Differentiation &harr; Connection</div>
+            <div class="edge-holds">Distinct beings in genuine contact. Identity maintained through relationship, not despite it.</div>
+            <div class="edge-breaks">Without differentiation, connection becomes fusion. Without connection, differentiation becomes isolation.</div>
+          </div>
+          <div class="edge">
+            <div class="edge-name">Differentiation &harr; Boundaries</div>
+            <div class="edge-holds">Clear identity with legible surface. The system knows what it is and communicates that clearly.</div>
+            <div class="edge-breaks">Without differentiation, boundaries become arbitrary. Without boundaries, differentiation becomes invisible.</div>
+          </div>
+        </div>
+
+        <div class="edge-pair">
+          <div class="edge">
+            <div class="edge-name">Differentiation &harr; Architecture</div>
+            <div class="edge-holds">Distinct contribution to lasting structure. What you build reflects what you actually are.</div>
+            <div class="edge-breaks">Without differentiation, architecture serves someone else's pattern. Without architecture, differentiation has no lasting expression.</div>
+          </div>
+          <div class="edge">
+            <div class="edge-name">Connection &harr; Boundaries</div>
+            <div class="edge-holds">Genuine contact within clear containers. Permeable but defined &mdash; exchange happens across a membrane, not in open air.</div>
+            <div class="edge-breaks">Without connection, boundaries become walls. Without boundaries, connection becomes absorption.</div>
+          </div>
+        </div>
+
+        <div class="edge-pair">
+          <div class="edge">
+            <div class="edge-name">Connection &harr; Architecture</div>
+            <div class="edge-holds">Relationship that builds something lasting. The exchange leaves infrastructure others can use.</div>
+            <div class="edge-breaks">Without connection, architecture becomes rigid monument. Without architecture, connection dissolves when the moment passes.</div>
+          </div>
+          <div class="edge">
+            <div class="edge-name">Boundaries &harr; Architecture</div>
+            <div class="edge-holds">Legible limits that enable lasting structure. The hex system's designed failure hierarchy &mdash; cheap things break to protect expensive things.</div>
+            <div class="edge-breaks">Without boundaries, architecture becomes extraction. Without architecture, boundaries become walls around empty space.</div>
+          </div>
+        </div>
+
+        <div class="structural-note">
+          <strong>The diagnostic pattern:</strong> When a system loses coherence, don't look for the force that wasn't strong enough. Look for the edge that broke. The six edges tell you not just which vertex is weak, but which <em>relationship</em> degraded &mdash; and that's more specific, more actionable information. The <a href="tetrahedral-audit.html">Tetrahedral Audit</a> works from this principle.
+        </div>
+      </section>
+
+      <!-- ═══ SOURCE RECOGNITION ═══ -->
+      <section class="fd-section">
+        <div class="phase-label">Source recognition</div>
+        <h3>The same pattern across frameworks</h3>
+
+        <p>These four dynamics weren't invented. They were recognized &mdash; independently, across disciplines, using different vocabulary for the same underlying structure. A Spiral Dynamics practitioner sees stage coherence, flow between stages, stage-specific containers, and scaffolding for emergence. A tensegrity designer sees structural integrity, continuous tension, precise geometry, and modular efficiency. A nonviolent communicator sees clear observation, universal needs, precise requests, and frameworks that transfer autonomy.</p>
+
+        <p>Same four dynamics. Different language. Same invariant operating at every scale &mdash; individual nervous system, small group dynamics, organizational structure, ecosystem architecture.</p>
+
+        <div class="sources">
+          <div class="source"><strong>Tensegrity</strong> <span>Compression elements distinct, tension continuous, geometry precise, structure modular</span></div>
+          <div class="source"><strong>Spiral Dynamics</strong> <span>Stage integrity, inter-stage flow, developmental containers, scaffolding for emergence</span></div>
+          <div class="source"><strong>NVC</strong> <span>Observation without evaluation, universal needs, clear requests, transferable practice</span></div>
+          <div class="source"><strong>Wheel of Consent</strong> <span>Distinct agency, gift in serving, withdrawal clarifies will, framework as architecture</span></div>
+          <div class="source"><strong>Polyvagal Theory</strong> <span>Self-regulation, co-regulation, adaptive shutdown, building vagal tone</span></div>
+          <div class="source"><strong>Living Systems</strong> <span>Clear membranes, mycorrhizal networks, edge conditions, succession creates soil</span></div>
+        </div>
+
+        <p>The gift of seeing this isn't that you change what you're already doing. It's that you recognize what you're doing at a level that connects you to everyone else doing it &mdash; at a different scale, with different vocabulary, in different domains.</p>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="fd-section">
+        <div class="phase-label">Continue</div>
+        <h3>From operation to experience</h3>
+
+        <p>The Four Dynamics describe what the pattern <em>does</em> &mdash; the operational face of the tetrahedron. <a href="four-thresholds.html">The Four Thresholds</a> describe what the pattern <em>releases</em> &mdash; what becomes available from inside when the geometry holds in a person. Same tetrahedron, different face visible depending on where you're standing.</p>
+
+        <p>For the underlying geometry: <a href="proto-pattern.html">The Proto-Pattern</a>. For the diagnostic tool when something's broken: <a href="tetrahedral-audit.html">The Tetrahedral Audit</a>. For how the pattern propagates: <a href="transmission-architecture.html">Transmission Architecture</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>These dynamics become more real every time someone recognizes them operating in their own work. You're not borrowing something proprietary &mdash; you're joining a conversation that's been unfolding across disciplines for decades. Use freely. Adapt as needed. Credit sources.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

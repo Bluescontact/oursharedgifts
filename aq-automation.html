@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Automation & Monitoring — the sensor, control, and software layer that enables 3-5 day autonomous greenhouse operation. Conceptual design, not yet built. The open engineering challenge.">
+  <title>Automation &amp; Monitoring — Aquaponics Greenhouse — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .am-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .am-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .am-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .am-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .am-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .am-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .am-section p {
+      color: var(--warm-dark);
+    }
+
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Open problem block */
+    .open-problem {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      background: var(--white);
+      border: 1px solid var(--v-differentiation);
+      border-left: 4px solid var(--v-differentiation);
+      border-radius: var(--border-radius);
+    }
+
+    .open-problem .op-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--v-differentiation);
+      margin-bottom: var(--space-sm);
+    }
+
+    .open-problem p {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Sensor table */
+    .sensor-table {
+      width: 100%;
+      margin: var(--space-lg) 0;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+    }
+
+    .sensor-table th {
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--warm-light);
+      border-bottom: 2px solid var(--teal-border);
+    }
+
+    .sensor-table td {
+      padding: var(--space-sm) var(--space-md);
+      color: var(--warm-dark);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      line-height: 1.5;
+    }
+
+    .sensor-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Alert level cards */
+    .alert-levels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .alert-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .alert-card.level-1 { border-left-color: var(--v-architecture); }
+    .alert-card.level-2 { border-left-color: var(--v-boundaries); }
+    .alert-card.level-3 { border-left-color: #e67e22; }
+    .alert-card.level-4 { border-left-color: var(--v-differentiation); }
+
+    .alert-card .a-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .alert-card.level-1 .a-label { color: var(--v-architecture); }
+    .alert-card.level-2 .a-label { color: var(--v-boundaries); }
+    .alert-card.level-3 .a-label { color: #e67e22; }
+    .alert-card.level-4 .a-label { color: var(--v-differentiation); }
+
+    .alert-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .alert-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Power budget */
+    .power-table {
+      width: 100%;
+      margin: var(--space-lg) 0;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+    }
+
+    .power-table th {
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--warm-light);
+      border-bottom: 2px solid var(--teal-border);
+    }
+
+    .power-table td {
+      padding: var(--space-sm) var(--space-md);
+      color: var(--warm-dark);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      line-height: 1.5;
+    }
+
+    .power-table .subtotal td {
+      font-weight: 600;
+      color: var(--warm-black);
+      border-bottom: 2px solid var(--teal-border);
+    }
+
+    /* Vertex grid */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+
+    .v-card .v-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+
+    .v-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .v-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .am-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .alert-levels { grid-template-columns: 1fr; }
+      .sensor-table, .power-table { font-size: 0.8rem; }
+      .sensor-table th, .sensor-table td,
+      .power-table th, .power-table td { padding: var(--space-xs) var(--space-sm); }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="am-intro">
+      <div class="phase-label"><a href="project-aquaponics.html" style="color: inherit; text-decoration: none;">Aquaponics Greenhouse</a> &middot; Automation &amp; monitoring</div>
+      <h2>Automation &amp; Monitoring</h2>
+      <p class="lead">The business model requires 15 hours per week at steady-state production. That means the greenhouse runs itself for 3-5 days between visits. This page describes the sensor, control, and software layer that makes autonomous operation possible. The system is conceptual &mdash; designed but not yet built or specced. This is the open engineering challenge.</p>
+    </section>
+
+    <div class="am-content">
+
+      <!-- ═══ WHY THIS MATTERS ═══ -->
+      <section class="am-section">
+        <div class="phase-label">The constraint</div>
+        <h3>Why automation is structural</h3>
+
+        <p>Without automation, an aquaponics greenhouse is a full-time job. Fish need continuous aeration. Water chemistry drifts. Temperature swings kill plants or stress fish. Pumps fail. Bell siphons clog. Every one of these failure modes is manageable if someone is present. The question is whether the system can detect, report, and in some cases respond to these conditions without requiring a person standing in the greenhouse.</p>
+
+        <p>The answer determines whether this is a livelihood or a trap. At 15 hours per week, the greenhouse generates $70-85K annually from one person's part-time attention. At 40+ hours per week, the same revenue divided by the same person means the greenhouse owns them. The automation layer is what separates a tool from a cage.</p>
+
+        <div class="open-problem">
+          <div class="op-label">Status &mdash; conceptual</div>
+          <p>The sensor array, alert escalation, and control logic described on this page are designed at the architectural level. Component selection, wiring, software, calibration, and integration have not been completed. This is the equivalent of the <a href="project-architecture.html">universal connector</a> on the Deployable Architecture project &mdash; the keystone that everything else depends on, and the piece that hasn't been solved yet.</p>
+        </div>
+      </section>
+
+      <!-- ═══ WHAT GETS MEASURED ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Sensor array</div>
+        <h3>What gets measured</h3>
+
+        <p>The system monitors the parameters that determine whether fish live, plants grow, and the climate stays within operating range. Each sensor point exists because a failure to detect that parameter leads to a specific, expensive failure mode.</p>
+
+        <table class="sensor-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Locations</th>
+              <th>What failure looks like</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pH</td>
+              <td>Fish tank, DWC tables, media beds</td>
+              <td>Nutrient lockout (plants) or stress (fish) &mdash; slow drift, days to develop</td>
+            </tr>
+            <tr>
+              <td>Dissolved oxygen</td>
+              <td>Fish tanks, DWC tables</td>
+              <td>Fish death within hours if aeration fails</td>
+            </tr>
+            <tr>
+              <td>EC/TDS</td>
+              <td>Each growing zone</td>
+              <td>Nutrient deficiency or toxicity &mdash; days to show in plants</td>
+            </tr>
+            <tr>
+              <td>Temperature</td>
+              <td>Air (multiple heights), water, ground loop</td>
+              <td>Fish stress above 82&deg;F or below 55&deg;F &mdash; hours to critical</td>
+            </tr>
+            <tr>
+              <td>Ammonia / Nitrite / Nitrate</td>
+              <td>Fish tank, post-biofilter</td>
+              <td>Ammonia spike kills fish &mdash; hours. Indicates biofilter failure</td>
+            </tr>
+            <tr>
+              <td>Flow rates</td>
+              <td>Key circulation points</td>
+              <td>Pump failure or clog &mdash; fish tank stagnates within hours</td>
+            </tr>
+            <tr>
+              <td>PAR light levels</td>
+              <td>Growing zones</td>
+              <td>Light dep malfunction, glazing degradation &mdash; days to weeks</td>
+            </tr>
+            <tr>
+              <td>Water level</td>
+              <td>Fish tanks, sump</td>
+              <td>Leak detection &mdash; sump empty means pump cavitation and system halt</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Not all parameters need continuous monitoring. pH changes slowly in established systems &mdash; weekly readings are sufficient for trend detection. Dissolved oxygen and temperature are the life-critical measurements that require real-time monitoring with immediate alerting. The sensor density matches the urgency of the failure mode.</p>
+      </section>
+
+      <!-- ═══ ALERT ESCALATION ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Response architecture</div>
+        <h3>Four-level alert escalation</h3>
+
+        <p>Not every reading outside the target range is an emergency. The system needs to distinguish between normal operational variation, approaching thresholds, active problems, and life-critical failures. Four levels, each with a different response.</p>
+
+        <div class="alert-levels">
+          <div class="alert-card level-1">
+            <div class="a-label">Level 1 &mdash; Log</div>
+            <h4>Normal variation</h4>
+            <p>Within acceptable range but recorded for trend analysis. No notification. Example: pH reads 7.1 within a 6.8-7.2 target range but trending upward. The trend matters more than the reading.</p>
+          </div>
+          <div class="alert-card level-2">
+            <div class="a-label">Level 2 &mdash; Note</div>
+            <h4>Approaching threshold</h4>
+            <p>Logged and included in next daily briefing. Example: pH reads 7.3, above range but not critical. Something to check on the next visit, not something to drive out for.</p>
+          </div>
+          <div class="alert-card level-3">
+            <div class="a-label">Level 3 &mdash; Alert</div>
+            <h4>Threshold exceeded</h4>
+            <p>Immediate notification via primary messaging channel. Example: pH reads 7.6, significantly out of range. Water chemistry needs intervention within 24 hours.</p>
+          </div>
+          <div class="alert-card level-4">
+            <div class="a-label">Level 4 &mdash; Urgent</div>
+            <h4>Critical failure</h4>
+            <p>Notification on all channels, repeated until acknowledged. Example: dissolved oxygen drops below survival threshold, or pump flow reads zero. Fish die within hours. This requires immediate response.</p>
+          </div>
+        </div>
+
+        <p>The escalation levels match the time constants of each failure mode. A pH drift gives days of warning. A dissolved oxygen crash gives hours. The system's response urgency matches the biology's tolerance.</p>
+      </section>
+
+      <!-- ═══ WHAT GETS CONTROLLED ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Control layer</div>
+        <h3>What gets controlled, and what doesn't</h3>
+
+        <p>The automation philosophy recognizes that perfect control is impossible with living systems and unnecessary for successful production. The goal isn't maintaining exactly 72.0&deg;F water temperature &mdash; it's keeping water somewhere between 68-75&deg;F, a range the automation handles easily. Plants and fish tolerate gradual variation much better than they tolerate human neglect or inconsistent attention.</p>
+
+        <p>Active automated control: circulation pumps (on/off based on flow rate and water level), climate battery fans (on/off based on temperature differential between greenhouse air and ground loop return), aeration pumps (continuous with failover to backup if primary drops below threshold), and solenoid valves for water routing.</p>
+
+        <p>Monitored but human-controlled: the isolation valve between fish and plant systems (too consequential for automated decision-making), light deprivation covers (mechanical deployment, scheduled manually), fish feeding (automated feeders are unreliable and overfeed), and nutrient supplementation (requires judgment about what's actually causing a deficiency).</p>
+
+        <div class="pull">The distinction between monitoring and control is a boundary, not a limitation. The system reports. The human decides. As trust in the automation develops through operational data, some monitored parameters may move to automated control. But that boundary moves based on evidence, not assumptions.</div>
+      </section>
+
+      <!-- ═══ LOAD BALANCING ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Power management</div>
+        <h3>Load balancing across the power budget</h3>
+
+        <p>Every automated system draws power. Air pumps, circulation pumps, climate battery fans, monitoring hardware, light deprivation motors &mdash; these can't all run at peak simultaneously on an off-grid power budget. The automation layer needs to schedule loads so that total draw stays within the power system's capacity at every moment of the day.</p>
+
+        <table class="power-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Draw</th>
+              <th>Duty cycle</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aeration pumps</td>
+              <td>~300W</td>
+              <td>Continuous &mdash; 24/7</td>
+              <td>Critical &mdash; never interrupt</td>
+            </tr>
+            <tr>
+              <td>Circulation pump</td>
+              <td>~30W</td>
+              <td>Continuous daylight, reduced night</td>
+              <td>High &mdash; fish tank stagnation within hours</td>
+            </tr>
+            <tr>
+              <td>Monitoring &amp; Pi</td>
+              <td>~50W</td>
+              <td>Continuous</td>
+              <td>High &mdash; blind without it</td>
+            </tr>
+            <tr>
+              <td>Climate battery fans</td>
+              <td>~200W</td>
+              <td>Duty cycle based on temperature</td>
+              <td>Medium &mdash; thermal mass provides buffer</td>
+            </tr>
+            <tr>
+              <td>Light dep motors</td>
+              <td>~100W</td>
+              <td>Brief &mdash; deploy/retract only</td>
+              <td>Low &mdash; schedulable, non-urgent</td>
+            </tr>
+            <tr>
+              <td>Evaporative cooler</td>
+              <td>~300W</td>
+              <td>Summer daytime only</td>
+              <td>Medium &mdash; plants tolerate short heat spikes</td>
+            </tr>
+            <tr class="subtotal">
+              <td>Baseline continuous</td>
+              <td>~550W</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="subtotal">
+              <td>Full production daily</td>
+              <td>18-20 kWh</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The priority column defines the load-shedding sequence. If battery state drops below threshold, the system sheds low-priority loads first: light dep motors wait, evaporative cooler pauses, climate battery fans reduce duty cycle. Aeration never sheds &mdash; fish die without oxygen. The load balancer needs to make these decisions in real time based on battery state, solar input forecast (clear sky vs. cloudy), and current system demands.</p>
+
+        <p>Power system expansion path: the greenhouse starts at 1.6kW array drawing roughly 1,700 Wh/day for living systems only. Full production requires 6-7kW of array capacity generating 18-20 kWh daily. The expansion happens as revenue comes in &mdash; panels are added incrementally, and the load balancer's available power budget expands with them.</p>
+      </section>
+
+      <!-- ═══ PLATFORM ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Platform</div>
+        <h3>Raspberry Pi and cloud logging</h3>
+
+        <p>Raspberry Pi controllers with sensor interfaces via GPIO, MQTT, HTTP, and serial connections. Sensor readings logged to local SQLite database and synced to cloud storage for historical analysis and remote access. Mobile alerts via messaging channels with configurable escalation.</p>
+
+        <p>The cloud logging isn't just operational monitoring &mdash; it's pattern recognition infrastructure. A gradual ammonia increase over weeks indicates biofilter capacity reaching limits as fish grow, suggesting stocking density reduction before crisis. Temperature logs reveal exactly how the climate battery performs across seasons. Flow rate trends detect pump degradation before failure. The data turns reactive management into predictive management.</p>
+
+        <p>Seasonal awareness: the system adjusts thresholds based on time of year. Winter expects lower temperatures and different light levels. Summer expects higher humidity and increased water consumption. Monsoon season in New Mexico brings humidity spikes that require different ventilation logic. The automation adapts to the annual cycle rather than treating every day as identical.</p>
+
+        <p>Estimated component budget for the full sensor, controller, and automation package: approximately $2,500. This covers Pi controllers, temperature and water quality probes, solenoid valves and actuators, wiring and enclosures, and first-year cloud logging. The software is the part that doesn't have a price tag because it doesn't exist yet.</p>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>The sensor array, alert escalation framework, load priority system, and data logging architecture are designed coherently. The four-level alert system matches response urgency to biological time constants. The power budget is mapped with clear priority sequencing.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Connection</h4>
+            <p>Sensors to controllers to actuators to decisions &mdash; the logic layer that connects measurement to response. Which sensor reading triggers which control action, and how do multiple simultaneous readings interact? This is the software that hasn't been written.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Boundaries</h4>
+            <p>The monitoring-vs-control distinction is the critical boundary: what the system does autonomously versus what requires human judgment. The graduated trust model &mdash; starting with monitoring only, moving to automated control as confidence develops &mdash; is the right approach. But the specific boundaries haven't been tested in operation.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Differentiation</h4>
+            <p>This system needs to be clearly distinct from both hobby-scale Arduino projects and industrial SCADA systems. It's a commercial-grade automation layer built from consumer components with open-source software. That identity &mdash; and the documentation that makes it replicable &mdash; develops through the build process.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="am-section">
+        <div class="phase-label">Continue</div>
+        <h3>What this enables</h3>
+
+        <p>The automation layer is what turns a greenhouse into a business. For the growing systems it monitors and manages: <a href="aq-growing.html">Growing Systems</a>. For the thermal system whose fan cycling it controls: <a href="aq-climate.html">Climate Battery</a>. For the full project overview: <a href="project-aquaponics.html">Aquaponics Greenhouse</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>This page describes what needs to exist, not what does exist. The sensor selection, control logic, and software are the open engineering work. If you build automation systems for controlled environment agriculture and see a path through what's described here, that's the contribution this project needs. The hardware is straightforward. The software &mdash; the decision logic that keeps fish alive and plants productive across seasons with minimal human intervention &mdash; is where the real design work lives.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="project-aquaponics.html" style="color: var(--teal-primary);">Aquaponics Greenhouse</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

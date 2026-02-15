@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How to engage with and support Recognition Infrastructure — from using the frameworks to structural recognition consulting to sustaining the work.">
+  <title>Support — Engage With This Work | Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Support */
+
+    .support-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .support-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .support-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .support-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .support-section:first-of-type {
+      border-top: none;
+    }
+
+    .support-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .support-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Engagement cards */
+    .engage-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .engage-card .engage-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .engage-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .engage-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    .engage-card .engage-detail {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-md) var(--space-lg);
+      margin-top: var(--space-md);
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+    }
+
+    .engage-card .engage-detail strong {
+      color: var(--teal-dark);
+    }
+
+    /* Venmo section inside sustain card */
+    .venmo-section {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .venmo-qr {
+      flex-shrink: 0;
+    }
+
+    .venmo-qr img {
+      width: 160px;
+      height: 160px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--teal-border);
+    }
+
+    .venmo-info {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    .venmo-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: var(--teal-primary);
+      display: block;
+      margin-top: var(--space-xs);
+    }
+
+    /* Sustainability logic */
+    .sustainability-logic {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-xl) var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+
+    .sustainability-logic h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .boundary-statement {
+      background: var(--white);
+      border-left: 3px solid var(--teal-primary);
+      padding: var(--space-md) var(--space-lg);
+      margin: var(--space-lg) 0;
+      font-size: var(--text-base);
+      font-style: italic;
+      color: var(--warm-dark);
+    }
+
+    /* Contact form */
+    .contact-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .contact-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-section > p {
+      color: var(--warm-gray);
+      max-width: 520px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-form {
+      max-width: 520px;
+    }
+
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--warm-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      font-family: inherit;
+      font-size: var(--text-sm);
+      color: var(--warm-black);
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      transition: border-color 0.15s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--teal-primary);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-sm);
+      color: var(--white, #fff);
+      background: var(--teal-primary, #2a7a6a);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: var(--space-sm, 0.5rem) var(--space-xl, 2rem);
+      cursor: pointer;
+      transition: background 0.15s ease;
+      letter-spacing: 0.04em;
+    }
+
+    .form-submit:hover {
+      background: var(--teal-dark, #1e5c50);
+    }
+
+    .form-note {
+      font-size: var(--text-xs);
+      color: var(--warm-gray);
+      margin-top: var(--space-sm);
+    }
+
+    @media (max-width: 768px) {
+      .support-intro h2 { font-size: var(--text-2xl); }
+      .venmo-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-green">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html" class="active">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="support-intro">
+      <div class="label">Engage</div>
+      <h2>Support this work</h2>
+      <p class="lead">The frameworks are free. The sustained attention of a skilled practitioner has material needs. Here's how these two things coexist — and how to engage at the level that fits your situation.</p>
+    </section>
+
+    <div class="support-content">
+
+      <!-- The boundary statement -->
+      <div class="boundary-statement">
+        The pattern is the gift. The practice — the sustained, skilled application of the pattern to a specific context — is what sustains the practitioner.
+      </div>
+
+      <!-- Ways to engage -->
+      <section class="support-section">
+        <h3>Ways to engage</h3>
+
+        <div class="engage-card">
+          <div class="engage-label">Free — always</div>
+          <h4>Use the frameworks</h4>
+          <p>Everything on this site is offered as commons. The Four Laws, the diagnostic tools, the lenses, the Translation Protocol structure — use them. Adapt them. Teach them. Credit sources. If they improve your capacity to coordinate, that's the validation.</p>
+          <div class="engage-detail">
+            <strong>Start here:</strong> Run the <a href="entry-point.html">Four Questions</a> on a system you care about. Use the <a href="tetrahedral-audit.html">Tetrahedral Audit</a> for deeper diagnosis. Read the <a href="frameworks.html">frameworks</a> for the full theory.
+          </div>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-label">Consulting</div>
+          <h4>Structural Recognition</h4>
+          <p>A diagnostic pattern-recognition analysis of your project, organization, or initiative. Kevin spends time with your documentation, your people, and your conditions — then produces a structural recognition document that names what's present, what's developing, and where to build next.</p>
+          <p>This isn't generic consulting. It's the application of the tetrahedral diagnostic to your specific context — the same method that produced the Solarium structural analysis and the applied framework work for the Design Science Studio.</p>
+          <div class="engage-detail">
+            <strong>What you get:</strong> A written structural analysis (typically 3–5 pages) identifying current vertex strengths, the weakest capacity, specific failure patterns, and concrete practices for development. One practitioner, one project, sustained attention.
+          </div>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-label">Direct support</div>
+          <h4>Sustain the commons</h4>
+          <p>If this work has value for you and you have capacity to support it, direct contributions sustain the practitioner's ability to keep the frameworks, tools, and documentation freely available. The gift economy logic: surplus from those who have it flows to where it enables more generation.</p>
+          <div class="engage-detail">
+            <strong>The commitment:</strong> Every contribution enables more infrastructure — more tools, more documentation, more applied projects, more content entering commons. The work stays free. Your support makes that possible.
+          </div>
+          <div class="venmo-section">
+            <div class="venmo-qr">
+              <img src="venmo-qr.png" alt="Venmo QR code for Kevin Mears">
+            </div>
+            <div class="venmo-info">
+              Scan to contribute via Venmo, or find me directly.
+              <span class="venmo-handle">@Kevin-Mears-11</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sustainability logic -->
+      <section class="support-section">
+        <h3>How this sustains itself</h3>
+        <div class="sustainability-logic">
+          <h4>The cycle</h4>
+          <p>The framework describes gift economy as operating through overflow — the system that maintains itself coherently generates surplus, and the surplus is the gift. But overflow requires that self-maintenance is happening. If the practitioner is depleted, nothing flows.</p>
+          <p>These engagement paths form a closed loop: structural recognition consulting generates revenue and portfolio evidence. Evidence generates applicants for facilitated programs. Programs produce practitioners who use the framework. Practitioners generate visibility. Visibility generates consulting inquiries. Each cycle produces documentation that enters commons — the free tier grows every time the paid tier operates.</p>
+          <p>The boundary is clean. The pattern is gift. The practice carries a price. Both are true. Neither compromises the other.</p>
+        </div>
+      </section>
+
+      <!-- Contact form -->
+      <section class="contact-section">
+        <h3>Get in touch</h3>
+        <p>For structural recognition consulting, project inquiries, or to discuss how you'd like to engage with this work.</p>
+
+        <!-- Formspree: replace YOUR_FORM_ID with your actual Formspree form ID after signup at https://formspree.io -->
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">What's this about?</label>
+            <select id="contact-subject" name="subject">
+              <option value="consulting">Structural Recognition Consulting</option>
+              <option value="collaboration">Collaboration / Partnership</option>
+              <option value="frameworks">Question about frameworks</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" required></textarea>
+          </div>
+          <button type="button" class="form-submit" id="submit-btn">Send message</button>
+          <p class="form-note">Your message goes directly to Kevin. No email addresses are displayed publicly.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>Utility proves value. If it doesn't improve exchange, discard it.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears · Albuquerque, NM · <a href="about.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+      <p style="font-size: 0.8em; margin-top: 0.5em; opacity: 0.7;">Kevin Mears · 2026 <a href="https://www.bfi.org/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Buckminster Fuller Institute</a> Design Science Studio</p>
+    </div>
+  </footer>
+
+  <script>
+    // =============================================
+    // Formspree Contact Form
+    // =============================================
+    // To activate:
+    //   1. Go to https://formspree.io and create a free account
+    //   2. Create a new form — it will give you an endpoint like: https://formspree.io/f/xyzabcde
+    //   3. Replace YOUR_FORM_ID below with that ID (just the part after /f/)
+    //   4. Done — submissions will go to whatever email you signed up with
+    // =============================================
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    document.getElementById('submit-btn').addEventListener('click', async function() {
+      const btn = this;
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !message) {
+        btn.textContent = 'Please fill in all fields';
+        btn.style.background = '#c44';
+        setTimeout(() => {
+          btn.textContent = 'Send message';
+          btn.style.background = '';
+        }, 2500);
+        return;
+      }
+
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (response.ok) {
+          btn.textContent = 'Sent — thank you';
+          btn.style.background = '#2a7a6a';
+          document.getElementById('contact-name').value = '';
+          document.getElementById('contact-email').value = '';
+          document.getElementById('contact-message').value = '';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        btn.textContent = 'Error — try again';
+        btn.style.background = '#c44';
+        setTimeout(() => {
+          btn.textContent = 'Send message';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      }
+    });
+  </script>
+  <script src="menu.js"></script>
+</body>
+</html>

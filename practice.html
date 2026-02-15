@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice | Our Shared Gifts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --warm-black: #1a1a1a;
+      --warm-dark: #2c2c2c;
+      --warm-mid: #3a3a3a;
+      --warm-gray: #6b6b6b;
+      --warm-light: #9a9a9a;
+      --cream-light: #faf8f5;
+      --cream-dark: #f2efe9;
+      --white: #ffffff;
+      --teal-primary: #2a9d8f;
+      --teal-dark: #1f7a6e;
+      --teal-border: rgba(42,157,143,0.2);
+      --teal-faint: rgba(42,157,143,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: var(--warm-dark);
+      color: var(--cream-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .site-header:hover { opacity: 1; }
+    .site-header a {
+      color: var(--cream-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .site-header a:hover { color: var(--teal-primary); }
+    .site-name { font-weight: 500; letter-spacing: 0.5px; }
+    .site-nav { display: flex; gap: 24px; }
+
+    /* ─── View States ─── */
+    .view {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .view.active {
+      display: flex;
+    }
+
+    /* ─── Opening ─── */
+    #opening {
+      text-align: center;
+      padding: 48px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    #opening h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--cream-light);
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.2s forwards;
+    }
+    #opening .opening-sub {
+      font-size: 1.05rem;
+      color: var(--warm-light);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 48px;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.6s forwards;
+    }
+
+    .pathway-choices {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 1s forwards;
+    }
+
+    .pathway-btn {
+      background: none;
+      border: 1px solid var(--warm-gray);
+      color: var(--cream-dark);
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      padding: 16px 40px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 280px;
+      text-align: center;
+    }
+    .pathway-btn:hover {
+      border-color: var(--teal-primary);
+      color: var(--teal-primary);
+    }
+    .pathway-btn .pathway-label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--warm-light);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+      transition: color 0.3s ease;
+    }
+    .pathway-btn:hover .pathway-label {
+      color: var(--teal-dark);
+    }
+
+    /* ─── Receive Mode (guided sequence) ─── */
+    #receive-mode {
+      padding: 32px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .movement-indicator {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--warm-gray);
+      margin-bottom: 40px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .movement-indicator.visible { opacity: 0.5; }
+
+    .affirmation-space {
+      text-align: center;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .surface-text {
+      font-size: 1.65rem;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--cream-light);
+      max-width: 560px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .surface-text.arrived {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .surface-text:hover { color: var(--white); }
+
+    .depth-line {
+      width: 48px;
+      height: 1px;
+      background-color: var(--teal-primary);
+      margin: 32px 0;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.6s, width 0.4s ease;
+      cursor: pointer;
+    }
+    .depth-line.ready { opacity: 0.4; }
+    .depth-line.ready:hover { opacity: 0.8; width: 64px; }
+    .depth-line.expanded { opacity: 0.2; width: 80px; }
+
+    .depth-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--teal-primary);
+      max-width: 480px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 1s ease, transform 1s ease;
+      pointer-events: none;
+    }
+    .depth-text.revealed {
+      opacity: 0.85;
+      transform: translateY(0);
+    }
+
+    /* Navigation bar */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .nav-bar.visible { opacity: 1; }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      color: var(--warm-gray);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 8px 12px;
+      transition: color 0.2s ease;
+      font-family: 'EB Garamond', serif;
+      line-height: 1;
+    }
+    .nav-arrow:hover { color: var(--cream-light); }
+    .nav-arrow:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+    .nav-arrow:disabled:hover { color: var(--warm-gray); }
+
+    .nav-position {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      letter-spacing: 1px;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    /* Sit with this */
+    .sit-action {
+      margin-top: 24px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .sit-action.available { opacity: 1; }
+
+    .sit-btn {
+      background: none;
+      border: none;
+      color: var(--warm-light);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 6px 16px;
+      transition: color 0.3s ease;
+      letter-spacing: 0.3px;
+      font-style: italic;
+    }
+    .sit-btn:hover { color: var(--teal-primary); }
+
+    /* Mode switcher */
+    .mode-switch {
+      margin-top: 32px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .mode-switch.visible { opacity: 1; }
+
+    .mode-link {
+      background: none;
+      border: none;
+      color: var(--warm-gray);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 4px 12px;
+      transition: color 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+    .mode-link:hover { color: var(--cream-light); }
+    .mode-sep {
+      color: var(--warm-gray);
+      opacity: 0.3;
+      font-size: 0.7rem;
+      margin: 0 4px;
+    }
+
+    /* ─── Browse Mode ─── */
+    #browse-mode {
+      padding: 48px 32px 80px;
+      max-width: 780px;
+      margin: 0 auto;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+
+    .browse-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .browse-header h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--cream-light);
+      margin-bottom: 8px;
+    }
+    .browse-header p {
+      font-size: 0.95rem;
+      color: var(--warm-light);
+      line-height: 1.6;
+    }
+
+    .movement-section {
+      margin-bottom: 48px;
+    }
+    .movement-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--teal-primary);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(42,157,143,0.15);
+    }
+
+    .browse-item {
+      display: block;
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--cream-dark);
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      padding: 14px 0;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+    .browse-item:hover {
+      color: var(--white);
+      padding-left: 8px;
+    }
+    .browse-item:last-child {
+      border-bottom: none;
+    }
+    .browse-item .browse-surface {
+      display: block;
+    }
+    .browse-item .browse-depth {
+      display: block;
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--teal-primary);
+      opacity: 0.6;
+      margin-top: 4px;
+      transition: opacity 0.2s ease;
+    }
+    .browse-item:hover .browse-depth {
+      opacity: 0.85;
+    }
+
+    .browse-back {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* ─── Draw Mode ─── */
+    #draw-mode {
+      padding: 48px 32px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .draw-prompt {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.5px;
+      margin-bottom: 48px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .draw-prompt.visible { opacity: 0.6; }
+
+    .draw-actions {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .draw-actions.visible { opacity: 1; }
+
+    .draw-btn {
+      background: none;
+      border: 1px solid var(--warm-gray);
+      color: var(--warm-light);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.9rem;
+      padding: 10px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    .draw-btn:hover {
+      border-color: var(--teal-primary);
+      color: var(--teal-primary);
+    }
+
+    /* ─── Contemplation overlay ─── */
+    #contemplate-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--warm-black);
+      z-index: 50;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 32px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    #contemplate-overlay.visible {
+      opacity: 1;
+    }
+
+    .breath-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid var(--teal-primary);
+      opacity: 0.2;
+      margin-bottom: 48px;
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(0.8); opacity: 0.15; }
+      50% { transform: scale(1.2); opacity: 0.35; }
+    }
+
+    .contemplate-surface {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: var(--cream-light);
+      text-align: center;
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
+
+    .contemplate-depth {
+      font-size: 1rem;
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--teal-primary);
+      text-align: center;
+      max-width: 440px;
+      opacity: 0.7;
+    }
+
+    .contemplate-exit {
+      position: fixed;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: none;
+      border: none;
+      color: var(--warm-gray);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 8px 20px;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    .contemplate-exit:hover { color: var(--cream-light); }
+
+    /* ─── Progress bar ─── */
+    .progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background-color: var(--teal-primary);
+      opacity: 0.15;
+      transition: width 0.8s ease;
+      z-index: 5;
+    }
+
+    /* ─── Transitions ─── */
+    .fading .surface-text,
+    .fading .depth-text,
+    .fading .depth-line,
+    .fading .nav-bar,
+    .fading .sit-action,
+    .fading .draw-prompt,
+    .fading .draw-actions {
+      opacity: 0 !important;
+      transition: opacity 0.4s ease !important;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 600px) {
+      .surface-text, .contemplate-surface { font-size: 1.35rem; }
+      .depth-text, .contemplate-depth { font-size: 1rem; }
+      #receive-mode, #draw-mode { padding: 24px 20px; }
+      #browse-mode { padding: 32px 20px 80px; }
+      .site-header { padding: 16px 20px; }
+      .site-nav { gap: 16px; }
+      .pathway-btn { width: 240px; padding: 14px 24px; }
+      .browse-item { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-header">
+    <a href="index.html" class="site-name">Our Shared Gifts</a>
+    <div class="site-nav">
+      <a href="projects.html">Projects</a>
+      <a href="frameworks.html">Frameworks</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+
+  <!-- ════ OPENING ════ -->
+  <div class="view active" id="opening">
+    <h1>Practice</h1>
+    <p class="opening-sub">Your body already knows what your mind is still learning to say. These recognitions aren't instructions. They're mirrors — something offered without agenda that names what's already operating. The surface text meets you where you are. The deeper text waits for your attention.</p>
+    <p class="opening-sub" style="font-size: 0.82rem; color: var(--warm-gray); margin-top: 0; opacity: 0; animation: fadeUp 1.2s ease 1.4s forwards;">This space is under construction. What's here works. What's coming will work differently — closer to breath, closer to body, closer to what twenty years of holding dance floors taught about what coherence actually feels like before anyone has words for it.</p>
+    <div class="pathway-choices">
+      <button class="pathway-btn" onclick="enterReceive()">
+        Receive in sequence
+        <span class="pathway-label">48 recognitions across three movements</span>
+      </button>
+      <button class="pathway-btn" onclick="enterBrowse()">
+        Browse the hall
+        <span class="pathway-label">See everything — visible and hidden</span>
+      </button>
+      <button class="pathway-btn" onclick="enterDraw()">
+        Draw one
+        <span class="pathway-label">A single offering at random</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ════ RECEIVE MODE ════ -->
+  <div class="view" id="receive-mode">
+    <div class="movement-indicator" id="r-movement"></div>
+    <div class="affirmation-space">
+      <div class="surface-text" id="r-surface" onclick="revealDepth()"></div>
+      <div class="depth-line" id="r-depth-line" onclick="revealDepth()"></div>
+      <div class="depth-text" id="r-depth"></div>
+    </div>
+    <div class="sit-action" id="r-sit-action">
+      <button class="sit-btn" onclick="enterContemplate()">Sit with this</button>
+    </div>
+    <div class="nav-bar" id="r-nav">
+      <button class="nav-arrow" id="r-prev" onclick="receivePrev()">←</button>
+      <span class="nav-position" id="r-position"></span>
+      <button class="nav-arrow" id="r-next" onclick="receiveNext()">→</button>
+    </div>
+    <div class="mode-switch" id="r-mode-switch">
+      <button class="mode-link" onclick="enterBrowse()">Browse</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="enterDraw()">Draw</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="returnToOpening()">Back</button>
+    </div>
+  </div>
+
+  <!-- ════ BROWSE MODE ════ -->
+  <div class="view" id="browse-mode">
+    <div class="browse-header">
+      <h2>Library</h2>
+      <p>Three movements, forty-eight recognitions. Click any to enter.</p>
+    </div>
+    <div id="browse-content"></div>
+    <div class="browse-back">
+      <button class="mode-link" onclick="returnToOpening()">Back to start</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="enterReceive()">Receive in sequence</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="enterDraw()">Draw one</button>
+    </div>
+  </div>
+
+  <!-- ════ DRAW MODE ════ -->
+  <div class="view" id="draw-mode">
+    <div class="draw-prompt" id="d-prompt">One at random</div>
+    <div class="affirmation-space">
+      <div class="surface-text" id="d-surface" onclick="drawReveal()"></div>
+      <div class="depth-line" id="d-depth-line" onclick="drawReveal()"></div>
+      <div class="depth-text" id="d-depth"></div>
+    </div>
+    <div class="sit-action" id="d-sit-action">
+      <button class="sit-btn" onclick="enterContemplate()">Sit with this</button>
+    </div>
+    <div class="draw-actions" id="d-actions">
+      <button class="draw-btn" onclick="drawAnother()">Draw another</button>
+    </div>
+    <div class="mode-switch" id="d-mode-switch">
+      <button class="mode-link" onclick="enterBrowse()">Browse</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="enterReceive()">Receive in sequence</button>
+      <span class="mode-sep">·</span>
+      <button class="mode-link" onclick="returnToOpening()">Back</button>
+    </div>
+  </div>
+
+  <!-- ════ CONTEMPLATION OVERLAY ════ -->
+  <div id="contemplate-overlay">
+    <div class="breath-circle"></div>
+    <div class="contemplate-surface" id="c-surface"></div>
+    <div class="contemplate-depth" id="c-depth"></div>
+    <button class="contemplate-exit" onclick="exitContemplate()">Return</button>
+  </div>
+
+  <div class="progress-bar" id="progress"></div>
+
+  <script>
+    // ═══ CONTENT ═══
+    // 48 pairs in 3 movements: Ground, Reach, Release
+    // Surface: a recognition of what's already true
+    // Depth: the structural principle underneath
+
+    const movements = [
+      {
+        name: "Ground",
+        pairs: [
+          ["You are already here", "Presence doesn't require arrival"],
+          ["Your body holds knowledge your mind hasn't reached", "Wisdom lives in the substrate"],
+          ["You breathe before you think", "The foundation operates before permission"],
+          ["Your silence carries weight", "What holds still isn't empty"],
+          ["You return to yourself without instructions", "Coherence remembers its own shape"],
+          ["Your pace teaches what urgency obscures", "Timing is structural, not moral"],
+          ["You already know where you're safe", "The body reads the field before the mind"],
+          ["Your rest is not retreat", "Recovery builds what effort alone can't"],
+          ["You feel before you understand — and the feeling is accurate", "Sensation is the first instrument"],
+          ["Your ground holds even when the surface moves", "Stability lives below the weather"],
+          ["You've survived every threshold so far", "Resilience compounds silently"],
+          ["Your needs are information, not weakness", "Limits make the system visible"],
+          ["You occupy exactly the space you require", "Sufficiency is structural"],
+          ["Your attention changes what it rests on", "Observation is participation"],
+          ["You carry capacity you haven't needed yet", "Reserves reveal themselves under load"],
+          ["Your foundation was laid before you noticed", "Infrastructure precedes recognition"]
+        ]
+      },
+      {
+        name: "Reach",
+        pairs: [
+          ["Your presence changes the room", "Fields respond to what enters them"],
+          ["What you give keeps moving after you release it", "Gifts operate on their own timeline"],
+          ["Your boundaries teach others what's real", "Clarity is a form of generosity"],
+          ["You receive more than you track", "Abundance exceeds accounting"],
+          ["Your listening creates space others can't make alone", "Witness is architecture"],
+          ["What you protect in yourself, you protect in others", "Self-care propagates"],
+          ["Your truth costs less than your silence", "Withholding has structural consequences"],
+          ["You recognize what others overlook", "Pattern recognition is a gift economy"],
+          ["Your vulnerability makes trust possible", "Openness is load-bearing"],
+          ["What you've broken has taught you about joining", "Repair is deeper knowledge than construction"],
+          ["Your care builds things that outlast your attention", "Investment compounds in systems"],
+          ["You speak and something shifts that you'll never see", "Impact propagates beyond visibility"],
+          ["Your rhythm invites others into their own", "Coherence is contagious, not imposed"],
+          ["What you refuse to pretend becomes available to everyone", "Authenticity is infrastructure"],
+          ["Your generosity has no ledger", "Gift moves without accounting"],
+          ["You hold more than you carry", "Capacity exceeds load"]
+        ]
+      },
+      {
+        name: "Release",
+        pairs: [
+          ["What you build serves people you'll never meet", "Infrastructure operates past its builder"],
+          ["Your surplus is real", "Abundance isn't metaphor — it's structural"],
+          ["What you share doesn't diminish", "Some resources multiply through distribution"],
+          ["Your coordination creates what extraction can't", "Surplus emerges from coherence"],
+          ["You are part of a system that needs your specific shape", "Differentiation serves the whole"],
+          ["What falls away was scaffolding, not structure", "Loss clarifies architecture"],
+          ["Your gifts operate whether or not they're named", "Function precedes recognition"],
+          ["The pattern holds even when you can't see it", "Structure persists through weather"],
+          ["What you've learned costs nothing to transmit", "Knowledge enters commons freely"],
+          ["Your work compounds in systems you didn't design", "Contribution exceeds intention"],
+          ["What connects you to others is not what you give them", "Recognition precedes exchange"],
+          ["Your coherence makes someone else's possible", "Integrity is relational"],
+          ["What you've built from nothing proves what's possible", "Demonstration propagates"],
+          ["The gift was always moving — you just joined the current", "Flow preceded your participation"],
+          ["Your capacity to receive is itself a gift to the giver", "Receiving completes the circuit"],
+          ["What's here is enough, and it becomes more through sharing", "Sufficiency generates surplus"]
+        ]
+      }
+    ];
+
+    // Flatten for indexed access
+    const allPairs = [];
+    movements.forEach((m, mi) => {
+      m.pairs.forEach((p, pi) => {
+        allPairs.push({
+          surface: p[0],
+          depth: p[1],
+          movement: m.name,
+          globalIndex: mi * 16 + pi,
+          movementIndex: mi,
+          pairIndex: pi
+        });
+      });
+    });
+
+    // ═══ STATE ═══
+    let currentMode = 'opening'; // opening | receive | browse | draw | contemplate
+    let receiveIndex = 0;
+    let depthRevealed = false;
+    let drawIndex = -1;
+    let drawRevealed = false;
+    let contemplateSource = null; // { surface, depth }
+    let drawHistory = []; // track recently drawn to avoid repeats
+
+    // ═══ VIEW SWITCHING ═══
+    function switchView(viewId) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active');
+    }
+
+    function returnToOpening() {
+      currentMode = 'opening';
+      switchView('opening');
+      updateProgress(-1);
+    }
+
+    // ═══ RECEIVE MODE ═══
+    function enterReceive() {
+      currentMode = 'receive';
+      switchView('receive-mode');
+      showReceiveAffirmation(receiveIndex);
+    }
+
+    function showReceiveAffirmation(index) {
+      if (index < 0) index = 0;
+      if (index >= allPairs.length) index = allPairs.length - 1;
+      receiveIndex = index;
+      depthRevealed = false;
+
+      const pair = allPairs[index];
+      const surface = document.getElementById('r-surface');
+      const depth = document.getElementById('r-depth');
+      const depthLine = document.getElementById('r-depth-line');
+      const movement = document.getElementById('r-movement');
+      const nav = document.getElementById('r-nav');
+      const sitAction = document.getElementById('r-sit-action');
+      const modeSwitch = document.getElementById('r-mode-switch');
+
+      // Reset
+      surface.className = 'surface-text';
+      depth.className = 'depth-text';
+      depthLine.className = 'depth-line';
+      nav.className = 'nav-bar';
+      sitAction.className = 'sit-action';
+      movement.className = 'movement-indicator';
+      modeSwitch.className = 'mode-switch';
+
+      // Content
+      surface.textContent = pair.surface;
+      depth.textContent = pair.depth;
+      movement.textContent = pair.movement;
+
+      // Position
+      document.getElementById('r-position').textContent = (index + 1) + ' / ' + allPairs.length;
+      document.getElementById('r-prev').disabled = (index === 0);
+      document.getElementById('r-next').disabled = (index === allPairs.length - 1);
+
+      // Progress
+      updateProgress(index);
+
+      // Animate in
+      setTimeout(() => movement.classList.add('visible'), 150);
+      setTimeout(() => surface.classList.add('arrived'), 400);
+      setTimeout(() => depthLine.classList.add('ready'), 1600);
+      setTimeout(() => {
+        nav.classList.add('visible');
+        modeSwitch.classList.add('visible');
+      }, 800);
+    }
+
+    function revealDepth() {
+      if (depthRevealed || currentMode !== 'receive') return;
+      depthRevealed = true;
+
+      const depth = document.getElementById('r-depth');
+      const depthLine = document.getElementById('r-depth-line');
+      const sitAction = document.getElementById('r-sit-action');
+
+      depthLine.classList.remove('ready');
+      depthLine.classList.add('expanded');
+
+      setTimeout(() => depth.classList.add('revealed'), 250);
+      setTimeout(() => sitAction.classList.add('available'), 900);
+    }
+
+    function receiveNext() {
+      if (receiveIndex >= allPairs.length - 1) return;
+      fadeAndShow(() => showReceiveAffirmation(receiveIndex + 1), 'receive-mode');
+    }
+
+    function receivePrev() {
+      if (receiveIndex <= 0) return;
+      fadeAndShow(() => showReceiveAffirmation(receiveIndex - 1), 'receive-mode');
+    }
+
+    function fadeAndShow(callback, containerId) {
+      const container = document.getElementById(containerId);
+      container.classList.add('fading');
+      setTimeout(() => {
+        container.classList.remove('fading');
+        callback();
+      }, 450);
+    }
+
+    // ═══ BROWSE MODE ═══
+    function enterBrowse() {
+      currentMode = 'browse';
+      switchView('browse-mode');
+      buildBrowseContent();
+      updateProgress(-1);
+    }
+
+    function buildBrowseContent() {
+      const container = document.getElementById('browse-content');
+      if (container.children.length > 0) return; // already built
+
+      movements.forEach((m, mi) => {
+        const section = document.createElement('div');
+        section.className = 'movement-section';
+
+        const title = document.createElement('div');
+        title.className = 'movement-title';
+        title.textContent = m.name;
+        section.appendChild(title);
+
+        m.pairs.forEach((p, pi) => {
+          const item = document.createElement('button');
+          item.className = 'browse-item';
+          const surface = document.createElement('span');
+          surface.className = 'browse-surface';
+          surface.textContent = p[0];
+          const depth = document.createElement('span');
+          depth.className = 'browse-depth';
+          depth.textContent = p[1];
+          item.appendChild(surface);
+          item.appendChild(depth);
+          const globalIdx = mi * 16 + pi;
+          item.onclick = () => enterReceiveAt(globalIdx);
+          section.appendChild(item);
+        });
+
+        container.appendChild(section);
+      });
+    }
+
+    function enterReceiveAt(index) {
+      currentMode = 'receive';
+      switchView('receive-mode');
+      showReceiveAffirmation(index);
+    }
+
+    // ═══ DRAW MODE ═══
+    function enterDraw() {
+      currentMode = 'draw';
+      switchView('draw-mode');
+      drawOne();
+    }
+
+    function drawOne() {
+      drawRevealed = false;
+
+      // Pick random, avoiding last 8 drawn
+      let idx;
+      let attempts = 0;
+      do {
+        idx = Math.floor(Math.random() * allPairs.length);
+        attempts++;
+      } while (drawHistory.includes(idx) && attempts < 50);
+
+      drawIndex = idx;
+      drawHistory.push(idx);
+      if (drawHistory.length > 8) drawHistory.shift();
+
+      const pair = allPairs[idx];
+      const surface = document.getElementById('d-surface');
+      const depth = document.getElementById('d-depth');
+      const depthLine = document.getElementById('d-depth-line');
+      const prompt = document.getElementById('d-prompt');
+      const actions = document.getElementById('d-actions');
+      const sitAction = document.getElementById('d-sit-action');
+      const modeSwitch = document.getElementById('d-mode-switch');
+
+      // Reset
+      surface.className = 'surface-text';
+      depth.className = 'depth-text';
+      depthLine.className = 'depth-line';
+      prompt.className = 'draw-prompt';
+      actions.className = 'draw-actions';
+      sitAction.className = 'sit-action';
+      modeSwitch.className = 'mode-switch';
+
+      // Content
+      surface.textContent = pair.surface;
+      depth.textContent = pair.depth;
+
+      // Animate
+      setTimeout(() => prompt.classList.add('visible'), 100);
+      setTimeout(() => surface.classList.add('arrived'), 500);
+      setTimeout(() => depthLine.classList.add('ready'), 1800);
+      setTimeout(() => modeSwitch.classList.add('visible'), 600);
+    }
+
+    function drawReveal() {
+      if (drawRevealed || currentMode !== 'draw') return;
+      drawRevealed = true;
+
+      const depth = document.getElementById('d-depth');
+      const depthLine = document.getElementById('d-depth-line');
+      const actions = document.getElementById('d-actions');
+      const sitAction = document.getElementById('d-sit-action');
+
+      depthLine.classList.remove('ready');
+      depthLine.classList.add('expanded');
+
+      setTimeout(() => depth.classList.add('revealed'), 250);
+      setTimeout(() => {
+        actions.classList.add('visible');
+        sitAction.classList.add('available');
+      }, 900);
+    }
+
+    function drawAnother() {
+      fadeAndShow(() => drawOne(), 'draw-mode');
+    }
+
+    // ═══ CONTEMPLATION ═══
+    function enterContemplate() {
+      let pair;
+      if (currentMode === 'receive') {
+        pair = allPairs[receiveIndex];
+      } else if (currentMode === 'draw') {
+        pair = allPairs[drawIndex];
+      } else {
+        return;
+      }
+
+      contemplateSource = currentMode;
+      const overlay = document.getElementById('contemplate-overlay');
+      document.getElementById('c-surface').textContent = pair.surface;
+      document.getElementById('c-depth').textContent = pair.depth;
+
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          overlay.classList.add('visible');
+        });
+      });
+
+      currentMode = 'contemplate';
+    }
+
+    function exitContemplate() {
+      const overlay = document.getElementById('contemplate-overlay');
+      overlay.classList.remove('visible');
+
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        currentMode = contemplateSource || 'receive';
+        // Return to whichever mode launched contemplation
+        if (currentMode === 'receive') {
+          switchView('receive-mode');
+        } else if (currentMode === 'draw') {
+          switchView('draw-mode');
+        }
+      }, 800);
+    }
+
+    // ═══ PROGRESS ═══
+    function updateProgress(index) {
+      const bar = document.getElementById('progress');
+      if (index < 0) {
+        bar.style.width = '0%';
+      } else {
+        const pct = ((index + 1) / allPairs.length) * 100;
+        bar.style.width = pct + '%';
+      }
+    }
+
+    // ═══ KEYBOARD ═══
+    document.addEventListener('keydown', function(e) {
+      if (currentMode === 'opening') {
+        // No keyboard shortcuts on opening — let user choose
+        return;
+      }
+
+      if (currentMode === 'contemplate') {
+        if (e.key === 'Escape' || e.key === ' ') {
+          e.preventDefault();
+          exitContemplate();
+        }
+        return;
+      }
+
+      if (currentMode === 'receive') {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (depthRevealed) {
+            receiveNext();
+          } else {
+            revealDepth();
+          }
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          receivePrev();
+        } else if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          if (!depthRevealed) {
+            revealDepth();
+          } else {
+            receiveNext();
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          returnToOpening();
+        } else if (e.key === 's') {
+          if (depthRevealed) enterContemplate();
+        }
+        return;
+      }
+
+      if (currentMode === 'draw') {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          if (!drawRevealed) {
+            drawReveal();
+          } else {
+            drawAnother();
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          returnToOpening();
+        } else if (e.key === 's') {
+          if (drawRevealed) enterContemplate();
+        }
+        return;
+      }
+
+      if (currentMode === 'browse') {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          returnToOpening();
+        }
+        return;
+      }
+    });
+  </script>
+
+</body>
+</html>

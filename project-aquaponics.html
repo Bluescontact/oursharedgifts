@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Commercial Aquaponics Greenhouse — closed-loop food production at commercial scale. Fish feed plants, plants filter water, surplus is food.">
+  <title>Commercial Aquaponics Greenhouse — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Aquaponics Greenhouse */
+
+    .aq-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .aq-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .aq-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .aq-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .aq-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .aq-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .aq-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Pull quote */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Status block */
+    .status-block {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-lg);
+      background: var(--white);
+      border-left: 4px solid var(--v-architecture);
+      border-radius: var(--border-radius);
+    }
+
+    .status-block .s-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--v-architecture);
+      margin-bottom: var(--space-sm);
+    }
+
+    .status-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Specs grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background-color: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .spec-item {
+      padding: var(--space-md);
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+    }
+
+    .spec-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--warm-light);
+      margin-bottom: var(--space-xs);
+    }
+
+    .spec-value {
+      font-size: 1rem;
+      color: var(--warm-black);
+      font-weight: 600;
+    }
+
+    .spec-note {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      margin-top: 4px;
+    }
+
+    /* Phase blocks */
+    .phase-block {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .phase-block .p-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .phase-block h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .phase-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* Phase gate — the hard stops */
+    .phase-gate {
+      margin: var(--space-md) 0 var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--white);
+      border-left: 4px solid var(--v-boundaries);
+      border-radius: var(--border-radius);
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Vertex analysis */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+
+    .v-card .v-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+
+    .v-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .v-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Connection list */
+    .connection-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-lg) 0;
+    }
+
+    .connection-list li {
+      margin: var(--space-md) 0;
+      padding-left: var(--space-lg);
+      position: relative;
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.6;
+    }
+
+    .connection-list li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      color: var(--teal-primary);
+    }
+
+    .connection-list a {
+      color: var(--teal-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal-border);
+    }
+
+    .connection-list a:hover {
+      color: var(--teal-dark);
+      border-bottom-color: var(--teal-dark);
+    }
+
+    /* Project images */
+    .project-hero {
+      width: 100%;
+      margin: 0 0 var(--space-xl);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .project-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .project-detail {
+      margin: var(--space-lg) 0;
+    }
+
+    .project-detail img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      border-radius: var(--border-radius);
+    }
+
+    .project-detail figcaption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--warm-light);
+      margin-top: var(--space-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      .aq-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="aq-intro">
+      <div class="phase-label">Project &middot; Structure purchased</div>
+      <h2>Commercial Aquaponics Greenhouse</h2>
+      <p class="lead">Closed-loop food production at commercial scale &mdash; fish feed plants, plants filter water, surplus is food. Every output becomes someone else's input. The greenhouse envelope creates the boundary conditions where this biology can operate in a climate that would otherwise kill it.</p>
+    </section>
+
+    <div class="aq-content">
+
+      <div class="status-block">
+        <div class="s-label">Structure purchased &mdash; assembly pending</div>
+        <p>30&times;100 ft greenhouse ribs purchased and on hand. Glazing plastic on order. Aquaponics system designed with staged biological validation. Assembly follows wind protection completion at the site.</p>
+      </div>
+
+      <div class="project-hero"><img src="photos/project-aquaponics/A1-greenhouse-exterior.jpg" alt="Aquaponics greenhouse structure" loading="lazy"></div>
+
+      <!-- ═══ THE SYSTEM ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">The system</div>
+        <h3>What gets built</h3>
+
+        <p>A 30-foot by 100-foot commercial-scale aquaponics greenhouse with geothermal climate battery, sized to generate $70,000 to $85,000 in annual restaurant revenue from the Santa Fe and Albuquerque market. Every engineering element is designed to prove commercial viability in a high-desert environment at 6,000 feet elevation. The greenhouse integrates three production systems: deep water culture tables for leafy greens, ebb-and-flow media beds using the Steve Dread dual root zone method, and a fish system anchored by a 5,000-gallon round tank with three IBC breeding tanks that maintain stocking capacity without external input.</p>
+
+        <p>The climate battery is the thermal heart. A 22-foot by 80-foot pit, 4 feet deep, running 8 to 10 passes of 6-inch PVC ground loops beneath the greenhouse floor. In summer, when interior temperatures reach 95&deg;F, fans push hot air through the buried pipes where surrounding earth absorbs the heat, returning air at 65-70&deg;F. In winter, the thermal mass passively releases stored warmth. This eliminates the energy cost that kills most greenhouse operations at altitude &mdash; heating and cooling become geological rather than mechanical.</p>
+
+        <p>The water system is gravity-fed from a high entrance point, cascading through fish tanks into biofilters into grow beds. Total recirculating volume is 7,000 to 8,000 gallons. A critical design element is the isolation valve between fish systems and plant systems &mdash; if fish crash, close the valve, switch to hydroponic nutrients, and plant production continues with zero downtime. The dual root zone media beds use a three-layer ecosystem: aerobic fungal zone on top, anaerobic bacterial zone in the middle, and a worm casting zone below. This approach creates soil-quality growing conditions in a soilless system.</p>
+
+        <figure class="project-detail"><img src="photos/project-aquaponics/A2-growing-systems.jpg" alt="Growing and water systems" loading="lazy"><figcaption>Growing systems layout</figcaption></figure>
+      </section>
+
+      <!-- ═══ SPECIFICATIONS ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">Specifications</div>
+        <h3>System dimensions</h3>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Greenhouse</div>
+            <div class="spec-value">30 ft &times; 100 ft</div>
+            <div class="spec-note">Gothic arch, cattle panel bows with poly glazing</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Climate Battery</div>
+            <div class="spec-value">22 ft &times; 80 ft &times; 4 ft</div>
+            <div class="spec-note">8-10 runs of 6&Prime; PVC</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Fish System</div>
+            <div class="spec-value">5,000 gal + 3&times; IBC</div>
+            <div class="spec-note">Round tank main + breeding tanks, goldfish &rarr; koi</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">DWC Tables</div>
+            <div class="spec-value">2&times; 75 ft &times; 3 ft</div>
+            <div class="spec-note">888 head capacity, mixed production</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Media Beds</div>
+            <div class="spec-value">80 Linear Feet</div>
+            <div class="spec-note">Ebb/flow, bell siphon, dual root zone</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Total Water Volume</div>
+            <div class="spec-value">7,000-8,000 Gallons</div>
+            <div class="spec-note">Recirculating, gravity cascade</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Power</div>
+            <div class="spec-value">8-20 kWh/Day</div>
+            <div class="spec-note">8-10 basic, 18-20 full production</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Revenue Target</div>
+            <div class="spec-value">$70,000-85,000/yr</div>
+            <div class="spec-note">Restaurant wholesale, mixed greens + fruiting</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ BUILD SEQUENCE ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">Build sequence</div>
+        <h3>Biological succession</h3>
+
+        <p>Each layer of this system depends on the one beneath it. You don't introduce fish to water that doesn't have a nitrogen cycle. You don't promise a chef weekly deliveries from a system that hasn't demonstrated consistent harvest. The build sequence follows the biology's own succession &mdash; each stage proves the conditions the next stage requires.</p>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 1</div>
+          <h4>Power and aeration</h4>
+          <p>The non-negotiable floor. Air pumps run 24/7 or fish die. Solar array, battery bank, and backup power must be installed and proven reliable before any living thing enters the system. This is infrastructure validation &mdash; the substrate everything else grows on.</p>
+        </div>
+
+        <div class="phase-gate">Do not stock fish until the power system has demonstrated continuous aeration through a full charge/discharge cycle including cloudy weather. Air pumps draw 300W continuous. Minimum reserve: 2-3 days without solar input.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 2</div>
+          <h4>Nitrogen cycle</h4>
+          <p>Bacterial colonization of the biofilters. Ammonia in, nitrate out, consistently, for weeks. The system is water and bacteria before it's anything else. Feeder goldfish provide the ammonia source. The investment is fifty dollars. The validation is water chemistry readings that show the cycle is self-sustaining.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 3</div>
+          <h4>Fish and first plants</h4>
+          <p>Stock the main tank, start planting DWC. Prove the closed loop works &mdash; fish waste feeds plants, plants filter water, chemistry stays stable under biological load. Transition from goldfish to koi once the system demonstrates consistent water quality. Begin breeding program in the IBC nursery tanks.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 4</div>
+          <h4>Climate battery and full production</h4>
+          <p>Thermal regulation enables year-round operation. Media beds come online with light deprivation. Production scales to full DWC capacity and perpetual media bed harvest. The climate battery proves it can maintain growing conditions through seasonal extremes without mechanical heating or cooling.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 5</div>
+          <h4>Market entry</h4>
+          <p>Consistent weekly harvest at volumes that support restaurant accounts. The system proves it can deliver reliably before commitments are made to buyers. A chef who depends on your lettuce every Tuesday needs to know the system behind that delivery is stable. Revenue begins when production demonstrates consistency, not when the greenhouse is finished.</p>
+        </div>
+
+        <div class="phase-gate">Each stage has a clear test: does this layer hold before the next layer is added? The gates aren't about managing risk &mdash; they're about not asking biology to perform in conditions that haven't been established yet.</div>
+      </section>
+
+      <!-- ═══ THE PATTERN ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">The pattern</div>
+        <h3>Connection as closed loop</h3>
+
+        <p>This is the Connection vertex at full expression &mdash; closed-loop nutrient cycling where every output becomes someone else's input. Fish waste becomes plant food. Plant roots filter water for fish. The surplus is food that enters community through restaurant sales and direct distribution. Nothing leaves the system as waste. The greenhouse envelope creates the boundary conditions where this biology can operate in a climate that would otherwise kill it.</p>
+
+        <p>The deeper pattern is biological validation before infrastructure commitment. Prove the biology, then build the pit, then scale to production. This applies the same succession logic as the hex wind protection within the acre &mdash; don't build permanent infrastructure for unproven biology. Let the living system demonstrate viability before committing irreversible resources. The patience is structural, not temperamental.</p>
+
+        <div class="pull">The same pattern operates at every scale of this project: waste from one context becomes critical input for another. Excavated clay becomes wind berms. Fish waste becomes fertilizer. Surplus food becomes revenue. Revenue becomes expanded capacity. Nothing is consumed. Everything circulates.</div>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Connection</h4>
+            <p>The entire system IS connection &mdash; nutrient cycling, water circulation, energy exchange between fish and plants. Every component connects to every other through biological and mechanical flows that compound over time.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>30&times;100 ft greenhouse with geothermal climate battery is permanent infrastructure. The buried PVC loops and thermal mass persist across decades and compound in value as soil biology matures in the media beds.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Differentiation</h4>
+            <p>Each subsystem maintains distinct identity while serving the whole &mdash; fish tanks are not grow beds, DWC is not media bed, climate battery is not the water system. The isolation valve embodies this: systems can decouple without the whole collapsing.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Boundaries</h4>
+            <p>The greenhouse envelope IS the boundary that makes everything else possible &mdash; separating interior climate from 75-80 mph desert winds and winter lows. The isolation valve is the internal boundary protecting plant production from fish system failure.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="aq-section">
+        <div class="phase-label">Continue</div>
+        <h3>From production to circulation</h3>
+
+        <p>This greenhouse is designed to prove that closed-loop food production works commercially in high-desert conditions. Three sub-pages carry the depth: <a href="aq-growing.html">Growing Systems</a> documents the DWC tables, media beds, dual root zone method, and crop planning. <a href="aq-climate.html">Climate Battery</a> describes the pit geometry, ground loop engineering, and passive thermal regulation. <a href="aq-automation.html">Automation &amp; Monitoring</a> is the open engineering challenge &mdash; the sensor and control layer that enables 3-5 day autonomous operation.</p>
+
+        <p>For the underlying coordination geometry: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>The gift here is food that comes from coordination rather than extraction. Fish waste becomes plant food becomes human food becomes restaurant revenue becomes expanded production. The system gets more productive each season as biology matures. The deeper gift is the demonstration: commercial-scale food production without soil depletion, without chemical inputs, without waste streams. Every specification, every failure, every adaptation enters commons.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="One-Acre Oasis — complete regenerative site design at 6,000 ft. Hex cable wind protection, concentric planting zones, central pond, greenhouse integration, 10-year succession from scrubland to self-sustaining ecosystem.">
+  <title>One-Acre Oasis — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .oa-intro { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0 var(--space-xl); }
+    .oa-intro h2 { font-size: var(--text-3xl); color: var(--warm-black); line-height: 1.15; margin-bottom: var(--space-md); }
+    .oa-content { max-width: var(--content-width); margin: 0 auto; }
+    .oa-section { padding: var(--space-xl) 0; border-top: 1px solid var(--teal-border); }
+    .oa-section:first-of-type { border-top: none; padding-top: 0; }
+    .oa-section h3 { font-size: var(--text-xl); color: var(--warm-black); margin-bottom: var(--space-md); }
+    .oa-section p { color: var(--warm-dark); }
+    .pull { margin: var(--space-xl) 0; padding: var(--space-lg); border-left: 3px solid var(--teal-primary); background: var(--teal-faint); border-radius: 0 var(--border-radius) var(--border-radius) 0; font-size: var(--text-md); font-style: italic; color: var(--warm-dark); line-height: 1.7; }
+
+    .status-block { margin-bottom: var(--space-lg); padding: var(--space-lg); background: var(--white); border-left: 4px solid var(--v-connection); border-radius: var(--border-radius); }
+    .status-block .s-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--v-connection); margin-bottom: var(--space-sm); }
+    .status-block p { font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; margin: 0; }
+
+    /* Zone cards */
+    .zone-cards { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin: var(--space-lg) 0; }
+    .zone-card { padding: var(--space-lg); background: var(--white); border: 1px solid var(--teal-border); border-radius: var(--border-radius); display: grid; grid-template-columns: 80px 1fr; gap: var(--space-md); align-items: start; }
+    .zone-card .zn { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-primary); padding-top: 4px; }
+    .zone-card h4 { font-size: var(--text-base); color: var(--warm-black); margin-bottom: var(--space-xs); }
+    .zone-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; margin: 0; }
+
+    /* Succession timeline */
+    .succession { margin: var(--space-lg) 0; }
+    .succession-row { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .succession-row:last-child { border-bottom: none; }
+    .succession-row .s-years { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); color: var(--teal-primary); padding-top: 3px; }
+    .succession-row p { font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.6; margin: 0; }
+
+    /* Failure hierarchy */
+    .failure-stack { margin: var(--space-lg) 0; }
+    .failure-row { display: grid; grid-template-columns: 1fr 120px; gap: var(--space-md); padding: var(--space-md) var(--space-lg); border-left: 3px solid; margin-bottom: var(--space-sm); border-radius: 0 var(--border-radius) var(--border-radius) 0; background: var(--white); }
+    .failure-row.sacrificial { border-left-color: var(--v-differentiation); }
+    .failure-row.renewable { border-left-color: var(--v-boundaries); }
+    .failure-row.permanent { border-left-color: var(--v-architecture); }
+    .failure-row p { font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.5; margin: 0; }
+    .failure-row .f-cost { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); color: var(--warm-light); text-align: right; padding-top: 3px; }
+
+    /* Specs grid */
+    .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; padding: var(--space-lg); background-color: var(--cream-dark); border-radius: var(--border-radius); }
+    .spec-item { padding: var(--space-md); background-color: var(--white); border-radius: var(--border-radius); }
+    .spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--warm-light); margin-bottom: var(--space-xs); }
+    .spec-value { font-size: 1rem; color: var(--warm-black); font-weight: 600; }
+    .spec-note { font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px; }
+
+    /* Phase blocks */
+    .phase-block { padding: var(--space-lg); margin-bottom: var(--space-md); background-color: var(--white); border-left: 3px solid var(--teal-border); border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+    .phase-block .p-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal-primary); margin-bottom: var(--space-xs); }
+    .phase-block h4 { margin: 0 0 var(--space-sm) 0; font-size: 1rem; color: var(--warm-black); }
+    .phase-block p { margin: 0; font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; }
+    .phase-gate { padding: var(--space-md) var(--space-lg); margin-bottom: var(--space-md); background-color: var(--teal-faint); border: 1px dashed var(--teal-primary); border-radius: var(--border-radius); font-size: var(--text-sm); color: var(--teal-dark); font-style: italic; }
+
+    /* Vertex grid */
+    .vertex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-lg) 0; }
+    .v-card { padding: var(--space-lg); background: var(--white); border-radius: var(--border-radius); border-left: 3px solid; }
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+    .v-card .v-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xs); }
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+    .v-card h4 { font-size: var(--text-base); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .v-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; margin: 0; }
+
+    .project-hero { width: 100%; margin: 0 0 var(--space-xl); border-radius: var(--border-radius); overflow: hidden; }
+    .project-hero img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+    @media (max-width: 768px) {
+      .oa-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .zone-card { grid-template-columns: 1fr; }
+      .succession-row { grid-template-columns: 1fr; }
+      .failure-row { grid-template-columns: 1fr; }
+      .failure-row .f-cost { text-align: left; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="oa-intro">
+      <div class="phase-label">Project &middot; In development</div>
+      <h2>One-Acre Oasis</h2>
+      <p class="lead">One acre at 6,000 feet in central New Mexico. Windswept grassland, alkaline clay, 10-14 inches of annual rainfall, 75-80 mph sustained winds. Everything about this location is hostile to agriculture. A hexagonal cable structure nurses a food forest into existence while a greenhouse produces revenue inside the protected zone. Steel protects the trees until the trees can protect themselves.</p>
+    </section>
+
+    <div class="oa-content">
+
+      <div class="status-block">
+        <div class="s-label">In development</div>
+        <p>Land secured through caretaking agreement &mdash; one acre primary with 160 acres access, no rent, improvements stay with the land. Tractor on site (Kubota L2501). Greenhouse ribs purchased. Hex ring materials identified. Succession timeline underway.</p>
+      </div>
+
+      <div class="project-hero"><img src="photos/project-one-acre/O1-aerial-view.jpg" alt="Aerial view of the one-acre site" loading="lazy"></div>
+
+      <!-- ═══ THE SITE ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">The site</div>
+        <h3>What's here</h3>
+
+        <p>Laguna, New Mexico. Zone 6a &mdash; winters drop to -10&deg;F. The plateau is flat and exposed with zero natural wind protection. Sparse desert vegetation, heavy alkaline clay soil, and a well as the only water source. Neighbors have similar scattered development across the mesa. The prevailing wind comes from the southwest and regularly exceeds sustained speeds that would destroy any unprotected agriculture.</p>
+
+        <p>The land arrangement is a caretaking agreement with full creative freedom. Improvements stay with the land. This means everything built here is gift twice &mdash; once as functional infrastructure during use, and again as permanent capacity that remains when the caretaker moves on.</p>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Location</div>
+            <div class="spec-value">Laguna, NM</div>
+            <div class="spec-note">6,000 ft elevation, Zone 6a</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Climate</div>
+            <div class="spec-value">10-14&Prime; rain, 75-80 mph wind</div>
+            <div class="spec-note">-10&deg;F winters, 95&deg;F+ summers</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Land</div>
+            <div class="spec-value">1 acre + 160 acres access</div>
+            <div class="spec-note">Caretaking agreement</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Soil</div>
+            <div class="spec-value">Heavy alkaline clay</div>
+            <div class="spec-note">Hostile to most agriculture without amendment</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Equipment</div>
+            <div class="spec-value">Kubota L2501</div>
+            <div class="spec-note">Tractor with excavator attachment</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Water</div>
+            <div class="spec-value">Well</div>
+            <div class="spec-note">Primary source for all systems</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ HEX WIND PROTECTION ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Wind protection</div>
+        <h3>Hex cable ring</h3>
+
+        <p>A hexagonal perimeter structure centered on the acre &mdash; 100 feet per side, 600 feet of perimeter, covering approximately 0.6 acres. Six steel posts at the hex vertices, 12 feet tall, set in concrete foundations. Half-inch elevator traction cable tensioned around the perimeter at post height creates the primary structural ring. The cable has 20,000+ lbs breaking strength &mdash; massively over-engineered for wind loads because the cable comes from decommissioned elevator shafts as a free waste stream.</p>
+
+        <p>80% Aluminet shade cloth deploys from the cable ring at a 45-degree angle down to ground level, creating wind wedges on each face. The cloth breaks wind speed by 50-80% while allowing some air movement through &mdash; critical because a solid barrier creates destructive turbulence on the lee side. The angled deployment creates roughly 17 feet of fabric width per side, totaling approximately 7,400 square feet of membrane surface.</p>
+
+        <p>Aircraft cable forms a secondary grid in a triangulated pattern between the primary elevator cable runs. The shade cloth sandwiches between the aircraft cable layers, secured by grommets. This creates a membrane system that distributes wind load across the entire cable network rather than concentrating stress at attachment points.</p>
+
+        <div class="pull">The hex geometry distributes loads efficiently across all six faces regardless of wind direction. No single face takes the full brunt. The tensioned cable network acts as a tensegrity structure &mdash; compression in the posts, tension in the cables, and the geometry itself provides stability rather than material mass.</div>
+      </section>
+
+      <!-- ═══ DESIGNED FAILURE ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Engineering</div>
+        <h3>Designed failure hierarchy</h3>
+
+        <p>When wind exceeds design limits, components fail in order of cost &mdash; cheapest first, most expensive never. This is how elevator safety systems work: sacrificial fuses protect the expensive infrastructure. The same logic applied to agriculture.</p>
+
+        <div class="failure-stack">
+          <div class="failure-row sacrificial">
+            <p>Wood stakes (4&times;4 timber) &mdash; sacrificial fuses at ground attachment points. Fail first under extreme load. Cheapest to replace.</p>
+            <div class="f-cost">Fails first</div>
+          </div>
+          <div class="failure-row renewable">
+            <p>Shade cloth &mdash; tears or grommets pull under sustained overload. Moderate replacement cost. Renewable membrane.</p>
+            <div class="f-cost">Fails second</div>
+          </div>
+          <div class="failure-row permanent">
+            <p>Aircraft cable grid &mdash; stays intact at any wind load the shade cloth transmits. No replacement needed.</p>
+            <div class="f-cost">Never fails</div>
+          </div>
+          <div class="failure-row permanent">
+            <p>Primary elevator cable &mdash; 20,000+ lbs breaking strength. Never approaches failure at atmospheric wind loads.</p>
+            <div class="f-cost">Never fails</div>
+          </div>
+          <div class="failure-row permanent">
+            <p>Steel posts and concrete foundations &mdash; permanent infrastructure. Untouched by any wind event.</p>
+            <div class="f-cost">Never fails</div>
+          </div>
+        </div>
+
+        <p>Rebuild after extreme wind happens from the top down: re-stake, re-cloth, re-tension. The expensive infrastructure never needs replacement. The cheap things protect the expensive things by failing first.</p>
+      </section>
+
+      <!-- ═══ CONCENTRIC ZONES ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Site design</div>
+        <h3>Concentric zones</h3>
+
+        <p>The site design works from the outside in. Each outer ring creates the conditions for the next inner ring to thrive. The property fence defines the legal boundary. The locust row takes the first wind hit. The outer ring trees establish in the locust's wind shadow. The hex structure protects the inner food forest. The greenhouse and pond sit at the center of maximum protection.</p>
+
+        <div class="zone-cards">
+          <div class="zone-card">
+            <div class="zn">Outer ring</div>
+            <div>
+              <h4>Shipmast Black Locust windbreak</h4>
+              <p>Planted just inside the property fence with drip irrigation to the boundary line. Nitrogen-fixing legume that feeds the soil it grows in. Fast establishment &mdash; functional windbreak height in 3-5 years. Rot-resistant heartwood provides perpetual fence post supply as trees mature. Takes the first wind hit from the exterior. Spacing at 8-10 feet between trees.</p>
+            </div>
+          </div>
+          <div class="zone-card">
+            <div class="zn">Second ring</div>
+            <div>
+              <h4>Secondary windbreak and habitat</h4>
+              <p>Inside the locust row, outside the hex. Four species selected for drought tolerance and stacking function: Desert Willow (native, fast-growing), New Mexico Olive (dense, wildlife food), Pinyon Pine (slow, edible nuts as long-term value), and Jujube (fruit production, extreme drought tolerance). These establish in the wind shadow the locust row creates.</p>
+            </div>
+          </div>
+          <div class="zone-card">
+            <div class="zn">Hex interior</div>
+            <div>
+              <h4>Food forest</h4>
+              <p>Inside the hex cable structure where wind is reduced 50-80% from exterior conditions. Fruit trees and berry guilds: fig, pomegranate, apricot, Asian pear. Berry understory of gooseberry, currant, goji. Native grass restoration at ground level. This zone receives the most protection and the most attention &mdash; it's where the food forest canopy eventually closes.</p>
+            </div>
+          </div>
+          <div class="zone-card">
+            <div class="zn">Center</div>
+            <div>
+              <h4>Pond and greenhouse</h4>
+              <p>Central pond &mdash; 25 feet by 25 feet, 8 feet deep. Excavated material becomes wind berms reinforcing the windward side. The pond provides thermal mass, humidity in an arid environment, irrigation reserve, and habitat. The greenhouse sits adjacent, oriented for maximum solar gain. Maximum protection zone &mdash; everything on the site converges to make this center productive.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SUCCESSION ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">10-year timeline</div>
+        <h3>Succession</h3>
+
+        <p>The site transforms from scrubland to self-sustaining ecosystem over a decade. The mechanical infrastructure dominates early, the biological systems take over progressively, and eventually the steel becomes optional.</p>
+
+        <div class="succession">
+          <div class="succession-row">
+            <div class="s-years">Year 0-2</div>
+            <p>Steel infrastructure provides the establishment climate. Hex cable ring and shade cloth deployed. Locust and outer ring trees planted with irrigation. Pond excavated, berms shaped. Greenhouse operational inside protected zone. All wind protection is mechanical. Trees are seedlings.</p>
+          </div>
+          <div class="succession-row">
+            <div class="s-years">Year 3-5</div>
+            <p>Locust windbreak reaches functional height. Wind reduction at the hex perimeter begins shifting from mechanical to biological. Outer ring trees establishing. Food forest fruit trees begin producing. Berry understory filling in. Soil improving from locust nitrogen fixation and biochar application.</p>
+          </div>
+          <div class="succession-row">
+            <div class="s-years">Year 5-8</div>
+            <p>Living windbreaks handling primary wind protection. Shade cloth maintenance decreasing as trees provide increasing coverage. Food forest canopy beginning to close. Fruit production scaling. Native grass restoration visible. The ecosystem is becoming self-reinforcing &mdash; each element supporting the others.</p>
+          </div>
+          <div class="succession-row">
+            <div class="s-years">Year 8-10+</div>
+            <p>Self-sustaining ecosystem. Cable infrastructure is backup rather than primary protection. The hex structure could be removed and redeployed to the next property, beginning the succession cycle again. The infrastructure doesn't stay &mdash; it propagates. What remains is a functioning food forest that maintains its own conditions.</p>
+          </div>
+        </div>
+
+        <div class="pull">The hex system is the pioneer species. Fast-deploying mechanical protection that creates the conditions for biological systems to establish. As trees mature, the living windbreak takes over the protective function. The steel nurses the trees into existence, then gets out of the way. This is succession thinking applied to infrastructure.</div>
+      </section>
+
+      <!-- ═══ BUILD SEQUENCE ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Build sequence</div>
+        <h3>Protection before production</h3>
+
+        <p>Nothing survives on this site without wind protection. The build sequence starts with the hex ring and works inward. Every stage creates the conditions the next stage requires.</p>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 1</div>
+          <h4>Hex ring and earthworks</h4>
+          <p>Set six steel posts at hex vertices using tractor-mounted post hole digger. Concrete foundations. Tension primary elevator cable around perimeter. Deploy aircraft cable grid and shade cloth. Simultaneously: excavate pond (25&times;25&times;8 ft), shape excavated material into wind berms on windward side. Establish irrigation line to property fence for locust row.</p>
+        </div>
+
+        <div class="phase-gate">Hex ring must be tensioned and shade cloth deployed before any trees are planted inside the protected zone. Without wind protection, seedlings die.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 2</div>
+          <h4>Planting and establishment</h4>
+          <p>Plant Shipmast Black Locust at property perimeter with drip irrigation. Plant outer ring species in locust's initial wind shadow. Plant food forest fruit trees and berry guilds inside hex. Establish native grass seed. Line and fill pond. Begin irrigation scheduling. All biological systems go in simultaneously once mechanical protection is in place.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 3</div>
+          <h4>Greenhouse and production</h4>
+          <p>Erect greenhouse ribs inside the hex protected zone. Glazing, aquaponics plumbing, climate battery installation. The greenhouse is its own project with its own succession sequence &mdash; but it goes in after the hex ring is providing wind protection. Revenue from greenhouse production funds continued site development and tree maintenance.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 4</div>
+          <h4>Maturation and propagation</h4>
+          <p>Living windbreaks take over primary protection. Food forest canopy closes. Fruit production at scale. Native ecosystem re-established. The site generates surplus &mdash; food, fertility, seed stock, and the documentation of how scrubland became ecosystem. When the biological systems are self-sustaining, the hex cable infrastructure can be removed and redeployed.</p>
+        </div>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>The hex cable structure is persistent infrastructure &mdash; steel posts, concrete foundations, tensioned cable rated to 20,000+ lbs. This architecture outlasts the biological systems it protects and creates the conditions for everything else on the site.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Boundaries</h4>
+            <p>The hex defines a precise wind boundary &mdash; 75-80 mph outside, progressively calmer toward center. The concentric zone design, the designed failure hierarchy, the property fence irrigation line &mdash; every element manages a boundary between hostile exterior and protected interior.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Connection</h4>
+            <p>The concentric zones connect in succession &mdash; each outer zone protects the next inner zone. Locust fixes nitrogen for the trees downwind. Pond provides humidity for the food forest. But these connections take years to establish. The current system is mechanical; the target is biological.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Differentiation</h4>
+            <p>The hex system knows what it is: a temporary nurse structure, not a permanent building. This clarity &mdash; being designed to make itself unnecessary &mdash; is differentiation. But the site's identity as a functioning ecosystem rather than a construction project develops over years of succession.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="oa-section">
+        <div class="phase-label">Continue</div>
+        <h3>What grows here</h3>
+
+        <p>The greenhouse inside this protected zone is its own project with its own depth: <a href="project-aquaponics.html">Aquaponics Greenhouse</a>. The biochar that charges soil throughout the food forest: <a href="project-biochar.html">Solar Biochar Systems</a>. For the underlying coordination geometry: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>The gift here is the waste stream recognition. Elevator traction cable &mdash; the single most expensive component in any wind protection system &mdash; comes free from decommissioned elevator shafts because the industry considers it waste. Applying that knowledge to agriculture costs almost nothing in materials and protects 25,000 square feet of establishing food forest. The deeper gift is the replicable pattern: find the waste stream in one industry that solves the critical constraint in another. That recognition, documented and shared, is more valuable than any amount of cable.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

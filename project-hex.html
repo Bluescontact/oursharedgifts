@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexagonal Microclimate System | Our Shared Gifts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --warm-black: #1a1a1a;
+      --warm-dark: #2c2c2c;
+      --warm-gray: #6b6b6b;
+      --warm-light: #9a9a9a;
+      --cream-light: #faf8f5;
+      --cream-dark: #f2efe9;
+      --white: #ffffff;
+      --teal-primary: #2a9d8f;
+      --teal-dark: #1f7a6e;
+      --teal-border: rgba(42,157,143,0.2);
+      --teal-faint: rgba(42,157,143,0.08);
+      --v-differentiation: #c0392b;
+      --v-connection: #2980b9;
+      --v-boundaries: #d4a017;
+      --v-architecture: #27ae60;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 48px;
+      --space-2xl: 80px;
+      --content-width: 720px;
+      --max-width: 1080px;
+      --border-radius: 6px;
+    }
+    body { font-family: 'EB Garamond', serif; color: var(--warm-black); background-color: var(--cream-light); line-height: 1.7; margin: 0; padding: 0; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-lg); }
+    header { background-color: var(--white); border-bottom: 1px solid var(--cream-dark); padding: var(--space-lg) 0; margin-bottom: var(--space-2xl); }
+    header h1 { font-size: 1.8rem; margin: 0 0 var(--space-xs) 0; font-weight: 600; }
+    header h1 a { color: var(--warm-black); text-decoration: none; }
+    header h1 a:hover { color: var(--teal-primary); }
+    header > .container > p { color: var(--warm-gray); margin: 0 0 var(--space-lg) 0; font-size: 0.95rem; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+    nav a { color: var(--warm-black); text-decoration: none; font-size: 0.95rem; padding: var(--space-sm) 0; border-bottom: 2px solid transparent; transition: all 0.2s ease; }
+    nav a:hover { color: var(--teal-primary); border-bottom-color: var(--teal-primary); }
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; background-color: var(--white); border: 1px solid var(--cream-dark); border-radius: var(--border-radius); padding: var(--space-sm) 0; top: 100%; left: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .dropdown-content a { display: block; padding: var(--space-sm) var(--space-lg); border-bottom: none; white-space: nowrap; }
+    .dropdown-content a:hover { background-color: var(--cream-dark); }
+    .dropdown.open .dropdown-content { display: block; }
+    main { padding: var(--space-xl) 0; }
+    .intro-section { margin-bottom: var(--space-2xl); padding: var(--space-xl); background-color: var(--teal-faint); border-left: 4px solid var(--teal-primary); border-radius: var(--border-radius); }
+    .project-label { color: var(--teal-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); font-weight: 600; }
+    .intro-section h1 { font-size: 2.2rem; margin: 0 0 var(--space-md) 0; line-height: 1.2; color: var(--warm-black); }
+    .intro-section .tagline { font-size: 1.2rem; color: var(--warm-dark); margin: 0; font-style: italic; }
+    section { margin-bottom: var(--space-2xl); max-width: var(--content-width); }
+    section h2 { font-size: 1.5rem; color: var(--warm-black); margin: var(--space-xl) 0 var(--space-lg) 0; border-bottom: 2px solid var(--teal-border); padding-bottom: var(--space-md); }
+    section p { margin: var(--space-lg) 0; line-height: 1.8; }
+    .status-banner { margin-bottom: var(--space-xl); padding: var(--space-lg); background-color: var(--white); border-radius: var(--border-radius); border-left: 4px solid var(--v-architecture); }
+    .status-banner.operational { border-left-color: var(--v-architecture); }
+    .status-banner.in-progress { border-left-color: var(--v-connection); }
+    .status-banner.design { border-left-color: var(--v-boundaries); }
+    .status-banner.concept { border-left-color: var(--v-differentiation); }
+    .status-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: var(--space-xs); }
+    .status-banner.operational .status-label { color: var(--v-architecture); }
+    .status-banner.in-progress .status-label { color: var(--v-connection); }
+    .status-banner.design .status-label { color: var(--v-boundaries); }
+    .status-banner.concept .status-label { color: var(--v-differentiation); }
+    .status-banner p { margin: 0; font-size: 0.95rem; color: var(--warm-dark); line-height: 1.6; }
+    .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; padding: var(--space-lg); background-color: var(--cream-dark); border-radius: var(--border-radius); }
+    .spec-item { padding: var(--space-md); background-color: var(--white); border-radius: var(--border-radius); }
+    .spec-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--warm-light); margin-bottom: var(--space-xs); }
+    .spec-value { font-size: 1rem; color: var(--warm-black); font-weight: 600; }
+    .phase-timeline { margin: var(--space-lg) 0; }
+    .phase-item { padding: var(--space-lg); margin-bottom: var(--space-md); background-color: var(--white); border-left: 3px solid var(--teal-border); border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+    .phase-number { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--teal-primary); font-weight: 600; margin-bottom: var(--space-xs); }
+    .phase-item h4 { margin: 0 0 var(--space-sm) 0; font-size: 1rem; color: var(--warm-black); }
+    .phase-item p { margin: 0; font-size: 0.95rem; color: var(--warm-dark); line-height: 1.6; }
+    .phase-gate { padding: var(--space-md) var(--space-lg); margin-bottom: var(--space-md); background-color: var(--teal-faint); border: 1px dashed var(--teal-primary); border-radius: var(--border-radius); font-size: 0.9rem; color: var(--teal-dark); font-style: italic; }
+    .tetrahedral-analysis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin: var(--space-lg) 0; padding: var(--space-xl); background-color: var(--cream-dark); border-radius: var(--border-radius); }
+    .vertex { padding: var(--space-lg); background-color: var(--white); border-radius: var(--border-radius); border-left: 4px solid; }
+    .vertex.strong { border-left-color: var(--teal-primary); background-color: rgba(42,157,143,0.05); }
+    .vertex.developing { border-left-color: var(--warm-light); background-color: rgba(107,107,107,0.03); }
+    .vertex h3 { margin: 0 0 var(--space-sm) 0; font-size: 1rem; color: var(--warm-black); }
+    .vertex-status { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: var(--space-sm); }
+    .vertex.strong .vertex-status { color: var(--teal-primary); }
+    .vertex.developing .vertex-status { color: var(--warm-light); }
+    .vertex p { margin: 0; font-size: 0.95rem; color: var(--warm-dark); line-height: 1.6; }
+    .connections { margin: var(--space-xl) 0; padding: var(--space-lg); background-color: var(--cream-dark); border-radius: var(--border-radius); }
+    .connections h3 { margin-top: 0; color: var(--warm-black); }
+    .connections ul { list-style: none; padding: 0; margin: 0; }
+    .connections li { margin: var(--space-md) 0; padding-left: var(--space-lg); position: relative; }
+    .connections li:before { content: "→"; position: absolute; left: 0; color: var(--teal-primary); }
+    .connections a { color: var(--teal-primary); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--teal-border); }
+    .connections a:hover { color: var(--teal-dark); border-bottom-color: var(--teal-dark); }
+    .gift-note { margin: var(--space-2xl) 0; padding: var(--space-xl); background-color: var(--white); border: 2px solid var(--teal-border); border-radius: var(--border-radius); font-size: 1.05rem; line-height: 1.8; color: var(--warm-dark); }
+    .gift-note em { color: var(--teal-primary); font-weight: 500; }
+    .back-links { margin: var(--space-xl) 0 0 0; padding-top: var(--space-xl); border-top: 1px solid var(--cream-dark); }
+    .back-links a { display: inline-block; margin-right: var(--space-lg); color: var(--teal-primary); text-decoration: none; font-size: 0.95rem; }
+    .back-links a:hover { text-decoration: underline; }
+    footer { background-color: var(--warm-dark); color: var(--cream-light); padding: var(--space-xl) 0; margin-top: var(--space-2xl); text-align: center; }
+    footer p { margin: 0; font-size: 0.95rem; line-height: 1.6; }
+
+    .project-hero { width: 100%; margin: 0 0 var(--space-xl); border-radius: var(--border-radius); overflow: hidden; }
+    .project-hero img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .project-detail { margin: var(--space-lg) 0; border-radius: var(--border-radius); overflow: hidden; }
+    .project-detail img { width: 100%; max-width: 720px; height: auto; display: block; object-fit: cover; }
+    .project-detail figcaption { font-size: 0.75rem; color: var(--warm-light); margin-top: var(--space-sm); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.4rem; }
+      header > .container > p { font-size: 0.85rem; }
+      nav ul { gap: var(--space-sm); }
+      .dropdown-content { position: static; box-shadow: none; border: none; background: var(--cream-light); }
+      .intro-section { padding: var(--space-lg); }
+      .intro-section h1 { font-size: 1.6rem; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .tetrahedral-analysis { grid-template-columns: 1fr; }
+      section { max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 var(--space-md); }
+      nav ul { flex-direction: column; gap: var(--space-xs); }
+      .intro-section .tagline { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="intro-section">
+      <span class="project-label">Project</span>
+      <h1>Hexagonal Microclimate System</h1>
+      <p class="tagline">25,000 square feet of wind protection from waste elevator cable — nurse structure for a living system</p>
+    </div>
+
+    <div class="status-banner in-progress">
+      <span class="status-label">Design Complete — Partial Deployment</span>
+      <p>Cable structure designed and validated. Materials on hand including free elevator traction cable sourced from decommissioned systems. Greenhouse ribs partially deployed as temporary wind block. Full deployment awaits tractor-assisted post setting at Laguna, NM site.</p>
+    </div>
+
+    <div class="project-hero"><img src="photos/project-hex/H1-hex-ring-wide.jpg" alt="Hexagonal cable wind protection structure" loading="lazy"></div>
+
+    <section>
+      <h2>The System</h2>
+      <p>A 25,000 square foot tensioned cable structure managing wind and shade across approximately 0.6 acres. Six steel posts at the vertices of a hexagon, 85-100 feet per side, 510-600 feet of perimeter cable, rising to 12 feet. This is not a building — it is a nurse structure. Its purpose is to protect establishing food forest trees and greenhouse systems from 75-80 mph sustained desert winds until the living systems can protect themselves. The steel is temporary; the trees are permanent. The hex structure succeeds by making itself unnecessary.</p>
+
+      <p>The primary structural element is 1/2-inch elevator traction cable with over 20,000 pounds breaking strength — sourced free from decommissioned elevator systems. This is the single most expensive component in any commercial wind protection system, and it comes from a waste stream. The cable is tensioned around the perimeter at post height, with posts braced outward by radial guy wires creating counter-tension. An inner network of 1/8-inch aircraft cable creates a triangulated grid supporting 80% Aluminet shade cloth at 45-degree wind-deflecting angles. The cloth is sandwiched between aircraft cable layers, creating a fabric membrane that absorbs wind load progressively.</p>
+
+      <figure class="project-detail"><img src="photos/project-hex/H2-cable-detail.jpg" alt="Cable tensioning detail" loading="lazy"><figcaption>Cable tensioning</figcaption></figure>
+
+      <p>The design incorporates six concentric zones working from the property edge inward. Zone 1 is the property fence with irrigation line. Zone 2 plants Shipmast Black Locust — a nitrogen-fixing windbreak species functional within 3-5 years. Zone 3 establishes Desert Willow, New Mexico Olive, Pinyon Pine, and Jujube for outer-ring wind resistance. Zone 4 is the hex cable structure itself with shade cloth membrane. Zone 5 plants inner-ring fruit trees — fig, pomegranate, apricot, Asian pear — plus berry shrubs protected by the cable system. Zone 6 is a central pond providing thermal mass, humidity, irrigation reserve, and aquaponics integration potential. Each zone protects the next inner zone, creating graduated wind reduction from 80 mph at the perimeter to near-calm at center.</p>
+
+      <figure class="project-detail"><img src="photos/project-hex/H3-inside-ring.jpg" alt="Inside the protected growing zone" loading="lazy"><figcaption>Inside the ring</figcaption></figure>
+    </section>
+
+    <section>
+      <h2>Specifications</h2>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Geometry</div>
+          <div class="spec-value">Hexagonal Structure</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">85-100 ft sides, 510-600 ft perimeter</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Coverage</div>
+          <div class="spec-value">~25,000 sq ft</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">Approximately 0.6 acres</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Post Height</div>
+          <div class="spec-value">12 ft</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">Steel pipe at 6 vertices</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Primary Cable</div>
+          <div class="spec-value">1/2" Elevator Cable</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">20,000+ lbs breaking strength</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Wind Rating</div>
+          <div class="spec-value">80 mph Sustained</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">With designed failure hierarchy</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Membrane</div>
+          <div class="spec-value">80% Aluminet Shade Cloth</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">~7,400 sq ft at 45° angle</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Succession Timeline</div>
+          <div class="spec-value">10 Years</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">Steel → biological windbreak → self-sustaining</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Cable Source</div>
+          <div class="spec-value">Free Waste Stream</div>
+          <div style="font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px;">Decommissioned elevator traction cable</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Build Sequence</h2>
+      <div class="phase-timeline">
+        <div class="phase-item">
+          <div class="phase-number">Phase 1</div>
+          <h4>Post Setting</h4>
+          <p>Set 6 steel posts at hexagonal vertices using tractor-mounted post hole digger. Concrete foundations. Install ground anchors for guy wires. This requires the Kubota L2501 tractor and is weather-dependent — ground must be workable, wind below 25 mph for safe operation.</p>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-number">Phase 2</div>
+          <h4>Cable and Membrane</h4>
+          <p>Tension 1/2-inch primary cable around perimeter at post height. Install radial guy wires for counter-tension. Deploy aircraft cable grid in triangulated pattern. Install Aluminet shade cloth in sandwich layers between aircraft cable. Grommet and secure all membrane connections.</p>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-number">Phase 3</div>
+          <h4>Living System Establishment</h4>
+          <p>Plant windbreak species in Zone 2 (Shipmast Black Locust). Establish outer ring trees in Zone 3. Plant fruit trees and berries in Zone 5. Excavate and line central pond in Zone 6. Begin 10-year succession monitoring.</p>
+        </div>
+
+        <div class="phase-gate">Hex posts and primary cable must be set and tensioned before greenhouse ribs can be permanently erected inside the protected zone. The greenhouse cannot survive 80 mph winds without the hex wind protection.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="connections">
+        <h3>Designed Failure Hierarchy</h3>
+        <p style="margin: var(--space-md) 0 var(--space-lg) 0;">When wind exceeds design limits, components fail in order of cost — cheapest first, most expensive never.</p>
+        <ul>
+          <li>Wood stakes (4×4 timber) — sacrificial fuses, fail first, cheapest to replace</li>
+          <li>Shade cloth — tears or grommets pull second, moderate replacement cost</li>
+          <li>Aircraft cable — stays intact, no replacement needed</li>
+          <li>Primary elevator cable — stays intact, never fails at these loads</li>
+          <li>Steel posts and ground anchors — permanent, untouched by any wind event</li>
+        </ul>
+        <p style="margin: var(--space-lg) 0 0 0; font-style: italic; color: var(--warm-dark);">Rebuild happens from the top down: re-stake, re-cloth, re-tension. The expensive infrastructure never needs replacement.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>The Pattern</h2>
+      <p>This is succession thinking applied to infrastructure. The hex system is the pioneer species — fast-deploying mechanical protection that creates the conditions for biological systems to establish. As trees mature over 3-7 years, the living windbreak takes over the protective function. By year 8-10, the cable structure is optional backup. At that point, the steel and cable can be removed and redeployed to the next property, beginning the succession cycle again. The infrastructure doesn't stay — it propagates.</p>
+
+      <p>The designed failure hierarchy embodies the same principle at a different timescale: cheap things fail to protect expensive things. Wood stakes are sacrificial fuses. Shade cloth is a renewable membrane. The cable and posts are permanent infrastructure that survives any failure above them in the hierarchy. The same engineering logic that protects people in buildings protects trees in fields — tensioning, rigging, cable selection, load calculation. The specific knowledge transfers directly; only the substrate changes.</p>
+    </section>
+
+    <section>
+      <h2>Tetrahedral Vertices</h2>
+      <div class="tetrahedral-analysis">
+        <div class="vertex strong">
+          <h3>Architecture</h3>
+          <div class="vertex-status">Strong</div>
+          <p>The cable structure IS persistent architecture — steel posts, concrete foundations, tensioned cable rated to 20,000+ lbs. This infrastructure outlasts the biological systems it protects. The architecture creates the conditions for everything else.</p>
+        </div>
+        <div class="vertex strong">
+          <h3>Boundaries</h3>
+          <div class="vertex-status">Strong</div>
+          <p>The hex defines a precise wind boundary — 80 mph outside, progressively calmer toward center. The 45-degree shade cloth angle, the graduated zone system, the concentric planting rings — every element manages the boundary between hostile external climate and protected interior growing zone.</p>
+        </div>
+        <div class="vertex developing">
+          <h3>Connection</h3>
+          <div class="vertex-status">Developing</div>
+          <p>The six zones connect in succession — each outer zone protects the next inner zone. The living windbreak connects to the food forest connects to the pond. But these connections take years to establish. The current system is mechanical; the target is biological.</p>
+        </div>
+        <div class="vertex developing">
+          <h3>Differentiation</h3>
+          <div class="vertex-status">Developing</div>
+          <p>The hex system knows what it is: temporary nurse structure, not permanent building. This clarity — being willing to make itself unnecessary — is the deepest form of differentiation. It serves a function and then gets out of the way.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="connections">
+        <h3>Connection Points</h3>
+        <ul>
+          <li>Protects the <a href="project-aquaponics.html">Aquaponics Greenhouse</a> from 75-80 mph winds that would destroy unprotected glazing</li>
+          <li>Creates growing conditions for the food forest at the center of the <a href="project-one-acre.html">One-Acre Oasis</a></li>
+          <li>Waste elevator cable sourced from decommissioned systems — recognizing one industry's waste stream as another's critical resource</li>
+          <li><a href="project-biochar.html">Solar Biochar</a> charges soil within the protected zone, accelerating food forest establishment</li>
+          <li>Shares tensioned structure principles with <a href="project-architecture.html">Deployable Architecture</a> geometry — both use tension networks to create stable enclosures</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="gift-note">
+      <em>The gift here is the waste stream recognition.</em> Elevator traction cable — the single most expensive component in any wind protection system — comes free from decommissioned elevator shafts because the industry considers it waste. Applying that knowledge to agriculture costs almost nothing in materials and protects 25,000 square feet of establishing food forest. The real gift is the replicable pattern: find the waste stream in one industry that solves the critical constraint in another. That recognition, documented and shared, is more valuable than any amount of cable.
+    </div>
+
+    <div class="back-links">
+      <a href="projects.html" class="active">← Back to Projects</a>
+      <a href="project-one-acre.html">One-Acre Oasis →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+  <script src="menu.js"></script>
+</body>
+</html>

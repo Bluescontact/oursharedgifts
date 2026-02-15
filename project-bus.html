@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mobile Crane Platform — a 1995 International Genesis school bus converted into an integrated mobile construction platform. Living quarters, fabrication workshop, and crane capacity in one vehicle.">
+  <title>Mobile Crane Platform — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bus-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .bus-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .bus-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .bus-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .bus-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .bus-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .bus-section p { color: var(--warm-dark); }
+
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    .status-block {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-lg);
+      background: var(--white);
+      border-left: 4px solid var(--v-connection);
+      border-radius: var(--border-radius);
+    }
+
+    .status-block .s-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--v-connection);
+      margin-bottom: var(--space-sm);
+    }
+
+    .status-block p {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Zone cards */
+    .zone-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .zone-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+    }
+
+    .zone-card .zc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .zone-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .zone-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Specs grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background-color: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .spec-item { padding: var(--space-md); background-color: var(--white); border-radius: var(--border-radius); }
+    .spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--warm-light); margin-bottom: var(--space-xs); }
+    .spec-value { font-size: 1rem; color: var(--warm-black); font-weight: 600; }
+    .spec-note { font-size: 0.9rem; color: var(--warm-gray); margin-top: 4px; }
+
+    /* Phase blocks */
+    .phase-block {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-md);
+      background-color: var(--white);
+      border-left: 3px solid var(--teal-border);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+
+    .phase-block .p-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .phase-block h4 { margin: 0 0 var(--space-sm) 0; font-size: 1rem; color: var(--warm-black); }
+    .phase-block p { margin: 0; font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; }
+
+    .phase-gate {
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-md);
+      background-color: var(--teal-faint);
+      border: 1px dashed var(--teal-primary);
+      border-radius: var(--border-radius);
+      font-size: var(--text-sm);
+      color: var(--teal-dark);
+      font-style: italic;
+    }
+
+    /* Vertex grid */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card { padding: var(--space-lg); background: var(--white); border-radius: var(--border-radius); border-left: 3px solid; }
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+    .v-card .v-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xs); }
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+    .v-card h4 { font-size: var(--text-base); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .v-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; margin: 0; }
+
+    .project-hero { width: 100%; margin: 0 0 var(--space-xl); border-radius: var(--border-radius); overflow: hidden; }
+    .project-hero img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .project-detail { margin: var(--space-lg) 0; border-radius: var(--border-radius); overflow: hidden; }
+    .project-detail img { width: 100%; max-width: 720px; height: auto; display: block; object-fit: cover; }
+    .project-detail figcaption { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--warm-light); margin-top: var(--space-sm); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    @media (max-width: 768px) {
+      .bus-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .zone-cards { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="bus-intro">
+      <div class="phase-label">Project &middot; Infrastructure buildout</div>
+      <h2>Mobile Crane Platform</h2>
+      <p class="lead">A 1995 International Genesis school bus converted into an integrated mobile construction platform. Three zones in 40 feet: living quarters, fabrication workshop, and crane capacity. You live where you work where you build. The vehicle is the shop.</p>
+    </section>
+
+    <div class="bus-content">
+
+      <div class="status-block">
+        <div class="s-label">Infrastructure buildout</div>
+        <p>Bus acquired. Power system (10kW inverter, 10.24 kWh LiFePO4) on hand, awaiting mounting. Bus body untouched &mdash; structural work not yet begun. Currently serving as mobile base of operations.</p>
+      </div>
+
+      <div class="project-hero"><img src="photos/project-bus/B1-bus-exterior.jpg" alt="Mobile crane platform on desert site" loading="lazy"></div>
+
+      <!-- ═══ THE SYSTEM ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">The system</div>
+        <h3>Three zones, one vehicle</h3>
+
+        <p>A 40-foot by 8-foot International Genesis with a DT466 mechanical injection diesel &mdash; no electronic control module, rebuildable indefinitely, compatible with B100 biodiesel. Gross vehicle weight rating of 26,000 lbs with 14,000 lbs payload capacity. The interior divides into three interlocking zones that each support the others' function.</p>
+
+        <div class="zone-cards">
+          <div class="zone-card">
+            <div class="zc-label">Forward</div>
+            <h4>Living quarters</h4>
+            <p>Insulated dwelling space for year-round desert living at 6,000 ft. Sleeping, cooking, basic systems. Functional shelter that moves with the platform. Home base during extended site work.</p>
+          </div>
+          <div class="zone-card">
+            <div class="zc-label">Mid-section</div>
+            <h4>Fabrication workshop</h4>
+            <p>MIG, stick, and TIG welding. Plasma cutting. Complete Milwaukee M18 FUEL cordless platform. 3D printer. Full rigging equipment. Fold-out workbench, tool storage, dedicated electrical circuits for welding and plasma. The mid-section is a functional metal fabrication shop.</p>
+          </div>
+          <div class="zone-card">
+            <div class="zc-label">Rear</div>
+            <h4>Crane platform</h4>
+            <p>Electric-over-hydraulic crane with 3,200 lb capacity at 12 ft reach, 360-degree rotation. Gantry structure through-bolted to frame with 10-15 ft engagement length. Hydraulic outriggers deploy to 16-18 ft total footprint for stability. Fold-out deck platforms hinge from floor level to create 24-32 ft staging area.</p>
+          </div>
+        </div>
+
+        <p>The power system runs a SunGold SPH10048P &mdash; 10kW split-phase inverter providing both 120V and 240V output, backed by 10.24 kWh of LiFePO4 battery storage at 48V. Current solar input is 400W portable panels. Target expansion to 6-7kW array as the platform becomes fully operational.</p>
+
+        <figure class="project-detail"><img src="photos/project-bus/B2-bus-interior.jpg" alt="Bus interior workshop space" loading="lazy"><figcaption>Workshop interior</figcaption></figure>
+      </section>
+
+      <!-- ═══ SPECIFICATIONS ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">Specifications</div>
+        <h3>Platform dimensions</h3>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Vehicle</div>
+            <div class="spec-value">1995 International Genesis</div>
+            <div class="spec-note">DT466 mechanical injection diesel</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">GVWR / Payload</div>
+            <div class="spec-value">26,000 / 14,000 lbs</div>
+            <div class="spec-note">Proper truck frame under bus body</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Crane</div>
+            <div class="spec-value">3,200 lbs at 12 ft</div>
+            <div class="spec-note">Electric-over-hydraulic, 360&deg; rotation, 15 ft max reach</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Power System</div>
+            <div class="spec-value">10kW / 10.24 kWh</div>
+            <div class="spec-note">SunGold SPH10048P, split-phase 120/240V</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Solar</div>
+            <div class="spec-value">400W &rarr; 6-7kW</div>
+            <div class="spec-note">Portable current, roof-mount target</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Workshop</div>
+            <div class="spec-value">MIG/Stick/TIG + Plasma</div>
+            <div class="spec-note">Full M18 FUEL platform, 3D printer, rigging</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Outriggers</div>
+            <div class="spec-value">16-18 ft footprint</div>
+            <div class="spec-note">Hydraulic deployment, stability for crane ops</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Fuel</div>
+            <div class="spec-value">B100 biodiesel</div>
+            <div class="spec-note">Mechanical injection, no ECM dependency</div>
+          </div>
+        </div>
+
+        <figure class="project-detail"><img src="photos/project-bus/B3-crane-detail.jpg" alt="Crane mechanism detail" loading="lazy"><figcaption>Crane and fabrication detail</figcaption></figure>
+      </section>
+
+      <!-- ═══ BUILD SEQUENCE ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">Build sequence</div>
+        <h3>Each zone enables the next</h3>
+
+        <p>The bus builds itself in sequence. Each zone, once functional, enables the construction of the next. The workshop can't be built without living quarters to work from. The crane can't be fabricated without the workshop. The pattern is the same succession logic as the aquaponics biological sequence &mdash; don't build on a layer that hasn't proven itself yet.</p>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 1</div>
+          <h4>Living conversion</h4>
+          <p>Insulation, interior buildout, power system mounting and commissioning, water system plumbing, diesel heater installation. Making the bus habitable for year-round desert living at 6,000 ft elevation. The bus can operate as home while the next stage is built.</p>
+        </div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 2</div>
+          <h4>Workshop integration</h4>
+          <p>Tool storage mounting, fold-out workbench, ventilation system, dedicated electrical circuits for welding and plasma. Power tower fabrication for solar expansion. Verify power system handles full workshop loads. The workshop must be fully operational before crane fabrication begins.</p>
+        </div>
+
+        <div class="phase-gate">The bus builds its own crane. Workshop must be functional and proven under full load before crane fabrication starts &mdash; the crane is the workshop's first major project.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Stage 3</div>
+          <h4>Crane platform</h4>
+          <p>Structural reinforcement of rear frame with 10-15 ft engagement length. Gantry fabrication. Electric-over-hydraulic crane installation. Outrigger design, build, and testing. Fold-out deck platform fabrication. Load testing incrementally to full 3,200 lb capacity. 360-degree rotation verification. Emergency procedures documentation.</p>
+        </div>
+      </section>
+
+      <!-- ═══ THE PATTERN ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">The pattern</div>
+        <h3>The tool that builds itself</h3>
+
+        <p>Joseph Lord taught that you build the tools first before beginning the work. This bus is the tool that builds its own capacity. The workshop fabricates the crane. The crane enables construction that the workshop alone can't do. The living quarters sustain the operator through the build. Each zone feeds the others' function &mdash; not as a convenience, but as a structural requirement. Remove any one zone and the other two can't reach their full capacity.</p>
+
+        <p>The deeper pattern is mobility as infrastructure. Fixed shops, fixed cranes, fixed housing &mdash; these lock capacity to a location and require the world to organize around them. A mobile platform carries complete construction capacity to wherever the work is. One person, one vehicle, one arrival &mdash; and the capacity to build begins immediately. No site preparation, no subcontractor coordination, no infrastructure prerequisites.</p>
+
+        <div class="pull">No documented examples exist of commercial-grade crane systems mounted on school bus conversions. This would be the first documented build of its kind. The engineering principles transfer from service truck mounting &mdash; the Auto Crane 3203PRX is designed for truck frames, and the International Genesis has a proper truck frame. The physics don't care whether there's a bus body or a service body above the frame rails.</div>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>The platform is persistent infrastructure &mdash; built to endure, maintain, carry load, and enable work across time. Total project value approximately $36,000; comparable commercial alternative exceeds $100,000. The DT466 is rebuildable indefinitely.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Boundaries</h4>
+            <p>Precise operational limits define reliable function: 3,200 lb lift capacity, 15 ft max reach, 26,000 lb GVWR, 16-18 ft outrigger footprint. These aren't limitations &mdash; they're the geometry that enables safe single-operator heavy construction.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Differentiation</h4>
+            <p>The platform knows exactly what it is. It's not a house, not a truck, not a commercial crane. It's a mobile construction system with defined capabilities &mdash; living, fabrication, and heavy lift integrated in one vehicle. That specificity is the strength.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Connection</h4>
+            <p>The three zones are designed to feed each other &mdash; living sustains the operator, workshop fabricates the components, crane places them. But this integration is designed, not yet demonstrated. The connection between zones proves itself through actual construction projects that require all three.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="bus-section">
+        <div class="phase-label">Continue</div>
+        <h3>Capacity that moves</h3>
+
+        <p>The build documentation, engineering decisions, and operational data from this platform enter commons as the project develops. For the underlying coordination geometry: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>The gift here is the demonstration that complete construction capacity fits in one vehicle operated by one person. The design will be fully open source. The real contribution is the documentation of something that hasn't been done before &mdash; commercial-grade crane on a bus conversion &mdash; so that anyone who needs mobile construction capacity can evaluate whether this path works for them.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

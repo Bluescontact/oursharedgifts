@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IBC Civilization Legos — complete autonomous infrastructure in standardized containers. Power, water, and fabrication capacity deployable anywhere via forklift, truck, or airdrop. Permanent capacity, not temporary aid.">
+  <title>IBC Civilization Legos — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .ibc-intro { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0 var(--space-xl); }
+    .ibc-intro h2 { font-size: var(--text-3xl); color: var(--warm-black); line-height: 1.15; margin-bottom: var(--space-md); }
+    .ibc-content { max-width: var(--content-width); margin: 0 auto; }
+    .ibc-section { padding: var(--space-xl) 0; border-top: 1px solid var(--teal-border); }
+    .ibc-section:first-of-type { border-top: none; padding-top: 0; }
+    .ibc-section h3 { font-size: var(--text-xl); color: var(--warm-black); margin-bottom: var(--space-md); }
+    .ibc-section p { color: var(--warm-dark); }
+    .pull { margin: var(--space-xl) 0; padding: var(--space-lg); border-left: 3px solid var(--teal-primary); background: var(--teal-faint); border-radius: 0 var(--border-radius) var(--border-radius) 0; font-size: var(--text-md); font-style: italic; color: var(--warm-dark); line-height: 1.7; }
+    .status-block { margin-bottom: var(--space-lg); padding: var(--space-lg); background: var(--white); border-left: 4px solid var(--v-boundaries); border-radius: var(--border-radius); }
+    .status-block .s-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--v-boundaries); margin-bottom: var(--space-sm); }
+    .status-block p { font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; margin: 0; }
+
+    /* Variant cards */
+    .variant-card { background: var(--white); border: 1px solid var(--teal-border); border-radius: var(--border-radius); padding: var(--space-lg); margin-bottom: var(--space-lg); }
+    .variant-card .vc-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-primary); margin-bottom: var(--space-sm); }
+    .variant-card h4 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .variant-card .vc-tagline { font-style: italic; color: var(--teal-dark); margin-bottom: var(--space-md); }
+    .variant-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.7; }
+
+    /* Spec rows inside variant cards */
+    .vc-specs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin: var(--space-md) 0; padding: var(--space-md); background: var(--cream-dark); border-radius: var(--border-radius); }
+    .vc-spec .vc-spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-light); }
+    .vc-spec .vc-spec-value { font-size: var(--text-sm); color: var(--warm-black); font-weight: 500; }
+
+    /* Factor list */
+    .factor-list { margin: var(--space-lg) 0; }
+    .factor-item { padding: var(--space-md) var(--space-lg); border-left: 3px solid var(--teal-border); margin-bottom: var(--space-md); background: var(--white); border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+    .factor-item .f-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-primary); margin-bottom: var(--space-xs); }
+    .factor-item p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; margin: 0; }
+
+    /* Contrast columns */
+    .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0; }
+    .contrast-side { padding: var(--space-lg); border-radius: var(--border-radius); }
+    .contrast-side.transaction { background: rgba(192,57,43,0.04); border: 1px solid rgba(192,57,43,0.12); }
+    .contrast-side.gift { background: var(--teal-faint); border: 1px solid rgba(42,157,143,0.15); }
+    .contrast-side .c-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--space-sm); }
+    .contrast-side.transaction .c-label { color: var(--v-differentiation); }
+    .contrast-side.gift .c-label { color: var(--teal-primary); }
+    .contrast-side p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; }
+
+    /* Deployment table */
+    .deploy-table { width: 100%; border-collapse: collapse; margin: var(--space-lg) 0; font-size: var(--text-sm); }
+    .deploy-table th { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-light); text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 2px solid var(--teal-border); }
+    .deploy-table td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--cream-dark); color: var(--warm-dark); }
+
+    /* Vertex grid */
+    .vertex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-lg) 0; }
+    .v-card { padding: var(--space-lg); background: var(--white); border-radius: var(--border-radius); border-left: 3px solid; }
+    .v-card .v-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xs); }
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+    .v-card h4 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .v-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; }
+
+    .structural-note { background: var(--cream-dark); border-left: 3px solid var(--teal-primary); padding: var(--space-md) var(--space-lg); margin: var(--space-lg) 0; font-size: var(--text-sm); color: var(--warm-gray); }
+    .structural-note strong { color: var(--teal-dark); }
+
+    @media (max-width: 768px) {
+      .ibc-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+      .vc-specs { grid-template-columns: 1fr; }
+      .contrast { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="ibc-intro">
+      <div class="phase-label">Project &middot; Design documentation complete</div>
+      <h2>IBC Civilization Legos</h2>
+      <p class="lead">Complete autonomous infrastructure systems packaged in standardized IBC containers &mdash; 275 to 330 gallon totes on standard pallets. Power, water, and fabrication capacity deployable anywhere on Earth within hours of arrival. A forklift on the receiving end has them operational the same day. Permanent capacity, not temporary aid.</p>
+    </section>
+
+    <div class="ibc-content">
+
+      <div class="status-block">
+        <div class="s-label">Design documentation complete</div>
+        <p>Three IBC variants designed with full component specifications and cost estimates. No prototype built. Documentation ready for replication. BFI Design Science Studio project. The name &ldquo;Civilization Legos&rdquo; came from Daniel Schmachtenberger at the Buckminster Fuller Institute when he saw the concept.</p>
+      </div>
+
+      <!-- ═══ THE INSIGHT ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">The insight</div>
+        <h3>The form factor is the innovation</h3>
+
+        <p>The technology inside these containers already exists. Solar panels, lithium batteries, water filtration, welding equipment &mdash; none of it is new. What's new is recognizing that all of it fits inside a container that every forklift on Earth already knows how to move.</p>
+
+        <p>An IBC tote sits on a standard pallet. Any forklift handles it. Any truck carries it. Any aircraft certified for palletized cargo drops it. The steel cage protects contents from impact. The form factor is already mass-produced globally &mdash; millions exist. Used food-grade totes cost $50&ndash;150 in surplus markets.</p>
+
+        <p>The innovation isn't miniaturization. It's the recognition that industrial-grade civilization infrastructure fits inside a container that already has transport infrastructure built for it worldwide. You don't need to build new logistics. You just change what's in the package.</p>
+
+        <div class="pull">Traditional thinking: &ldquo;They need basic survival first, then maybe someday infrastructure.&rdquo; Civilization Lego thinking: deliver industrial capacity immediately. Survival becomes trivial.</div>
+      </section>
+
+      <!-- ═══ WHY IBC ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">Why this form factor</div>
+        <h3>Five structural reasons nothing else works</h3>
+
+        <div class="factor-list">
+          <div class="factor-item">
+            <div class="f-label">Volume</div>
+            <p>275 gallons equals roughly one cubic meter of protected space. Large enough for a 15kWh battery bank with inverter, controller, and generator. Or multi-stage water filtration with pump and distribution. Or a complete fabrication toolkit. Small enough to move with standard equipment. The Goldilocks zone between industrial capacity and human-scale deployability.</p>
+          </div>
+          <div class="factor-item">
+            <div class="f-label">Weight</div>
+            <p>Loaded weight around 600 pounds. Heavy enough for stability under operational loads. Light enough for standard handling &mdash; forklift, pickup truck with ramp, strong crew of four. Within airdrop parameters for military and humanitarian cargo aircraft.</p>
+          </div>
+          <div class="factor-item">
+            <div class="f-label">Protection</div>
+            <p>Steel cage survives rough handling, outdoor storage, terrible roads, and airdrop impact. Designed to stack under warehouse loads. The cage also provides mounting points everywhere &mdash; attach solar panels, hang tools, build weather covers. The structure accommodates whatever the application needs.</p>
+          </div>
+          <div class="factor-item">
+            <div class="f-label">Transport compatibility</div>
+            <p>Everything that moves palletized cargo handles IBCs. Forklifts, flatbed trucks, shipping containers, cargo aircraft, rail cars, barges. Global logistics infrastructure already exists and handles billions in cargo daily. You're not building supply chain. You're using the one that's already there.</p>
+          </div>
+          <div class="factor-item">
+            <div class="f-label">Modularity</div>
+            <p>Any brick connects to any brick. Need power? Deploy one container. Need power and water? Deploy two. Need to establish autonomous capacity for an entire community? Deploy a set. Each unit is complete in itself. Combined, they multiply each other's capacity. This is what Schmachtenberger recognized &mdash; the Lego principle applied to civilization infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="structural-note">
+          <strong>What doesn't work:</strong> Shipping containers (20'/40') require cranes and heavy transport. Pallets alone are too small for complete systems. Custom enclosures have no existing transport infrastructure. Building in place isn't deployable. IBC is the only form factor where industrial capacity intersects with universal deliverability.
+        </div>
+      </section>
+
+      <!-- ═══ THREE VARIANTS ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">Three variants</div>
+        <h3>One container, three domains of autonomy</h3>
+
+        <div class="variant-card">
+          <div class="vc-label">Variant 01</div>
+          <h4>Power IBC</h4>
+          <p class="vc-tagline">Complete electrical infrastructure in a box</p>
+
+          <div class="vc-specs">
+            <div class="vc-spec"><div class="vc-spec-label">Storage</div><div class="vc-spec-value">15 kWh (LiFePO&#8324;)</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Continuous output</div><div class="vc-spec-value">10 kW (120V/240V)</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Surge</div><div class="vc-spec-value">20 kW peak</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Solar input</div><div class="vc-spec-value">2&ndash;4 kW array</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Backup</div><div class="vc-spec-value">5&ndash;8.5 kW dual-fuel generator</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Weight</div><div class="vc-spec-value">~600 lbs total</div></div>
+          </div>
+
+          <p>This isn't a portable solar generator. It's a complete microgrid &mdash; primary generation, backup generation, energy storage, power conditioning, distribution panel, monitoring, and thermal management. What a utility substation does, this does autonomously. Run welders at 180 amps. Operate a full workshop. Keep food refrigerated. Power communications. All simultaneously. Solar recharges during daylight. Generator kicks on automatically if batteries get low. The system manages itself.</p>
+        </div>
+
+        <div class="variant-card">
+          <div class="vc-label">Variant 02</div>
+          <h4>Water IBC</h4>
+          <p class="vc-tagline">Complete water treatment infrastructure in a box</p>
+
+          <div class="vc-specs">
+            <div class="vc-spec"><div class="vc-spec-label">Filtration</div><div class="vc-spec-value">Multi-stage (sediment, carbon, UV)</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Flow rate</div><div class="vc-spec-value">5&ndash;10 GPM</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Output</div><div class="vc-spec-value">Potable water</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Distribution</div><div class="vc-spec-value">Pressurized manifold</div></div>
+          </div>
+
+          <p>Connect to any available source &mdash; well, stream, catchment, emergency cistern. Multi-stage filtration processes it to potable quality. Pressure tank and pump system distributes it. Pre-plumbed connection points for output lines. This is what a municipal water treatment plant does, compressed into a container that a single person can connect and activate. Drinking, cooking, sanitation, hygiene, irrigation &mdash; operational within hours of placement.</p>
+        </div>
+
+        <div class="variant-card">
+          <div class="vc-label">Variant 03</div>
+          <h4>Workshop IBC</h4>
+          <p class="vc-tagline">Infrastructure that builds infrastructure</p>
+
+          <div class="vc-specs">
+            <div class="vc-spec"><div class="vc-spec-label">Welding</div><div class="vc-spec-value">MIG/stick, 140&ndash;180A</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Fabrication</div><div class="vc-spec-value">Grinder, drill press, vise</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Construction</div><div class="vc-spec-value">Circular saw, impact driver, levels</div></div>
+            <div class="vc-spec"><div class="vc-spec-label">Work surface</div><div class="vc-spec-value">Fold-out from cage structure</div></div>
+          </div>
+
+          <p>Power and Water IBCs deliver autonomy. Workshop IBC delivers the capacity to create more autonomy. With fabrication tools, a community can repair and maintain the other systems, build additional infrastructure as needs expand, adapt designs to local conditions, train new builders and maintainers, and create economic value through production. This is the multiplier. The other two containers give you what you need. This one gives you the ability to build what you need next.</p>
+        </div>
+      </section>
+
+      <!-- ═══ DEPLOYMENT ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">Deployment architecture</div>
+        <h3>The timeline collapse</h3>
+
+        <p>Traditional infrastructure deployment after a disaster: weeks assessing damage, months mobilizing resources, infrastructure teams deploying equipment, power and water restored in a timeline measured in months. Communities dependent on external aid throughout.</p>
+
+        <p>IBC deployment: aircraft delivers containers within days. Communities activate power, water, and fabrication capacity within hours of landing. The infrastructure that arrives doesn't leave.</p>
+
+        <table class="deploy-table">
+          <thead>
+            <tr><th>Method</th><th>Capacity</th><th>Requirement</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Forklift / pallet jack</td><td>1 unit</td><td>Level ground, standard equipment</td></tr>
+            <tr><td>Flatbed truck</td><td>4&ndash;8 units</td><td>Road access</td></tr>
+            <tr><td>C-130 Hercules</td><td>12&ndash;15 units</td><td>Airdrop capable, no runway needed</td></tr>
+            <tr><td>C-17 Globemaster</td><td>30+ units</td><td>Runway or airdrop</td></tr>
+          </tbody>
+        </table>
+
+        <p>One C-130 flight carrying 12&ndash;15 units establishes autonomous capacity for 50&ndash;100+ people. Power IBCs for electricity, Water IBCs for clean water, Workshop IBCs for local construction and repair. The cage structure provides impact protection for airdrop. The pallet base integrates with standard cargo delivery systems. The weight is within parameters.</p>
+
+        <div class="structural-note">
+          <strong>The difference from aid:</strong> Traditional disaster response provides temporary support that eventually withdraws. Communities return to depending on the systems that failed. IBC deployment provides permanent infrastructure that remains after the emergency. Communities have more capacity than before the disaster, not less. They can maintain, repair, and replicate the systems themselves. Each deployment increases resilience to the next event.
+        </div>
+      </section>
+
+      <!-- ═══ THE GIFT ECONOMY TEST ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">The test</div>
+        <h3>Autonomy or dependency &mdash; the design decides</h3>
+
+        <p>Everything above works whether the infrastructure operates from gift economy or extraction. The form factor, the specs, the deployment logistics &mdash; identical. What determines which pattern operates is the design choices inside the container.</p>
+
+        <div class="contrast">
+          <div class="contrast-side transaction">
+            <div class="c-label">Extraction pattern</div>
+            <p>Proprietary systems requiring specialist maintenance. Vendor lock-in for replacement parts. Ongoing service contracts. Software licensing. Warranty conditions that void if community modifies systems. Components sourced from single supplier. Documentation behind paywall.</p>
+            <p style="margin-top: var(--space-sm);">This delivers dependency in a better-looking package. The power structure stays the same.</p>
+          </div>
+          <div class="contrast-side gift">
+            <div class="c-label">Gift pattern</div>
+            <p>Open source designs freely available. Standard off-the-shelf components sourceable anywhere. Simple maintenance procedures anyone can learn. Complete documentation including failures and adaptations. No licensing, no service contracts, no vendor dependencies. Community can modify, repair, replicate, and teach others.</p>
+            <p style="margin-top: var(--space-sm);">This transfers actual autonomy. The infrastructure propagates without requiring centralized control.</p>
+          </div>
+        </div>
+
+        <p>The only reason infrastructure isn't already like this is that scarcity is profitable and dependency is power. The technology exists. The economics favor it. The communities need it. What's been missing is the recognition that this is possible &mdash; and the willingness to build it as gift rather than product.</p>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong" style="border-left-color: var(--v-boundaries);">
+            <div class="v-label">Strong</div>
+            <h4>Boundaries</h4>
+            <p>The IBC form factor IS the boundary &mdash; it defines exactly what fits and what doesn't. The steel cage, the pallet base, the volume constraint. These limits aren't restrictions. They're what make the system universally deployable. Every design decision happens within the container's physical limits, and those limits are what make everything else work.</p>
+          </div>
+          <div class="v-card strong" style="border-left-color: var(--v-connection);">
+            <div class="v-label">Strong</div>
+            <h4>Connection</h4>
+            <p>Standardized interfaces mean any unit connects to any logistics system on Earth. Power IBC connects to Water IBC connects to Workshop IBC. The modular architecture means each deployment connects to what the community actually needs. The open source documentation connects builders to each other across contexts. Connection operates at every scale.</p>
+          </div>
+          <div class="v-card strong" style="border-left-color: var(--v-differentiation);">
+            <div class="v-label">Strong</div>
+            <h4>Differentiation</h4>
+            <p>Each variant knows exactly what it is. Power IBC is not a generator &mdash; it's a complete microgrid. Water IBC is not a filter &mdash; it's a municipal water system. Workshop IBC is not a toolbox &mdash; it's fabrication capacity. The clarity of identity prevents scope creep and ensures each unit delivers complete autonomy in its domain.</p>
+          </div>
+          <div class="v-card developing" style="border-left-color: var(--warm-light);">
+            <div class="v-label">Developing</div>
+            <h4>Architecture</h4>
+            <p>The designs are documented but no physical prototype exists. Architecture becomes real when infrastructure is built that persists and compounds. The documentation is ready for replication &mdash; what's needed is a first build that validates the component integration, tests the deployment procedures, and produces the empirical data that documentation alone can't provide.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="ibc-section">
+        <div class="phase-label">Continue</div>
+        <h3>From design to deployment</h3>
+
+        <p>The Power IBC specifications overlap with the <a href="project-bus.html">Mobile Crane Platform</a> power system &mdash; the bus carries a 10kW system that proves the component integration at mobile scale. The Workshop IBC concept is embodied in the bus fabrication zone. These aren't separate projects. They're the same capacity expressed in different form factors.</p>
+
+        <p>The IBC concept integrates into the <a href="project-one-acre.html">One-Acre Oasis</a> as the deployable autonomy layer &mdash; power, water, and fabrication capacity that arrives before any permanent infrastructure is built. The <a href="project-aquaponics.html">aquaponics greenhouse</a> is the food production system that an IBC deployment enables.</p>
+
+        <p>For the underlying coordination geometry: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>The gift here is the design documentation itself &mdash; complete specifications, component lists, deployment procedures, all entering commons. Anyone with access to standard components and this documentation can build and deploy autonomous infrastructure. The designs get gifted once. Production happens anywhere. Deployment uses logistics infrastructure that already exists. The gift isn't temporary aid. It's permanent capacity transfer.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

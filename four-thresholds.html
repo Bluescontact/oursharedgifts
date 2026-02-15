@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Four Thresholds — what becomes available when the tetrahedral geometry holds in a person. Coherence, overflow, clarity, persistence. The experiential face of the pattern.">
+  <title>The Four Thresholds — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Four Thresholds */
+
+    .ft-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .ft-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .ft-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .ft-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .ft-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .ft-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .ft-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Threshold cards */
+    .threshold-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+
+    .threshold-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .threshold-card.t-coherence::before { background: var(--v-differentiation); }
+    .threshold-card.t-overflow::before { background: var(--v-connection); }
+    .threshold-card.t-clarity::before { background: var(--v-boundaries); }
+    .threshold-card.t-persistence::before { background: var(--v-architecture); }
+
+    .threshold-card .t-vertex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--warm-light);
+      margin-bottom: var(--space-xs);
+    }
+
+    .threshold-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .threshold-card .felt {
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .threshold-card .mechanism {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .threshold-card .recognition {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+    }
+
+    .threshold-card .recognition strong {
+      color: var(--warm-black);
+    }
+
+    /* Tension pairs — the six edges at experiential scale */
+    .tension {
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-md);
+      border-left: 3px solid var(--teal-border);
+      background: var(--cream-dark);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+
+    .tension .tension-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .tension p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Pull quote */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .ft-intro h2 { font-size: var(--text-2xl); }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="ft-intro">
+      <div class="label">Experiential Scale</div>
+      <h2>The Four Thresholds</h2>
+      <p class="lead">You've felt the difference. The conversation where you shared everything you knew and somehow left more full than when you arrived. The help you offered that didn't drain you. The boundary you held that deepened relationship rather than ending it. The work you gave away that returned through unexpected pathways. Same actions can deplete or release. The difference isn't intention or effort. It's whether the geometry is holding.</p>
+    </section>
+
+    <div class="ft-content">
+
+      <!-- ═══ WHAT THRESHOLDS ARE ═══ -->
+      <section class="ft-section">
+        <div class="phase-label">The pattern from inside</div>
+        <h3>What gets released</h3>
+
+        <p>The <a href="four-dynamics.html">Four Dynamics</a> describe what the pattern does &mdash; the operational face. This page describes what the pattern <em>releases</em> when the geometry holds in a person. Not laws imposed from above. Thresholds crossed from within. Each vertex, when genuinely held, opens something that wasn't available before.</p>
+
+        <p>These aren't stages to achieve. They're qualities that emerge &mdash; the way warmth emerges from a fire that's properly built, not from willing the wood to be warm.</p>
+
+        <div class="threshold-card t-coherence">
+          <div class="t-vertex">When differentiation holds</div>
+          <h4>Coherence</h4>
+          <p class="felt">The center doesn't move based on external weather. You can say no without explaining or defending. You can hold your position while maintaining genuine goodwill toward those who disagree. The container is whole &mdash; not because it's defended, but because it knows what it is.</p>
+          <p class="mechanism">Only stable containers hold clean water. When the vessel cracks, everything leaks. This isn't judgment &mdash; it's physics. Internal coherence isn't moral achievement. It's structural requirement for participation in systems where gifts flow freely. The body knows: giving from fullness opens something. Giving from emptiness contracts.</p>
+          <p class="recognition"><strong>You recognize this threshold</strong> when you can receive appreciation without deflecting, give without tracking, and maintain center without rigidity.</p>
+        </div>
+
+        <div class="threshold-card t-overflow">
+          <div class="t-vertex">When connection holds</div>
+          <h4>Overflow</h4>
+          <p class="felt">Circulation proves the source runs deep. You shared everything you knew and left more full. The work you gave away returned tenfold through pathways you didn't engineer. Value multiplied through movement rather than accumulating through holding.</p>
+          <p class="mechanism">Scarcity says hoard because there isn't enough. Overflow reveals that circulation itself generates wealth &mdash; not as belief but as observed pattern. Systems that circulate freely generate more capacity than systems that protect. The giver discovers their source didn't deplete. It demonstrated its depth through pouring out.</p>
+          <p class="recognition"><strong>You recognize this threshold</strong> when giving feels like proof of abundance rather than sacrifice, and when receiving doesn't create debt in your mind.</p>
+        </div>
+
+        <div class="threshold-card t-clarity">
+          <div class="t-vertex">When boundaries hold</div>
+          <h4>Clarity</h4>
+          <p class="felt">The boundary you held that deepened relationship rather than ending it. The no that was information, not punishment. The limit that revealed what was actually possible &mdash; and by revealing it, made it available. Withdrawal that deposited something at the threshold.</p>
+          <p class="mechanism">Strategic withdrawal creates developmental pressure &mdash; not as punishment but as architecture. Joe Lord didn't fix the piano for you. The hex system makes itself unnecessary. The safety documentation left at the boundary. Release with precision. The limit is the gift.</p>
+          <p class="recognition"><strong>You recognize this threshold</strong> when your no serves the other's development, when limits feel like navigation rather than restriction, and when withdrawal leaves something useful behind.</p>
+        </div>
+
+        <div class="threshold-card t-persistence">
+          <div class="t-vertex">When architecture holds</div>
+          <h4>Persistence</h4>
+          <p class="felt">Capacity finds its container. The surplus that became infrastructure others could use without requiring your continued presence. The template, the tool, the documented process &mdash; something the system picks up and uses whether or not anyone knows who put it there.</p>
+          <p class="mechanism">When capacity finds appropriate container, energy channels into creation rather than protection. Intensity builds rather than maintains. Gifts propagate through systems rather than individual acts. The work you build becomes the prepared space where others' craft becomes gift.</p>
+          <p class="recognition"><strong>You recognize this threshold</strong> when what you've built works without you, when surplus converts to form rather than dissipating, and when the architecture serves whoever encounters it next.</p>
+        </div>
+      </section>
+
+      <!-- ═══ THE SIX TENSIONS ═══ -->
+      <section class="ft-section">
+        <div class="phase-label">The six lived tensions</div>
+        <h3>How the thresholds relate</h3>
+
+        <p>Just as the <a href="four-dynamics.html">Dynamics</a> have six edges describing operational relationships, the Thresholds have six lived tensions &mdash; what it feels like when two qualities meet, and what goes wrong when one is present without the other.</p>
+
+        <div class="tension">
+          <div class="tension-name">Coherence &harr; Overflow</div>
+          <p>The center holds <em>and</em> circulation flows. Without coherence, overflow becomes depletion &mdash; you pour out from an empty vessel. Without overflow, coherence becomes rigidity &mdash; a perfect container with nothing moving through it.</p>
+        </div>
+
+        <div class="tension">
+          <div class="tension-name">Coherence &harr; Clarity</div>
+          <p>You know what you are <em>and</em> your limits are legible. Without coherence, clarity becomes arbitrary rule. Without clarity, coherence becomes hidden &mdash; no one can read what's actually available.</p>
+        </div>
+
+        <div class="tension">
+          <div class="tension-name">Coherence &harr; Persistence</div>
+          <p>What you are becomes what you build. Without coherence, persistence serves someone else's pattern. Without persistence, coherence dies with you.</p>
+        </div>
+
+        <div class="tension">
+          <div class="tension-name">Overflow &harr; Clarity</div>
+          <p>Gifts flow through visible channels. Without overflow, clarity is just a map with no water. Without clarity, overflow is flood &mdash; generous but destructive, gifts without container.</p>
+        </div>
+
+        <div class="tension">
+          <div class="tension-name">Overflow &harr; Persistence</div>
+          <p>Circulation builds lasting structure. Without overflow, persistence becomes monument &mdash; rigid, impressive, empty. Without persistence, overflow is beautiful but builds nothing. Everything dissolves when the moment passes.</p>
+        </div>
+
+        <div class="tension">
+          <div class="tension-name">Clarity &harr; Persistence</div>
+          <p>Legible limits enable lasting form. Without clarity, persistence becomes extraction &mdash; architecture that takes more than it gives. Without persistence, clarity is wisdom that never gets built into the world.</p>
+        </div>
+
+        <div class="structural-note">
+          <strong>The integration:</strong> All four thresholds operating simultaneously is what post-transactional exchange feels like from inside. Not a state to achieve or maintain &mdash; a geometry that holds when held, releases when released. The body recognizes it before the mind names it. That recognition is the threshold.
+        </div>
+      </section>
+
+      <!-- ═══ THE BODY KNOWS ═══ -->
+      <section class="ft-section">
+        <div class="phase-label">Recognition</div>
+        <h3>The body knows first</h3>
+
+        <div class="pull">These thresholds don't tell you what to do. They describe what naturally occurs when internal coherence meets circulation, when boundaries serve development, when surplus builds capacity rather than drains it. They name patterns you already know but perhaps haven't had language for.</div>
+
+        <p>A summer on the river. Somatic release of grief held by community present enough for the space. The language came afterward. The formal framework &mdash; the geometry, the diagnostics, the tools &mdash; articulated what the body already understood. Twenty years of practice embedded somatically, and an authentic community made it safe enough to surface.</p>
+
+        <p>That's the test for whether these thresholds are operating: not whether you can name them, but whether your body recognizes them. The conversation that left you more full. The boundary that opened something. The work that returned. You've already crossed these thresholds. This page gives you the geometry of what happened.</p>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="ft-section">
+        <div class="phase-label">Continue</div>
+        <h3>From experience to practice</h3>
+
+        <p>The Four Thresholds describe what the pattern releases &mdash; the experiential face. <a href="four-dynamics.html">The Four Dynamics</a> describe what the pattern does &mdash; the operational face. Together they express the same <a href="proto-pattern.html">tetrahedral geometry</a> at two scales.</p>
+
+        <p>For applying this to a specific system: <a href="tetrahedral-audit.html">The Tetrahedral Audit</a>. For how the pattern propagates without the transmitter present: <a href="transmission-architecture.html">Transmission Architecture</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>These thresholds aren't prescriptions. They're recognitions. If you've felt what's described here, the pattern is already operating. This page names what you already know so you can work with it consciously.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="frameworks.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

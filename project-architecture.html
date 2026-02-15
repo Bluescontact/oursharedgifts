@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deployable Architecture — one material system expressing shelter, furniture, and workspace. Three applications, one unsolved connector, and the geometry that connects them.">
+  <title>Deployable Architecture — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Deployable Architecture */
+
+    .da-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .da-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .da-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .da-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .da-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .da-section h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .da-section p {
+      color: var(--warm-dark);
+    }
+
+    /* Pull quote */
+    .pull {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      border-left: 3px solid var(--teal-primary);
+      background: var(--teal-faint);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-size: var(--text-md);
+      font-style: italic;
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Expression cards */
+    .expression {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .expression .e-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .expression h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .expression p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .expression .e-specs {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--warm-light);
+      line-height: 1.8;
+    }
+
+    /* Open problem block */
+    .open-problem {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      background: var(--white);
+      border: 1px solid var(--v-differentiation);
+      border-left: 4px solid var(--v-differentiation);
+      border-radius: var(--border-radius);
+    }
+
+    .open-problem .op-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--v-differentiation);
+      margin-bottom: var(--space-sm);
+    }
+
+    .open-problem p {
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    /* Vertex analysis */
+    .vertex-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .v-card {
+      padding: var(--space-lg);
+      background: var(--white);
+      border-radius: var(--border-radius);
+      border-left: 3px solid;
+    }
+
+    .v-card.strong { border-left-color: var(--teal-primary); }
+    .v-card.developing { border-left-color: var(--warm-light); }
+
+    .v-card .v-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+
+    .v-card h4 {
+      font-size: var(--text-base);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .v-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Connection list */
+    .connection-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-lg) 0;
+    }
+
+    .connection-list li {
+      margin: var(--space-md) 0;
+      padding-left: var(--space-lg);
+      position: relative;
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      line-height: 1.6;
+    }
+
+    .connection-list li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      color: var(--teal-primary);
+    }
+
+    .connection-list a {
+      color: var(--teal-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal-border);
+    }
+
+    .connection-list a:hover {
+      color: var(--teal-dark);
+      border-bottom-color: var(--teal-dark);
+    }
+
+    @media (max-width: 768px) {
+      .da-intro h2 { font-size: var(--text-2xl); }
+      .vertex-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="da-intro">
+      <div class="phase-label">Project &middot; Design development</div>
+      <h2>Deployable Architecture</h2>
+      <p class="lead">You've watched someone spend an hour assembling furniture from a flat-pack and thought: this should take seconds, not hours. You've held a piece of aluminum extrusion and seen a chair, a wall, a dome &mdash; all waiting for a connection that lets them become what they already are. The vocabulary exists. Three applications are designed. One connector problem stands between what's here and what becomes possible.</p>
+    </section>
+
+    <div class="da-content">
+
+      <!-- ═══ THE SUBSTRATE ═══ -->
+      <section class="da-section">
+        <div class="phase-label">The substrate</div>
+        <h3>A vocabulary of structure</h3>
+
+        <p>2020 aluminum extrusion has a T-slot channel that accepts standardized hardware at any point along its length, in any orientation. Nothing is permanent. Everything is reversible. A structure can be prototyped, tested, modified, and completely reconfigured without losing a single component. The same stock of aluminum expresses different things at different times &mdash; a 900mm piece is a standing-height workbench leg in the morning and a shelter frame member by afternoon.</p>
+
+        <p>Five dimensional intervals derived from human ergonomics cover every common need: 900mm for counter height, 750mm for table height, 600mm for chair back, 450mm for seat height, 300mm for connections and low surfaces. All five cut from 1500mm stock with zero waste. Canvas panels with grommets every three inches become surfaces, partitions, and tensioned membranes depending on how they're laced. Foil-faced polyiso foam panels become insulated walls when the frame handles structural load and the panels become curtain-wall infill.</p>
+
+        <p>The insight that emerged through months of working with this material: it's not a construction kit with a fixed set of outcomes. It's a language. The pieces are vocabulary. The connections are grammar. What gets built depends on what's needed &mdash; composed in real time on site rather than planned months in advance. The question is whether the grammar is rich enough to say everything that needs saying.</p>
+      </section>
+
+      <!-- ═══ THE OPEN PROBLEM ═══ -->
+      <section class="da-section">
+        <div class="phase-label">The open problem</div>
+        <h3>What's missing</h3>
+
+        <p>Everything described on this page depends on one unsolved engineering challenge: a universal pivot-and-lock mechanism for T-slot aluminum extrusion.</p>
+
+        <div class="open-problem">
+          <div class="op-label">Engineering challenge &mdash; active</div>
+          <p>The connector needs to pivot freely during positioning, lock rigidly under structural load, release instantly for reconfiguration, work one-handed, and be manufacturable at scale &mdash; 3D printable, simple weldment, or injection moldable. Fragments of the solution exist. Commercial 180&deg; adjustable pivot joints provide the range but lack structural locking. M5 cam levers provide quick clamping at fixed positions. Friction washers with large hand knobs provide adjustable rotational lock with good tactile feedback. Marine clam cleats enable instant cord tensioning for membrane systems. The challenge is integrating these functions into a single mechanism or minimal complementary set.</p>
+        </div>
+
+        <p>Joe Lord taught: build the tools first. The connector is the tool. The dome, the furniture, the shelter &mdash; those are what it builds. Solve the connection problem and everything that connection enables becomes available on demand from the same material stock. The geometry is proven. The materials are globally available. The dimensional system is designed. The connector is what's missing.</p>
+      </section>
+
+      <!-- ═══ THREE EXPRESSIONS ═══ -->
+      <section class="da-section">
+        <div class="phase-label">Three applications</div>
+        <h3>What the vocabulary says</h3>
+
+        <p>Three applications have been designed in detail. Each addresses a different scale of human need. All share the same material stock, the same dimensional intervals, and the same dependence on the connector.</p>
+
+        <div class="expression">
+          <div class="e-label">Rapid-deploy geodesic dome</div>
+          <h4>Community-scale shelter in minutes</h4>
+          <p>An 18-foot diameter 3V geodesic dome deploying in under 15 minutes by a single operator. Fuller's geometry, refined through decades of hexayurt community testing. The method: build from the crown down using a gantry arm with a lazy susan bearing. The operator stays stationary while the structure rotates to bring each connection point to working position. Panels are color-coded by dome layer, pre-loaded with drop-in T-nuts, tensioned with marine clam cleats in 2-3 seconds each.</p>
+          <p>A pentagon crown hub &mdash; the one component that doesn't flat-pack &mdash; distributes gantry loads across five connection points during assembly. Piano-hinged hub tabs fold flat for transport, snap to geodesic angles with latch pins. Dihedral brackets between panel edges create the actual structure. Hubs position. Brackets lock.</p>
+          <p>A 35-40 foot tarp over the dome creates 10-15 feet of covered outdoor space in every direction. Total covered area exceeds 1,200 square feet from a structure that packs into a 5&times;5&times;5 foot cube.</p>
+          <div class="e-specs">18 ft diameter &middot; 254 sq ft interior &middot; 1,200+ sq ft with tarp &middot; under 15 min solo deploy &middot; 5&times;5&times;5 ft packed</div>
+        </div>
+
+        <div class="expression">
+          <div class="e-label">Modular furniture and interior</div>
+          <h4>The same stock, at body scale</h4>
+          <p>The same extrusion that builds shelter structures builds every piece of furniture inside them. Pre-assembled nested shapes deploy in seconds rather than requiring assembly from sticks. A counter frame nests a table frame nests a side table frame &mdash; pull one out, insert four legs at the right height interval, tension a canvas top. Thirty seconds. Chair assemblies fold flat on a piano hinge. Four legs, unfold, sit down.</p>
+          <p>Canvas panels with 21 grommets per 62-inch edge are the universal surface. Laced tight through every grommet, they're structural. Through alternating grommets, they're flexible screens. Mounted in T-slots, they're tool organization. The same panel that's a table top at dinner becomes a wind screen at the worksite and a gear wall in the bus interior. Inside the bus, 2020 mounts to curved walls with custom brackets &mdash; the whole interior reconfigures between sleeping, workshop, and living modes in minutes.</p>
+          <div class="e-specs">5 intervals: 900 / 750 / 600 / 450 / 300 mm &middot; zero-waste cuts from 1500mm &middot; 12-14 oz marine canvas &middot; #4 grommets every 3&Prime; &middot; counter ~30 sec &middot; chair ~15 sec</div>
+        </div>
+
+        <div class="expression">
+          <div class="e-label">Panel shelter system</div>
+          <h4>Four-season structures, solo deploy, no material loss</h4>
+          <p>Structures that go up in under two hours with one person and come back down without wasting anything. The construction separates structure from envelope: 2020 aluminum skeleton carries load, 1.5-inch foil-faced polyiso panels serve as non-structural insulated infill at approximately R-10. Since the frame handles structure, seams only need weatherproofing &mdash; canvas flaps with velcro, marine zippers, or interlocking seals. No structural tape. No single-use connections.</p>
+          <p>Three variants: the tridome hexayurt with 11&#8242;4&#8243; &times; 8&#8242; interior, the quaddome at 24&#8242; &times; 8&#8242; with 12&#8242;8&#8243; peak, and a standard hexayurt with wooden base ring and hinged leaf panels. All share the principle: aluminum slides into position and locks, foam attaches with VHB tape for zero thermal bridging, canvas seals every joint. The tarp pavilion system extends livable area beyond the insulated footprint.</p>
+          <div class="e-specs">Under 2 hours solo &middot; R-10 insulation &middot; four-season &middot; ~$1,100 replacement &middot; fully reusable</div>
+        </div>
+      </section>
+
+      <!-- ═══ THE PATTERN ═══ -->
+      <section class="da-section">
+        <div class="phase-label">The pattern</div>
+        <h3>Structure from grammar, not from objects</h3>
+
+        <p>A chair is not a thing. It's a sentence: four legs at 450mm, a seat frame at 18 inches square, a back at 600mm, a canvas surface tensioned across grommets. Change the grammar &mdash; swap the leg lengths, reorient the frames, tension the canvas differently &mdash; and the same vocabulary says workbench, bed frame, equipment mount. The material doesn't know what it is until the connections tell it.</p>
+
+        <p>This inverts the normal relationship between design and construction. Conventional building starts with a fixed design and assembles materials to match. This system starts with a vocabulary and composes from it in real time, responding to what's actually needed rather than what was planned months ago. The design emerges from the situation. The vocabulary just needs to be rich enough &mdash; and the connector just needs to be good enough &mdash; to let it.</p>
+
+        <div class="pull">The deeper pattern is the same one operating across all the projects: waste from one context becomes critical infrastructure in another. 2020 extrusion is industrial automation stock. Canvas is marine supply. Foam panels are insulation-aisle hardware store material. None were designed for this application. The recognition that they compose into deployable architecture &mdash; that's the intervention.</div>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="da-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Differentiation</h4>
+            <p>The system knows what it is &mdash; a vocabulary, not a product. Each expression maintains clear identity while sharing material substrate. The separation of structure from envelope, frame from infill, grammar from sentence &mdash; these are acts of differentiation that keep the whole coherent.</p>
+          </div>
+          <div class="v-card strong">
+            <div class="v-label">Strong</div>
+            <h4>Architecture</h4>
+            <p>2020 extrusion doesn't degrade across deployments. It compounds in value as the library of pre-assembled shapes grows. The dimensional system &mdash; five intervals from 1500mm stock &mdash; organizes every subsequent decision.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Connection</h4>
+            <p>The T-slot enables connection at any point along any member. But the variable-angle structural connection between members is exactly what's undeveloped. The connector IS the Connection vertex. Until it's solved, the vocabulary has words but limited grammar.</p>
+          </div>
+          <div class="v-card developing">
+            <div class="v-label">Developing</div>
+            <h4>Boundaries</h4>
+            <p>Each expression defines boundaries &mdash; dome envelope, shelter insulation, furniture edge. But the system's own engineering boundaries aren't established: maximum span, wind load limits, structural capacity at each angle. Testing at full scale hasn't happened yet.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONNECTIONS ═══ -->
+      <section class="da-section">
+        <div class="phase-label">Connection points</div>
+        <h3>Where this meets the other projects</h3>
+
+        <ul class="connection-list">
+          <li>The furniture system builds out the <a href="project-bus.html">Mobile Crane Platform's</a> living and workshop spaces &mdash; same 2020 stock, same canvas panels, reconfigured for the bus interior</li>
+          <li>Panel shelters provide construction-phase workspace at the <a href="project-one-acre.html">One-Acre Oasis</a> before permanent structures are complete</li>
+          <li>The dome's rapid deployment parallels <a href="project-ibc.html">IBC Civilization Legos</a> &mdash; both aim for hours-not-years infrastructure at any site</li>
+          <li>Geodesic geometry shares tensioned-structure principles with the hex cable system within the <a href="project-one-acre.html">One-Acre Oasis</a></li>
+          <li>The Workshop IBC contains fabrication tools that would manufacture connector prototypes &mdash; the <a href="project-ibc.html">IBC system</a> enables distributed production of the connector itself</li>
+        </ul>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="da-section">
+        <div class="phase-label">Continue</div>
+        <h3>From vocabulary to practice</h3>
+
+        <p>The connector problem is where this project meets the world. If you work with T-slot extrusion and see a path to the pivot-and-lock mechanism described here, that's the contribution this project needs most. The geometry is proven. The applications are designed. The engineering gap is specific and bounded.</p>
+
+        <p>For how this vocabulary fits into the integrated site: <a href="project-one-acre.html">One-Acre Oasis</a>. For the mobile workshop where prototyping happens: <a href="project-bus.html">Mobile Crane Platform</a>. For the underlying pattern that connects all projects: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>The gift here is the vocabulary itself. Not any single structure. The 2020 extrusion is globally available. The canvas is off-the-shelf. The foam panels are hardware store stock. What's being shared is the recognition that one material system, with one solved connector, expresses everything a person needs to inhabit a place. The connector designs will be fully open source. The dimensional system is published. The geometry is Fuller's. Once the connector works, the architecture deploys.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

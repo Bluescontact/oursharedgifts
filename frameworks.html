@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recognition Infrastructure — frameworks for coordination that works. The tetrahedral pattern operating at every scale, from geometry to community to exchange.">
+  <title>Frameworks — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific: Frameworks hub */
+
+    .fw-intro {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .fw-intro h2 {
+      font-size: var(--text-3xl);
+      color: var(--warm-black);
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .fw-overview {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 0 var(--space-xl);
+    }
+
+    .fw-overview p {
+      color: var(--warm-dark);
+    }
+
+    /* Entry card — featured */
+    .entry-card {
+      max-width: var(--content-width);
+      margin: 0 auto var(--space-xl);
+      background: var(--teal-faint);
+      border: 2px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-xl);
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .entry-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .entry-card .fw-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .entry-card h4 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .entry-card p {
+      color: var(--warm-dark);
+      line-height: 1.7;
+    }
+
+    .entry-card .fw-action {
+      display: inline-block;
+      margin-top: var(--space-md);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+    }
+
+    /* Naming bridge */
+    .naming-bridge {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .naming-bridge h4 {
+      font-size: var(--text-base);
+      color: var(--teal-dark);
+      margin-bottom: var(--space-md);
+    }
+
+    .naming-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+    }
+
+    .naming-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--teal-border);
+    }
+
+    .naming-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      color: var(--warm-dark);
+    }
+
+    .naming-table tr:last-child td { border-bottom: none; }
+
+    .naming-table .vertex-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    /* Section structure */
+    .fw-section {
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .fw-section-header {
+      max-width: var(--content-width);
+      margin: 0 auto var(--space-lg);
+    }
+
+    .fw-section-header h3 {
+      font-size: var(--text-xl);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Framework cards */
+    .fw-card {
+      background: var(--white);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .fw-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .fw-card .fw-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .fw-card h4 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .fw-card p {
+      font-size: var(--text-sm);
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    .fw-card .fw-action {
+      display: inline-block;
+      margin-top: var(--space-md);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-primary);
+    }
+
+    /* Sub-page indicators */
+    .sub-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .sub-card {
+      padding: var(--space-md);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+
+    .sub-card:hover {
+      background: var(--teal-faint);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sub-card .sub-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--warm-light);
+      margin-bottom: 4px;
+    }
+
+    .sub-card strong {
+      display: block;
+      font-size: var(--text-sm);
+      color: var(--warm-dark);
+      margin-bottom: 2px;
+    }
+
+    .sub-card span {
+      font-size: var(--text-xs);
+      color: var(--warm-gray);
+    }
+
+    /* Source frameworks */
+    .fw-sources {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--teal-border);
+    }
+
+    .fw-sources h3 {
+      font-size: var(--text-lg);
+      color: var(--warm-black);
+      margin-bottom: var(--space-md);
+    }
+
+    .source-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    .source-item {
+      padding: var(--space-md);
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+    }
+
+    .source-item strong {
+      display: block;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .source-item span {
+      font-size: var(--text-xs);
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .fw-intro h2 { font-size: var(--text-2xl); }
+      .card-grid.cols-2 { grid-template-columns: 1fr; }
+      .card-grid.cols-3 { grid-template-columns: 1fr; }
+      .sub-cards { grid-template-columns: 1fr; }
+      .source-list { grid-template-columns: 1fr 1fr; }
+      .naming-table { font-size: var(--text-xs); }
+    }
+
+    @media (max-width: 480px) {
+      .source-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html" class="active">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Intro -->
+    <section class="fw-intro">
+      <div class="label">Recognition Infrastructure</div>
+      <h2>The pattern underneath coordination</h2>
+      <p class="lead">Six independent frameworks &mdash; from tensegrity to living systems to consent dynamics &mdash; all discovered the same underlying architecture. Four capacities that hold whenever coordination works, and degrade in predictable ways when it fails. These pages make that pattern visible so it can be worked with consciously.</p>
+    </section>
+
+    <section class="fw-overview">
+      <p>You don't need all of it. Enter where it's live for you.</p>
+    </section>
+
+    <!-- ═══ ENTRY POINT ═══ -->
+    <a href="entry-point.html" class="entry-card">
+      <div class="fw-label">Start here</div>
+      <h4>Four Questions</h4>
+      <p>No prerequisites. No vocabulary to learn first. Four questions to check against your own experience. The weakest answer points to the missing vertex &mdash; and where to go next. Three minutes.</p>
+      <span class="fw-action">Start the diagnostic &rarr;</span>
+    </a>
+
+    <!-- ═══ NAMING BRIDGE ═══ -->
+    <div class="naming-bridge">
+      <h4>The Naming Bridge</h4>
+      <p style="font-size: var(--text-sm); color: var(--warm-gray); margin-bottom: var(--space-md);">The same four capacities appear across multiple registers &mdash; structural, operational, experiential, and practical. This isn't inconsistency. It's the framework demonstrating its own substrate-independence.</p>
+      <table class="naming-table">
+        <thead>
+          <tr>
+            <th>Vertex</th>
+            <th>Structural</th>
+            <th>Operational</th>
+            <th>Experiential</th>
+            <th>Practice</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="vertex-dot" style="background: var(--v-differentiation);"></span>First</td>
+            <td>Differentiation</td>
+            <td>Recognize what's distinct</td>
+            <td>Coherence</td>
+            <td>Am I holding my position?</td>
+          </tr>
+          <tr>
+            <td><span class="vertex-dot" style="background: var(--v-connection);"></span>Second</td>
+            <td>Connection</td>
+            <td>Contact what's present</td>
+            <td>Overflow</td>
+            <td>Am I in genuine contact?</td>
+          </tr>
+          <tr>
+            <td><span class="vertex-dot" style="background: var(--v-boundaries);"></span>Third</td>
+            <td>Boundaries</td>
+            <td>Make limits visible</td>
+            <td>Clarity</td>
+            <td>Are limits visible?</td>
+          </tr>
+          <tr>
+            <td><span class="vertex-dot" style="background: var(--v-architecture);"></span>Fourth</td>
+            <td>Architecture</td>
+            <td>Build what persists</td>
+            <td>Persistence</td>
+            <td>Does this build capacity?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ CORE ARCHITECTURE ═══ -->
+    <section class="fw-section">
+      <div class="fw-section-header">
+        <div class="label">Core architecture</div>
+        <h3>The invariant pattern</h3>
+        <p class="subtitle">The structural core &mdash; geometry, operation, experience, propagation, diagnosis.</p>
+      </div>
+
+      <div class="card-grid cols-2">
+
+        <!-- Proto-Pattern with sub-pages -->
+        <a href="proto-pattern.html" class="fw-card" style="grid-column: 1 / -1;">
+          <div class="fw-label">Foundation</div>
+          <h4>The Proto-Pattern</h4>
+          <p>The minimum system: 4 vertices, 6 edges, 4 faces, 1 whole. Three points make a plane. A plane divides but doesn't enclose. Add a fourth point and something happens that can't be undone &mdash; inside and outside emerge simultaneously. This is the geometry underneath everything else on this site.</p>
+          <div class="sub-cards">
+            <a href="four-dynamics.html" class="sub-card" onclick="event.stopPropagation();">
+              <div class="sub-label">Operational scale</div>
+              <strong>The Four Dynamics</strong>
+              <span>What the pattern does. Four capacities in motion and the six relationships between them.</span>
+            </a>
+            <a href="four-thresholds.html" class="sub-card" onclick="event.stopPropagation();">
+              <div class="sub-label">Experiential scale</div>
+              <strong>The Four Thresholds</strong>
+              <span>What the pattern releases. Coherence, overflow, clarity, persistence &mdash; from inside.</span>
+            </a>
+          </div>
+          <span class="fw-action">Read the proto-pattern &rarr;</span>
+        </a>
+
+        <a href="transmission-architecture.html" class="fw-card">
+          <div class="fw-label">Propagation</div>
+          <h4>Transmission Architecture</h4>
+          <p>How the pattern propagates without requiring the transmitter's presence. Runtime verification, degradation detection, substrate-independence. The protocol that keeps coherence alive across discontinuities.</p>
+          <span class="fw-action">Read the architecture &rarr;</span>
+        </a>
+
+        <a href="tetrahedral-audit.html" class="fw-card">
+          <div class="fw-label">Diagnosis</div>
+          <h4>Tetrahedral Audit</h4>
+          <p>When something's broken, don't look for the force that wasn't strong enough. Look for the missing vertex. Axiomatic checks, failure mode analysis, and intervention design for systems that need structural repair.</p>
+          <span class="fw-action">Run the audit &rarr;</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ═══ APPLIED DOMAINS ═══ -->
+    <section class="fw-section">
+      <div class="fw-section-header">
+        <div class="label">Applied domains</div>
+        <h3>The pattern in practice</h3>
+        <p class="subtitle">The same geometry operating in specific contexts &mdash; community, institutions, exchange.</p>
+      </div>
+
+      <div class="card-grid cols-3">
+        <a href="holding-the-commons.html" class="fw-card">
+          <div class="fw-label">Community</div>
+          <h4>Holding the Commons</h4>
+          <p>Practices for people who hold space &mdash; dance floors, community gardens, shared workshops. The commons vs. service distinction. Non-transactional language. What organizers actually owe the space.</p>
+          <span class="fw-action">Read the practices &rarr;</span>
+        </a>
+
+        <a href="safety-documentation.html" class="fw-card">
+          <div class="fw-label">Institutions</div>
+          <h4>Safety Documentation</h4>
+          <p>A co-regulation tool for legally protected safety reporting. Value physics that align incentives so speaking up becomes rational for everyone. Better safety through better architecture.</p>
+          <span class="fw-action">Read the template &rarr;</span>
+        </a>
+
+        <a href="architecture-of-exchange.html" class="fw-card">
+          <div class="fw-label">Exchange</div>
+          <h4>Architecture of Exchange</h4>
+          <p>What makes non-transactional exchange structurally possible. Value physics, trace deposits, and how circulation proves the source. The architecture underneath gift economy.</p>
+          <span class="fw-action">Read the architecture &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ SOURCE FRAMEWORKS ═══ -->
+    <section class="fw-sources">
+      <h3>Source frameworks</h3>
+      <p style="font-size: var(--text-sm); color: var(--warm-gray); margin-bottom: var(--space-lg);">Recognition Infrastructure didn't invent these patterns. It recognized the invariant structure operating underneath them and distilled it to essential geometry.</p>
+
+      <div class="source-list">
+        <div class="source-item">
+          <strong>Tensegrity</strong>
+          <span>Continuous tension, discontinuous compression. Precise geometry determines capacity.</span>
+        </div>
+        <div class="source-item">
+          <strong>Spiral Dynamics</strong>
+          <span>Developmental stages. Each has integrity. Can't skip. Scaffolding enables emergence.</span>
+        </div>
+        <div class="source-item">
+          <strong>NVC</strong>
+          <span>Observation before evaluation. Universal needs. Clear requests. Framework transfers.</span>
+        </div>
+        <div class="source-item">
+          <strong>Wheel of Consent</strong>
+          <span>Who is doing? Who benefits? Four quadrants. Shadow forms when consent is absent.</span>
+        </div>
+        <div class="source-item">
+          <strong>Polyvagal Theory</strong>
+          <span>Body knows safety first. Three states. Co-regulation. Embodied capacity transfers.</span>
+        </div>
+        <div class="source-item">
+          <strong>Living Systems</strong>
+          <span>Mycorrhizal networks. Edge conditions. Succession. Nature as gift economy.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gift note -->
+    <div class="gift-note">
+      <p>These frameworks make the invisible visible so it can be worked with consciously. Enter where it's live for you. Take what serves. The pattern is already operating &mdash; these pages give you language for what you already recognize.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="about.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

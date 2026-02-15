@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solar Biochar Systems — solar-concentrated pyrolysis converts human waste into biochar, syngas, and fertilizer. Zero external energy. Zero waste output. $200-400 from salvage materials.">
+  <title>Solar Biochar Systems — Our Shared Gifts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bc-intro { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0 var(--space-xl); }
+    .bc-intro h2 { font-size: var(--text-3xl); color: var(--warm-black); line-height: 1.15; margin-bottom: var(--space-md); }
+    .bc-content { max-width: var(--content-width); margin: 0 auto; }
+    .bc-section { padding: var(--space-xl) 0; border-top: 1px solid var(--teal-border); }
+    .bc-section:first-of-type { border-top: none; padding-top: 0; }
+    .bc-section h3 { font-size: var(--text-xl); color: var(--warm-black); margin-bottom: var(--space-md); }
+    .bc-section p { color: var(--warm-dark); }
+    .pull { margin: var(--space-xl) 0; padding: var(--space-lg); border-left: 3px solid var(--teal-primary); background: var(--teal-faint); border-radius: 0 var(--border-radius) var(--border-radius) 0; font-size: var(--text-md); font-style: italic; color: var(--warm-dark); line-height: 1.7; }
+    .status-block { margin-bottom: var(--space-lg); padding: var(--space-lg); background: var(--white); border-left: 4px solid var(--v-differentiation); border-radius: var(--border-radius); }
+    .status-block .s-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--v-differentiation); margin-bottom: var(--space-sm); }
+    .status-block p { font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; margin: 0; }
+    .output-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); margin: var(--space-lg) 0; }
+    .output-card { padding: var(--space-lg); background: var(--white); border: 1px solid var(--teal-border); border-radius: var(--border-radius); }
+    .output-card .oc-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal-primary); margin-bottom: var(--space-sm); }
+    .output-card h4 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .output-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; }
+    .threshold-table { width: 100%; border-collapse: collapse; margin: var(--space-lg) 0; font-size: var(--text-sm); }
+    .threshold-table th { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-light); text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 2px solid var(--teal-border); }
+    .threshold-table td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--cream-dark); color: var(--warm-dark); }
+    .threshold-table tr.target td { font-weight: 600; color: var(--warm-black); background: var(--teal-faint); }
+    .open-question { padding: var(--space-md) var(--space-lg); background: var(--cream-dark); border-left: 3px solid var(--v-boundaries); border-radius: 0 var(--border-radius) var(--border-radius) 0; margin-bottom: var(--space-md); }
+    .open-question .oq-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; color: var(--v-boundaries); margin-bottom: var(--space-xs); }
+    .open-question p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; margin: 0; }
+    .phase-block { background: var(--white); border: 1px solid var(--teal-border); border-radius: var(--border-radius); padding: var(--space-lg); margin-bottom: var(--space-lg); }
+    .phase-block .p-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-primary); margin-bottom: var(--space-sm); }
+    .phase-block h4 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .phase-block p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.7; }
+    .phase-gate { margin: var(--space-md) 0 var(--space-lg); padding: var(--space-md) var(--space-lg); background: var(--white); border-left: 4px solid var(--v-boundaries); border-radius: var(--border-radius); font-size: var(--text-sm); color: var(--warm-dark); line-height: 1.7; }
+    .vertex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin: var(--space-lg) 0; }
+    .v-card { padding: var(--space-lg); background: var(--white); border-radius: var(--border-radius); border-left: 3px solid; }
+    .v-card .v-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-xs); }
+    .v-card.strong .v-label { color: var(--teal-primary); }
+    .v-card.developing .v-label { color: var(--warm-light); }
+    .v-card h4 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
+    .v-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; }
+    .bom-table { width: 100%; border-collapse: collapse; margin: var(--space-lg) 0; font-size: var(--text-sm); }
+    .bom-table th { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-light); text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 2px solid var(--teal-border); }
+    .bom-table td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--cream-dark); color: var(--warm-dark); }
+    .bom-table tr.total td { font-weight: 600; color: var(--warm-black); border-top: 2px solid var(--teal-border); }
+    @media (max-width: 768px) { .bc-intro h2 { font-size: var(--text-2xl); } .vertex-grid { grid-template-columns: 1fr; } .output-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="texture-layer texture-earth">
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Our Shared Gifts</a></h1>
+      <p>Frameworks for coherent exchange, offered freely</p>
+                  <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="frameworks.html">Frameworks &#9662;</a>
+            <div class="dropdown-content">
+              <a href="proto-pattern.html">Proto-Pattern</a>
+              <a href="four-dynamics.html">Four Dynamics</a>
+              <a href="four-thresholds.html">Four Thresholds</a>
+              <a href="transmission-architecture.html">Transmission Architecture</a>
+              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="projects.html" class="active">Projects &#9662;</a>
+            <div class="dropdown-content">
+              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
+              <a href="project-bus.html">Mobile Crane Platform</a>
+              <a href="project-biochar.html">Solar Biochar Systems</a>
+              <a href="project-ibc.html">IBC Civilization Legos</a>
+              <a href="project-architecture.html">Deployable Architecture</a>
+              <a href="project-one-acre.html">One-Acre Oasis</a>
+            </div>
+          </li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="transmissions.html">Transmissions</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="bc-intro">
+      <div class="phase-label">Project &middot; Concept design</div>
+      <h2>Solar Biochar Systems</h2>
+      <p class="lead">Human waste is resource in the wrong context. Solar-concentrated pyrolysis converts it into three useful outputs &mdash; biochar for soil, syngas for cooking fuel, urine-derived fertilizer for crops. Zero external energy input. Zero waste output. The fuel is sunlight. Everything that enters the system leaves as something useful.</p>
+    </section>
+
+    <div class="bc-content">
+
+      <div class="status-block">
+        <div class="s-label">Concept design</div>
+        <p>Processing method designed around heliostat mirror array with cast iron vessel at 500&ndash;600&deg;C. Components identified &mdash; 12"&times;12" flat glass mirror tiles, cast iron skillet vessel, polar mount tracking. No prototype built. Safety protocols for CO toxicity and syngas handling documented. Design ready for proof-of-concept testing.</p>
+      </div>
+
+      <!-- ═══ THE RECOGNITION ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">The recognition</div>
+        <h3>Waste is resource in the wrong context</h3>
+
+        <p>Every sanitation system in common use treats human waste as a problem to be disposed of &mdash; flushed away with potable water, buried in landfills, or incinerated at energy cost. The recognition underneath this project is simpler: the material isn't waste. It's biomass containing energy, nutrients, and carbon that become valuable when processed correctly.</p>
+
+        <p>Pyrolysis is the processing method. Unlike burning (which requires oxygen and produces ash and CO&#8322;), pyrolysis heats organic material in the absence of oxygen. The molecular bonds break apart without combustion. What emerges is biochar &mdash; a stable carbon structure riddled with microscopic pore networks &mdash; plus combustible syngas and whatever moisture was present.</p>
+
+        <p>The result is a sanitation system that doesn't consume resources. It produces them.</p>
+
+        <div class="pull">The flush toilet uses five gallons of drinking water to make a resource disappear. This system uses sunlight to make a resource visible.</div>
+      </section>
+
+      <!-- ═══ THE PHYSICS ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">The physics</div>
+        <h3>Non-negotiable thresholds</h3>
+
+        <p>These constraints come from peer-reviewed research (Fisher et al. 2021, CU Boulder, Gates Foundation funding). They define what any solar pyrolysis system must achieve regardless of design approach.</p>
+
+        <table class="threshold-table">
+          <thead>
+            <tr><th>Target</th><th>Temperature</th><th>Time</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pasteurization</td><td>75&deg;C</td><td>~10 min</td><td>Pathogen kill</td></tr>
+            <tr><td>Slow pasteurization</td><td>55&deg;C</td><td>10 hours</td><td>Pathogen kill</td></tr>
+            <tr><td>Pyrolysis onset</td><td>300&deg;C</td><td>&mdash;</td><td>Devolatilization begins</td></tr>
+            <tr class="target"><td>Optimal pyrolysis</td><td>500&ndash;600&deg;C</td><td>4&ndash;8 hrs</td><td>Complete char conversion</td></tr>
+            <tr><td>Gasification</td><td>&gt;700&deg;C</td><td>&mdash;</td><td>Ash formation (avoid)</td></tr>
+          </tbody>
+        </table>
+
+        <p>300&deg;C only starts pyrolysis. For complete conversion and stable carbon sequestration, the entire mass must reach and sustain 500&ndash;600&deg;C. Above 700&deg;C you get ash instead of biochar &mdash; the carbon structure collapses.</p>
+
+        <div class="structural-note">
+          <strong>Energy budget:</strong> 2 MJ per kg of wet feces, but ~5.4 MJ delivered accounting for 37% thermal efficiency. A weekly batch of ~2.5&ndash;3 kg requires roughly 16 MJ total solar input. At Estancia-area DNI of 6 kWh/m&sup2;/day, that demands approximately 0.75 m&sup2; of collector aperture &mdash; achievable with 12&ndash;16 mirror tiles.
+        </div>
+      </section>
+
+      <!-- ═══ THE DESIGN ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">The design</div>
+        <h3>Radical simplicity as design principle</h3>
+
+        <p>The design philosophy is: cheapest robust materials that are locally available. No precision machining. No exotic materials. No grid dependency. Someone with $200&ndash;400 and access to a hardware store can build this.</p>
+
+        <p><strong>The concentrator:</strong> 12"&times;12" flat glass mirror tiles arranged as a faceted array on a polar mount. Each tile is individually angled to direct reflected sunlight onto a common focal point. The whole array tracks the sun on a single axis aligned to local latitude. Tracking mechanism can be a small motor, a salvage gearbox, or a gravity-driven clockwork descent &mdash; like a grandfather clock. Wind it in the morning, gravity turns the array through the day.</p>
+
+        <p><strong>The vessel:</strong> Two Lodge cast iron skillets clamped face-to-face. Cast iron provides thermal mass that absorbs heat during peak concentration and distributes it through the vessel wall, buffering against the moving focal spot. A high-temperature ceramic fiber rope gasket seals the rim. One skillet handle is drilled and tapped for a syngas takeoff port with pressure relief valve.</p>
+
+        <p><strong>The daily cycle:</strong> Unscrew full vessel from toilet standpipe. Cap with processing lid. Place in heliostat focal cradle. Connect syngas line. Engage tracking. Four to eight hours of processing. Evening: stop tracking, cool vessel, empty biochar, return vessel to toilet with collection lid.</p>
+
+        <div class="structural-note">
+          <strong>The stationary vessel decision:</strong> The vessel sits fixed while mirrors track the sun. The focal spot sweeps across the vessel surface throughout the day &mdash; morning sun hits one side, noon hits the top, afternoon hits the other side. Cast iron's thermal conductivity (~50 W/m&middot;K) distributes this moving heat source across the mass. This eliminates the need for rotary unions on the syngas line, which would be the primary failure point and cost driver of a rotating design. Whether this approach achieves adequate thermal uniformity is the key open question.
+        </div>
+      </section>
+
+      <!-- ═══ THREE OUTPUTS ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Three outputs</div>
+        <h3>Everything leaves as something useful</h3>
+
+        <div class="output-cards">
+          <div class="output-card">
+            <div class="oc-label">Output 01</div>
+            <h4>Biochar</h4>
+            <p>Stable carbon soil amendment. Massive internal surface area &mdash; hundreds of square meters per gram. Pore networks at the scale microbes colonize. Retains water, holds nutrients against leaching, supports microbial communities. Persists in soil for centuries. Each application permanently improves the soil's capacity. Weekly yield: ~0.5&ndash;1 liter.</p>
+          </div>
+          <div class="output-card">
+            <div class="oc-label">Output 02</div>
+            <h4>Syngas</h4>
+            <p>Combustible gas &mdash; primarily CO, H&#8322;, and CH&#8324;. Energy density of 4&ndash;6 MJ/m&sup3;. Lower than natural gas but usable for cooking and small generators. Can be flared for safety in early implementation, captured in low-pressure bladders or compressed tanks once handling is proven.</p>
+          </div>
+          <div class="output-card">
+            <div class="oc-label">Output 03</div>
+            <h4>Urine fertilizer</h4>
+            <p>Urine-diverting toilet separates liquid from solids at collection. Diluted urine is nitrogen-rich fertilizer &mdash; urea, potassium, phosphorus, and trace minerals. Applied to crops directly or used to charge biochar before soil application. Monthly yield: 40&ndash;60 liters.</p>
+          </div>
+        </div>
+
+        <p>When these three outputs combine, something more interesting happens. Biochar soaked in urine loads those empty pore sites with plant-available nutrients. Mixed with aquaponic solids &mdash; the sludge from fish tank settling, dense with nitrifying bacteria and beneficial fungi &mdash; you're inoculating all that internal surface area with a living microbial community already adapted to cycling waste nutrients. What comes out after a week of curing is a soil amendment that retains water, holds and slowly releases nutrients, supports active microbial cycling, and persists for centuries. Cumulative infrastructure, not consumable input.</p>
+      </section>
+
+      <!-- ═══ BILL OF MATERIALS ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Materials</div>
+        <h3>Bill of materials</h3>
+
+        <table class="bom-table">
+          <thead><tr><th>Component</th><th>Source</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>12"&times;12" mirror tiles (16)</td><td>Hardware store</td><td>$40&ndash;80</td></tr>
+            <tr><td>Mirror mounting hardware</td><td>Hardware / salvage</td><td>$20&ndash;40</td></tr>
+            <tr><td>Tracking motor + gearbox</td><td>Salvage / Amazon</td><td>$20&ndash;50</td></tr>
+            <tr><td>Polar mount frame</td><td>Scrap steel / angle iron</td><td>$20&ndash;40</td></tr>
+            <tr><td>Cast iron skillets (2&times; 12")</td><td>Lodge / thrift</td><td>$40&ndash;80</td></tr>
+            <tr><td>High-temp gasket material</td><td>McMaster-Carr</td><td>$15&ndash;25</td></tr>
+            <tr><td>Syngas fittings + tubing</td><td>Hardware store</td><td>$30&ndash;50</td></tr>
+            <tr><td>Pressure relief valve</td><td>Amazon / industrial</td><td>$15&ndash;30</td></tr>
+            <tr><td>Thermocouple (testing)</td><td>Amazon</td><td>$20&ndash;30</td></tr>
+            <tr class="total"><td>Total estimated</td><td></td><td>$220&ndash;425</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ═══ OPEN QUESTIONS ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Open questions</div>
+        <h3>What testing needs to answer</h3>
+
+        <p>This is concept design. The physics are established. The materials are identified. The following questions can only be answered by building and measuring.</p>
+
+        <div class="open-question">
+          <div class="oq-label">Thermal distribution</div>
+          <p>Does a stationary cast iron vessel with a sweeping focal point achieve uniform 500&ndash;600&deg;C across the entire mass? Or does the swept heat create persistent cold spots that prevent complete pyrolysis? This is the keystone question. If stationary doesn't work, vessel rotation with a rotary union becomes necessary &mdash; adding cost, complexity, and a primary failure point.</p>
+        </div>
+
+        <div class="open-question">
+          <div class="oq-label">Optimal tile count</div>
+          <p>The energy budget says 12&ndash;16 tiles. Losses from imperfect focus, edge effects, and atmospheric attenuation may push the real number higher. Testing with 8&ndash;10 tiles first establishes whether the approach works at all before committing to a larger array.</p>
+        </div>
+
+        <div class="open-question">
+          <div class="oq-label">Processing time</div>
+          <p>The 4&ndash;8 hour estimate is based on energy calculations, not empirical measurement. Fresh waste is ~75% water by mass. Morning hours will be dominated by drying. Actual charring happens during peak insolation. Single-day turnaround at 4 gallons may be ambitious &mdash; smaller batches or two-day processing may be necessary.</p>
+        </div>
+
+        <div class="open-question">
+          <div class="oq-label">Wall thickness tradeoff</div>
+          <p>Thicker cast iron means more thermal mass and better heat distribution, but slower initial heat-up. Thinner means faster response but more vulnerability to hot spots. The Lodge 12" skillet is approximately 5mm wall thickness &mdash; whether that's the right balance is an empirical question.</p>
+        </div>
+
+        <div class="open-question">
+          <div class="oq-label">Insulation benefit</div>
+          <p>Ceramic fiber blanket on the shadow side of the vessel would reduce heat loss and improve efficiency &mdash; but adds complexity and cost. Whether the improvement justifies the addition depends on how close the uninsulated system gets to target temperature.</p>
+        </div>
+      </section>
+
+      <!-- ═══ BUILD SEQUENCE ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Build sequence</div>
+        <h3>Prove each layer before committing the next</h3>
+
+        <div class="phase-block">
+          <div class="p-label">Phase 01</div>
+          <h4>Proof of concept</h4>
+          <p>Minimal tile array (8&ndash;10 mirrors). Temperature testing only &mdash; no waste. Thermocouple inside empty vessel. Verify 500&deg;C+ is achievable at the focal point. Map temperature distribution across vessel surface over a full day. This answers the keystone question before any biological material is involved.</p>
+        </div>
+
+        <div class="phase-gate"><strong>Gate:</strong> If 500&deg;C is not achievable with 8&ndash;10 tiles, add tiles or redesign concentrator geometry before proceeding. Do not process waste below pyrolysis temperature &mdash; incomplete pyrolysis is worse than no processing.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Phase 02</div>
+          <h4>Thermal distribution mapping</h4>
+          <p>Multiple thermocouples at different positions inside the vessel. Full-day temperature profiles. Identify hot spots and cold spots. Determine whether stationary vessel achieves adequate uniformity or whether rotation is required. This is the honest diagnostic &mdash; it may kill the simplest version of the design.</p>
+        </div>
+
+        <div class="phase-gate"><strong>Gate:</strong> If thermal distribution is unacceptable, implement vessel rotation before proceeding to biological processing. Don't process waste in a system with known cold spots.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Phase 03</div>
+          <h4>First pyrolysis run</h4>
+          <p>Process test batch &mdash; sawdust plus small amount of waste material. Verify biochar quality (should be black,ite, odorless). Tune syngas handling. Establish processing time for the actual batch size and moisture content.</p>
+        </div>
+
+        <div class="phase-gate"><strong>Gate:</strong> Biochar must be fully converted (no brown material, no odor) and syngas handling must be safe before entering routine operation.</div>
+
+        <div class="phase-block">
+          <div class="p-label">Phase 04</div>
+          <h4>Operational system</h4>
+          <p>Full weekly batch processing. Establish routine. Dial in processing parameters for seasonal variation. Document everything &mdash; what works, what fails, what adapts. This documentation enters commons.</p>
+        </div>
+      </section>
+
+      <!-- ═══ SAFETY ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Safety</div>
+        <h3>What can hurt you</h3>
+
+        <p><strong>Solar concentration:</strong> The focal point can ignite materials instantly and cause severe burns. Never look at the focal point without welding shade. Clear all flammables from the focal zone. Use tools, not hands, near the focus. Wear eye protection whenever mirrors are exposed.</p>
+
+        <p><strong>Syngas toxicity:</strong> Syngas contains carbon monoxide, which is odorless and lethal. Process outdoors only, never in any enclosed space. No ignition sources near storage. Soapy water for leak detection, never open flame. Rated vessels only for storage, with verified pressure relief.</p>
+
+        <p><strong>Thermal burns:</strong> The vessel reaches 600&deg;C. Full cool-down before handling &mdash; cast iron retains heat for hours. Biochar itself can hold residual heat. Ensure the gas path is clear before processing to prevent pressure buildup.</p>
+      </section>
+
+      <!-- ═══ THE PATTERN ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">The pattern</div>
+        <h3>Infrastructure where surplus is the design target</h3>
+
+        <p>Most sanitation systems are designed for efficiency &mdash; minimizing cost per unit of waste processed. This system is designed for surplus. Every output is more valuable than the input. The biochar permanently improves soil capacity. The syngas provides cooking fuel. The urine fertilizer feeds crops. The carbon sequestration addresses atmospheric CO&#8322;. The sanitation itself is almost incidental &mdash; it's a side effect of the resource cycling.</p>
+
+        <p>The design constraint &mdash; cheapest robust locally available materials &mdash; isn't about poverty. It's about replicability. A system that requires precision machining or exotic materials can't propagate. A system built from mirror tiles, cast iron skillets, and scrap steel can be built by anyone who can read the documentation. The gift isn't the system. The gift is the demonstration that this is possible at this price point with these materials.</p>
+
+        <p>This is what infrastructure looks like when the design target is capacity that compounds rather than resources that deplete.</p>
+      </section>
+
+      <!-- ═══ VERTICES ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Tetrahedral analysis</div>
+        <h3>Where it holds, where it doesn't</h3>
+
+        <div class="vertex-grid">
+          <div class="v-card strong" style="border-left-color: var(--v-differentiation);">
+            <div class="v-label">Strong</div>
+            <h4>Differentiation</h4>
+            <p>The system knows exactly what it is: solar pyrolysis for carbon sequestration and resource recovery. It is not composting (which requires oxygen and produces CO&#8322;). It is not incineration (which requires external fuel and produces ash). The temperature thresholds are non-negotiable physics, not design preferences. This clarity of identity protects the system from scope drift.</p>
+          </div>
+          <div class="v-card strong" style="border-left-color: var(--v-connection);">
+            <div class="v-label">Strong</div>
+            <h4>Connection</h4>
+            <p>Every output connects to a receiving system. Biochar connects to soil. Syngas connects to cooking. Urine connects to crops. When biochar is charged with urine and inoculated with aquaponic biology, the connection deepens &mdash; each material activates the others. The system reads its own context and responds with outputs that fit.</p>
+          </div>
+          <div class="v-card developing" style="border-left-color: var(--warm-light);">
+            <div class="v-label">Developing</div>
+            <h4>Architecture</h4>
+            <p>The design is documented but not yet built. Architecture becomes real when physical infrastructure exists that persists and compounds. Until a working prototype validates the thermal distribution model and establishes reliable processing parameters, the architecture remains theoretical. The phased build sequence is the path from design to persistent infrastructure.</p>
+          </div>
+          <div class="v-card developing" style="border-left-color: var(--warm-light);">
+            <div class="v-label">Developing</div>
+            <h4>Boundaries</h4>
+            <p>Safety protocols are documented. The phase gates enforce honest progression &mdash; don't process waste until temperature is proven, don't enter routine operation until syngas handling is safe. But boundary integrity can only be verified through operation. The real test is whether the system maintains safe limits under daily use across weather variation and seasonal change.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CONTINUE ═══ -->
+      <section class="bc-section">
+        <div class="phase-label">Continue</div>
+        <h3>From concept to commons</h3>
+
+        <p>This system integrates into the <a href="project-one-acre.html">One-Acre Oasis</a> as part of the waste-to-resource metabolism &mdash; biochar builds the soil that grows the food forest, syngas supplements cooking fuel, urine fertilizer feeds annual crops. The <a href="project-aquaponics.html">aquaponics greenhouse</a> provides the biological inoculant that activates the biochar before soil application.</p>
+
+        <p>For the underlying coordination geometry: <a href="proto-pattern.html">The Proto-Pattern</a>.</p>
+      </section>
+
+    </div>
+
+    <div class="gift-note">
+      <p>The gift here is a demonstration: anyone with $200&ndash;400, sunlight, and access to a hardware store can permanently solve their own sanitation while building soil, producing fuel, and sequestering carbon. Every specification, every test result, every failure enters commons. The value is in the replication, not the protection.</p>
+      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="projects.html" style="color: var(--teal-primary);">Projects</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Everything here propagates because it works, not because it's protected.</p>
+    </div>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>

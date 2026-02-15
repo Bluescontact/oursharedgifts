@@ -1,0 +1,480 @@
+/* ═══════════════════════════════════════════════════════════
+   OUR SHARED GIFTS — Shared Stylesheet
+   Recognition Infrastructure site · styles.css
+
+   Base styles, CSS variables, layout, typography, navigation,
+   and common components used across all inner pages.
+   The homepage (index.html) and practice.html are self-contained.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─── FONTS ─── */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Anybody:wght@400;500;600&display=swap');
+
+
+/* ─── CSS VARIABLES ─── */
+
+:root {
+  /* Palette — warm neutrals */
+  --warm-black: #1a1a1a;
+  --warm-dark: #2c2c2c;
+  --warm-mid: #3a3a3a;
+  --warm-gray: #6b6b6b;
+  --warm-light: #9a9a9a;
+  --cream-light: #faf8f5;
+  --cream-dark: #f0ebe3;
+  --white: #ffffff;
+
+  /* Palette — teal accents */
+  --teal-primary: #2a9d8f;
+  --teal-dark: #1f7a6e;
+  --teal-border: rgba(42, 157, 143, 0.2);
+  --teal-faint: rgba(42, 157, 143, 0.06);
+
+  /* Vertex colors */
+  --v-differentiation: #c0392b;
+  --v-connection: #2980b9;
+  --v-boundaries: #d4a017;
+  --v-architecture: #27ae60;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  /* Layout */
+  --content-width: 720px;
+  --max-width: 1080px;
+  --border-radius: 6px;
+}
+
+
+/* ─── RESET & BASE ─── */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--warm-dark);
+  background: var(--cream-light);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--teal-primary);
+  color: var(--white);
+}
+
+
+/* ─── LINKS ─── */
+
+a {
+  color: var(--teal-primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--teal-dark);
+}
+
+
+/* ─── TYPOGRAPHY ─── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'EB Garamond', Georgia, serif;
+  line-height: 1.2;
+  color: var(--warm-black);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--teal-primary);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  background: var(--cream-dark);
+  font-style: italic;
+  color: var(--warm-gray);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+blockquote p {
+  margin-bottom: var(--space-sm);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ─── LAYOUT ─── */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+
+/* ─── HEADER ─── */
+
+header {
+  background: var(--warm-black);
+  padding: var(--space-lg) 0;
+  position: relative;
+  z-index: 100;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+header h1 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+header h1 a {
+  color: var(--cream-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+header h1 a:hover {
+  color: var(--teal-primary);
+}
+
+header > .container > p {
+  font-size: var(--text-sm);
+  color: var(--warm-light);
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+}
+
+/* Navigation */
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  align-items: center;
+}
+
+header nav ul li a {
+  color: var(--warm-light);
+  text-decoration: none;
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background 0.2s ease;
+  display: inline-block;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  color: var(--cream-light);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Dropdown menus */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--warm-mid);
+  border-radius: var(--border-radius);
+  padding: 6px 0;
+  min-width: 220px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  z-index: 200;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 16px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  color: var(--warm-light);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cream-light);
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+/* Hamburger toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  top: var(--space-lg);
+  right: 32px;
+  z-index: 101;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--cream-light);
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* ─── MAIN CONTENT ─── */
+
+main.container {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+
+/* ─── COMMON COMPONENTS ─── */
+
+/* Label — small monospace category marker */
+.label,
+.phase-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--text-xs);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Lead text */
+.lead {
+  font-size: 1.08rem;
+  color: var(--warm-dark);
+  line-height: 1.75;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--warm-gray);
+  line-height: 1.6;
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  gap: var(--space-lg);
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.card-grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Gift note — the closing statement on most pages */
+.gift-note {
+  max-width: var(--content-width);
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-xl);
+  text-align: center;
+  font-style: italic;
+  color: var(--warm-gray);
+  border-top: 1px solid var(--teal-border);
+}
+
+.gift-note p {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+
+/* ─── TEXTURE LAYERS ─── */
+/* Subtle background variations per page type */
+
+.texture-layer {
+  position: relative;
+}
+
+.texture-earth {
+  background: var(--cream-light);
+}
+
+.texture-green {
+  background: var(--cream-light);
+}
+
+
+/* ─── FOOTER ─── */
+
+footer {
+  background: var(--warm-black);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+footer .container p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--warm-light);
+  line-height: 1.6;
+}
+
+footer .container p a {
+  color: var(--teal-primary);
+  text-decoration: none;
+}
+
+footer .container p a:hover {
+  text-decoration: underline;
+}
+
+
+/* ─── RESPONSIVE ─── */
+
+@media (max-width: 768px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Header becomes row with hamburger */
+  header .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header > .container > p {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: static;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  header nav.open {
+    display: block;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding-top: var(--space-md);
+  }
+
+  header nav ul li a {
+    display: block;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  /* Mobile dropdowns — always visible when parent is open */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 0;
+    padding: 0 0 0 var(--space-md);
+    min-width: 0;
+  }
+
+  .dropdown-content a {
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    color: var(--warm-light);
+  }
+
+  /* Card grids go single column */
+  .card-grid.cols-2,
+  .card-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+
+  :root {
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+  }
+}
