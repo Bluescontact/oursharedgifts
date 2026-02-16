@@ -1,205 +1,979 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Six applied projects demonstrating Recognition Infrastructure in physical, ecological, and technical substrates — from aquaponics greenhouses to deployable architecture to mobile crane platforms.">
-  <title>Projects — Applied Work | Our Shared Gifts</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .proj-intro { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0 var(--space-xl); }
-    .proj-intro h2 { font-size: var(--text-3xl); color: var(--warm-black); line-height: 1.15; margin-bottom: var(--space-md); }
-    .proj-overview { max-width: var(--content-width); margin: 0 auto; padding: 0 0 var(--space-xl); }
-    .proj-grid { max-width: var(--content-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); padding-bottom: var(--space-xl); }
-    .proj-card { background: var(--white); border: 1px solid var(--teal-border); border-radius: var(--border-radius); padding: var(--space-xl) var(--space-lg); text-decoration: none; display: block; color: inherit; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .proj-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); color: inherit; text-decoration: none; }
-    .proj-card.full-width { grid-column: 1 / -1; }
-    .proj-card .proj-label { font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal-primary); margin-bottom: var(--space-sm); }
-    .proj-card .proj-status { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-light); float: right; margin-top: 2px; }
-    .proj-card h3 { font-size: var(--text-lg); color: var(--warm-black); margin-bottom: var(--space-sm); }
-    .proj-card .proj-tagline { font-style: italic; color: var(--teal-dark); font-size: var(--text-base); margin-bottom: var(--space-md); }
-    .proj-card p { font-size: var(--text-sm); color: var(--warm-gray); line-height: 1.6; }
-    .proj-card .proj-vertices { display: flex; gap: var(--space-sm); margin-top: var(--space-md); flex-wrap: wrap; }
-    .proj-card .vertex-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; padding: 3px 8px; border-radius: 3px; color: var(--white); }
-    .proj-card .vertex-tag.strong { opacity: 1; }
-    .proj-card .vertex-tag.developing { opacity: 0.5; }
-    .proj-card .proj-action { display: inline-block; margin-top: var(--space-md); font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal-primary); }
-    .proj-pattern { max-width: var(--content-width); margin: 0 auto; padding: var(--space-xl) 0; border-top: 1px solid var(--teal-border); }
-    .proj-pattern h3 { font-size: var(--text-xl); color: var(--warm-black); margin-bottom: var(--space-md); }
-    .proj-pattern p { color: var(--warm-dark); }
-    @media (max-width: 768px) { .proj-intro h2 { font-size: var(--text-2xl); } .proj-grid { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice — 48 Recognition Cards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    --bg: #0c0a09;
+    --card: #1c1917;
+    --card-hover: #211f1c;
+    --border: #292524;
+    --border-hover: #44403c;
+    --text: #e7e5e4;
+    --text-dim: #a8a29e;
+    --text-muted: #78716c;
+    --text-ghost: #57534e;
+    --text-gone: #44403c;
+    --diff: #6b8f6b;
+    --conn: #7a6a9a;
+    --bound: #c4953a;
+    --arch: #a06830;
+    --diff-dim: #6b8f6b44;
+    --conn-dim: #7a6a9a44;
+    --bound-dim: #c4953a44;
+    --arch-dim: #a0683044;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(12,10,9,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+  }
+  .nav-inner {
+    max-width: 820px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .nav-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .nav-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-btn {
+    background: none; border: 1px solid var(--border);
+    color: var(--text-muted); font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 5px; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .nav-btn:hover { border-color: var(--border-hover); color: var(--text-dim); }
+  .nav-btn.active { border-color: var(--bound); color: var(--bound); }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* ── HEADER ── */
+  .header { text-align: center; padding: 48px 0 36px; }
+  .header h1 {
+    font-size: clamp(30px, 5vw, 46px); font-weight: 600;
+    color: var(--text); letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .header .subtitle {
+    color: var(--text-dim); font-size: 16px; font-style: italic;
+    max-width: 600px; margin: 12px auto 0; line-height: 1.7;
+  }
+
+  /* ── VERTICES ── */
+  .vertices {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-bottom: 44px;
+  }
+  .vertex {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 8px; text-align: center;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+  }
+  .vertex:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .vertex-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin: 0 auto 8px;
+  }
+  .vertex-name { font-size: 14px; font-weight: 600; color: var(--text); display: block; }
+  .vertex-felt { font-size: 11px; color: var(--text-ghost); font-style: italic; margin-top: 4px; display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    position: sticky; top: 49px; z-index: 10;
+    background: rgba(12,10,9,0.96);
+    backdrop-filter: blur(10px);
+    padding: 14px 0; margin: 36px 0 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px; font-weight: 400;
+  }
+  .section-name { font-size: 22px; font-weight: 600; color: var(--text); }
+  .section-tag {
+    font-size: 10px; padding: 3px 10px; border-radius: 16px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
+  }
+  .section-range {
+    font-size: 11px; color: var(--text-gone);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .section-desc { color: var(--text-dim); font-size: 15px; margin-top: 6px; }
+  .section-face {
+    font-size: 11px; color: var(--text-ghost); margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; margin-bottom: 12px;
+    transition: border-color 0.4s, background 0.3s;
+    overflow: hidden;
+  }
+  .card:hover { border-color: var(--border-hover); background: var(--card-hover); }
+  .card.face-card { border-left: 2px solid; }
+  .card-main {
+    padding: 22px 26px; cursor: pointer;
+  }
+  .card-top { display: flex; gap: 16px; align-items: flex-start; }
+  .card-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; width: 28px; flex-shrink: 0;
+    text-align: right; padding-top: 5px;
+  }
+  .card-body { flex: 1; }
+  .card-recognition {
+    font-size: 19px; font-weight: 600; line-height: 1.5;
+    color: var(--text);
+  }
+  .card-face-tag {
+    display: inline-block; font-size: 9px; padding: 2px 8px;
+    border-radius: 10px; margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;
+  }
+
+  /* ── EXPANDED LAYERS ── */
+  .card-layers {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s ease;
+    border-top: 0px solid transparent;
+  }
+  .card.open .card-layers {
+    max-height: 600px;
+    border-top: 1px solid var(--border);
+  }
+  .card-layers-inner { padding: 20px 26px 24px; }
+  .layer { margin-bottom: 16px; }
+  .layer:last-child { margin-bottom: 0; }
+  .layer-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .layer-activation { color: var(--text-dim); font-size: 16px; line-height: 1.65; }
+  .layer-seed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; letter-spacing: 0.5px; line-height: 1.6;
+    padding: 10px 16px; border-radius: 8px;
+    margin-top: 2px;
+  }
+  .layer-transmission {
+    color: var(--text-dim); font-size: 15px; font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── BREATH GATE OVERLAY ── */
+  .overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(12,10,9,0.96);
+    display: none; align-items: center; justify-content: center;
+    flex-direction: column; backdrop-filter: blur(24px);
+  }
+  .overlay.open { display: flex; }
+  .overlay-close {
+    position: absolute; top: 20px; left: 24px;
+    background: none; border: none; color: var(--text-ghost);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    cursor: pointer; letter-spacing: 2px;
+  }
+  .overlay-close:hover { color: var(--text-dim); }
+  .overlay-card {
+    max-width: 560px; width: 92%; padding: 36px;
+    border-radius: 16px; border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .overlay-section {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .overlay-id {
+    font-size: 11px; color: var(--text-gone);
+    font-family: 'JetBrains Mono', monospace; float: right;
+  }
+  .overlay-recognition {
+    font-size: 24px; font-weight: 600; line-height: 1.5;
+    color: var(--text); margin: 16px 0 20px;
+  }
+  .overlay-activation {
+    font-size: 17px; line-height: 1.7; color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+  .overlay-gate {
+    border-top: 1px solid var(--border); padding-top: 20px;
+    text-align: center;
+  }
+  .overlay-seed-layer, .overlay-transmission-layer {
+    display: none; animation: fadeUp 0.8s ease;
+  }
+  .overlay-seed-layer.visible, .overlay-transmission-layer.visible { display: block; }
+
+  .breath-btn {
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 2px solid; background: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto; transition: all 0.3s;
+  }
+  .breath-btn span {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .breath-active {
+    width: 90px; height: 90px; border-radius: 50%;
+    border: 2px solid; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+  }
+  .breath-active span {
+    font-size: 10px; letter-spacing: 2px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .breath-dots { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
+  .breath-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border-hover); transition: background 0.5s;
+  }
+
+  @keyframes inhale { from { transform: scale(0.88); } to { transform: scale(1.18); } }
+  @keyframes exhale { from { transform: scale(1.18); } to { transform: scale(0.88); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .overlay-nav { display: flex; justify-content: center; gap: 24px; margin-top: 24px; }
+  .overlay-nav button {
+    background: none; border: none; color: var(--text-ghost);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    cursor: pointer; letter-spacing: 1px;
+  }
+  .overlay-nav button:hover { color: var(--text-dim); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding: 36px 0;
+    border-top: 1px solid var(--border); margin-top: 32px;
+  }
+  .footer p { font-size: 14px; color: var(--text-ghost); line-height: 1.6; }
+  .footer .convergence {
+    font-size: 18px; color: var(--text-dim); font-style: italic;
+    margin: 16px 0;
+  }
+  .footer .gift {
+    color: var(--text-gone); font-size: 10px; margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 2px;
+  }
+  .footer .lineage {
+    color: var(--text-gone); font-size: 11px; margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 600px) {
+    .vertices { grid-template-columns: repeat(2, 1fr); }
+    .card-main { padding: 18px 18px; }
+    .card-layers-inner { padding: 16px 18px 20px; }
+    .overlay-card { padding: 28px 22px; }
+    .section-header { top: 46px; }
+  }
+</style>
 </head>
-<body class="texture-layer texture-earth">
-  <header>
-    <div class="container">
-      <h1><a href="index.html">Our Shared Gifts</a></h1>
-      <p>Frameworks for coherent exchange, offered freely</p>
-                  <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown">
-            <a href="frameworks.html">Frameworks &#9662;</a>
-            <div class="dropdown-content">
-              <a href="proto-pattern.html">Proto-Pattern</a>
-              <a href="four-dynamics.html">Four Dynamics</a>
-              <a href="four-thresholds.html">Four Thresholds</a>
-              <a href="transmission-architecture.html">Transmission Architecture</a>
-              <a href="tetrahedral-audit.html">Tetrahedral Audit</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="projects.html" class="active">Projects &#9662;</a>
-            <div class="dropdown-content">
-              <a href="project-aquaponics.html">Aquaponics Greenhouse</a>
-              <a href="project-bus.html">Mobile Crane Platform</a>
-              <a href="project-biochar.html">Solar Biochar Systems</a>
-              <a href="project-ibc.html">IBC Civilization Legos</a>
-              <a href="project-architecture.html">Deployable Architecture</a>
-              <a href="project-one-acre.html">One-Acre Oasis</a>
-            </div>
-          </li>
-          <li><a href="practice.html">Practice</a></li>
-          <li><a href="transmissions.html">Transmissions</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
-      </nav>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-title">Practice</span>
+    <div class="nav-controls">
+      <button class="nav-btn" id="btnExpand" onclick="toggleExpandAll()">expand all</button>
+      <button class="nav-btn" id="btnView" onclick="cycleView()">list view</button>
     </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <header class="header">
+    <h1>Practice</h1>
+    <p class="subtitle">These cards don't teach you anything. They recognize what your body already knows, what your relationships already carry, what your limits already protect. Each card has four layers: a recognition that mirrors you, an activation that lands it in your body, a seed that compresses the principle, and a transmission that turns you toward someone else. Start anywhere. There is no wrong entry point.</p>
   </header>
 
-  <main class="container">
+  <div class="vertices">
+    <a class="vertex" href="#sec-1" onclick="scrollToSection(event, 'sec-1')">
+      <div class="vertex-dot" style="background:var(--diff)"></div>
+      <span class="vertex-name">Differentiation</span>
+      <span class="vertex-felt">knowing what you are</span>
+    </a>
+    <a class="vertex" href="#sec-2" onclick="scrollToSection(event, 'sec-2')">
+      <div class="vertex-dot" style="background:var(--conn)"></div>
+      <span class="vertex-name">Connection</span>
+      <span class="vertex-felt">touching what you're not</span>
+    </a>
+    <a class="vertex" href="#sec-3" onclick="scrollToSection(event, 'sec-3')">
+      <div class="vertex-dot" style="background:var(--bound)"></div>
+      <span class="vertex-name">Boundaries</span>
+      <span class="vertex-felt">holding your shape</span>
+    </a>
+    <a class="vertex" href="#sec-4" onclick="scrollToSection(event, 'sec-4')">
+      <div class="vertex-dot" style="background:var(--arch)"></div>
+      <span class="vertex-name">Architecture</span>
+      <span class="vertex-felt">building what outlasts you</span>
+    </a>
+  </div>
 
-    <section class="proj-intro">
-      <div class="phase-label">Applied work</div>
-      <h2>Projects</h2>
-      <p class="lead">Recognition Infrastructure exists to be used. These projects demonstrate the pattern in physical, ecological, and technical substrates &mdash; each one an experiment in coordination that builds capacity rather than extracting it. Every project produces documentation that enters commons.</p>
-    </section>
+  <div id="sections"></div>
 
-    <div class="proj-overview">
-      <p>Every project follows the same structural logic: know what it is and what it isn't (differentiation), make genuine contact with actual conditions (connection), hold limits that protect function (boundaries), and build infrastructure that persists and compounds (architecture). The substrate changes &mdash; water, soil, steel, code &mdash; but the geometry doesn't. The tetrahedral analysis on each project page makes this visible.</p>
-    </div>
-
-    <div class="proj-grid">
-
-      <a href="project-aquaponics.html" class="proj-card">
-        <div class="proj-label">Living systems</div>
-        <span class="proj-status">Structure purchased</span>
-        <h3>Aquaponics Greenhouse</h3>
-        <p class="proj-tagline">Closed-loop food production at commercial scale</p>
-        <p>30&times;100 ft commercial aquaponics with geothermal climate battery, 5,000-gallon fish system, 888-head DWC capacity, and media beds with light deprivation for year-round restaurant production. $70-85K annual revenue target. Three sub-pages carry the depth: growing systems, climate battery, and automation.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-connection);">Connection</span>
-          <span class="vertex-tag strong" style="background: var(--v-architecture);">Architecture</span>
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag developing" style="background: var(--v-boundaries);">Boundaries</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-      <a href="project-bus.html" class="proj-card">
-        <div class="proj-label">Mobile infrastructure</div>
-        <span class="proj-status">Infrastructure buildout</span>
-        <h3>Mobile Crane Platform</h3>
-        <p class="proj-tagline">Three zones, one vehicle &mdash; living, fabrication, crane</p>
-        <p>1995 International Genesis with 10kW power system, complete metal fabrication workshop, and 3,200 lb electric-over-hydraulic crane. The tool that builds itself &mdash; the workshop fabricates the crane. First documented commercial-grade crane on a bus conversion.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-architecture);">Architecture</span>
-          <span class="vertex-tag strong" style="background: var(--v-boundaries);">Boundaries</span>
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag developing" style="background: var(--v-connection);">Connection</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-      <a href="project-biochar.html" class="proj-card">
-        <div class="proj-label">Nutrient cycling</div>
-        <span class="proj-status">Concept design</span>
-        <h3>Solar Biochar Systems</h3>
-        <p class="proj-tagline">Waste is resource in the wrong context</p>
-        <p>Heliostat mirror array concentrates solar energy onto a sealed cast iron vessel. Human waste becomes biochar, syngas, and urine fertilizer. Zero external energy, zero waste output. $150-400 from salvage materials. The fuel is sunlight.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag strong" style="background: var(--v-connection);">Connection</span>
-          <span class="vertex-tag developing" style="background: var(--v-architecture);">Architecture</span>
-          <span class="vertex-tag developing" style="background: var(--v-boundaries);">Boundaries</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-      <a href="project-ibc.html" class="proj-card">
-        <div class="proj-label">Deployable autonomy</div>
-        <span class="proj-status">Design complete</span>
-        <h3>IBC Civilization Legos</h3>
-        <p class="proj-tagline">The form factor is the innovation</p>
-        <p>Power, water, and fabrication capacity in standard IBC totes. 12-15 units per C-130. Operational same day with a forklift. Standard containers plus standard components plus existing logistics equals deployable civilization. Permanent capacity, not temporary aid.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-boundaries);">Boundaries</span>
-          <span class="vertex-tag strong" style="background: var(--v-connection);">Connection</span>
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag developing" style="background: var(--v-architecture);">Architecture</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-      <a href="project-architecture.html" class="proj-card">
-        <div class="proj-label">Material vocabulary</div>
-        <span class="proj-status">Material acquired</span>
-        <h3>Deployable Architecture</h3>
-        <p class="proj-tagline">A structural grammar, not a catalog of objects</p>
-        <p>2020 aluminum extrusion as material vocabulary for shelters, furniture, and geodesic structures. The same aluminum expresses dome, chair, and emergency housing depending on what the situation requires. The open problem: a universal connector that lets the grammar become truly fluid.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag strong" style="background: var(--v-architecture);">Architecture</span>
-          <span class="vertex-tag developing" style="background: var(--v-connection);">Connection</span>
-          <span class="vertex-tag developing" style="background: var(--v-boundaries);">Boundaries</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-      <a href="project-one-acre.html" class="proj-card">
-        <div class="proj-label">Integrated design</div>
-        <span class="proj-status">In development</span>
-        <h3>One-Acre Oasis</h3>
-        <p class="proj-tagline">Complete regenerative site design at 6,000 ft</p>
-        <p>The integration point. One acre in central New Mexico, hostile desert conditions. Hex cable wind protection, greenhouse production, soil building, water management &mdash; each project operates independently but the whole becomes more than its parts. The surplus is the gift.</p>
-        <div class="proj-vertices">
-          <span class="vertex-tag strong" style="background: var(--v-differentiation);">Differentiation</span>
-          <span class="vertex-tag strong" style="background: var(--v-connection);">Connection</span>
-          <span class="vertex-tag strong" style="background: var(--v-boundaries);">Boundaries</span>
-          <span class="vertex-tag strong" style="background: var(--v-architecture);">Architecture</span>
-        </div>
-        <span class="proj-action">View project &rarr;</span>
-      </a>
-
-    </div>
-
-    <section class="proj-pattern">
-      <div class="phase-label">The pattern</div>
-      <h3>Waste from one context becomes infrastructure in another</h3>
-
-      <p>Industrial IBC totes become fish tanks and civilization legos. A retired school bus becomes a crane platform. Satellite dishes become solar furnaces. Excavated clay becomes wind berms. Fish waste becomes fertilizer. Value that's invisible in one context becomes essential in another when someone recognizes the structural fit.</p>
-
-      <p>Each project demonstrates the same succession principle: don't build on a layer that hasn't proven itself. Prove biology before committing earthwork. Prove power before stocking fish. Build the workshop before fabricating the crane. The patience is structural &mdash; it's the recognition that each layer creates the conditions the next layer requires.</p>
-
-      <p>The tetrahedral analysis on each project page makes the geometry explicit. Where is the project strong? Where is it developing? What would collapse if a vertex went missing? The diagnostic works on a greenhouse and on a governance structure. The substrate changes. The geometry doesn't.</p>
-
-      <p style="margin-top: var(--space-lg);"><a href="tetrahedral-audit.html" style="color: var(--teal-primary); font-family: 'JetBrains Mono', monospace; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em;">Run the diagnostic on your own project &rarr;</a></p>
-    </section>
-
-    <div class="gift-note">
-      <p>Every project produces documentation that enters commons. Specifications, failures, adaptations &mdash; all of it shared freely. The value is in the demonstration, not the protection.</p>
-      <p style="font-style: normal; font-size: var(--text-xs); margin-top: var(--space-md);">Kevin Mears &middot; 2026 &middot; <a href="about.html" style="color: var(--teal-primary);">Recognition Infrastructure</a></p>
-    </div>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>Everything here propagates because it works, not because it's protected.</p>
-    </div>
+  <footer class="footer">
+    <p class="convergence">I know what I am. I touch what I'm not. I hold my shape. I build what outlasts me.</p>
+    <p style="font-size:13px;color:var(--text-ghost);margin-top:12px;line-height:1.6;">
+      Each card works alone. Each section of twelve works as a progression.<br>
+      The full forty-eight works as an integrated system. No entry point is lesser.
+    </p>
+    <p class="gift">gift economy · use freely · adapt as needed</p>
+    <p class="lineage">Kevin Mears · 2026</p>
   </footer>
 
-  <script src="menu.js"></script>
+</div>
+
+<!-- BREATH GATE OVERLAY -->
+<div class="overlay" id="overlay">
+  <button class="overlay-close" onclick="closeOverlay()">← back</button>
+  <div class="overlay-card" id="overlayCard"></div>
+  <div class="overlay-nav" id="overlayNav"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CRYSTALLIZED SEED — 48 RECOGNITION CARDS
+// 4 sections × 12 cards. Last 4 of each section = face work.
+// 4 layers: Recognition, Activation, Seed, Transmission
+// ═══════════════════════════════════════════════════════════
+
+const SECTIONS = [
+  {
+    id: 1, name: "Differentiation", felt: "Knowing what you are",
+    color: "var(--diff)", colorHex: "#6b8f6b",
+    desc: "When differentiation is working, you feel your own edges without needing anyone else to confirm them. Your breath, your rhythm, your voice — they carry authority that doesn't require agreement. These cards recognize the quiet solidity of being a distinct thing in a world that often pressures you to blur.",
+    face: "The last four cards are for the one still searching. When differentiation is arriving but hasn't landed, the restlessness itself is the evidence.",
+    range: "1–12"
+  },
+  {
+    id: 2, name: "Connection", felt: "Touching what you're not",
+    color: "var(--conn)", colorHex: "#7a6a9a",
+    desc: "Connection isn't merger. It's circulation between distinct beings who remain themselves through the contact. When it's working, your attention changes what it touches, your warmth reaches without grasping, and receiving is as generous as giving. These cards recognize the ways you already make genuine contact.",
+    face: "The last four cards are for the one who aches across the distance. When connection is still forming, the longing itself proves the channel exists.",
+    range: "13–24"
+  },
+  {
+    id: 3, name: "Boundaries", felt: "Holding your shape",
+    color: "var(--bound)", colorHex: "#c4953a",
+    desc: "Boundaries are information systems, not walls. When they're working, your no clarifies your yes, your anger guards what's precious, and your grief marks where love actually lived. These cards recognize the intelligence in your limits — the way your edges generate more life than your centers.",
+    face: "The last four cards are for the one who gives everything and keeps nothing. When boundaries are still forming, the exhaustion itself is pointing at where to build.",
+    range: "25–36"
+  },
+  {
+    id: 4, name: "Architecture", felt: "Building what outlasts you",
+    color: "var(--arch)", colorHex: "#a06830",
+    desc: "Architecture is what happens when your surplus becomes infrastructure for someone else. Your patterns teach without you. Your practice creates soil you'll never plant in. Your failures fertilize ground for growth you won't see. These cards recognize the ways you're already building beyond your own presence.",
+    face: "The last four cards are for the one whose richness hasn't found its container yet. When architecture is still forming, every conversation is already planting seeds.",
+    range: "37–48"
+  }
+];
+
+const CARDS = [
+  // ═══ SECTION 1: DIFFERENTIATION ═══
+  // Vertex cards 1–8
+  {
+    id:1, s:1, face:false,
+    r: "Your breath carries its own authority",
+    a: "Feel the air moving through you right now. It didn't wait for permission.",
+    seed: "Rhythm precedes permission — your body moves before the world agrees",
+    t: "Someone near you is breathing their own rhythm. Can you hear it without matching yours to it?"
+  },
+  {
+    id:2, s:1, face:false,
+    r: "Your body knows before you name it",
+    a: "Notice what your hands are doing right now. They chose that position without consulting you.",
+    seed: "Sensation holds the first truth — naming arrives after the body already knows",
+    t: "Watch someone's hands today. What are they already telling you they know?"
+  },
+  {
+    id:3, s:1, face:false,
+    r: "Your edges give you shape",
+    a: "Feel where your skin meets the air. That line is where you begin.",
+    seed: "Form enables meeting — without edges, nothing can touch anything else",
+    t: "What makes the person nearest you distinctly them? Name it silently."
+  },
+  {
+    id:4, s:1, face:false,
+    r: "Your refusal protects something real",
+    a: "Remember the last time your body said no. Feel the shape of what it was guarding.",
+    seed: "No creates the space where something sacred can grow undisturbed",
+    t: "When someone declines you today, ask yourself: what are they protecting?"
+  },
+  {
+    id:5, s:1, face:false,
+    r: "Your rhythm refuses to be borrowed",
+    a: "Notice your pace right now — reading speed, breath rate, heartbeat. It's yours.",
+    seed: "Sovereignty generates its own rhythm — borrowed timing always chafes",
+    t: "Someone you know moves at a pace that frustrates you. What if their timing is as right as yours?"
+  },
+  {
+    id:6, s:1, face:false,
+    r: "Your voice sounds like no one else",
+    a: "Hum one note. Feel where it lives in your chest. That specific resonance is unrepeatable.",
+    seed: "Distinction serves the whole — the chorus needs every different voice",
+    t: "Whose voice do you recognize instantly? What is it about their sound?"
+  },
+  {
+    id:7, s:1, face:false,
+    r: "Your complexity needs no simplifying",
+    a: "Hold two contradictory feelings at once. Notice that you can. Notice the room they both fit in.",
+    seed: "Depth requires no apology — complexity is a structural feature, not a flaw",
+    t: "Someone is being complicated right now. What if they don't need your help simplifying?"
+  },
+  {
+    id:8, s:1, face:false,
+    r: "Your being needs no performance",
+    a: "Drop your shoulders one millimeter. Let your face go neutral. You're still here. That's enough.",
+    seed: "Existence precedes justification — you arrived before your reasons did",
+    t: "Who in your life is performing for their place? What would change if you told them they don't need to?"
+  },
+  // Face cards 9–12 (Without Differentiation — emergence)
+  {
+    id:9, s:1, face:true,
+    r: "Your searching proves something real is forming",
+    a: "Feel the quality of your restlessness right now. It has direction even when you can't name the destination.",
+    seed: "Seeking is shape arriving — the search itself is identity forming in real time",
+    t: "Someone near you is searching. Don't name what they're looking for. Just see the search."
+  },
+  {
+    id:10, s:1, face:true,
+    r: "Your discomfort in borrowed roles is precision",
+    a: "Think of a role that never fit. Feel the friction. That friction was your shape refusing to be another shape.",
+    seed: "Friction reveals authenticity — the discomfort is your real form pushing back",
+    t: "When someone seems uncomfortable in their role, don't coach them into it. Ask what role would actually fit."
+  },
+  {
+    id:11, s:1, face:true,
+    r: "Your feeling of not fitting is accurate",
+    a: "Remember a place that didn't fit. Feel the accuracy of the no your body registered. It was right.",
+    seed: "Distinctness announces itself first as friction with what doesn't match",
+    t: "When someone doesn't fit in, ask yourself: is the container wrong, or is the person?"
+  },
+  {
+    id:12, s:1, face:true,
+    r: "Your edges are forming in their own time",
+    a: "Feel your body exactly as it is right now — still becoming, not yet finished, already present.",
+    seed: "Identity grows from within — no one else can rush the shape you're taking",
+    t: "Who in your life is still forming? Let them form without rushing the shape."
+  },
+
+  // ═══ SECTION 2: CONNECTION ═══
+  // Vertex cards 13–20
+  {
+    id:13, s:2, face:false,
+    r: "Your listening changes what it touches",
+    a: "Listen to the nearest sound. Really listen. Something just shifted in how it reaches you.",
+    seed: "Attention transforms fields — what you listen to becomes different because you listened",
+    t: "Listen to someone today with nothing to add. Notice what your attention does to their voice."
+  },
+  {
+    id:14, s:2, face:false,
+    r: "Your warmth reaches without grasping",
+    a: "Feel the warmth in your palms. It radiates without you trying. It's been doing this your whole life.",
+    seed: "Warmth flows without agenda — genuine care doesn't need to grip what it touches",
+    t: "Who could use your presence right now — not your advice, just your warmth?"
+  },
+  {
+    id:15, s:2, face:false,
+    r: "Your receiving completes another's giving",
+    a: "Accept the next small thing offered to you — a door held, a word, a look — completely. Feel the circuit close.",
+    seed: "Acceptance completes the gift — the giver needs the receiver to finish the circuit",
+    t: "Someone is trying to give you something you keep deflecting. What if receiving it is your gift back?"
+  },
+  {
+    id:16, s:2, face:false,
+    r: "Your tears invite others closer",
+    a: "Think of something that moved you recently. Feel the softening in your chest. That softening is a signal.",
+    seed: "Feeling grants permission — your vulnerability makes room for everyone else's",
+    t: "When someone near you is moved, notice: does your body lean in or pull back? The lean is the gift."
+  },
+  {
+    id:17, s:2, face:false,
+    r: "Your presence steadies the room",
+    a: "Feel the ground under you. Feel your own weight. That groundedness is contagious — other nervous systems read it.",
+    seed: "Regulation travels between bodies — your calm is not private, it circulates",
+    t: "Enter a tense room today and just be grounded. Don't fix anything. See what shifts."
+  },
+  {
+    id:18, s:2, face:false,
+    r: "Your recognition sparks something alive",
+    a: "Think of the last time someone truly saw you. Feel what woke up. That's what you do to others.",
+    seed: "Being seen awakens being — recognition is the spark that lights what was already there",
+    t: "See someone today — really see them. Tell them one specific true thing about what you notice."
+  },
+  {
+    id:19, s:2, face:false,
+    r: "Your honesty deepens every bond",
+    a: "Say one true thing to yourself right now — something you've been circling around. Feel it land.",
+    seed: "Truth serves connection — the real thing said draws people closer than the careful thing",
+    t: "What honest thing have you been withholding because it felt risky? The risk might be the gift."
+  },
+  {
+    id:20, s:2, face:false,
+    r: "Your giving flows without a ledger",
+    a: "Remember something you gave freely — no expectation, no tracking. Feel the specific lightness.",
+    seed: "Circulation multiplies through movement — gifts grow by being given, not stored",
+    t: "Give something today with no record. No one needs to know, including you."
+  },
+  // Face cards 21–24 (Without Connection — emergence)
+  {
+    id:21, s:2, face:true,
+    r: "Your ache for contact means the channel exists",
+    a: "Feel the longing for connection — in your chest, your throat. The ache itself is a working antenna.",
+    seed: "Longing proves capacity — you can't ache for what you have no apparatus to receive",
+    t: "When someone says they're lonely, hear it as: I have a capacity that hasn't found its match yet."
+  },
+  {
+    id:22, s:2, face:true,
+    r: "Your walls once kept you alive",
+    a: "Feel the guarding in your body — the bracing, the vigilance. It served you. Thank it before you change it.",
+    seed: "Protection precedes opening — every wall was once a survival strategy that worked",
+    t: "Don't tell someone to drop their walls. Ask what the walls are still protecting."
+  },
+  {
+    id:23, s:2, face:true,
+    r: "Your small offerings carry enormous weight",
+    a: "Think of the last small thing you did for someone. Feel its real weight. It weighed more than it looked.",
+    seed: "Measured giving lands deeper — the small precise gift outweighs the grand gesture",
+    t: "Accept someone's small offering today as if it were enormous. To them, it might be."
+  },
+  {
+    id:24, s:2, face:true,
+    r: "Your reaching, even when it stutters, lands",
+    a: "Feel the impulse to reach toward someone. Even if it's clumsy. It arrives.",
+    seed: "Imperfect contact still connects — the reach matters more than the polish",
+    t: "Reach out to someone today — clumsily, imperfectly. Let the imperfection be part of the gift."
+  },
+
+  // ═══ SECTION 3: BOUNDARIES ═══
+  // Vertex cards 25–32
+  {
+    id:25, s:3, face:false,
+    r: "Your no protects your yes",
+    a: "Say no quietly. Feel your jaw firm. Now say yes. Feel the opening. Both live in you.",
+    seed: "Refusal clarifies desire — every no draws a sharper line around what you actually want",
+    t: "Someone said no to you recently. What yes were they protecting?"
+  },
+  {
+    id:26, s:3, face:false,
+    r: "Your limits reveal what matters",
+    a: "Notice where you're tired right now. The tiredness is pointing at what you've been spending your energy on.",
+    seed: "Constraints illuminate value — what you run out of reveals what you spent yourself on",
+    t: "Ask someone what they can't do right now. Listen for what it tells you about what they care about."
+  },
+  {
+    id:27, s:3, face:false,
+    r: "Your edges generate the most life",
+    a: "Feel the place where two textures meet — your clothes against your skin. The edge is where information concentrates.",
+    seed: "Boundaries create edge conditions — the richest growth happens where two systems meet",
+    t: "Where two people you know rub against each other — what's trying to grow there?"
+  },
+  {
+    id:28, s:3, face:false,
+    r: "Your anger guards something precious",
+    a: "Remember a flash of anger. Feel the heat. Now feel what was behind it — the thing worth protecting.",
+    seed: "Fire protects what's sacred — anger is the immune system of what you love",
+    t: "When someone's angry near you, wonder: what are they guarding? Ask if you can."
+  },
+  {
+    id:29, s:3, face:false,
+    r: "Your friction generates heat worth having",
+    a: "Think of a disagreement that made something better. Feel the discomfort and the result side by side.",
+    seed: "Tension serves transformation — the friction that feels wrong is often doing the real work",
+    t: "Don't smooth the next friction you encounter. Stay with it long enough to feel what it's working on."
+  },
+  {
+    id:30, s:3, face:false,
+    r: "Your slowness protects the work",
+    a: "Slow your reading by half for this one card. Feel the difference. More arrives when you make room.",
+    seed: "Pace reveals right timing — what seems slow may be exactly on schedule",
+    t: "Who do you keep rushing? What might they make if you gave them their own time?"
+  },
+  {
+    id:31, s:3, face:false,
+    r: "Your hesitation reads the room",
+    a: "Notice the next moment you hesitate. Feel the intelligence in the pause — your system is scanning.",
+    seed: "Caution holds intelligence — the pause before action is the body's way of reading conditions",
+    t: "When someone hesitates, don't push. Ask: what are you sensing that I'm not?"
+  },
+  {
+    id:32, s:3, face:false,
+    r: "Your grief marks where love lived",
+    a: "Touch the edge of a loss — gently, briefly. Feel the weight. It weighs what the love weighed.",
+    seed: "Loss maps what mattered — grief is love with nowhere left to land",
+    t: "Someone near you is carrying grief they haven't named. You don't need to fix it. Just be near it."
+  },
+  // Face cards 33–36 (Without Boundaries — emergence)
+  {
+    id:33, s:3, face:true,
+    r: "Your exhaustion is information, not failure",
+    a: "Feel your tiredness. Follow it to the place that's been carrying too much. That place has something to tell you.",
+    seed: "Depletion is a message about what needs structure, not a verdict on your character",
+    t: "When someone's exhausted, don't tell them to rest. Ask what they've been carrying."
+  },
+  {
+    id:34, s:3, face:true,
+    r: "Your burnout marks where structure is needed",
+    a: "Feel where you collapsed. Touch the collapse point gently. A wall needs to go here. Not against people — for you.",
+    seed: "Collapse points toward design — where you break reveals where to build the container",
+    t: "When someone burns out, don't just offer rest. Help them build the container they were missing."
+  },
+  {
+    id:35, s:3, face:true,
+    r: "Your open heart needs architecture, not armor",
+    a: "Feel your openness. Now imagine it held — not closed, held. A riverbed, not a dam. The water still flows.",
+    seed: "Containers differ from walls — one holds the flow, the other stops it dead",
+    t: "Who do you know with a wide-open heart and no container? Help them build the edges, not close the opening."
+  },
+  {
+    id:36, s:3, face:true,
+    r: "Your limits, when you find them, will free you",
+    a: "Imagine knowing exactly where your edge is. Feel the relief. The edge isn't a wall — it's the shape of your gift.",
+    seed: "Edges release what they contain — knowing your limits lets your gifts flow with precision",
+    t: "Help someone find their edge today. Not by pushing them to it — by asking where they feel it."
+  },
+
+  // ═══ SECTION 4: ARCHITECTURE ═══
+  // Vertex cards 37–44
+  {
+    id:37, s:4, face:false,
+    r: "Your surplus builds what lasts",
+    a: "Feel the energy in your body that's more than what survival requires. That surplus is construction material.",
+    seed: "Overflow creates infrastructure — what exceeds your needs becomes the foundation for others",
+    t: "What small surplus of yours — skill, time, attention — could become structure for someone else?"
+  },
+  {
+    id:38, s:4, face:false,
+    r: "Your pattern teaches without you",
+    a: "Think of something you do consistently. Feel its groove. That pattern is already teaching anyone who watches.",
+    seed: "Structure transfers itself — your consistency transmits knowledge without a single lesson",
+    t: "Who's watching how you do things? What are they learning that you never taught?"
+  },
+  {
+    id:39, s:4, face:false,
+    r: "Your practice creates soil for others",
+    a: "Feel the difference between your first attempt at something and your hundredth. That difference is soil.",
+    seed: "Succession enables future growth — the ground you prepare feeds someone you'll never meet",
+    t: "What ground have you prepared that someone else will plant in?"
+  },
+  {
+    id:40, s:4, face:false,
+    r: "Your gifts find homes you'll never see",
+    a: "Think of something you made or said that traveled further than you know. Feel the release of not tracking it.",
+    seed: "Circulation outlasts the giver — the gift keeps moving long after you stop watching",
+    t: "Send something into the world today without a return address."
+  },
+  {
+    id:41, s:4, face:false,
+    r: "Your questions seed future answers",
+    a: "Hold a question you can't answer. Feel its weight. That weight is planting something.",
+    seed: "Inquiry plants forward — the right question works in someone else's mind for years",
+    t: "Ask someone a question you genuinely don't know the answer to. The question is the gift, not the answer."
+  },
+  {
+    id:42, s:4, face:false,
+    r: "Your failures fertilize the ground",
+    a: "Touch a failure gently. Feel what grew from the wreck. Something did.",
+    seed: "Error nourishes growth — what didn't work becomes the soil for what finally does",
+    t: "Tell someone about a failure that fed something. Let them see the soil, not just the collapse."
+  },
+  {
+    id:43, s:4, face:false,
+    r: "Your contribution compounds quietly",
+    a: "Think of a small thing you did repeatedly. Feel the cumulative weight of consistency.",
+    seed: "Small deposits become systems — what you do daily builds what you could never do at once",
+    t: "Keep doing the small thing. It's becoming infrastructure someone will lean on."
+  },
+  {
+    id:44, s:4, face:false,
+    r: "Your building changes what's possible",
+    a: "Look at something you built — physical, relational, procedural. Feel how it altered the field of what's available.",
+    seed: "Creation alters the field — what you build changes not just the present but the menu of futures",
+    t: "Build one small thing today that changes what's possible for someone tomorrow."
+  },
+  // Face cards 45–48 (Without Architecture — emergence)
+  {
+    id:45, s:4, face:true,
+    r: "Your conversations plant seeds in others",
+    a: "Remember a conversation that changed something in you. Feel the seed still growing. You do this to others.",
+    seed: "Words deposit in others' soil — what you say keeps working after you leave the room",
+    t: "In your next conversation, plant something deliberately. Not advice — a question that keeps working."
+  },
+  {
+    id:46, s:4, face:true,
+    r: "Your knowing and your building will find each other",
+    a: "Feel the gap between what you understand and what you've built. The gap has tension. Tension is potential.",
+    seed: "Understanding seeks its form — what you know is looking for a body to live in",
+    t: "What do you know that hasn't become anything yet? Build one small thing from it today."
+  },
+  {
+    id:47, s:4, face:true,
+    r: "Your way of being teaches without instruction",
+    a: "Think of how you move through a room. People read it. They learn from it. You're already transmitting.",
+    seed: "Living transmits pattern — how you are is already teaching, whether or not you intend it",
+    t: "Live the thing you want to teach. Let someone catch it rather than hear it."
+  },
+  {
+    id:48, s:4, face:true,
+    r: "Your next step builds on everything you've been",
+    a: "Feel the weight of everything you've lived. Now feel it as foundation, not burden. You're standing on it.",
+    seed: "Coherence becomes structure through use — every step forward uses everything behind it",
+    t: "Take one step. Any direction. It builds on everything. And someone behind you is walking in the path you just made."
+  }
+];
+
+// ═══ STATE ═══
+let allExpanded = false;
+let currentView = 'list'; // 'list' or 'grid'
+let currentCardId = null;
+let breathInterval = null;
+
+// ═══ RENDER ═══
+function render() {
+  const container = document.getElementById('sections');
+  container.innerHTML = SECTIONS.map(sec => {
+    const secCards = CARDS.filter(c => c.s === sec.id);
+    return `
+      <div id="sec-${sec.id}">
+        <div class="section-header">
+          <div class="section-top">
+            <span class="section-num" style="color:${sec.color}">${sec.id}</span>
+            <span class="section-name">${sec.name}</span>
+            <span class="section-tag" style="background:${sec.colorHex}18;color:${sec.color}">${sec.felt}</span>
+            <span class="section-range">${sec.range}</span>
+          </div>
+          <p class="section-desc">${sec.desc}</p>
+          <p class="section-face">${sec.face}</p>
+        </div>
+        <div class="cards-container">
+          ${secCards.map(card => renderCard(card, sec)).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderCard(card, sec) {
+  const faceClass = card.face ? 'face-card' : '';
+  const faceBorder = card.face ? `border-left-color:${sec.color}` : '';
+  const faceTag = card.face ? `<span class="card-face-tag" style="background:${sec.colorHex}18;color:${sec.color}">emergence</span>` : '';
+
+  return `
+    <div class="card ${faceClass}" id="card-${card.id}" style="${faceBorder}">
+      <div class="card-main" onclick="toggleCard(${card.id})">
+        <div class="card-top">
+          <div class="card-num" style="color:${sec.colorHex}88">${card.id}</div>
+          <div class="card-body">
+            ${faceTag}
+            <div class="card-recognition">${card.r}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-layers">
+        <div class="card-layers-inner">
+          <div class="layer">
+            <div class="layer-label" style="color:${sec.color}">activation</div>
+            <div class="layer-activation">${card.a}</div>
+          </div>
+          <div class="layer">
+            <div class="layer-label" style="color:${sec.color}">seed</div>
+            <div class="layer-seed" style="background:${sec.colorHex}0c;color:${sec.color}">${card.seed}</div>
+          </div>
+          <div class="layer">
+            <div class="layer-label" style="color:${sec.color}">transmission</div>
+            <div class="layer-transmission">${card.t}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ═══ INTERACTIONS ═══
+function toggleCard(id) {
+  const el = document.getElementById('card-' + id);
+  el.classList.toggle('open');
+}
+
+function toggleExpandAll() {
+  allExpanded = !allExpanded;
+  document.querySelectorAll('.card').forEach(el => {
+    el.classList.toggle('open', allExpanded);
+  });
+  document.getElementById('btnExpand').textContent = allExpanded ? 'collapse all' : 'expand all';
+  document.getElementById('btnExpand').classList.toggle('active', allExpanded);
+}
+
+function cycleView() {
+  // Toggle overlay mode for focused reading
+  const btn = document.getElementById('btnView');
+  openCard(1);
+}
+
+function scrollToSection(e, id) {
+  e.preventDefault();
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══ BREATH GATE OVERLAY ═══
+function openCard(id) {
+  currentCardId = id;
+  const card = CARDS.find(c => c.id === id);
+  const sec = SECTIONS.find(s => s.id === card.s);
+  const overlay = document.getElementById('overlay');
+  const oc = document.getElementById('overlayCard');
+
+  oc.style.borderColor = 'var(--border)';
+
+  const faceLabel = card.face ? `<span style="font-size:10px;color:${sec.colorHex}88;margin-left:12px;letter-spacing:1px">emergence</span>` : '';
+
+  oc.innerHTML = `
+    <div class="overlay-section" style="color:${sec.color}">
+      ${sec.name}${faceLabel}
+      <span class="overlay-id">${card.id}/48</span>
+    </div>
+    <div class="overlay-recognition">${card.r}</div>
+    <div class="overlay-activation">${card.a}</div>
+    <div class="overlay-gate" id="breathArea">
+      <button class="breath-btn" style="border-color:${sec.colorHex}55" onclick="startBreath('${sec.colorHex}')">
+        <span style="color:${sec.colorHex}88">breathe</span>
+      </button>
+    </div>
+    <div class="overlay-seed-layer" id="seedLayer" style="margin-top:20px;padding-top:16px;border-top:1px solid ${sec.colorHex}33">
+      <div class="layer-seed" style="background:${sec.colorHex}0c;color:${sec.color};text-align:center">${card.seed}</div>
+    </div>
+    <div class="overlay-transmission-layer" id="transLayer" style="margin-top:16px;text-align:center">
+      <div style="font-size:15px;color:var(--text-dim);font-style:italic;line-height:1.6">${card.t}</div>
+    </div>
+  `;
+
+  // nav
+  const nav = document.getElementById('overlayNav');
+  let html = '';
+  if (id > 1) html += `<button onclick="openCard(${id - 1})">← prev</button>`;
+  html += `<button onclick="closeOverlay()">close</button>`;
+  if (id < 48) html += `<button onclick="openCard(${id + 1})">next →</button>`;
+  nav.innerHTML = html;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if (breathInterval) { clearInterval(breathInterval); breathInterval = null; }
+}
+
+function startBreath(colorHex) {
+  const area = document.getElementById('breathArea');
+  const I = 4000, H = 1000, E = 6000, T = I + H + E;
+  let elapsed = 0;
+
+  area.innerHTML = `
+    <div class="breath-active" id="breathCircle" style="border-color:${colorHex}">
+      <span id="breathLabel" style="color:${colorHex}">breathe in</span>
+    </div>
+    <div class="breath-dots">
+      <div class="breath-dot" id="dot0"></div>
+      <div class="breath-dot" id="dot1"></div>
+      <div class="breath-dot" id="dot2"></div>
+    </div>
+  `;
+
+  const circle = document.getElementById('breathCircle');
+  const label = document.getElementById('breathLabel');
+  circle.style.animation = `inhale ${I}ms ease-in-out forwards`;
+
+  breathInterval = setInterval(() => {
+    elapsed += 50;
+    const ct = elapsed % T;
+    const cb = Math.floor(elapsed / T);
+
+    if (cb >= 3) {
+      clearInterval(breathInterval); breathInterval = null;
+      label.textContent = '✧';
+      circle.style.animation = 'none';
+      circle.style.transform = 'scale(1)';
+      circle.style.boxShadow = `0 0 30px ${colorHex}25`;
+      setTimeout(() => {
+        document.getElementById('overlayCard').style.borderColor = colorHex;
+        document.getElementById('seedLayer').classList.add('visible');
+        setTimeout(() => {
+          document.getElementById('transLayer').classList.add('visible');
+        }, 600);
+      }, 400);
+      return;
+    }
+
+    for (let i = 0; i < 3; i++) {
+      const dot = document.getElementById('dot' + i);
+      if (dot) dot.style.background = i < cb ? colorHex : (i === cb ? colorHex + '66' : 'var(--border-hover)');
+    }
+
+    if (ct < I) {
+      if (label.textContent !== 'breathe in') {
+        label.textContent = 'breathe in';
+        circle.style.animation = `inhale ${I}ms ease-in-out forwards`;
+      }
+    } else if (ct < I + H) {
+      if (label.textContent !== 'hold') {
+        label.textContent = 'hold';
+        circle.style.animation = 'none';
+        circle.style.transform = 'scale(1.18)';
+      }
+    } else {
+      if (label.textContent !== 'breathe out') {
+        label.textContent = 'breathe out';
+        circle.style.animation = `exhale ${E}ms ease-in-out forwards`;
+      }
+    }
+  }, 50);
+}
+
+// ═══ KEYBOARD ═══
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeOverlay();
+  if (document.getElementById('overlay').classList.contains('open')) {
+    if (e.key === 'ArrowLeft' && currentCardId > 1) openCard(currentCardId - 1);
+    if (e.key === 'ArrowRight' && currentCardId < 48) openCard(currentCardId + 1);
+  }
+});
+
+// ═══ INIT ═══
+render();
+</script>
 </body>
 </html>
