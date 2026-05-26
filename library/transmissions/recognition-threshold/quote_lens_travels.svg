@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <line x1="460" y1="300" x2="620" y2="300" stroke="url(#accent)" stroke-width="1.2"/>
+
+  <text x="540" y="470" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="56" font-weight="400" letter-spacing="1"
+        fill="#e8dcc4">The lens travels.</text>
+
+  <text x="540" y="570" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="56" font-weight="400" letter-spacing="1"
+        fill="#e8dcc4">The apparatus that built the lens</text>
+
+  <text x="540" y="640" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="56" font-weight="400" letter-spacing="1"
+        fill="#e8dcc4">stays where it was built.</text>
+
+  <text x="540" y="820" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="22" font-style="italic" font-weight="300" letter-spacing="3"
+        fill="#7a6d56">THE RECOGNITION THRESHOLD</text>
+</svg>

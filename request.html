@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Request — Our Shared Gifts</title>
+<link rel="stylesheet" href="assets/css/core.css">
+<style>
+  .path-card {
+    margin: 2rem 0;
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--conn);
+  }
+  .path-card h3 {
+    margin: 0 0 0.75rem;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+  .path-card p { margin: 0 0 0.75rem; }
+  .send-btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.55rem 1.2rem;
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+  }
+  .send-btn:hover { background: var(--conn); }
+  .send-btn.alt {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+  .send-btn.alt:hover { color: var(--conn); border-color: var(--conn); }
+  .pre-fill {
+    display: none;
+    margin: 0 0 1.5rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--conn);
+    background: var(--bg-soft);
+    font-size: 0.9rem;
+  }
+  .pre-fill.show { display: block; }
+  .pre-fill .label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    margin-bottom: 0.25rem;
+  }
+  .pre-fill .name {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--conn);
+  }
+  .guidance {
+    margin: 2rem 0;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .guidance h3 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--faint);
+    font-weight: normal;
+    margin: 0 0 0.5rem;
+  }
+  .guidance ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+  .guidance li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker conn">Connection · Request</span>
+  <h1>Request</h1>
+  <div class="page-rule conn"></div>
+  <p class="subtitle">An ask, not a booking.</p>
+
+  <p>This page is not a calendar. There is no <em>Book Now</em>, no form with required fields, no funnel. The shape of the ask is yours; the infrastructure does the minimum to receive it cleanly.</p>
+
+  <div class="pre-fill" id="pre-fill">
+    <div class="label">You arrived asking about</div>
+    <div class="name" id="pre-fill-name"></div>
+  </div>
+
+  <p class="invitation">If the ask feels rehearsed when you draft it, rewrite it. The page doesn't read for polish; it reads for what you actually need.</p>
+
+  <h2>Three paths</h2>
+
+  <article class="path-card">
+    <h3>For a gift offering</h3>
+    <p>Pick one from the <a href="/offerings.html">Offerings</a> page or describe what you need that isn't on the menu. Send an email to the address below. What's useful to include is in the guidance section further down — not requirements, just structure that helps Kevin respond.</p>
+    <a class="send-btn" id="gift-mail" href="mailto:kevin.mears@gmail.com?subject=Asking%20about%20a%20gift%20offering">Send the ask →</a>
+  </article>
+
+  <article class="path-card">
+    <h3>For a consultation</h3>
+    <p>Walk the <a href="/toolkits/fit-filter.html">Fit Filter</a> first — five questions, no data captured, routes you to one of three outcomes. If the filter returns <em>Fit</em>, the next step (when the rail is live) is the calendar. If it returns <em>Substrate first</em> or <em>Outside the tier</em>, the filter tells you where to go instead.</p>
+    <a class="send-btn alt" href="/toolkits/fit-filter.html">Walk the filter →</a>
+  </article>
+
+  <article class="path-card">
+    <h3>For anything else</h3>
+    <p>A question, a reference offering, a reading, a note. Just write directly.</p>
+    <a class="send-btn" href="mailto:kevin.mears@gmail.com">Send a note →</a>
+  </article>
+
+  <div class="guidance">
+    <h3>What's useful to include</h3>
+    <ul>
+      <li><strong>Who you are</strong> — name, and one line of context if it's relevant. Not a CV.</li>
+      <li><strong>What you're asking for</strong> — the specific gift or question. If you're not sure, say that.</li>
+      <li><strong>What kind of response would be useful</strong> — a yes/no, a referral, a longer conversation. Naming this saves both of you a round-trip.</li>
+      <li><strong>Any constraint on timing</strong> — if there is one. If there isn't, leave it out.</li>
+    </ul>
+  </div>
+
+  <div class="guidance">
+    <h3>What makes asks harder to respond to</h3>
+    <ul>
+      <li>Extensive backstory before the ask is named</li>
+      <li>Urgency framing ("could you respond by tomorrow") on a gift-tier request</li>
+      <li>Multiple asks layered together — easier if each is separate</li>
+      <li>Pre-emptive justification — Kevin reads the ask, not the case for why you deserve it</li>
+    </ul>
+  </div>
+
+  <h2>What happens after you send</h2>
+
+  <p>Kevin reads the email. If it's a fit, you'll get a response with the next step — usually a time to talk, or a yes/no on a specific gift, or a referral. If it's not a fit, you'll get a clean decline that names why, often with a route to a different practitioner or resource. There is no follow-up sales sequence. There is no <em>also you might be interested in</em>. The exchange ends where it ends.</p>
+
+  <p>Capacity is real. See <a href="/current.html">Current State</a> for what's open right now. If capacity is closed when you send, the ask is held until capacity returns; the page updates when it does.</p>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+
+<script>
+(function() {
+  // Read ?offering= from URL, surface pre-fill block, update mailto subject
+  var params = new URLSearchParams(window.location.search);
+  var offering = params.get('offering');
+  if (!offering) return;
+
+  var labels = {
+    'witnessing': 'Witnessing',
+    'thinking-partner': 'Thinking partner',
+    'cleaning': 'Cleaning',
+    'organizing': 'Organizing',
+    'building': 'Building',
+    'partner-dance': 'Partner dance instruction'
+  };
+  var label = labels[offering] || offering;
+
+  document.getElementById('pre-fill-name').textContent = label;
+  document.getElementById('pre-fill').classList.add('show');
+
+  var mailto = document.getElementById('gift-mail');
+  if (mailto) {
+    mailto.href = 'mailto:kevin.mears@gmail.com?subject=' + encodeURIComponent('Asking about ' + label);
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" font-family="Inter, 'Source Sans 3', 'Helvetica Neue', Helvetica, system-ui, sans-serif">
+<line x1="180" y1="132.75" x2="99.25" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="180" y1="132.75" x2="260.75" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="99.25" y1="275" x2="260.75" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="180" y1="132.75" x2="180" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="99.25" y1="275" x2="180" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="260.75" y1="275" x2="180" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<circle cx="180" cy="132.75" r="3" fill="#2a2a30"/>
+<circle cx="99.25" cy="275" r="3" fill="#2a2a30"/>
+<circle cx="260.75" cy="275" r="3" fill="#2a2a30"/>
+<circle cx="180" cy="210.65" r="3" fill="#2a2a30"/>
+<line x1="50" y1="280" x2="310" y2="280" stroke="#7a5a3a" stroke-width="2.2"/>
+<text x="180" y="306" font-size="12" fill="#1a1a1f" text-anchor="middle" font-weight="600">Practitioner A</text>
+<text x="180" y="322" font-size="10" fill="#7a5a3a" text-anchor="middle" font-weight="500" font-style="italic">their own ground</text>
+<line x1="520" y1="132.75" x2="439.25" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="520" y1="132.75" x2="600.75" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="439.25" y1="275" x2="600.75" y2="275" stroke="#2a2a30" stroke-width="1.6"/>
+<line x1="520" y1="132.75" x2="520" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="439.25" y1="275" x2="520" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="600.75" y1="275" x2="520" y2="210.65" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<circle cx="520" cy="132.75" r="3" fill="#2a2a30"/>
+<circle cx="439.25" cy="275" r="3" fill="#2a2a30"/>
+<circle cx="600.75" cy="275" r="3" fill="#2a2a30"/>
+<circle cx="520" cy="210.65" r="3" fill="#2a2a30"/>
+<line x1="390" y1="280" x2="650" y2="280" stroke="#7a5a3a" stroke-width="2.2"/>
+<text x="520" y="306" font-size="12" fill="#1a1a1f" text-anchor="middle" font-weight="600">Practitioner B</text>
+<text x="520" y="322" font-size="10" fill="#7a5a3a" text-anchor="middle" font-weight="500" font-style="italic">their own ground</text>
+<line x1="290" y1="170" x2="408" y2="170" stroke="#2a2a30" stroke-width="1.6" stroke-dasharray="6 4"/>
+<polygon points="403,166 412,170 403,174" fill="#2a2a30"/>
+<text x="349" y="158" font-size="12" fill="#2a2a30" text-anchor="middle" font-weight="600">FORM</text>
+<text x="349" y="186" font-size="10" fill="#5c5c66" text-anchor="middle" font-weight="500" font-style="italic">portable</text>
+<line x1="290" y1="280" x2="408" y2="280" stroke="#a04040" stroke-width="1.2" stroke-dasharray="1 6" opacity="0.5"/>
+<text x="349" y="275" font-size="9" fill="#a04040" text-anchor="middle" font-weight="500" font-style="italic">grounds do not transfer</text>
+<text x="350.0" y="378" font-size="11" fill="#1a1a1f" text-anchor="middle" font-weight="400" font-family="Garamond, 'EB Garamond', Georgia, serif" font-style="italic">Same form. Different ground. The framework propagates by recurring around new ground.</text>
+</svg>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Recognition Infrastructure Kit — a diagnostic for finding the missing vertex in any system that has lost coherence.">
+  <title>The Recognition Infrastructure Kit</title>
+  <!--
+    This file embeds editorial content from kit/*.md and kit/questions.json.
+    The .md files are the canonical source. If you edit them, regenerate this file.
+    Generated 2026-04-26.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --warm-black: #1a1a1a;
+      --warm-dark: #2c2c2c;
+      --warm-gray: #6b6b6b;
+      --warm-light: #9a9a9a;
+      --cream-light: #faf8f5;
+      --cream-dark: #f2efe9;
+      --white: #ffffff;
+      --teal-primary: #2a9d8f;
+      --teal-dark: #1f7a6e;
+      --teal-light: #3dbaa8;
+      --teal-faint: rgba(42, 157, 143, 0.08);
+      --teal-border: rgba(42, 157, 143, 0.2);
+      /* Aligned to OSG v4 canonical vertex palette (cycle 8) */
+      --v-diff: #b06840;   /* Differentiation — terracotta */
+      --v-conn: #3d7ab5;   /* Connection — blue */
+      --v-bound: #558a3e;  /* Boundaries — green */
+      --v-arch: #a89030;   /* Architecture — gold */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 48px;
+      --border-radius: 6px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--warm-black);
+      background: var(--cream-light);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: var(--space-xl) var(--space-md);
+    }
+    ::selection { background: var(--teal-primary); color: var(--white); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1, h2, h3, h4 { font-weight: 600; line-height: 1.25; color: var(--warm-black); }
+    h1 { font-size: 2rem; margin-bottom: var(--space-md); color: var(--teal-dark); }
+    h2 { font-size: 1.4rem; margin: var(--space-xl) 0 var(--space-md); color: var(--teal-dark); }
+    h3 { font-size: 0.85rem; margin: var(--space-lg) 0 var(--space-sm); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--teal-primary); }
+    h4 { font-size: 1.1rem; margin: var(--space-md) 0 var(--space-sm); color: var(--warm-black); }
+    p { margin-bottom: var(--space-md); }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--teal-primary); text-decoration: none; border-bottom: 1px solid currentColor; }
+    a:hover { color: var(--teal-dark); }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: var(--teal-faint); padding: 1px 5px; border-radius: 3px; }
+    em { font-style: italic; }
+    strong { font-weight: 600; }
+    ul { margin: 0 0 var(--space-md) var(--space-lg); }
+    li { margin-bottom: var(--space-xs); }
+    blockquote { border-left: 3px solid var(--teal-primary); padding-left: var(--space-md); font-style: italic; color: var(--warm-gray); margin: var(--space-md) 0; }
+    hr { border: none; border-top: 1px solid var(--teal-border); margin: var(--space-xl) 0; }
+
+    .meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      border-left: 3px solid var(--teal-primary);
+      padding-left: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .gate {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .gate-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .gate-item input[type="checkbox"] {
+      margin-top: 6px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--teal-primary);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .gate-item span {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .question {
+      border-bottom: 1px solid var(--teal-border);
+      padding: var(--space-lg) 0;
+    }
+    .question:last-of-type { border-bottom: none; }
+    .question-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--warm-gray);
+      margin-bottom: var(--space-sm);
+    }
+    .question-text {
+      font-size: 1.05rem;
+      margin-bottom: var(--space-md);
+      line-height: 1.6;
+    }
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+    }
+    .scale label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: var(--space-sm);
+      background: var(--cream-light);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      text-align: center;
+      transition: all 0.12s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .scale label:hover { border-color: var(--teal-primary); background: var(--cream-dark); }
+    .scale input[type="radio"] { display: none; }
+    .scale label.checked {
+      border-color: var(--teal-primary);
+      background: var(--teal-faint);
+      color: var(--teal-dark);
+      font-weight: 500;
+    }
+    .scale-num {
+      font-size: 1.15rem;
+      color: var(--warm-black);
+      font-weight: 500;
+    }
+    .scale label.checked .scale-num { color: var(--teal-dark); }
+
+    button.primary, button.secondary {
+      font-family: 'EB Garamond', Georgia, serif;
+      padding: var(--space-sm) var(--space-lg);
+      font-size: 1rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+      letter-spacing: 0.01em;
+      margin-top: var(--space-lg);
+    }
+    button.primary {
+      background: var(--teal-primary);
+      color: var(--white);
+    }
+    button.primary:hover:not(:disabled) { background: var(--teal-dark); }
+    button.primary:disabled { background: var(--warm-light); cursor: not-allowed; opacity: 0.6; }
+    button.secondary {
+      background: transparent;
+      color: var(--teal-primary);
+      border-color: var(--teal-primary);
+    }
+    button.secondary:hover { background: var(--teal-faint); }
+
+    .back {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      margin-bottom: var(--space-lg);
+      cursor: pointer;
+      border-bottom: none;
+      letter-spacing: 0.05em;
+    }
+    .back:hover { color: var(--teal-primary); }
+
+    .progress {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      text-align: right;
+    }
+
+    .substrate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+    .substrate-card {
+      background: var(--cream-dark);
+      border: 1px solid transparent;
+      border-radius: var(--border-radius);
+      padding: var(--space-lg);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: left;
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+    .substrate-card:hover {
+      border-color: var(--teal-primary);
+      transform: translateY(-1px);
+    }
+    .substrate-card-name {
+      font-size: 1.15rem;
+      color: var(--teal-dark);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .substrate-card-blurb {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    .tie-card {
+      background: var(--cream-dark);
+      border-radius: var(--border-radius);
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-md);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.12s;
+      font-family: 'EB Garamond', Georgia, serif;
+      width: 100%;
+      text-align: left;
+    }
+    .tie-card:hover { border-color: var(--teal-primary); }
+    .tie-card-name {
+      display: block;
+      color: var(--teal-dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .tie-card-pattern {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .geometry {
+      text-align: center;
+      margin: var(--space-xl) 0 var(--space-md);
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--warm-light);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-credit {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--teal-border);
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      font-style: italic;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: var(--space-lg) var(--space-md); }
+      .scale { grid-template-columns: 1fr 1fr; }
+      .substrate-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.6rem; }
+    }
+
+    @media print {
+      body { background: white; color: black; font-size: 11pt; }
+      nav, .back, button, .kit-footer, #kit-print-btn { display: none !important; }
+      a { color: black; text-decoration: none; }
+      h1, h2, h3 { page-break-after: avoid; }
+      .prescription, .diagnosis-card { page-break-inside: avoid; }
+    }
+
+    /* Cross-link footer below the kit — quiet, always visible */
+    .kit-footer {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 1.5rem 24px 2rem;
+      border-top: 1px solid var(--warm-light);
+      font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+    }
+    .kit-footer h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--warm-light);
+      margin: 0 0 0.75rem;
+      font-weight: normal;
+    }
+    .kit-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+    .kit-footer li { margin-bottom: 0.4rem; }
+    .kit-footer a {
+      color: var(--warm-dark);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    .kit-footer a:hover { color: var(--teal-dark); }
+    .kit-footer .meta {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--cream-dark);
+      color: var(--warm-light);
+      font-size: 0.75rem;
+    }
+    .kit-footer .meta a { color: var(--warm-light); }
+
+    #kit-print-btn {
+      background: transparent;
+      border: 1px solid var(--warm-light);
+      color: var(--warm-gray);
+      font-family: inherit;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+    }
+    #kit-print-btn:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
+  </style>
+</head>
+<body>
+  <nav style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.8rem;letter-spacing:0.05em;background:#1a1a1a;color:#9a9a9a;padding:0.75rem 1.5rem;display:flex;justify-content:space-between;align-items:center;">
+    <a href="/" style="color:#faf8f5;text-decoration:none;font-weight:500;">Our Shared Gifts</a>
+    <span><a href="/toolkits/" style="color:#9a9a9a;text-decoration:none;margin-right:1rem;">← Toolkits</a><a href="/library/" style="color:#9a9a9a;text-decoration:none;">Library</a></span>
+  </nav>
+  <main id="kit-root"></main>
+
+  <footer class="kit-footer">
+    <h4>Save your work</h4>
+    <p style="margin:0 0 1rem;">Nothing in this audit leaves your browser. If you want to keep your diagnosis: <button id="kit-print-btn" onclick="window.print()">Print / save as PDF</button></p>
+
+    <h4>If this audit isn't the right instrument</h4>
+    <ul>
+      <li><a href="/toolkits/quick-diagnostic.html">Quick Diagnostic</a> — lighter, four questions instead of twelve.</li>
+      <li><a href="/toolkits/recognition-cards.html">48 Recognition Cards</a> — somatic practice, not diagnosis.</li>
+      <li><a href="/refusals.html">Refusals</a> — the eleven extraction patterns this framework refuses by design.</li>
+    </ul>
+
+    <h4>If you want to read the substrate</h4>
+    <ul>
+      <li><a href="/library/meta-tetrahedron/">The Meta-Tetrahedron</a> — the operational lens.</li>
+      <li><a href="/library/">The Library</a> — full framework substrate.</li>
+    </ul>
+
+    <h4>If you want framework-applied attention on your specific situation</h4>
+    <ul>
+      <li><a href="/automation/consult.html">Consultations</a> — exchange tier, commons-work consent, sliding scale.</li>
+      <li><a href="/toolkits/fit-filter.html">Fit Filter</a> — walk this first; it'll tell you whether the consultation tier is the right fit.</li>
+    </ul>
+
+    <p class="meta">RI Kit · Recognition Infrastructure · Editorial source: <a href="/toolkits/kit/README.md">/toolkits/kit/</a> · Use freely. Adapt as needed.</p>
+  </footer>
+
+  <script>
+    /* ─── Editorial content (embedded from kit/*.md) ─── */
+
+    const QUESTIONS = [
+      {id: "D1", vertex: "differentiation", text: "People in the group take on whatever's needed, regardless of role."},
+      {id: "C1", vertex: "connection", text: "Recent meetings have produced presence and process, but not actual decisions or real exchange."},
+      {id: "B1", vertex: "boundaries", text: "When capacity runs out, the response is to push harder rather than name the limit."},
+      {id: "A1", vertex: "architecture", text: "The same problems resurface week after week — nothing accumulates that prevents their return."},
+      {id: "D2", vertex: "differentiation", text: "Disagreements tend to collapse into shared positions before the actual difference gets examined."},
+      {id: "C2", vertex: "connection", text: "Communication is happening on schedule, but you couldn't point to what changed in anyone because of it."},
+      {id: "B2", vertex: "boundaries", text: "Bad news gets softened, delayed, or hidden, because surfacing it feels like failure rather than information."},
+      {id: "A2", vertex: "architecture", text: "If the most central person stepped away for a month, the group's capacity would collapse rather than redistribute."},
+      {id: "D3", vertex: "differentiation", text: "If someone asked each member 'what is your specific contribution that no one else makes?' — most would struggle to answer."},
+      {id: "C3", vertex: "connection", text: "There is proximity — shared channels, calls, space — but the substantive conversations happen elsewhere, or not at all."},
+      {id: "B3", vertex: "boundaries", text: "Someone — possibly you — is consistently performing beyond their actual capacity, and the system has adapted to their over-performance."},
+      {id: "A3", vertex: "architecture", text: "When surplus energy appears, it gets absorbed by maintenance rather than building something that didn't exist before."}
+    ];
+
+    const SCALE_LABELS = ["never true", "occasionally", "frequently", "constantly"];
+
+    const VERTEX_LABELS = {
+      differentiation: "Differentiation",
+      connection: "Connection",
+      boundaries: "Boundaries",
+      architecture: "Architecture"
+    };
+
+    const VERTEX_PATTERNS = {
+      differentiation: "The Transaction Trap",
+      connection: "The Poison Gift",
+      boundaries: "The Burnout Cycle",
+      architecture: "The Dependency Loop"
+    };
+
+    const SUBSTRATE_BLURBS = {
+      biological: "Health, energy, nervous system. The body and its capacity.",
+      institutional: "Teams, organizations, governance, formal structures.",
+      relational: "Partnerships, families, friendships, communities of intimacy.",
+      technical: "Software, protocols, AI systems, infrastructure."
+    };
+
+    const PREAMBLE = `# Before You Begin
+
+This is a diagnostic, not a teaching. It assumes you are already responsible for a system whose coherence has begun to slip, and that you can answer the twelve questions about *that specific system* rather than in general. If you are new to the framework, read [The Meta-Tetrahedron](/library/meta-tetrahedron/) first — the eight-part operational lens. If you are unsure whether you have a specific system in mind, the audit is not ready yet. Come back when one is naming itself.
+
+## The pre-audit gate
+
+Before the questions begin, three statements need to be true. Answer for yourself, not aloud, not for anyone else.`;
+
+    const GATE_STATEMENTS = [
+      "I have a specific system in mind — a team, a relationship, a project, a body, a protocol, a community.",
+      "The system has begun to feel incoherent in some way that I cannot fully name.",
+      "I am responsible for or inside the system, not auditing it from outside."
+    ];
+
+    const GATE_FOOTER = `If any of the three is false, the audit waits. Sit with what isn't ready. The work is not to push the gate; the work is to let it become true.`;
+
+    const DIAGNOSES = {
+      differentiation: `Your weakest vertex is **Differentiation** — the capacity to know what you are and what you are not.
+
+This rarely feels like a problem from the inside. It feels like flexibility, like responsiveness, like a group that meets needs as they arise. The cost is hidden in friction: every decision requires negotiation that genuine clarity would have made unnecessary. Trust can't form because nothing is distinct enough to trust.
+
+The pattern most likely operating is **The Transaction Trap.** When no one is sure what anyone actually brings or actually needs, the system defaults to rigid contracts, score-keeping, and documentation as a substitute for trust.
+
+The work is to make distinct again what has been blurred — not by adding rules, but by naming what was already true.`,
+
+      connection: `Your weakest vertex is **Connection** — the capacity for genuine contact across difference.
+
+The structure is sound. Roles are clear. Limits are held. Things get built. And yet something is missing that no audit of process can locate: actual exchange. The group is structured but isolated. People are present but not arriving.
+
+The pattern most likely operating is **The Poison Gift** — the form of exchange is intact, but no one is actually arriving inside it. Gifts get offered, gratitude gets performed, the architecture looks sound. The people inside sense something missing but cannot name it, because every form was observed.
+
+The work is not more meetings. It is fewer meetings where genuine contact is permitted to occur.`,
+
+      boundaries: `Your weakest vertex is **Boundaries** — the capacity for legible limits that serve development.
+
+Energy is moving. People are connecting. There is identity and there is intention. But nothing stays put, because nothing is held. Generosity that doesn't know where to stop becomes depletion. Contact that doesn't know where the membrane is becomes diffusion.
+
+The pattern most likely operating is **The Burnout Cycle.** Someone — possibly you — is performing beyond capacity to maintain a boundary the system refuses to recognize. The structure has already degraded; one person's body is hiding the degradation.
+
+The work is to name a single limit you have been hiding, and let the system meet the reality of it. The crisis that follows is not failure. It is the pressure that makes new architecture possible.`,
+
+      architecture: `Your weakest vertex is **Architecture** — the capacity to build infrastructure that outlasts you.
+
+The relationships are real. The boundaries are clear. The identity is distinct. And yet, year over year, almost nothing accumulates. The same problems recur. The same heroism is required. Beautiful work happens that leaves nothing behind.
+
+The pattern most likely operating is **The Dependency Loop.** One person's capacity has become another party's infrastructure. What looks like generosity is functioning as a ceiling on their development — and on yours.
+
+The work is to identify a single thing you are currently providing that the system has adapted to instead of developing — and to design what you will leave at the threshold when you withdraw.`
+    };
+
+    const PRESCRIPTIONS = {
+      "differentiation-biological": `## Signature
+
+You struggle to answer "what am I feeling?" without thinking about it. By the time the answer arrives, the feeling has changed or the body has moved on. You know what's happening in the room more reliably than what's happening in your tissue. You catch other people's moods before you catch your own.
+
+## Reading
+
+Movement 1 + [\`somatic_practices_lens.md\`](../frameworks/lenses/somatic_practices_lens.md). The somatic lens names the body's prior knowledge — that the nervous system distinguishes self from stimulus before conscious thought arrives. Differentiation in this substrate is recovery of that prior knowledge.
+
+## Practice
+
+[self-recognition.html](../practices/affirmations/4x24%20Recognition%20Voice%20Receiving%20Connection/self-recognition.html), daily, two weeks. Read aloud, slowly, with attention to where in the body each affirmation lands or doesn't.
+
+## Intervention
+
+For one week, do not narrate any sensation. Notice it; do not name it; do not story it. The story is what has been substituted for the sensation. Without the story, the sensation completes its own arc. The withdrawal is from the cognitive translation layer; the gift is the felt completion the body had not been allowed to finish.
+
+## Expected resistance
+
+*"But how will I know what I'm feeling?"* — You will know exactly the way the body has been telling you all along. The question itself is the substitution layer working hard to remain necessary.
+
+## Signal of success
+
+A sensation begins, runs its course, and ends, and you can locate it in your body before you can label it.`,
+
+      "differentiation-institutional": `## Signature
+
+When a new hire asks "who owns this?" the answer is two names with an "and" between them, or "it depends." Project decisions require pre-meetings to determine who decides. Role descriptions for adjacent roles overlap by sixty percent. The phrase "we all do that" appears in casual conversation about specific tasks.
+
+## Reading
+
+Movement 1 + [\`consent_dynamics_lens.md\`](../frameworks/lenses/consent_dynamics_lens.md) ("who is doing"). Consent dynamics make role clarity a prerequisite for trust: if you do not know who is acting, you cannot grant or withhold consent meaningfully. Institutional Differentiation is the architecture that makes consent legible at scale.
+
+## Practice
+
+Each member writes one sentence — *"What I specifically do that no one else does."* Read aloud at the next meeting. No discussion, no improvement, no editing. Hear what is currently coherent and what isn't.
+
+## Intervention
+
+Find one task being done by "whoever is around." Assign it to a specific person, with a written description of what they own and what they don't. Or stop doing it. The withdrawal is from collective ownership; the gift is the named owner with the explicit scope.
+
+## Expected resistance
+
+*"That's not how we work — we're a team."* — Teams are made of distinct contributions. The phrase "we're a team" is doing the work of obscuring whose contribution failed when something fails.
+
+## Signal of success
+
+A new hire can read the org chart and the role descriptions in their first week and produce a correct map of who decides what. Their map matches the operating reality.`,
+
+      "differentiation-relational": `## Signature
+
+You answer "what do you want for dinner?" with "what do you want?" — not occasionally, as a courtesy, but reflexively, because you cannot locate your own preference until you know theirs. Your moods track theirs without conscious effort. Their stress becomes your stress before you have time to choose. Inside the relationship, you know yourself less reliably than you do alone.
+
+## Reading
+
+Movement 1 + [Un-spelling Separation.pdf](../writing/essays/Un-spelling%20Separation.pdf). Separation is the failure mode, and the cure is not isolation but distinction — the capacity to be two people inside the same room, the same conversation, the same intimacy.
+
+## Practice
+
+[self-recognition.html](../practices/affirmations/4x24%20Recognition%20Voice%20Receiving%20Connection/self-recognition.html), with a partner. Each person reads their list aloud to the other, slowly, without commentary. Hearing your own distinct contributions out loud, witnessed, is the practice.
+
+## Intervention
+
+In your next disagreement, hold your distinct position before negotiating toward shared ground. Do not give it up to keep the peace; do not perform conviction you do not feel. Let the difference be in the room as long as it actually is. The withdrawal is from premature merging; the gift is the differentiated self that made the merging worth doing in the first place.
+
+## Expected resistance
+
+*"But we're so close — won't this create distance?"* — The closeness was being maintained at the cost of one of you. The distance you are afraid of is the space where two distinct people can actually meet.
+
+## Signal of success
+
+You can disagree with the other person, hold your position through the disagreement, and feel closer afterward rather than further apart.`,
+
+      "differentiation-technical": `## Signature
+
+Two components have overlapping responsibility. Engineers describe each in language that contains the phrase "and also." Changes ripple unpredictably because no one is sure which component owns which behavior. Onboarding a new engineer requires a mentor because the architecture diagram lies.
+
+## Reading
+
+Movement 1 + [\`tensegrity_application_lens.md\`](../frameworks/lenses/tensegrity_application_lens.md). Tensegrity's compression elements are *discontinuous* — they do not touch each other directly. In software this maps to components that communicate through clean interfaces rather than shared state. A component without distinct boundaries cannot bear distinct load.
+
+## Practice
+
+For each component, write three sentences: *what it is, what it isn't, what it owns.* Read across the team. Where two members write contradictory descriptions for the same component, you have found the differentiation gap.
+
+## Intervention
+
+Pick one place where two components have overlapping responsibility. Make one own it. Remove the duplication. The coupling that breaks unrelated to the duplication you removed — that is the hidden coupling that was already there. Document it.
+
+## Expected resistance
+
+*"But we'll lose flexibility."* — The flexibility was undefined behavior. You are trading the appearance of flexibility for the reality of capacity.
+
+## Signal of success
+
+A new engineer can read the architecture diagram and produce a correct mental model without conversation.`,
+
+      "connection-biological": `## Signature
+
+You can be in a room of people you love for hours and feel no different physiologically than you did alone. Hugs land but don't change your state. The gestures of care are present; co-regulation isn't happening. Your body remains in its baseline guardedness regardless of who is near.
+
+## Reading
+
+Movement 2 + [\`somatic_practices_lens.md\`](../frameworks/lenses/somatic_practices_lens.md) (co-regulation, ventral vagal engagement). A body in genuine contact runs a different program than a body in proximity. Until the program runs, the contact has not occurred.
+
+## Practice
+
+[presencing.html](../practices/ri-site-pages/presencing.html) — practice arriving in your body before contact. Do this alone first; the sequence has to be available before another nervous system can be added.
+
+## Intervention
+
+For one week, do not enter a conversation while still finishing the previous one. Pause at the threshold of every contact long enough for your body to actually arrive. The withdrawal is from the rolling-conversation pattern. The gift is the body that has been allowed to land before being asked to engage.
+
+## Expected resistance
+
+*"I don't have time."* — The time was being spent anyway, on contacts that did not deliver. You are reallocating it from many hollow ones to fewer real ones.
+
+## Signal of success
+
+A specific person's nervous system can change yours without you having to think about it. You leave a conversation in a different physiological state than you entered it.`,
+
+      "connection-institutional": `## Signature
+
+Information flows constantly. Meetings happen on schedule. Communications channels are full. And yet, decisions made at one level routinely surprise the level above and below; field signals do not change policy; alignment meetings produce documents that nobody acts on. The shape of organizational contact is intact; the contact itself is not occurring.
+
+## Reading
+
+Movement 2 + [Two_Living_Systems.docx](../writing/recognition-series/Two_Living_Systems.docx). Two living systems in genuine contact change each other in observable ways. Two institutional layers in genuine connection produce traceable effects on one another's decisions. Without the trace, the connection is a story the institution is telling itself.
+
+## Practice
+
+Run a [Gift Alignment Event](../practices/gift-economy/Gift%20Alignment%20Event.odt) with the team. The structured format makes the difference between performed exchange and actual exchange visible immediately.
+
+## Intervention
+
+Cancel one recurring meeting. Replace it with a single 20-minute conversation where the only agenda is what each person actually needs to ask or offer that week. The withdrawal is from the standing-meeting habit. The gift is the conversation format that requires arrival rather than attendance.
+
+## Expected resistance
+
+*"But how will we stay aligned?"* — You weren't, and the meeting was where the appearance of alignment was being maintained. The new format will reveal where alignment was performed and where it was real.
+
+## Signal of success
+
+A piece of information from one part of the institution measurably changes a decision in another part within a week. The change can be traced and named.`,
+
+      "connection-relational": `## Signature
+
+The forms of contact are intact. Daily texts, weekly calls, anniversaries observed, gifts exchanged. And yet, increasingly, the contact does not land — neither of you leaves a conversation in a different state than you entered. You both notice but cannot name it. You suspect the other has noticed too.
+
+## Reading
+
+Movement 2 + [Essence of the Gift.pdf](../writing/essays/Essence%20of%20the%20Gift.pdf). The gift is the medium of genuine connection; when the gift is reduced to its form, contact has been replaced by performance.
+
+## Practice
+
+[connection-belonging.html](../practices/affirmations/4x24%20Recognition%20Voice%20Receiving%20Connection/connection-belonging.html) and [receiving-affirmations.html](../practices/affirmations/4x24%20Recognition%20Voice%20Receiving%20Connection/receiving-affirmations.html), partnered. Both lists, both directions. The receiving practice is often the harder one; that is the diagnostic.
+
+## Intervention
+
+Identify one ritual of contact whose form has outlasted the contact — the daily text, the weekly call, the standing date. Pause it for two weeks. See if the contact returns when it isn't structurally required. The withdrawal is from form-as-substitute; the gift is the space in which actual contact can choose to occur, or to be honestly named as having ended.
+
+## Expected resistance
+
+*"But we'll lose what we have."* — What you have is the form. If the contact is alive, the pause will reveal it. If the contact has ended, the pause will reveal that too. Either way you will know what is actually there, instead of what is being maintained.
+
+## Signal of success
+
+When you do contact each other after the pause, both nervous systems shift. The conversation produces something — a decision, a felt change, a real exchange — that neither of you was expecting.`,
+
+      "connection-technical": `## Signature
+
+Integrations technically work — the bytes flow, the schemas validate, the dashboards stay green. But you cannot point to a behavior that changes based on the data being passed. Logs accumulate without consumers. Events fire into queues no one is subscribed to. The form of exchange is intact; nothing is actually arriving inside it.
+
+## Reading
+
+Movement 2 + [doc2_natural_technicity.docx](../writing/recognition-series/doc2_natural_technicity.docx). Technicity here means: a technology has Connection when its outputs become inputs to genuine response — not storage, not display, but actual change in the behavior of the receiving system. Without that, a technical artifact is a monument, not a living system.
+
+## Practice
+
+Map every integration in your system. For each, mark *exchanging meaning* or *passing bytes*. The "exchanging meaning" mark requires a specific answer to: *what changes in the receiver because of this data?* If the answer is "we have it on file," it's bytes.
+
+## Intervention
+
+Find one integration where systems are passing data but not exchanging meaning. Two moves, no third option. Either route the data to a real consumer that actually responds to it, or remove the integration. Do not leave it running as performance of contact. The half-life of dead integrations is decades, and they consume attention every time someone has to ask "what does this do?"
+
+## Expected resistance
+
+*"Someone might need it."* — If they did, they would already be using it. The hypothetical consumer is the same fiction as the hypothetical reader of unread documentation.
+
+## Signal of success
+
+Every integration in your system has a named consumer who would notice if it stopped. Removed integrations stay removed for at least one quarter without anyone asking for them back.`,
+
+      "boundaries-biological": `## Signature
+
+Your body's *no* arrives late, quietly, or only as crisis. You finish the meal before noticing you were full. You complete the task before noticing you were exhausted. The signals exist; they have been overridden so consistently that they no longer try to interrupt — they wait for collapse.
+
+## Reading
+
+Movement 3 + [\`somatic_practices_lens.md\`](../frameworks/lenses/somatic_practices_lens.md) (the body's *no*). The body's boundary system is older and faster than the conscious mind. When it has gone quiet, it has not stopped speaking; the receiver has stopped listening.
+
+## Practice
+
+[24 Affirmations: Boundaries and Vulnerability](../practices/affirmations/24%20Affirmations.%20Boundaries%20And%20Vunerability.%20.png) — alone, slowly, several times. Note which lines the body affirms and which the body cannot yet receive. The ones it cannot yet receive are the boundary information.
+
+## Intervention
+
+Name one limit your body has been telling you about that you have been overriding. Honor it for one week. Do not make a rule; honor the specific signal. The withdrawal is from the override habit. The gift is the felt experience of the body being met by its own reception, possibly for the first time in a long time.
+
+## Expected resistance
+
+*"The limit isn't really there; I'm being weak."* — The framing of weak versus strong is what the override mechanism uses to recruit consent. The body does not call its limits weak. It calls them limits.
+
+## Signal of success
+
+A limit begins to register in time to be honored, rather than after collapse has done the honoring.`,
+
+      "boundaries-institutional": `## Signature
+
+One role is doing the work of two or three. That person is exhausted, possibly heroic, possibly resentful. The institution depends on their over-performance and has adapted to it. When they take a vacation, the cracks show; when they leave permanently, the institution discovers it never had the capacity it appeared to have.
+
+## Reading
+
+Movement 3 + [doc3_metacognitive_exchange.docx](../writing/recognition-series/doc3_metacognitive_exchange.docx). Metacognitive exchange names the layer of awareness that allows a system to notice its own boundary violations. Institutional Boundaries require this layer to function at scale; without it, every boundary violation is invisible to the institution while obvious to the body absorbing it.
+
+## Practice
+
+[voice-expression.html](../practices/affirmations/4x24%20Recognition%20Voice%20Receiving%20Connection/voice-expression.html) — practice naming what you will and will not do. Walk this in the personal register first; institutional boundaries are spoken by people, and the speaking has to be available before it can scale.
+
+## Intervention
+
+Identify one bad-news item the group has been softening or hiding. State it plainly in the next meeting, as information, not failure. The withdrawal is from the protection-of-leadership-from-reality pattern; the gift is the statement of fact that lets the institution see itself.
+
+## Expected resistance
+
+*"That will create panic."* — Panic is what the suppression has been deferring. Naming reality earlier produces smaller panics, sooner, with more time to respond.
+
+## Signal of success
+
+A capacity gap that was previously hidden is named in a meeting, and the response is structural change rather than escalation of the over-performance that was hiding it.`,
+
+      "boundaries-relational": `## Signature
+
+You are doing the emotional labor of the relationship — naming the patterns, holding the repairs, tracking what's happening between you. You are also exhausted. The other person seems unaware of the labor, or aware and not absorbing it. Your resentment is rising. You blame yourself for resenting. The cycle continues because the labor cannot be paused without something visible breaking.
+
+## Reading
+
+Movement 3 + [Green Hand.odt](../writing/essays/Green%20Hand.odt). Boundaries in living relationship are not walls but membranes — they let some things in and not others, and they tell you which is which.
+
+## Practice
+
+[24 Affirmations: Boundaries and Vulnerability](../practices/affirmations/24%20Affirmations.%20Boundaries%20And%20Vunerability.%20.png) — alone first, until they land in the body. Then with the relevant other, when the body can hold its own ground.
+
+## Intervention
+
+Identify one capacity you have been performing past your actual limit. Tell the relevant person: *"I have been doing X past my actual capacity. I am naming the limit. Here is what I can actually offer."* The withdrawal is from the over-performance; the gift is the spoken sentence, calm, without apology, that tells them where the line actually is.
+
+## Expected resistance
+
+*"They will hear it as withdrawal of love."* — They might. The framing is theirs to make; the line is yours to hold. Love that requires you to perform past capacity is love that has been routed through depletion. What you are returning to is love that does not.
+
+## Signal of success
+
+A boundary you state stays stated. You do not have to restate it weekly. The other person begins to meet you at the named limit rather than past it.`,
+
+      "boundaries-technical": `## Signature
+
+One service is being asked for things its original interface did not promise. The interface has grown by accretion — a parameter here, a special case there, a debug flag that became load-bearing. The service is now performing functions outside its scope, and its actual contract no longer matches its original one. The team has adapted to its over-performance.
+
+## Reading
+
+Movement 3 + [\`tensegrity_application_lens.md\`](../frameworks/lenses/tensegrity_application_lens.md). Precise geometry determines structural capacity. In tensegrity, a member that takes load outside its designed axis collapses the whole structure — not at the member, but somewhere unrelated. The same is true of a service that has crept past its interface: when it fails, the failure shows up somewhere else.
+
+## Practice
+
+[exit.html](../practices/ri-site-pages/exit.html) — exit and withdrawal as a structural primitive, not a failure. Walk the practice in its ordinary register first, then translate to a technical artifact you maintain.
+
+## Intervention
+
+Find one component whose responsibility has crept past its original interface. Restore the interface. Reject the requests that fall outside it — return errors that say plainly, *this is no longer my responsibility, and it never was.* The calls that fail tell you where the next component needs to be built. Build it, or accept that those requests have no legitimate home in your system.
+
+## Expected resistance
+
+*"But everyone depends on this."* — The dependency is the problem. You are not removing the capability; you are forcing it to find its proper architectural home, which is not inside this component.
+
+## Signal of success
+
+The component's interface fits on a single page. The error returns from out-of-scope requests stop being seen as bugs and start being seen as routing information.`,
+
+      "architecture-biological": `## Signature
+
+Your body's capacity is being maintained by a single intervention — one practice, one supplement, one relationship that regulates your nervous system, one ritual without which the wheels come off. Remove the intervention and you can feel the capacity collapse. The body is not running its own architecture; the intervention is running the body.
+
+## Reading
+
+Movement 4 + [\`ecological_succession_lens.md\`](../frameworks/lenses/ecological_succession_lens.md). Succession creates soil that enables future complexity. Architecture in the biological substrate is what compounds across days rather than what carries each day's load alone.
+
+## Practice
+
+[My Menu of Gifts.odt](../practices/gift-economy/My%20Menu%20of%20Gifts.odt) — but inverted: inventory the practices, conditions, and supports your body actually relies on, and mark which ones are *building capacity* versus which ones are *renting it*.
+
+## Intervention
+
+Identify one daily expenditure that doesn't accumulate — energy spent that has to be re-spent tomorrow with no compounding effect. Replace it with one structural change to your environment, schedule, or pattern that makes tomorrow's version unnecessary. The withdrawal is from the daily-effort mode. The gift is the modified environment that does the work for you while you sleep.
+
+## Expected resistance
+
+*"But the practice works."* — Yes. That is exactly the trap. A practice that works keeps you returning to do it; a structural change works while you do something else.
+
+## Signal of success
+
+One thing that used to require daily effort no longer requires it, and the capacity it produced has not decreased.`,
+
+      "architecture-institutional": `## Signature
+
+One person is the institutional memory. They onboarded everyone informally; they hold the unwritten rules; they know which exceptions matter and which don't. The organization cannot articulate how it works without them. When they take a vacation, decisions queue up. When they leave, the institution has to be rediscovered.
+
+## Reading
+
+Movement 4 + Phase 3 of [tools/tetrahedral-audit.html](../tools/tetrahedral-audit.html) (Strategic Intervention). The audit's own Phase 3 is a worksheet for institutional Architecture: identify the dependency, describe the gift to leave at the threshold, name the expected crisis, specify the new capacity that must develop.
+
+## Practice
+
+[My Menu of Gifts.odt](../practices/gift-economy/My%20Menu%20of%20Gifts.odt) for each member; share at the next gathering. The exercise makes individual capacity legible, which is the first step toward making it transferable.
+
+## Intervention
+
+Identify one thing only the most central person can currently do. Document it well enough that someone else can do it. Withdraw. Leave the document at the threshold. The crisis that follows is the architecture forming — do not rescue it.
+
+## Expected resistance
+
+*"It would be faster to just keep doing it."* — Every time you keep doing it, you are paying interest on a debt the institution is carrying. The cost is invisible until you are unavailable, and then the cost is the institution.
+
+## Signal of success
+
+A new contributor can do useful work in their first month using only the documented artifacts, without informal onboarding from the previously irreplaceable person.`,
+
+      "architecture-relational": `## Signature
+
+You are doing for the other person something they could now do for themselves. Maybe you always could; maybe they have grown into the capacity while you were still meeting the original need. Your continuing to do it is preventing them from developing — and binding you into a role that has outlasted its purpose. Both of you sense it. Neither has named it.
+
+## Reading
+
+Movement 4 + [Essence of the Gift (refined).pdf](../writing/essays/Essence%20of%20the%20Gift%28refined%29.pdf). The gift that prevents growth is the gift named in the original framework as the most painful to recognize: it was generosity, then it became infrastructure, then it became a ceiling.
+
+## Practice
+
+[developmental-geometry.html](../practices/ri-site-pages/developmental-geometry.html). Walk it in the relationship's specific terms: what shape has the capacity-sharing taken, and what shape would let both people develop further?
+
+## Intervention
+
+Identify one thing you keep doing for the other person that they could now do for themselves. Stop. Tell them why, plainly: *"I have been doing this, and I am stopping, because I think you can do it now and my doing it is in the way."* Leave the tool, template, or resource at the threshold — whatever they need to take it on. Do not rescue them when they struggle; the struggle is the architecture forming.
+
+## Expected resistance
+
+*"But they need this from me."* — They needed it. The need has changed and the offering hasn't. Generosity that has not updated to the receiver's actual current state is no longer a gift; it is a maintenance of the past.
+
+## Signal of success
+
+The other person picks up the capacity, with stumbling, then with competence. Your relationship has more space in it. Both of you can do something now that neither of you could do before this move.`,
+
+      "architecture-technical": `## Signature
+
+One person is the runtime of the system. They onboard everyone. They are the source of truth for how anything works. The architecture diagram exists but is wrong. The system runs because they run. If they leave for a month, output collapses; if they leave permanently, the system has to be rediscovered.
+
+## Reading
+
+Movement 4 + [\`tensegrity_application_lens.md\`](../frameworks/lenses/tensegrity_application_lens.md). Modular design scales naturally because the structure outlasts any individual element. A technical system has Architecture when the artifacts — code, tests, docs, runbooks — carry enough information to reproduce the system without the original author present.
+
+## Practice
+
+Review [projects/recognition-node/README.md](../projects/recognition-node/README.md) as an example of architecture made portable. The shape of the artifact — README → CONTRIBUTING → docs → examples — is the shape of architecture that survives its author.
+
+## Intervention
+
+Find one piece of internal knowledge that lives only in one person's head or one chat thread. Externalize it into a durable artifact: doc, diagram, runnable test, executable runbook. The test for a true gift here is severe — a stranger to the project must be able to use the artifact without conversation. If they need to ask the original author what something means, the externalization didn't happen yet. Iterate until it does.
+
+## Expected resistance
+
+*"It's faster to just tell them."* — For now. Each time you tell them, you are paying interest on a debt the architecture is carrying. The cost is invisible until the person who knows is no longer available.
+
+## Signal of success
+
+A new contributor can do useful work in their first week without the central person being available.`
+    };
+
+    const CLOSING = `# Closing
+
+This diagnostic ended where it should end. You have a name for what is missing, a place to read, a practice to try, and a structural move to consider. You do not owe a report. If something develops, that is a return gift, and you decide whether and when to offer it. The framework does not need your data to know it works.
+
+## What this audit does not do
+
+This audit does not diagnose mental health, medical conditions, abusive relationships, organizational misconduct, or anything that requires a different kind of care. If a vertex you scored weak corresponds to a domain where another instrument is the right one, this audit is not in the way of you finding it.
+
+## Where to go from here
+
+- [The Meta-Tetrahedron](/library/meta-tetrahedron/) — the operational lens this audit is built on. Eight parts. Read it if you want to understand *why* the four vertices.
+- [The Library](/library/) — full framework substrate. Manuscript, essays, case studies, lineage.
+- [48 Recognition Cards](/toolkits/recognition-cards.html) — somatic practice complement. Where the audit names what is missing structurally, the cards land it in the body.
+- [Quick Diagnostic](/toolkits/quick-diagnostic.html) — lighter four-question version, for systems you want to scan quickly.
+- [Consultations](/automation/consult.html) — if you've sat with this and want framework-applied attention on your specific situation. Walk the [fit filter](/toolkits/fit-filter.html) first.
+
+## Lineage
+
+This tool is offered freely as part of the Recognition Infrastructure framework. Use it. Adapt it. Share it. Credit the lineage. If it improves your capacity to coordinate, that is the validation.
+
+Kevin Mears · 2026`;
+
+    /* ─── Markdown renderer (minimal) ─── */
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function inline(s) {
+      // Escape HTML first
+      s = escapeHtml(s);
+      // Inline code `text`
+      s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+      // Links [text](url) — must come before bold/italic
+      s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+      // Bold **text**
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      // Italic *text*
+      s = s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+      return s;
+    }
+
+    function md(s) {
+      // Strip frontmatter if present
+      s = s.replace(/^---\s*\n[\s\S]*?\n---\s*\n/m, '');
+
+      const lines = s.split('\n');
+      let html = '';
+      let inList = false;
+      let paraBuf = [];
+
+      const flushPara = () => {
+        if (paraBuf.length) {
+          html += '<p>' + inline(paraBuf.join(' ')) + '</p>\n';
+          paraBuf = [];
+        }
+      };
+      const closeList = () => {
+        if (inList) { html += '</ul>\n'; inList = false; }
+      };
+
+      for (const line of lines) {
+        if (/^#### /.test(line)) {
+          flushPara(); closeList();
+          html += '<h4>' + inline(line.replace(/^#### /, '')) + '</h4>\n';
+        } else if (/^### /.test(line)) {
+          flushPara(); closeList();
+          html += '<h3>' + inline(line.replace(/^### /, '')) + '</h3>\n';
+        } else if (/^## /.test(line)) {
+          flushPara(); closeList();
+          html += '<h3>' + inline(line.replace(/^## /, '')) + '</h3>\n';
+        } else if (/^# /.test(line)) {
+          flushPara(); closeList();
+          html += '<h2>' + inline(line.replace(/^# /, '')) + '</h2>\n';
+        } else if (/^- /.test(line)) {
+          flushPara();
+          if (!inList) { html += '<ul>\n'; inList = true; }
+          html += '<li>' + inline(line.replace(/^- /, '')) + '</li>\n';
+        } else if (line.trim() === '') {
+          flushPara(); closeList();
+        } else {
+          paraBuf.push(line);
+        }
+      }
+      flushPara(); closeList();
+      return html;
+    }
+
+    /* ─── State ─── */
+
+    const state = {
+      screen: 'preamble',
+      gates: [false, false, false],
+      answers: {},
+      vertex: null,
+      substrate: null,
+    };
+
+    /* ─── Logic ─── */
+
+    function computeWeakest() {
+      const sums = { differentiation: 0, connection: 0, boundaries: 0, architecture: 0 };
+      for (const q of QUESTIONS) {
+        sums[q.vertex] += state.answers[q.id] || 0;
+      }
+      const max = Math.max(...Object.values(sums));
+      const weakest = Object.entries(sums)
+        .filter(([_, v]) => v === max)
+        .map(([k]) => k);
+      return { sums, weakest, isTie: weakest.length > 1, total: Object.values(sums).reduce((a, b) => a + b, 0) };
+    }
+
+    /* ─── Renderers ─── */
+
+    const root = () => document.getElementById('kit-root');
+
+    function show(html) {
+      root().innerHTML = html;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPreamble() {
+      const allChecked = state.gates.every(Boolean);
+      show(`
+        <h1>The Recognition Infrastructure Kit</h1>
+        <p class="meta-label">A diagnostic, not a teaching</p>
+        ${md(PREAMBLE)}
+        <div class="gate">
+          ${GATE_STATEMENTS.map((s, i) => `
+            <label class="gate-item">
+              <input type="checkbox" ${state.gates[i] ? 'checked' : ''} onchange="setGate(${i}, this.checked)">
+              <span>${escapeHtml(s)}</span>
+            </label>
+          `).join('')}
+        </div>
+        <p style="font-size: 0.95rem; color: var(--warm-gray); font-style: italic;">${escapeHtml(GATE_FOOTER)}</p>
+        <button class="primary" ${allChecked ? '' : 'disabled'} onclick="goTo('questions')">
+          Begin the audit
+        </button>
+      `);
+    }
+
+    function renderQuestions() {
+      const answered = Object.keys(state.answers).length;
+      show(`
+        <span class="back" onclick="goTo('preamble')">← back</span>
+        <h1>The audit</h1>
+        <p class="lead">Twelve questions. For each, score how true the statement is of the system you have in mind right now.</p>
+        <div class="progress">${answered} / 12 answered</div>
+        ${QUESTIONS.map((q, idx) => `
+          <div class="question">
+            <div class="question-num">Question ${idx + 1}</div>
+            <div class="question-text">${escapeHtml(q.text)}</div>
+            <div class="scale">
+              ${[0,1,2,3].map(n => `
+                <label class="${state.answers[q.id] === n ? 'checked' : ''}">
+                  <input type="radio" name="${q.id}" value="${n}" ${state.answers[q.id] === n ? 'checked' : ''} onchange="setAnswer('${q.id}', ${n})">
+                  <span class="scale-num">${n}</span>
+                  <span>${SCALE_LABELS[n]}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+        <button class="primary" ${answered === 12 ? '' : 'disabled'} onclick="goTo('result')">
+          See the diagnosis
+        </button>
+      `);
+    }
+
+    function renderResult() {
+      const r = computeWeakest();
+      if (r.isTie) {
+        renderTie(r.weakest);
+      } else {
+        state.vertex = r.weakest[0];
+        renderDiagnosis();
+      }
+    }
+
+    function renderTie(weakest) {
+      show(`
+        <span class="back" onclick="goTo('questions')">← back to questions</span>
+        <h1>Two vertices are tied</h1>
+        <p class="lead">Your system is in a transition where ${weakest.length === 2 ? 'two' : weakest.length} vertices are weak at once. The audit cannot tell you which to address first. The one you flinch at is usually the one to start with.</p>
+        <p>Choose the one to work with now. The other will wait.</p>
+        <div style="margin-top: var(--space-lg);">
+          ${weakest.map(v => `
+            <button class="tie-card" onclick="chooseVertex('${v}')">
+              <span class="tie-card-name">${VERTEX_LABELS[v]}</span>
+              <span class="tie-card-pattern">${VERTEX_PATTERNS[v]}</span>
+            </button>
+          `).join('')}
+        </div>
+      `);
+    }
+
+    function renderDiagnosis() {
+      const v = state.vertex;
+      show(`
+        <span class="back" onclick="goTo('questions')">← back to questions</span>
+        <p class="meta-label">Diagnosis · Pattern: ${VERTEX_PATTERNS[v]}</p>
+        ${md(DIAGNOSES[v])}
+        <button class="primary" onclick="goTo('substrate')">Choose the domain</button>
+      `);
+    }
+
+    function renderSubstrate() {
+      show(`
+        <span class="back" onclick="goTo('diagnosis')">← back to the diagnosis</span>
+        <h1>Which domain is this audit about?</h1>
+        <p class="lead">The diagnosis stays the same. The prescription changes by domain.</p>
+        <div class="substrate-grid">
+          ${Object.keys(SUBSTRATE_BLURBS).map(s => `
+            <button class="substrate-card" onclick="chooseSubstrate('${s}')">
+              <div class="substrate-card-name">${s.charAt(0).toUpperCase() + s.slice(1)}</div>
+              <div class="substrate-card-blurb">${SUBSTRATE_BLURBS[s]}</div>
+            </button>
+          `).join('')}
+        </div>
+      `);
+    }
+
+    function renderPrescription() {
+      const v = state.vertex;
+      const s = state.substrate;
+      const key = `${v}-${s}`;
+      const content = PRESCRIPTIONS[key];
+      const vLabel = VERTEX_LABELS[v];
+      const sLabel = s.charAt(0).toUpperCase() + s.slice(1);
+      show(`
+        <span class="back" onclick="goTo('substrate')">← change the domain</span>
+        <p class="meta-label">Prescription</p>
+        <h1>${vLabel} × ${sLabel}</h1>
+        ${md(content)}
+        <button class="primary" onclick="goTo('closing')">Continue</button>
+      `);
+    }
+
+    function renderClosing() {
+      show(`
+        <span class="back" onclick="goTo('prescription')">← back to the prescription</span>
+        ${md(CLOSING)}
+        <div class="geometry">4 · 6 · 4 · 1</div>
+        <div class="footer-credit">
+          <p>Kevin Mears · 2026</p>
+          <p style="margin-top: var(--space-sm);"><a href="#" onclick="restart(); return false;">Run the audit again on a different system</a></p>
+        </div>
+      `);
+    }
+
+    /* ─── Event handlers ─── */
+
+    window.setGate = (idx, val) => {
+      state.gates[idx] = val;
+      renderPreamble();
+    };
+
+    window.setAnswer = (qid, val) => {
+      state.answers[qid] = val;
+      // Update only the progress count and button state in place — but for simplicity, rerender
+      const answered = Object.keys(state.answers).length;
+      const progress = document.querySelector('.progress');
+      if (progress) progress.textContent = `${answered} / 12 answered`;
+      // Update label classes
+      document.querySelectorAll(`.scale label`).forEach(l => {
+        const input = l.querySelector('input');
+        if (input && input.name === qid) {
+          l.classList.toggle('checked', parseInt(input.value, 10) === val);
+        }
+      });
+      // Update button state
+      const btn = document.querySelector('button.primary');
+      if (btn) btn.disabled = answered !== 12;
+    };
+
+    window.chooseVertex = (v) => {
+      state.vertex = v;
+      renderDiagnosis();
+    };
+
+    window.chooseSubstrate = (s) => {
+      state.substrate = s;
+      goTo('prescription');
+    };
+
+    window.goTo = (screen) => {
+      state.screen = screen;
+      render();
+    };
+
+    window.restart = () => {
+      state.screen = 'preamble';
+      state.gates = [false, false, false];
+      state.answers = {};
+      state.vertex = null;
+      state.substrate = null;
+      render();
+    };
+
+    function render() {
+      switch (state.screen) {
+        case 'preamble': renderPreamble(); break;
+        case 'questions': renderQuestions(); break;
+        case 'result': renderResult(); break;
+        case 'diagnosis': renderDiagnosis(); break;
+        case 'substrate': renderSubstrate(); break;
+        case 'prescription': renderPrescription(); break;
+        case 'closing': renderClosing(); break;
+        default: renderPreamble();
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>

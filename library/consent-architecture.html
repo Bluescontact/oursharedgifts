@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Consent Architecture — Library — Our Shared Gifts</title>
+<link rel="stylesheet" href="/assets/css/core.css">
+<style>
+  .pull {
+    font-size: 1.15rem;
+    line-height: 1.45;
+    margin: 2rem 0;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-left: 3px solid var(--diff);
+    color: var(--ink);
+    font-style: italic;
+  }
+  .wheel {
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+  .wheel table {
+    width: 100%;
+    min-width: 32rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .wheel th, .wheel td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid var(--rule);
+  }
+  .wheel thead th {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: normal;
+    background: transparent;
+    border-top: none;
+  }
+  .wheel thead th:first-child { border-left: none; }
+  .wheel tbody th {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: normal;
+    background: transparent;
+    border-left: none;
+  }
+  .wheel .quadrant {
+    background: var(--bg-soft);
+  }
+  .wheel .quadrant strong {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+  .wheel .quadrant .gloss {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .position {
+    margin: 1.75rem 0;
+    padding: 1.25rem 0 0.75rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .position h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5rem;
+  }
+  .pair {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.4rem 1rem;
+    margin: 0.5rem 0;
+  }
+  .pair dt {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    padding-top: 0.15rem;
+  }
+  .pair dd {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .shadow-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.5rem 1.25rem;
+    margin: 0;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .shadow-row:last-child { border-bottom: none; }
+  .shadow-row dt {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .shadow-row dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  @media (max-width: 30rem) {
+    .pair, .shadow-row { grid-template-columns: 1fr; gap: 0.15rem; }
+    .pair dt, .shadow-row dt { padding-top: 0.5rem; }
+    .pair dt:first-of-type, .shadow-row dt:first-of-type { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker diff"><a href="/library/" style="color:inherit;text-decoration:none;">← Library</a></span>
+  <h1>Consent Architecture</h1>
+  <div class="page-rule diff"></div>
+  <p class="subtitle">The structure that makes contact and limit work together.</p>
+
+  <p class="pull">Consent is not a clause. Consent is the moment-by-moment agreement that determines whether the same action lands as gift or as extraction.</p>
+
+  <p>Every act of contact between two beings has a structural shape. The Wheel of Consent — Betty Martin's framework — names four positions that shape can hold. Two axes cross: who is doing, and for whose benefit. The four quadrants of the cross are the four positions. Each position has a shadow form that operates when the position drifts out of consent.</p>
+
+  <p>The framework treats the Wheel as architecture. Not a polite layer added to interaction, but the load-bearing structure that determines whether the practice produces gift or extraction. Naming the position explicitly is what lets the position hold; unnamed positions drift into their shadows.</p>
+
+  <p class="invitation">Before reading further, name a single act of contact from your last week. Who was doing? For whose benefit? Then read the four positions and find which quadrant that act actually held.</p>
+
+  <h2>The Wheel</h2>
+
+  <div class="wheel">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th scope="col">I am doing</th>
+          <th scope="col">You are doing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">For your benefit</th>
+          <td class="quadrant"><strong>Serving</strong><span class="gloss">I act; the action is for you</span></td>
+          <td class="quadrant"><strong>Allowing</strong><span class="gloss">You act; the action is for you; I let it happen</span></td>
+        </tr>
+        <tr>
+          <th scope="row">For my benefit</th>
+          <td class="quadrant"><strong>Taking</strong><span class="gloss">I act; the action is for me; you let it happen</span></td>
+          <td class="quadrant"><strong>Accepting</strong><span class="gloss">You act; the action is for me</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Two principles produce the four positions. The matrix is symmetrical. None of the positions is morally higher than another. None of the positions is intrinsically the right one. Consent determines the position; the position determines the structural shape of the contact.</p>
+
+  <h2>The four positions, named</h2>
+
+  <section class="position">
+    <h3>Serving</h3>
+    <dl class="pair">
+      <dt>Shape</dt>
+      <dd>The doer acts; the action is for the receiver. The doer has capacity to give; the receiver wants what's being given.</dd>
+      <dt>What consent makes possible</dt>
+      <dd>The action lands as gift. The doer's capacity flows into the receiver's situation cleanly. The receiver receives without owing.</dd>
+      <dt>Operating in the practice</dt>
+      <dd>All six <a href="/offerings.html">gift offerings</a> sit in Serving. The quadrant is named on every card.</dd>
+    </dl>
+  </section>
+
+  <section class="position">
+    <h3>Allowing</h3>
+    <dl class="pair">
+      <dt>Shape</dt>
+      <dd>The other party acts; the action is for them. The receiver permits the action because the receiver chooses to.</dd>
+      <dt>What consent makes possible</dt>
+      <dd>Allowing is its own active position. The permitter is not passive; they are choosing to make space for the other's action. The space is the gift.</dd>
+      <dt>Operating in the practice</dt>
+      <dd>The fit filter sits between the receiver and the consultation calendar — receivers walking the filter are in Allowing position, letting the framework read their situation back to them.</dd>
+    </dl>
+  </section>
+
+  <section class="position">
+    <h3>Taking</h3>
+    <dl class="pair">
+      <dt>Shape</dt>
+      <dd>The doer acts; the action is for the doer. The other party makes themselves available for the doer to take.</dd>
+      <dt>What consent makes possible</dt>
+      <dd>Taking with permission is structurally distinct from theft. The doer takes what the receiver has chosen to make available; the receiver chose what's available and what isn't.</dd>
+      <dt>Operating in the practice</dt>
+      <dd>Less common in this practice's offering set. When it appears, it's named explicitly — the asymmetry made visible.</dd>
+    </dl>
+  </section>
+
+  <section class="position">
+    <h3>Accepting</h3>
+    <dl class="pair">
+      <dt>Shape</dt>
+      <dd>The other party acts; the action is for the receiver. The receiver receives what the other chose to give.</dd>
+      <dt>What consent makes possible</dt>
+      <dd>Accepting is an active practice. The receiver is not entitled, not passive — they are actively meeting the gift, completing the circuit by receiving cleanly.</dd>
+      <dt>Operating in the practice</dt>
+      <dd>The peer-level engagement form, where the operator may be learning from the receiver's work, sits in Accepting. The financial direction may invert; the position is named.</dd>
+    </dl>
+  </section>
+
+  <h2>The four shadow forms</h2>
+
+  <p>Each position has a shadow that operates when the structural agreement breaks. The action looks identical on the surface; the consent has gone missing.</p>
+
+  <dl class="shadow-row">
+    <dt>Serving → Servitude</dt>
+    <dd>The doer acts for the receiver, but past the doer's capacity or without the doer's actual yes. The form is preserved; the operator is being consumed. Burnout is the long arc of this shadow.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Allowing → Endurance</dt>
+    <dd>The receiver permits the action because they don't know how to stop it, not because they chose to. The permission is performative; the body is tolerating. The contact arrives as harm wearing the form of consent.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Taking → Stealing</dt>
+    <dd>The doer takes what the other did not make available. The line of what was offered is crossed; the asymmetry becomes extraction. The doer often does not know the line was crossed; the receiver always knows.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Accepting → Burden</dt>
+    <dd>The other gives what the receiver did not ask for; the receiver is left holding what was deposited. The form looks generous; the structural shape is the giver's need being routed through the receiver. The receiver pays the cost of the giver's giving.</dd>
+  </dl>
+
+  <p>Each shadow has the same diagnostic: is the position being held with consent right now, or is it being performed because the structural condition for consent is missing? When in doubt, the body is the discriminator — the position the body recognizes as the position currently being held.</p>
+
+  <h2>The arrangement that holds across the practice</h2>
+
+  <p>The site enacts consent architecture at three structural levels.</p>
+
+  <p><strong>At the offer level.</strong> Every <a href="/offerings.html">gift offering</a> names its quadrant explicitly — receivers can read what shape the offered action takes before engaging. Quadrant ambiguity is itself a consent failure; the framework refuses it by structural design.</p>
+
+  <p><strong>At the engagement level.</strong> <a href="/automation/consult.html">Consultations</a> carry a commons-work consent default: patterns from the engagement may circulate, generalized and anonymized, in public substrate. Receivers know this before engaging. The arrangement is named; the receiver can opt in, opt out of specific patterns, or decline the whole engagement on this basis.</p>
+
+  <p><strong>At the gate level.</strong> The <a href="/toolkits/kit/">RI Kit</a> opens with a pre-audit gate — three statements that need to be true before the diagnostic operates. The gate is itself a consent move: the framework asks the receiver to consent to the conditions under which it can do its work. If the conditions aren't there, the gate holds; the audit waits.</p>
+
+  <h2>Consent across substrates</h2>
+
+  <p>The medium of consent changes by substrate; the structural Wheel does not.</p>
+
+  <dl class="shadow-row">
+    <dt>Biological</dt>
+    <dd>Consent is somatic before it is verbal. The body's yes (opening, softening, ventral vagal engagement) and the body's no (tightening, withdrawal, the small refusals before the large ones) are the substrate the cognitive yes/no rests on.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Institutional</dt>
+    <dd>Consent is procedural — decision rights, scope statements, sign-off authority, the documented chain of who can authorize what. The shadow is rubber-stamp consent: the procedure executes without the substance.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Relational</dt>
+    <dd>Consent is named in language. The clear, calm, stated sentence that makes the agreement visible. The shadow is implicit consent: the assumption of agreement without the act of agreeing.</dd>
+  </dl>
+  <dl class="shadow-row">
+    <dt>Technical</dt>
+    <dd>Consent is contractual — the permission scope, the API authorization, the schema validation, the explicit grant. The shadow is consent-by-defaults: settings that auto-extract because the user did not opt out.</dd>
+  </dl>
+
+  <p>See <a href="/library/substrate-comparison.html">The Four Substrates</a> for the broader cross-substrate read.</p>
+
+  <h2>Why this matters operationally</h2>
+
+  <p>An interaction without explicit consent architecture defaults to whichever Wheel position the inherited cultural shape assumes. In most contemporary infrastructure the default is Taking dressed as Serving — the doer acts ostensibly for the receiver's benefit while the actual flow extracts from the receiver. The framework reads this as the structural baseline of platform-mediated contact: agreement-by-presence rather than agreement-by-position-named.</p>
+
+  <p>Naming the quadrant explicitly at every offer, every engagement, and every gate is what breaks that default. The receiver sees the position before stepping into it; the position holds because both parties named it; the shadow stays at bay because the structural condition for it has been refused.</p>
+
+  <section class="edges">
+    <h2>Where consent architecture is operating</h2>
+    <dl>
+      <dt><a href="/offerings.html">Offerings</a></dt>
+      <dd>Every gift card names its quadrant. Six offerings, all Serving, made structurally visible.</dd>
+      <dt><a href="/automation/consult.html">Consultations</a></dt>
+      <dd>Commons-work consent as the load-bearing structural arrangement of the engagement form.</dd>
+      <dt><a href="/toolkits/fit-filter.html">Fit Filter</a></dt>
+      <dd>Five-question routing — consent operating as filter; the receiver consents to the framework reading their situation back through three outcomes.</dd>
+      <dt><a href="/toolkits/kit/">RI Kit</a></dt>
+      <dd>Pre-audit gate — three statements that need to be true before the framework operates. Consent as the condition for the work.</dd>
+      <dt><a href="/refusals.html">Refusals</a></dt>
+      <dd>The eleven extraction patterns are largely consent failures named structurally — Capture, Aggregation, Scaling, Performance each map to specific consent breaches.</dd>
+      <dt><a href="/library/theory-of-gift.html">A Theory of Gift</a></dt>
+      <dd>Consent edge (Connection ↔ Boundaries) as one of the six axes of the gift form.</dd>
+    </dl>
+  </section>
+
+  <h2>Lineage</h2>
+  <p>This synthesis rests on Betty Martin's <em>Wheel of Consent</em> — the canonical framework that names the four positions and their shadow forms. It draws also on consent-pedagogy traditions in somatic practice and disability justice, on Indigenous protocols of consent that predate the contemporary discourse, and on the broader recognition that consent architecture is older than the language that names it. Specific attributions in the <a href="/library/">Library</a> lineage entry when that synthesis lands.</p>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+</body>
+</html>

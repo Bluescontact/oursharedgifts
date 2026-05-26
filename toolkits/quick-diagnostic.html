@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Diagnostic — Recognition Infrastructure</title>
+<meta name="description" content="A four-question diagnostic for any system you're inside — a team, a relationship, a project. Identifies which capacity is weak. Use freely.">
+<style>
+:root {
+  --bg: #fafaf7;
+  --text: #2c2c2c;
+  --text-soft: #5a5a5a;
+  --text-faint: #999;
+  --border: #e4e2dd;
+  --border-soft: #efedea;
+  --accent: #b06840;
+  /* Canonical vertex palette — corrected cycle 21 against Lettherobotsbuild/css/core.css */
+  --diff: #b06840;   /* Differentiation — terracotta */
+  --conn: #3d7ab5;   /* Connection — blue */
+  --bound: #558a3e;  /* Boundaries — green */
+  --arch: #a89030;   /* Architecture — gold */
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.65;
+  max-width:720px;
+  margin:0 auto;
+  padding:64px 32px 96px;
+}
+header { margin-bottom:48px; }
+h1 { font-size:32px; font-weight:normal; letter-spacing:-0.5px; margin-bottom:8px; }
+h1 small { display:block; color:var(--text-faint); font-size:14px; font-family:var(--sans); letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; }
+.intro { color:var(--text-soft); font-size:16px; margin-top:16px; }
+.intro em { color:var(--text); font-style:normal; border-bottom:1px solid var(--border); }
+
+.system-input { margin:32px 0; }
+.system-input label { display:block; font-family:var(--sans); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px; }
+.system-input input {
+  width:100%; background:white; border:1px solid var(--border); border-radius:3px;
+  padding:14px 18px; font-family:var(--serif); font-size:17px; color:var(--text);
+}
+.system-input input:focus { outline:none; border-color:var(--text-soft); }
+.system-input .hint { font-size:14px; color:var(--text-faint); margin-top:6px; font-style:italic; }
+
+section { margin:32px 0; padding-top:24px; border-top:1px solid var(--border-soft); }
+section:first-of-type { border-top:none; padding-top:0; }
+h2 { font-size:13px; font-family:var(--sans); letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:24px; }
+
+.question {
+  background:white; border:1px solid var(--border); border-radius:3px;
+  border-left:3px solid var(--border); padding:22px 26px; margin-bottom:14px;
+  transition:border-color 0.15s;
+}
+.question:focus-within { border-color:var(--text-soft); }
+.question.diff { border-left-color:var(--diff); }
+.question.conn { border-left-color:var(--conn); }
+.question.bound { border-left-color:var(--bound); }
+.question.arch { border-left-color:var(--arch); }
+
+.q-vertex { font-family:var(--sans); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; color:var(--text-faint); }
+.question.diff .q-vertex { color:var(--diff); }
+.question.conn .q-vertex { color:var(--conn); }
+.question.bound .q-vertex { color:var(--bound); }
+.question.arch .q-vertex { color:var(--arch); }
+
+.q-text { font-size:19px; color:var(--text); font-weight:normal; line-height:1.4; margin-bottom:12px; }
+.q-frame { font-size:14px; color:var(--text-soft); font-style:italic; margin-bottom:14px; line-height:1.55; }
+.q-input {
+  width:100%; background:var(--bg); border:1px solid var(--border); border-radius:3px;
+  padding:12px 16px; font-family:var(--serif); font-size:15px; color:var(--text);
+  resize:vertical; min-height:80px; line-height:1.6;
+}
+.q-input:focus { outline:none; border-color:var(--text-soft); }
+.q-input::placeholder { color:var(--text-faint); font-style:italic; }
+
+.reveal-wrap { text-align:center; margin:36px 0 24px; }
+.reveal-btn {
+  background:white; border:1px solid var(--border); color:var(--text-soft);
+  padding:14px 28px; font-family:var(--sans); font-size:12px; letter-spacing:1px;
+  text-transform:uppercase; cursor:pointer; border-radius:3px; transition:all 0.15s;
+}
+.reveal-btn:hover { border-color:var(--text-soft); color:var(--text); }
+.reveal-btn:disabled { opacity:0.4; cursor:not-allowed; }
+
+.reading { display:none; margin-top:24px; padding-top:24px; border-top:1px solid var(--border-soft); }
+.reading.show { display:block; animation:fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+.reading-intro { font-size:15px; color:var(--text-soft); margin-bottom:24px; line-height:1.7; }
+
+.vertex-reading {
+  background:white; border:1px solid var(--border); border-radius:3px;
+  border-left:3px solid var(--border); padding:20px 24px; margin-bottom:14px;
+}
+.vertex-reading.diff { border-left-color:var(--diff); }
+.vertex-reading.conn { border-left-color:var(--conn); }
+.vertex-reading.bound { border-left-color:var(--bound); }
+.vertex-reading.arch { border-left-color:var(--arch); }
+
+.vr-name { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+.vertex-reading.diff .vr-name { color:var(--diff); }
+.vertex-reading.conn .vr-name { color:var(--conn); }
+.vertex-reading.bound .vr-name { color:var(--bound); }
+.vertex-reading.arch .vr-name { color:var(--arch); }
+
+.vr-tagline { font-style:italic; color:var(--text-faint); font-size:14px; margin-bottom:10px; }
+.vr-strong { font-size:14px; color:var(--text-soft); line-height:1.6; margin-bottom:8px; }
+.vr-strong strong { color:var(--text); font-weight:600; }
+.vr-weak { font-size:14px; color:var(--text-soft); line-height:1.6; }
+.vr-weak strong { color:var(--text); font-weight:600; }
+.vr-label { font-family:var(--sans); font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:var(--text-faint); margin-right:6px; }
+
+.diagnostic-close { background:var(--bg); border-left:3px solid var(--accent); padding:18px 22px; margin-top:20px; }
+.diagnostic-close p { color:var(--text); font-size:15px; line-height:1.7; margin-bottom:10px; }
+.diagnostic-close p:last-child { margin-bottom:0; color:var(--text-soft); font-style:italic; }
+
+.footer { margin-top:72px; padding-top:32px; border-top:1px solid var(--border-soft); font-family:var(--sans); font-size:12px; color:var(--text-faint); }
+.footer a { color:var(--text-soft); }
+.footer p { margin-bottom:12px; }
+.lateral-bar { font-family:var(--sans); font-size:12px; color:var(--text-faint); margin:14px 0; padding:10px 0; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft); }
+.lateral-bar a { color:var(--text-soft); }
+
+@media (max-width:600px) {
+  body { padding:32px 18px 60px; }
+  h1 { font-size:26px; }
+  .q-text { font-size:17px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1><small>Recognition Infrastructure · Diagnostic Tool 1</small>Quick Diagnostic</h1>
+<p class="intro">Pick something in your life right now — a team, a relationship, a project, a community, a system you're inside. Answer four questions about it. <em>The weakest answer is your development edge.</em></p>
+</header>
+
+<div class="system-input">
+<label for="system">What system are you running this on?</label>
+<input type="text" id="system" placeholder="A specific thing — &quot;the team I'm on,&quot; &quot;my marriage,&quot; &quot;the project I started in February.&quot;">
+<div class="hint">Be specific. The diagnostic works on one thing at a time.</div>
+</div>
+
+<section>
+<h2>The Four Questions</h2>
+
+<div class="question diff">
+<div class="q-vertex">Vertex 1 · Differentiation</div>
+<div class="q-text">Can you say what this is in one sentence to someone who doesn't already agree?</div>
+<div class="q-frame">Not what it does — what it <em>is</em>. The test: would someone outside it recognize the same thing you're describing?</div>
+<textarea class="q-input" placeholder="Try saying it. One sentence. Plain language."></textarea>
+</div>
+
+<div class="question conn">
+<div class="q-vertex">Vertex 2 · Connection</div>
+<div class="q-text">Who specifically is affected, and how do you know — from actual exchange, not assumption?</div>
+<div class="q-frame">Not who you think might benefit. Who has actually told you. Last week. In words you can remember.</div>
+<textarea class="q-input" placeholder="Name one or two people and what they actually said."></textarea>
+</div>
+
+<div class="question bound">
+<div class="q-vertex">Vertex 3 · Boundaries</div>
+<div class="q-text">What is this NOT? What's the smallest version that still works?</div>
+<div class="q-frame">The limits, stated as information. Not what you fear it might become — what you've actually decided not to include.</div>
+<textarea class="q-input" placeholder="Two or three things this is not. Or: the smallest version you'd still call this."></textarea>
+</div>
+
+<div class="question arch">
+<div class="q-vertex">Vertex 4 · Architecture</div>
+<div class="q-text">If you disappeared, what would remain?</div>
+<div class="q-frame">Not whether someone would step in. What persists. The infrastructure, the records, the practices that work without you holding them up.</div>
+<textarea class="q-input" placeholder="Name what would still function. If the honest answer is &quot;not much,&quot; that's information."></textarea>
+</div>
+
+</section>
+
+<div class="reveal-wrap">
+<button class="reveal-btn" id="reveal-btn" onclick="revealReading()">Read what your answers reveal →</button>
+</div>
+
+<div class="reading" id="reading">
+<h2>What your answers reveal</h2>
+
+<p class="reading-intro">Re-read your four answers. The one you struggled most with — vague, qualified, "it's complicated," or simply left thin — is the development edge. Not because you're failing; because that's where the work next wants to happen. Below: what each vertex names, and what a thin answer signals.</p>
+
+<div class="vertex-reading diff">
+<div class="vr-name">Differentiation</div>
+<div class="vr-tagline">Knowing what you are.</div>
+<div class="vr-strong"><span class="vr-label">If clear:</span> The system has a distinct identity. You can hold position under pressure without the identity dissolving into context or hardening into defense.</div>
+<div class="vr-weak"><span class="vr-label">If thin:</span> <strong>The system coordinates but doesn't know what it is.</strong> Agreement is everywhere because there's no position from which to disagree. This often feels harmonious. It's the failure mode hardest to detect from inside.</div>
+</div>
+
+<div class="vertex-reading conn">
+<div class="vr-name">Connection</div>
+<div class="vr-tagline">Genuine contact with what's outside.</div>
+<div class="vr-strong"><span class="vr-label">If clear:</span> The system updates based on what's actually arriving, not on a model of what should be there. Both you and the people involved are changed by the exchange.</div>
+<div class="vr-weak"><span class="vr-label">If thin:</span> <strong>The system is structured but isolated.</strong> Perfect processes, zero genuine exchange. It produces work nobody needs because it's stopped checking whether the world moved.</div>
+</div>
+
+<div class="vertex-reading bound">
+<div class="vr-name">Boundaries</div>
+<div class="vr-tagline">Legible limits that serve form.</div>
+<div class="vr-strong"><span class="vr-label">If clear:</span> The limits are visible as information rather than apology. Constraints generate the form. The "no" lands as data, not as rejection.</div>
+<div class="vr-weak"><span class="vr-label">If thin:</span> <strong>The system flows without holding.</strong> Generous to the point of dissolution. Everything circulates, nothing accumulates. The most seductive failure mode because it looks like virtue.</div>
+</div>
+
+<div class="vertex-reading arch">
+<div class="vr-name">Architecture</div>
+<div class="vr-tagline">Building beyond yourself.</div>
+<div class="vr-strong"><span class="vr-label">If clear:</span> Capacity has become infrastructure. The work persists in your absence. Documentation, designed environments, practices that function without ongoing personal effort.</div>
+<div class="vr-weak"><span class="vr-label">If thin:</span> <strong>The system is coherent but ephemeral.</strong> Beautiful in the moment, gone when the moment passes. Brilliant practice whose knowledge dies with the practitioner.</div>
+</div>
+
+<div class="diagnostic-close">
+<p>The weakest answer is your development edge. Not a problem to fix — a place the work wants to go next.</p>
+<p>Run this again in a month on the same system. Notice what changes when you've held the edge in attention. The diagnostic is the practice, not the verdict.</p>
+</div>
+</div>
+
+<div class="footer">
+<div class="lateral-bar">
+<a href="index.html">All four tools</a> · <a href="threshold_check.html">Tool 2: Threshold Check</a> · <a href="succession_stage.html">Tool 3: Succession</a> · <a href="vertex_load_tracer.html">Tool 4: Propagation Tracer</a>
+</div>
+<p>Tool 1 of 4 from the <em>Recognition Protocol</em>. Branch of <em>A Theory of Gift / Architecture of Coherence</em> &middot; Kevin Mears + Claude.</p>
+<p>Substrate: <a href="https://oursharedgifts.org">oursharedgifts.org</a> &middot; framework deployment: <a href="https://bluescontact.github.io/Lettherobotsbuild/">Lettherobotsbuild</a>.</p>
+<p style="margin-top:14px;"><em>Offered freely. Adapt as needed. Recognition welcomed, not required.</em></p>
+<p style="margin-top:8px; text-align:center;">4 &middot; 6 &middot; 4 &middot; 1</p>
+</div>
+
+<script>
+function revealReading() {
+  const reading = document.getElementById('reading');
+  reading.classList.add('show');
+  document.getElementById('reveal-btn').disabled = true;
+  setTimeout(() => { reading.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+}
+</script>
+
+</body>
+</html>

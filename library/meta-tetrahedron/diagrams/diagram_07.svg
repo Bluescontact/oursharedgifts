@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 540" width="660" height="540" role="img" font-family="Inter, 'Source Sans 3', 'Helvetica Neue', Helvetica, system-ui, sans-serif">
+<line x1="240" y1="120" x2="123.0" y2="321.5" stroke="#4a8a3a" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="240" y1="120" x2="357.0" y2="321.5" stroke="#4a8a3a" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="123.0" y1="321.5" x2="357.0" y2="321.5" stroke="#4a8a3a" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="240" y1="120" x2="240" y2="226.6" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="123.0" y1="321.5" x2="240" y2="226.6" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<line x1="357.0" y1="321.5" x2="240" y2="226.6" stroke="#5c5c66" stroke-width="1.0" stroke-dasharray="4 3" opacity="0.7"/>
+<circle cx="240" cy="120" r="6" fill="#4a8a3a" stroke="#2a2a30" stroke-width="0.8"/>
+<circle cx="123.0" cy="321.5" r="6" fill="#4a8a3a" stroke="#2a2a30" stroke-width="0.8"/>
+<circle cx="357.0" cy="321.5" r="6" fill="#4a8a3a" stroke="#2a2a30" stroke-width="0.8"/>
+<circle cx="240" cy="226.6" r="6" fill="#4a8a3a" stroke="#2a2a30" stroke-width="0.8"/>
+<text x="240" y="94" font-size="12" fill="#4a8a3a" text-anchor="middle" font-weight="600">Edges</text>
+<text x="240" y="107" font-size="10" fill="#5c5c66" text-anchor="middle" font-weight="500" font-style="italic">first-contact surfaces</text>
+<text x="101.0" y="325.5" font-size="12" fill="#4a8a3a" text-anchor="end" font-weight="600">Bounds</text>
+<text x="101.0" y="338.5" font-size="10" fill="#5c5c66" text-anchor="end" font-weight="500" font-style="italic">functional perimeter</text>
+<text x="379.0" y="325.5" font-size="12" fill="#4a8a3a" text-anchor="start" font-weight="600">Limitations</text>
+<text x="379.0" y="338.5" font-size="10" fill="#5c5c66" text-anchor="start" font-weight="500" font-style="italic">honest unable-tos</text>
+<text x="214" y="222.6" font-size="12" fill="#4a8a3a" text-anchor="end" font-weight="600">Constraints</text>
+<text x="214" y="235.6" font-size="10" fill="#5c5c66" text-anchor="end" font-weight="500" font-style="italic">refused extractions</text>
+<text x="510" y="213" font-size="11" fill="#1a1a1f" text-anchor="middle" font-weight="600">Constraints facet · zoom</text>
+<text x="510" y="229" font-size="10" fill="#5c5c66" text-anchor="middle" font-weight="400" font-family="Garamond, 'EB Garamond', Georgia, serif" font-style="italic">each facet: its own 4-vertex tetrahedron</text>
+<line x1="510" y1="245" x2="460.5" y2="330.25" stroke="#4a8a3a" stroke-width="0.9" opacity="1.0"/>
+<line x1="510" y1="245" x2="559.5" y2="330.25" stroke="#4a8a3a" stroke-width="0.9" opacity="1.0"/>
+<line x1="460.5" y1="330.25" x2="559.5" y2="330.25" stroke="#4a8a3a" stroke-width="0.9" opacity="1.0"/>
+<line x1="510" y1="245" x2="510" y2="290.1" stroke="#4a8a3a" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.6"/>
+<line x1="460.5" y1="330.25" x2="510" y2="290.1" stroke="#4a8a3a" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.6"/>
+<line x1="559.5" y1="330.25" x2="510" y2="290.1" stroke="#4a8a3a" stroke-width="0.6" stroke-dasharray="2 2" opacity="0.6"/>
+<circle cx="510" cy="245" r="2" fill="#4a8a3a" opacity="1.0"/>
+<circle cx="460.5" cy="330.25" r="2" fill="#4a8a3a" opacity="1.0"/>
+<circle cx="559.5" cy="330.25" r="2" fill="#4a8a3a" opacity="1.0"/>
+<circle cx="510" cy="290.1" r="2" fill="#4a8a3a" opacity="1.0"/>
+<text x="510" y="239" font-size="9" fill="#a04040" text-anchor="middle" font-weight="500">Capture</text>
+<text x="456.5" y="344.25" font-size="9" fill="#a04040" text-anchor="end" font-weight="500">Aggregation</text>
+<text x="563.5" y="344.25" font-size="9" fill="#a04040" text-anchor="start" font-weight="500">Scaling</text>
+<text x="522" y="286.1" font-size="9" fill="#a04040" text-anchor="start" font-weight="500">Performance</text>
+<line x1="270" y1="222.6" x2="451" y2="280" stroke="#5c5c66" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.5"/>
+<text x="330.0" y="504" font-size="11" fill="#1a1a1f" text-anchor="middle" font-weight="400" font-family="Garamond, 'EB Garamond', Georgia, serif" font-style="italic">1 outer + 4 facet-tetrahedra + 16 sub-vertices</text>
+<text x="330.0" y="522" font-size="10" fill="#5c5c66" text-anchor="middle" font-weight="400" font-family="Garamond, 'EB Garamond', Georgia, serif" font-style="italic">Fractal at facet scale: same form recurring within itself</text>
+</svg>

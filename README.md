@@ -1,24 +1,67 @@
-# Our Shared Gifts
+# OSG v4
 
-Frameworks for coherent exchange, offered freely.
+**oursharedgifts.org** — the personal practice made legible.
 
-**[oursharedgifts.org](https://www.oursharedgifts.org)**
+The library, the toolkits, the public face, and the automation behind it. Built on the Meta-Tetrahedron operational lens. One site, one domain, four vertices.
 
-Recognition Infrastructure — substrate-independent coordination architecture applied to physical, ecological, and technical systems.
+## Repo structure
 
-## Structure
+```
+OSG4/
+├── OSG_V4_SPINE.md            substrate doc — frame and scope of every vertex + edge
+├── README.md                  this file
+├── index.html                 root — orientation surface (Public Face entry)
+├── offerings.html             Public Face — gift menu
+├── refusals.html              Public Face — what is not offered
+├── current.html               Public Face — what's true now
+├── request.html               Public Face — gift request flow
+├── about.html                 Public Face — third-person framing
+├── library/                   Library vertex (Differentiation)
+│   ├── index.html             single index per all texts
+│   ├── meta-tetrahedron/      operational lens (full render + diagrams)
+│   ├── transmissions/         articles passed through the engine
+│   └── *.html                 framework text syntheses
+├── toolkits/                  Toolkits vertex (Architecture)
+│   ├── index.html             tools that operate without Kevin
+│   ├── quick-diagnostic.html
+│   ├── fit-filter.html
+│   ├── recognition-cards.html
+│   └── kit/                   RI Kit — 12-question audit + 16 prescriptions
+├── automation/                Automation vertex (Boundaries)
+│   ├── index.html             intake surface
+│   ├── consult.html           consultation intake + commons-work consent + fit-filter routing
+│   └── donate.html            Venmo donation surface
+├── back/                      Kevin's workshop & dashboard (not in main nav)
+│   └── index.html             operational launcher + discipline reminders
+├── substrate/                 markdown source of truth for site content
+│   ├── consultations.md       consultation tier substrate
+│   ├── offerings.md           gift menu substrate
+│   └── _archived/             upgrade-path specs and historical substrate
+├── assets/
+│   └── css/
+├── .nojekyll                  GitHub Pages — skip Jekyll
+├── CNAME                      custom domain pointer
+└── .gitignore
+```
 
-Static HTML/CSS/JS site hosted on GitHub Pages. No build tools, no framework. Intentionally simple.
+## Deploy
 
-- `styles.css` — shared design system
-- `menu.js` — mobile hamburger navigation
-- `index.html` — landing page
-- Framework pages: proto-pattern, four-dynamics, four-thresholds, entry-point, architecture-of-exchange, holding-the-commons
-- Project pages: aquaponics greenhouse, mobile crane platform, deployable architecture, hex microclimate, one-acre oasis
-- Supporting: about, safety-documentation
+- **Host:** GitHub Pages
+- **Domain:** oursharedgifts.org (CNAME)
+- **Build:** static HTML; no build step
+- **Workflow:** edit locally → git commit → git push → live
 
-## Gift Economy
+## Stack (operational layer)
 
-Everything here propagates because it works, not because it's protected. Documentation, specifications, failures, adaptations — all shared freely. The value is in the demonstration, not the protection.
+- **Booking:** Cal.com (hosted, open-source, free booking — no Stripe integration)
+- **Donations:** Venmo, sliding scale, donor-controlled (engagement and exchange run on different channels by design)
+- **Analytics:** none
 
-Kevin Mears · 2026
+## License
+
+Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value.
+
+## Lineage
+
+- Architecture of Coherence v1.0 (April 2026) — canonical manuscript
+- Meta-Tetrahedron paper (May 2026) — operational lens

@@ -1,0 +1,331 @@
+/* OSG v4 — core.css
+ * Cycle 3: vertex-color palette aligned with Quick Diagnostic.
+ * One visual language across site and tools.
+ */
+
+:root {
+  --bg: #fafaf7;
+  --bg-soft: #f3f0e9;
+  --ink: #2c2c2c;
+  --muted: #5a5a5a;
+  --faint: #999;
+  --rule: #e4e2dd;
+  --rule-soft: #efedea;
+  --link: #2c2c2c;
+
+  /* Canonical vertex palette — carried forward from Quick Diagnostic */
+  --diff: #b06840;   /* Differentiation — terracotta · Library */
+  --conn: #3d7ab5;   /* Connection — blue · Public Face */
+  --bound: #558a3e;  /* Boundaries — green · Automation */
+  --arch: #a89030;   /* Architecture — gold · Toolkits */
+
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --max: 38rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  padding: 2rem 1.25rem 4rem;
+}
+
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--bg);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+header.nav {
+  max-width: var(--max);
+  margin: 0 auto 2.5rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 2;
+}
+header.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-right: 1rem;
+  display: inline-block;
+}
+header.nav a:hover,
+header.nav a:focus { color: var(--ink); }
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 1.05rem;
+  font-weight: normal;
+  margin: 2rem 0 0.5rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 1.5rem 0 0.25rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* vertex marker — small label preceding h1 on vertex pages */
+.vertex-marker {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+}
+.vertex-marker.diff { color: var(--diff); }
+.vertex-marker.conn { color: var(--conn); }
+.vertex-marker.bound { color: var(--bound); }
+.vertex-marker.arch { color: var(--arch); }
+
+/* pages get a vertex-tinted top rule */
+.page-rule {
+  height: 3px;
+  width: 4rem;
+  margin: 0 0 1.5rem;
+  background: var(--ink);
+}
+.page-rule.diff { background: var(--diff); }
+.page-rule.conn { background: var(--conn); }
+.page-rule.bound { background: var(--bound); }
+.page-rule.arch { background: var(--arch); }
+
+/* somatic invitation */
+.invitation {
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--rule);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 2rem 0;
+}
+
+/* scaffold notice */
+.scaffold {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 0;
+  margin: 2.5rem 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+
+/* edges-from-here block on vertex pages */
+.edges {
+  margin: 3rem 0 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.edges h2 {
+  margin-top: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+}
+.edges dl { margin: 0.5rem 0 0; }
+.edges dt {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 0.75rem;
+}
+.edges dt:first-of-type { margin-top: 0; }
+.edges dd {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* refusals — four shadow axes */
+.axis {
+  margin: 2.5rem 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.axis h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+.axis.connection h3 { color: var(--conn); }
+.axis.differentiation h3 { color: var(--diff); }
+.axis.architecture h3 { color: var(--arch); }
+.axis.boundaries h3 { color: var(--bound); }
+
+.axis .axis-frame {
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.axis table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.axis th, .axis td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.axis th {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+footer.site {
+  max-width: var(--max);
+  margin: 4rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+footer.site p { margin: 0.25rem 0; }
+footer.site nav { margin-bottom: 0.75rem; }
+footer.site nav a {
+  color: var(--muted);
+  margin-right: 0.75rem;
+  text-decoration: none;
+}
+footer.site nav a:hover,
+footer.site nav a:focus { color: var(--ink); }
+
+ul.bare {
+  list-style: none;
+  padding-left: 0;
+}
+ul.bare li {
+  margin-bottom: 0.5rem;
+}
+
+ul.framed { list-style: none; padding-left: 0; }
+ul.framed li {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+ul.framed em { display: block; margin-bottom: 0.2rem; }
+ul.framed .frame {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* engagement-shape cards on consult page */
+.engagement {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--bound);
+}
+.engagement h3 {
+  margin-top: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+}
+
+/* sliding-scale table on consult page */
+.band-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.band-table th, .band-table td {
+  text-align: left;
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.band-table th {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  border-bottom-color: var(--rule);
+}
+
+/* mobile */
+@media (max-width: 30rem) {
+  html { font-size: 16px; }
+  body { padding: 1.25rem 1rem 3rem; }
+  header.nav { margin-bottom: 1.5rem; }
+  header.nav a { margin-right: 0.75rem; }
+  h1 { font-size: 1.5rem; }
+  .axis table, .axis tbody, .axis tr, .axis td, .axis th {
+    display: block;
+  }
+  .axis th { padding-bottom: 0; }
+  .axis td { padding-top: 0.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .axis td:first-of-type { font-weight: bold; padding-top: 0.75rem; }
+  .band-table, .band-table tbody, .band-table tr, .band-table td, .band-table th {
+    display: block;
+  }
+  .band-table td { padding-top: 0.25rem; }
+}

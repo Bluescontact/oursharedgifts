@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="800" y="180" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="56" font-weight="400" letter-spacing="6"
+        fill="#e8dcc4">THE RECOGNITION THRESHOLD</text>
+
+  <!-- Left side label -->
+  <text x="380" y="430" text-anchor="middle"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="22" font-weight="300" letter-spacing="4"
+        fill="#9a8d76">THE SIDE YOU CROSS</text>
+
+  <!-- Threshold line -->
+  <line x1="200" y1="500" x2="1400" y2="500"
+        stroke="url(#line)" stroke-width="1.5"/>
+
+  <!-- Luminous threshold point -->
+  <circle cx="800" cy="500" r="80" fill="url(#glow)"/>
+  <circle cx="800" cy="500" r="6" fill="#f0c674"/>
+
+  <!-- Right side label -->
+  <text x="1220" y="570" text-anchor="middle"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="22" font-weight="300" letter-spacing="4"
+        fill="#9a8d76">THE SIDE ANOTHER CROSSES</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="780" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="22" font-style="italic" font-weight="300"
+        fill="#9a8d76">the form is portable; the ground is yours</text>
+</svg>

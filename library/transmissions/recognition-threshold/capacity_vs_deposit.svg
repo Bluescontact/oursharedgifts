@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="source" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="65%" stop-color="#d4af6a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="deposit" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="800" y="120" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="46" font-weight="400" letter-spacing="6"
+        fill="#e8dcc4">CAPACITY AND DEPOSIT</text>
+
+  <!-- Central source -->
+  <circle cx="800" cy="480" r="200" fill="url(#source)"/>
+  <circle cx="800" cy="480" r="12" fill="#fff4d6"/>
+
+  <!-- Label below the bloom -->
+  <text x="800" y="750" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="36" font-weight="400" letter-spacing="6"
+        fill="#e8dcc4">CAPACITY</text>
+  <text x="800" y="788" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-style="italic" font-size="20" letter-spacing="2"
+        fill="#9a8d76">the source · stays</text>
+
+  <!-- Emanation lines to deposits -->
+  <line x1="800" y1="480" x2="350" y2="250" stroke="#3a3a3a" stroke-width="0.8" stroke-opacity="0.55"/>
+  <line x1="800" y1="480" x2="1250" y2="250" stroke="#3a3a3a" stroke-width="0.8" stroke-opacity="0.55"/>
+  <line x1="800" y1="480" x2="280" y2="600" stroke="#3a3a3a" stroke-width="0.8" stroke-opacity="0.55"/>
+  <line x1="800" y1="480" x2="1320" y2="600" stroke="#3a3a3a" stroke-width="0.8" stroke-opacity="0.55"/>
+
+  <!-- Four deposits, fainter than source -->
+  <circle cx="350" cy="250" r="38" fill="url(#deposit)"/>
+  <circle cx="350" cy="250" r="4" fill="#d4af6a"/>
+  <text x="350" y="210" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-style="italic" font-size="18" letter-spacing="2"
+        fill="#9a8d76">deposit</text>
+
+  <circle cx="1250" cy="250" r="38" fill="url(#deposit)"/>
+  <circle cx="1250" cy="250" r="4" fill="#d4af6a"/>
+  <text x="1250" y="210" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-style="italic" font-size="18" letter-spacing="2"
+        fill="#9a8d76">deposit</text>
+
+  <circle cx="280" cy="600" r="38" fill="url(#deposit)"/>
+  <circle cx="280" cy="600" r="4" fill="#d4af6a"/>
+  <text x="280" y="655" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-style="italic" font-size="18" letter-spacing="2"
+        fill="#9a8d76">deposit · travels</text>
+
+  <circle cx="1320" cy="600" r="38" fill="url(#deposit)"/>
+  <circle cx="1320" cy="600" r="4" fill="#d4af6a"/>
+  <text x="1320" y="655" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-style="italic" font-size="18" letter-spacing="2"
+        fill="#9a8d76">deposit · travels</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="870" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="20" font-style="italic" font-weight="300"
+        fill="#7a6d56">the lens travels; the apparatus that built the lens stays where it was built</text>
+</svg>
