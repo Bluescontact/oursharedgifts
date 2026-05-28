@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="vglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#d4af6a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vglow_med" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#d4af6a" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vglow_sm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="80" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="40" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">FRACTAL RECURSION</text>
+
+  <text x="800" y="115" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="17" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">The form recurses at every scale · the ground does not</text>
+
+  <!-- Scale 1: Outer (meta-tetrahedron) -->
+  <g>
+    <line x1="800" y1="190" x2="320" y2="780" stroke="#d4af6a" stroke-width="1.8"/>
+    <line x1="800" y1="190" x2="1280" y2="780" stroke="#d4af6a" stroke-width="1.8"/>
+    <line x1="800" y1="190" x2="800" y2="640" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+    <line x1="320" y1="780" x2="1280" y2="780" stroke="#d4af6a" stroke-width="1.8"/>
+    <line x1="320" y1="780" x2="800" y2="640" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+    <line x1="1280" y1="780" x2="800" y2="640" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Scale 2 medium tetrahedra at vertices (apex) -->
+  <g transform="translate(800, 190)">
+    <line x1="0" y1="-50" x2="-50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="-50" y1="40" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="-50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <!-- Scale 3 tiny tetrahedra at vertices of medium -->
+    <g transform="translate(0, -50)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(-50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+  </g>
+  <circle cx="800" cy="190" r="64" fill="url(#vglow_med)"/>
+
+  <!-- Scale 2 medium tetrahedra at front-left vertex -->
+  <g transform="translate(320, 780)">
+    <line x1="0" y1="-50" x2="-50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="-50" y1="40" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="-50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <g transform="translate(0, -50)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(-50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+  </g>
+  <circle cx="320" cy="780" r="64" fill="url(#vglow_med)"/>
+
+  <!-- Scale 2 medium tetrahedra at front-right vertex -->
+  <g transform="translate(1280, 780)">
+    <line x1="0" y1="-50" x2="-50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="-50" y1="40" x2="50" y2="40" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-50" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="-50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <line x1="50" y1="40" x2="0" y2="15" stroke="#f0c674" stroke-width="0.9" stroke-opacity="0.5" stroke-dasharray="2,2"/>
+    <g transform="translate(0, -50)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(-50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+    <g transform="translate(50, 40)">
+      <circle r="14" fill="url(#vglow_sm)"/>
+      <line x1="0" y1="-10" x2="-10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="0" y1="-10" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke="#f0c674" stroke-width="0.6" stroke-opacity="0.7"/>
+    </g>
+  </g>
+  <circle cx="1280" cy="780" r="64" fill="url(#vglow_med)"/>
+
+  <!-- Scale 2 medium at rear -->
+  <g transform="translate(800, 640)">
+    <line x1="0" y1="-42" x2="-42" y2="32" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.7"/>
+    <line x1="0" y1="-42" x2="42" y2="32" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.7"/>
+    <line x1="-42" y1="32" x2="42" y2="32" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.7"/>
+  </g>
+  <circle cx="800" cy="640" r="50" fill="url(#vglow_med)"/>
+
+  <!-- Scale labels -->
+  <text x="1450" y="220" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#7a6f5e">scale 1</text>
+  <text x="1450" y="240" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" letter-spacing="2" fill="#7a6f5e">meta-form</text>
+
+  <text x="1450" y="500" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#7a6f5e">scale 2</text>
+  <text x="1450" y="520" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" letter-spacing="2" fill="#7a6f5e">sub-tetrahedra</text>
+
+  <text x="1450" y="700" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#7a6f5e">scale 3</text>
+  <text x="1450" y="720" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" letter-spacing="2" fill="#7a6f5e">sub-sub-tetrahedra</text>
+
+  <text x="800" y="858" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="16" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">The form is portable. The ground is each practitioner's own.</text>
+
+  <text x="800" y="886" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>

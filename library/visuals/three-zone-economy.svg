@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="gift_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="exchange_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.65"/>
+      <stop offset="60%" stop-color="#8a6f3f" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8a6f3f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="refusal_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5a4f3e" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3a3328" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="80" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="40" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">THREE-ZONE ECONOMY</text>
+
+  <text x="800" y="115" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="17" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">Three economic zones · each operates distinctly</text>
+
+  <!-- GIFT zone (top) -->
+  <circle cx="800" cy="300" r="160" fill="url(#gift_glow)"/>
+  <circle cx="800" cy="300" r="120" fill="none" stroke="#f0c674" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="800" y="280" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="36" letter-spacing="6" fill="#e8dcc4">GIFT</text>
+  <text x="800" y="310" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" letter-spacing="2" fill="#9a8d76">free circulation · no ledger</text>
+  <text x="800" y="335" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" letter-spacing="2" fill="#9a8d76">relational fabric · ungated</text>
+
+  <!-- EXCHANGE zone (bottom-right) -->
+  <circle cx="1140" cy="640" r="140" fill="url(#exchange_glow)"/>
+  <circle cx="1140" cy="640" r="100" fill="none" stroke="#d4af6a" stroke-width="1.3" stroke-opacity="0.55" stroke-dasharray="6,4"/>
+  <text x="1140" y="620" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" letter-spacing="6" fill="#e8dcc4">EXCHANGE</text>
+  <text x="1140" y="650" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">market transactions</text>
+  <text x="1140" y="673" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">ledger-tracked</text>
+
+  <!-- REFUSAL zone (bottom-left) -->
+  <circle cx="460" cy="640" r="140" fill="url(#refusal_glow)"/>
+  <circle cx="460" cy="640" r="100" fill="none" stroke="#5a4f3e" stroke-width="1.3" stroke-opacity="0.7" stroke-dasharray="3,3"/>
+  <text x="460" y="620" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="32" letter-spacing="6" fill="#9a8d76">REFUSAL</text>
+  <text x="460" y="650" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#7a6f5e">no transaction · no circulation</text>
+  <text x="460" y="673" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#7a6f5e">structural absence</text>
+
+  <!-- Boundary suggestions between zones -->
+  <line x1="710" y1="430" x2="540" y2="540" stroke="#d4af6a" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+  <line x1="890" y1="430" x2="1060" y2="540" stroke="#d4af6a" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+  <line x1="600" y1="640" x2="1000" y2="640" stroke="#d4af6a" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+
+  <text x="800" y="820" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="15" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">Each zone operates legitimately. Collapsing them into one</text>
+
+  <text x="800" y="846" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="15" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">— usually exchange-as-default — is the civilizational failure mode.</text>
+
+  <text x="800" y="884" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>

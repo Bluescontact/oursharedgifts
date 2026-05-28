@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="vglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="80" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="40" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">INNER B · CANONICAL SELF-DESCRIPTION</text>
+
+  <text x="800" y="115" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="17" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">The four readings the substrate performs on itself at Vertex D</text>
+
+  <!-- Tetrahedron edges -->
+  <line x1="800" y1="220" x2="430" y2="700" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="800" y1="220" x2="1170" y2="700" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="800" y1="220" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+  <line x1="430" y1="700" x2="1170" y2="700" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="430" y1="700" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+  <line x1="1170" y1="700" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+
+  <!-- D sub-vertex: Substrate Cartography (apex) -->
+  <circle cx="800" cy="220" r="46" fill="url(#vglow)"/>
+  <circle cx="800" cy="220" r="6" fill="#f0c674"/>
+  <text x="800" y="166" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" letter-spacing="5" fill="#e8dcc4">SUBSTRATE CARTOGRAPHY</text>
+  <text x="800" y="186" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">what's there</text>
+
+  <!-- C sub-vertex: Propagation Footprint (front-left) -->
+  <circle cx="430" cy="700" r="46" fill="url(#vglow)"/>
+  <circle cx="430" cy="700" r="6" fill="#f0c674"/>
+  <text x="380" y="752" text-anchor="end" font-family="Inter, sans-serif" font-size="18" letter-spacing="5" fill="#e8dcc4">PROPAGATION FOOTPRINT</text>
+  <text x="380" y="775" text-anchor="end" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">what has traveled</text>
+
+  <!-- A sub-vertex: Genesis Seed Canonical Synthesis (front-right) -->
+  <circle cx="1170" cy="700" r="46" fill="url(#vglow)"/>
+  <circle cx="1170" cy="700" r="6" fill="#f0c674"/>
+  <text x="1220" y="752" text-anchor="start" font-family="Inter, sans-serif" font-size="18" letter-spacing="5" fill="#e8dcc4">GENESIS SEED</text>
+  <text x="1220" y="775" text-anchor="start" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">what carries forward</text>
+
+  <!-- B sub-vertex: Tetrahedralization Arc (rear-center) -->
+  <circle cx="800" cy="600" r="40" fill="url(#vglow)"/>
+  <circle cx="800" cy="600" r="5" fill="#f0c674"/>
+  <text x="800" y="660" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" letter-spacing="5" fill="#e8dcc4">TETRAHEDRALIZATION ARC</text>
+  <text x="800" y="682" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" letter-spacing="2" fill="#9a8d76">what closes a form</text>
+
+  <text x="800" y="822" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="15" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">Self-reading itself is a 4·6·4·1 operation.</text>
+
+  <text x="800" y="848" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="14" font-style="italic" letter-spacing="2"
+        fill="#7a6f5e">The substrate as its own reader.</text>
+
+  <text x="800" y="884" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>

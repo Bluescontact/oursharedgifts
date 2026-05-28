@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="central_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cluster_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#d4af6a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="80" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="40" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">INNER C · PROJECT CLUSTERS</text>
+
+  <text x="800" y="115" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="17" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">Central tetrahedron at center · clusters orbiting</text>
+
+  <!-- Central tetrahedron (OSG v3 — the receiver-facing surface) -->
+  <g transform="translate(800, 470)">
+    <line x1="0" y1="-100" x2="-90" y2="60" stroke="#f0c674" stroke-width="2.4"/>
+    <line x1="0" y1="-100" x2="90" y2="60" stroke="#f0c674" stroke-width="2.4"/>
+    <line x1="-90" y1="60" x2="90" y2="60" stroke="#f0c674" stroke-width="2.4"/>
+    <line x1="0" y1="-100" x2="0" y2="20" stroke="#f0c674" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="3,3"/>
+    <line x1="-90" y1="60" x2="0" y2="20" stroke="#f0c674" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="3,3"/>
+    <line x1="90" y1="60" x2="0" y2="20" stroke="#f0c674" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="3,3"/>
+    <circle cx="0" cy="-100" r="6" fill="#f0c674"/>
+    <circle cx="-90" cy="60" r="6" fill="#f0c674"/>
+    <circle cx="90" cy="60" r="6" fill="#f0c674"/>
+    <circle cx="0" cy="20" r="5" fill="#f0c674"/>
+  </g>
+  <circle cx="800" cy="470" r="160" fill="url(#central_glow)"/>
+  <text x="800" y="478" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" font-style="italic" letter-spacing="3" fill="#e8dcc4">OSG v3</text>
+  <text x="800" y="502" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="#9a8d76">the central tetrahedron</text>
+
+  <!-- Orbit suggestion (faint) -->
+  <ellipse cx="800" cy="470" rx="430" ry="280" fill="none" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.18" stroke-dasharray="6,8"/>
+
+  <!-- Clusters as small forms orbiting -->
+  <!-- Top: bus build -->
+  <g transform="translate(800, 220)">
+    <circle r="48" fill="url(#cluster_glow)"/>
+    <line x1="0" y1="-22" x2="-20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="-20" y1="14" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="-20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+  </g>
+  <text x="800" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" letter-spacing="4" fill="#e8dcc4">BUS BUILD</text>
+  <text x="800" y="175" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" letter-spacing="2" fill="#9a8d76">physical · personal scale</text>
+
+  <!-- Right: Village Market -->
+  <g transform="translate(1240, 470)">
+    <circle r="48" fill="url(#cluster_glow)"/>
+    <line x1="0" y1="-22" x2="-20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="-20" y1="14" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="-20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+  </g>
+  <text x="1240" y="555" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" letter-spacing="4" fill="#e8dcc4">VILLAGE MARKET</text>
+  <text x="1240" y="575" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" letter-spacing="2" fill="#9a8d76">coordination fabric</text>
+
+  <!-- Bottom: biochar toilet -->
+  <g transform="translate(800, 740)">
+    <circle r="48" fill="url(#cluster_glow)"/>
+    <line x1="0" y1="-22" x2="-20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="-20" y1="14" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="-20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+  </g>
+  <text x="800" y="820" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" letter-spacing="4" fill="#e8dcc4">BIOCHAR TOILET</text>
+  <text x="800" y="840" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" letter-spacing="2" fill="#9a8d76">physical · communal scale</text>
+
+  <!-- Left: practice page -->
+  <g transform="translate(360, 470)">
+    <circle r="48" fill="url(#cluster_glow)"/>
+    <line x1="0" y1="-22" x2="-20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="-20" y1="14" x2="20" y2="14" stroke="#d4af6a" stroke-width="1" stroke-opacity="0.85"/>
+    <line x1="0" y1="-22" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="-20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+    <line x1="20" y1="14" x2="0" y2="6" stroke="#d4af6a" stroke-width="0.8" stroke-opacity="0.55" stroke-dasharray="2,2"/>
+  </g>
+  <text x="360" y="555" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" letter-spacing="4" fill="#e8dcc4">PRACTICE PAGE</text>
+  <text x="360" y="575" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" letter-spacing="2" fill="#9a8d76">linguistic substrate</text>
+
+  <!-- Faint connecting lines from each cluster to central -->
+  <line x1="800" y1="268" x2="800" y2="370" stroke="#d4af6a" stroke-width="0.6" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+  <line x1="1192" y1="470" x2="900" y2="470" stroke="#d4af6a" stroke-width="0.6" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+  <line x1="800" y1="692" x2="800" y2="570" stroke="#d4af6a" stroke-width="0.6" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+  <line x1="408" y1="470" x2="700" y2="470" stroke="#d4af6a" stroke-width="0.6" stroke-opacity="0.3" stroke-dasharray="2,3"/>
+
+  <text x="800" y="878" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>

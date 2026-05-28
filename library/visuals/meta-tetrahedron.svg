@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="center_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="0.7"/>
+      <stop offset="40%" stop-color="#f0c674" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sub_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#d4af6a" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="105" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="44" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">META-TETRAHEDRON</text>
+
+  <!-- Main tetrahedron edges -->
+  <line x1="800" y1="220" x2="480" y2="720" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="800" y1="220" x2="1120" y2="720" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="800" y1="220" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+  <line x1="480" y1="720" x2="1120" y2="720" stroke="#d4af6a" stroke-width="1.8"/>
+  <line x1="480" y1="720" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+  <line x1="1120" y1="720" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.55" stroke-dasharray="3,3"/>
+
+  <!-- Held-empty center (the 1 / somatic ground) -->
+  <circle cx="800" cy="510" r="55" fill="url(#center_glow)"/>
+  <text x="800" y="516" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif"
+        font-size="20" font-style="italic" letter-spacing="3" fill="#9a8d76">1</text>
+  <text x="800" y="540" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="10" letter-spacing="3" fill="#7a6f5e">somatic ground</text>
+
+  <!-- APEX: Vertex A · Substrate Discipline -->
+  <circle cx="800" cy="220" r="48" fill="url(#sub_glow)"/>
+  <!-- Sub-tetrahedron silhouette at A -->
+  <g stroke="#d4af6a" stroke-width="0.8" fill="none" stroke-opacity="0.75">
+    <line x1="800" y1="200" x2="780" y2="240"/>
+    <line x1="800" y1="200" x2="820" y2="240"/>
+    <line x1="780" y1="240" x2="820" y2="240"/>
+    <line x1="800" y1="200" x2="800" y2="228"/>
+    <line x1="780" y1="240" x2="800" y2="228"/>
+    <line x1="820" y1="240" x2="800" y2="228"/>
+  </g>
+  <circle cx="800" cy="220" r="3" fill="#f0c674"/>
+  <text x="800" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" letter-spacing="6" fill="#e8dcc4">A</text>
+  <text x="800" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#9a8d76">Substrate Discipline</text>
+
+  <!-- BASE LEFT: Vertex D · Canonical Self-Description -->
+  <circle cx="480" cy="720" r="48" fill="url(#sub_glow)"/>
+  <g stroke="#d4af6a" stroke-width="0.8" fill="none" stroke-opacity="0.75">
+    <line x1="480" y1="700" x2="460" y2="740"/>
+    <line x1="480" y1="700" x2="500" y2="740"/>
+    <line x1="460" y1="740" x2="500" y2="740"/>
+    <line x1="480" y1="700" x2="480" y2="728"/>
+    <line x1="460" y1="740" x2="480" y2="728"/>
+    <line x1="500" y1="740" x2="480" y2="728"/>
+  </g>
+  <circle cx="480" cy="720" r="3" fill="#f0c674"/>
+  <text x="420" y="780" text-anchor="end" font-family="Inter, sans-serif" font-size="22" letter-spacing="6" fill="#e8dcc4">D</text>
+  <text x="420" y="805" text-anchor="end" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#9a8d76">Canonical Self-Description</text>
+
+  <!-- BASE RIGHT: Vertex C · Project Clusters -->
+  <circle cx="1120" cy="720" r="48" fill="url(#sub_glow)"/>
+  <g stroke="#d4af6a" stroke-width="0.8" fill="none" stroke-opacity="0.75">
+    <line x1="1120" y1="700" x2="1100" y2="740"/>
+    <line x1="1120" y1="700" x2="1140" y2="740"/>
+    <line x1="1100" y1="740" x2="1140" y2="740"/>
+    <line x1="1120" y1="700" x2="1120" y2="728"/>
+    <line x1="1100" y1="740" x2="1120" y2="728"/>
+    <line x1="1140" y1="740" x2="1120" y2="728"/>
+  </g>
+  <circle cx="1120" cy="720" r="3" fill="#f0c674"/>
+  <text x="1180" y="780" text-anchor="start" font-family="Inter, sans-serif" font-size="22" letter-spacing="6" fill="#e8dcc4">C</text>
+  <text x="1180" y="805" text-anchor="start" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#9a8d76">Project Clusters + Central</text>
+
+  <!-- BASE REAR: Vertex B · Outer Membrane -->
+  <circle cx="800" cy="600" r="42" fill="url(#sub_glow)"/>
+  <g stroke="#d4af6a" stroke-width="0.8" fill="none" stroke-opacity="0.75">
+    <line x1="800" y1="582" x2="782" y2="618"/>
+    <line x1="800" y1="582" x2="818" y2="618"/>
+    <line x1="782" y1="618" x2="818" y2="618"/>
+    <line x1="800" y1="582" x2="800" y2="608"/>
+    <line x1="782" y1="618" x2="800" y2="608"/>
+    <line x1="818" y1="618" x2="800" y2="608"/>
+  </g>
+  <circle cx="800" cy="600" r="3" fill="#f0c674"/>
+  <text x="800" y="660" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" letter-spacing="6" fill="#e8dcc4">B</text>
+  <text x="800" y="682" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#9a8d76">Outer Membrane</text>
+
+  <text x="800" y="850" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="20" font-style="italic" font-weight="300"
+        fill="#9a8d76">Four sub-tetrahedra at the four meta-vertices. The center is held empty.</text>
+
+  <text x="800" y="882" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>

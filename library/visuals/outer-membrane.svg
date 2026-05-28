@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="inner_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#d4af6a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="facet_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#d4af6a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="800" y="95" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="42" font-weight="400" letter-spacing="5"
+        fill="#e8dcc4">OUTER MEMBRANE</text>
+
+  <text x="800" y="132" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="18" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">Four facets · fractal at facet scale</text>
+
+  <!-- Inner content suggestion (faint form being bounded) -->
+  <circle cx="800" cy="490" r="160" fill="url(#inner_glow)"/>
+  <text x="800" y="496" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" letter-spacing="2" fill="#7a6f5e">what is held</text>
+
+  <!-- Membrane ring (four arcs) -->
+  <!-- Top arc: EDGES (space) -->
+  <path d="M 530 280 A 280 280 0 0 1 1070 280" stroke="#d4af6a" stroke-width="2.5" fill="none"/>
+  <circle cx="800" cy="222" r="50" fill="url(#facet_glow)"/>
+  <text x="800" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" letter-spacing="6" fill="#e8dcc4">EDGES</text>
+  <text x="800" y="245" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" letter-spacing="2" fill="#9a8d76">where form ends in space</text>
+
+  <!-- Right arc: BOUNDS (time) -->
+  <path d="M 1070 280 A 280 280 0 0 1 1070 700" stroke="#d4af6a" stroke-width="2.5" fill="none"/>
+  <circle cx="1118" cy="490" r="50" fill="url(#facet_glow)"/>
+  <text x="1118" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" letter-spacing="6" fill="#e8dcc4">BOUNDS</text>
+  <text x="1118" y="500" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" letter-spacing="2" fill="#9a8d76">where form ends</text>
+  <text x="1118" y="515" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" letter-spacing="2" fill="#9a8d76">in time</text>
+
+  <!-- Bottom arc: LIMITATIONS (capacity) -->
+  <path d="M 1070 700 A 280 280 0 0 1 530 700" stroke="#d4af6a" stroke-width="2.5" fill="none"/>
+  <circle cx="800" cy="758" r="50" fill="url(#facet_glow)"/>
+  <text x="800" y="752" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" letter-spacing="6" fill="#e8dcc4">LIMITATIONS</text>
+  <text x="800" y="775" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" letter-spacing="2" fill="#9a8d76">what form cannot do</text>
+
+  <!-- Left arc: CONSTRAINTS (refusals) -->
+  <path d="M 530 700 A 280 280 0 0 1 530 280" stroke="#d4af6a" stroke-width="2.5" fill="none"/>
+  <circle cx="482" cy="490" r="50" fill="url(#facet_glow)"/>
+  <text x="482" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" letter-spacing="6" fill="#e8dcc4">CONSTRAINTS</text>
+  <text x="482" y="500" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" letter-spacing="2" fill="#9a8d76">what form refuses</text>
+  <text x="482" y="515" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" font-style="italic" letter-spacing="2" fill="#9a8d76">to do</text>
+
+  <!-- Bright junction points where arcs meet -->
+  <circle cx="530" cy="280" r="4" fill="#f0c674"/>
+  <circle cx="1070" cy="280" r="4" fill="#f0c674"/>
+  <circle cx="1070" cy="700" r="4" fill="#f0c674"/>
+  <circle cx="530" cy="700" r="4" fill="#f0c674"/>
+
+  <text x="800" y="858" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="15" font-style="italic" letter-spacing="2"
+        fill="#9a8d76">The four facets recur at every facet scale (Pattern #086).</text>
+
+  <text x="800" y="884" text-anchor="middle"
+        font-family="Inter, sans-serif"
+        font-size="11" letter-spacing="8" fill="#7a6f5e">4  ·  6  ·  4  ·  1</text>
+</svg>
