@@ -1,0 +1,17 @@
+# netlify.toml — oursharedgifts-deploy
+#
+# Minimal config for the village-market build. Static site (default) plus
+# the market-submit Function. Auto-detected from netlify/functions/.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect /village-market-protocol → the rendered HTML
+[[redirects]]
+  from = "/village-market-protocol"
+  to = "/village-market-protocol.html"
+  status = 301

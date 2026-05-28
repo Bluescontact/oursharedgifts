@@ -312,6 +312,39 @@ ul.framed .frame {
 }
 
 /* mobile */
+/* Page-tail cross-link bar — discreet trust-substrate cross-link
+   that sits above the site footer on action-surfaces. Per cycle 83
+   receiver-face canonical synthesis: every action-surface should
+   cross-link to its trust anchors (refusals + the body of work + the
+   related action-surface) so the bio-as-substrate principle operates
+   architecturally rather than only conceptually. */
+.page-tail {
+  margin: 3rem 0 2rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  line-height: 1.8;
+}
+.page-tail a {
+  color: var(--faint);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-soft);
+  padding-bottom: 0.1rem;
+  margin: 0;
+}
+.page-tail a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.page-tail .sep {
+  margin: 0 0.6rem;
+  color: var(--rule-soft);
+}
+
 @media (max-width: 30rem) {
   html { font-size: 16px; }
   body { padding: 1.25rem 1rem 3rem; }
@@ -328,4 +361,14 @@ ul.framed .frame {
     display: block;
   }
   .band-table td { padding-top: 0.25rem; }
+  .page-tail {
+    line-height: 2.2;
+  }
+  .page-tail .sep {
+    display: none;
+  }
+  .page-tail a {
+    display: inline-block;
+    margin-right: 0.75rem;
+  }
 }

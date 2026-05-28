@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Post to the Village Market — Our Shared Gifts</title>
+<link rel="stylesheet" href="assets/css/core.css">
+<style>
+  .form-intro {
+    margin: 1rem 0 2rem;
+  }
+  form.market-form {
+    margin: 1.5rem 0 3rem;
+  }
+  form.market-form fieldset {
+    border: 1px solid var(--rule-soft);
+    padding: 1.25rem 1.5rem 1rem;
+    margin: 0 0 1.5rem;
+  }
+  form.market-form fieldset.ask-fs {
+    border-left: 3px solid var(--conn);
+  }
+  form.market-form fieldset.offer-fs {
+    border-left: 3px solid var(--arch);
+  }
+  form.market-form legend {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    padding: 0 0.5rem;
+  }
+  form.market-form fieldset.ask-fs legend { color: var(--conn); }
+  form.market-form fieldset.offer-fs legend { color: var(--arch); }
+  form.market-form label {
+    display: block;
+    margin: 0.85rem 0 0.3rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+  }
+  form.market-form input[type="text"],
+  form.market-form input[type="email"],
+  form.market-form input[type="number"],
+  form.market-form select,
+  form.market-form textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    font-family: var(--serif);
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    box-sizing: border-box;
+  }
+  form.market-form textarea {
+    min-height: 5rem;
+    resize: vertical;
+  }
+  form.market-form .hint {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin: 0.3rem 0 0;
+  }
+  form.market-form button[type="submit"] {
+    padding: 0.7rem 1.5rem;
+    background: var(--conn);
+    color: var(--bg);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    cursor: pointer;
+  }
+  form.market-form button[type="submit"]:hover { opacity: 0.9; }
+  form.market-form button[type="submit"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  form.market-form .honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .form-status {
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--conn);
+    background: var(--bg-soft);
+    font-family: var(--serif);
+    font-size: 1rem;
+  }
+  .form-status.ok { border-color: var(--bound); }
+  .form-status.err { border-color: var(--diff); }
+  .form-status.hidden { display: none; }
+  .claim-banner {
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0 0;
+    border: 1px solid var(--conn);
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .claim-banner strong { font-weight: normal; color: var(--conn); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/village-market.html">Market</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker conn">Connection · Village Market · Post</span>
+  <h1>Post to the Village Market</h1>
+  <div class="page-rule conn"></div>
+  <p class="subtitle">Every submission carries both — an ask and an offer. Records live on the map for 72 hours.</p>
+
+  <div id="claim-banner-container"></div>
+
+  <div class="form-intro" id="submit-intro">
+    <p>The market only works when everyone brings both sides. Tell us what you need this week, and what you can give. Either side can be small. Either side might get claimed; both might; neither might. You decide who fits, and either of you can decline cleanly.</p>
+    <p>Your zip code and what you wrote are public on the map. Your first name is public only if you provide one. Your contact information is held privately and revealed only to the person who claims your ask or offer. Both records expire 72 hours after posting; you can re-up via the link in your confirmation email.</p>
+  </div>
+
+  <div id="form-status" class="form-status hidden"></div>
+
+  <form class="market-form" id="market-form">
+    <fieldset>
+      <legend>About you</legend>
+
+      <label for="first_name">First name (optional)</label>
+      <input type="text" id="first_name" name="first_name" maxlength="40" placeholder="leave blank if you'd rather not">
+      <p class="hint">If you fill this in, your first name appears on the public map alongside your records. Use just your first name, a nickname, or leave it blank. The map can be screenshotted; Git history retains posts.</p>
+
+      <label for="zip">Zip code</label>
+      <input type="text" id="zip" name="zip" required pattern="[0-9]{5}" maxlength="5" placeholder="95945">
+      <p class="hint">Five digits. Shown publicly. Pins land at zip-code center, not your address.</p>
+
+      <label for="radius_acceptable">How far this can reach (miles)</label>
+      <input type="number" id="radius_acceptable" name="radius_acceptable" min="0" max="100" value="20" required>
+      <p class="hint">How far you'd travel to give or receive — applies to both your ask and your offer.</p>
+
+      <label for="contact">Contact (private)</label>
+      <input type="text" id="contact" name="contact" required placeholder="email or phone">
+      <p class="hint">Held privately. Revealed only to the matched party when someone claims one of your records.</p>
+    </fieldset>
+
+    <fieldset class="ask-fs">
+      <legend>What you need (Ask)</legend>
+
+      <label for="ask_shape">Shape</label>
+      <input type="text" id="ask_shape" name="ask_shape" required maxlength="60" placeholder="e.g., meal, ride, listening, handyperson, company">
+
+      <label for="ask_time_window">When</label>
+      <input type="text" id="ask_time_window" name="ask_time_window" placeholder="e.g., Friday afternoon · this week · ongoing">
+
+      <label for="ask_body">What you're asking for</label>
+      <textarea id="ask_body" name="ask_body" required maxlength="600" placeholder="What you need, in plain language. A few sentences."></textarea>
+      <p class="hint">Up to 600 characters. Avoid details that would identify you (street, distinctive landmarks, full name). Let what you write be what you'd say to a stranger on the phone.</p>
+    </fieldset>
+
+    <fieldset class="offer-fs">
+      <legend>What you can give (Offer)</legend>
+
+      <label for="offer_shape">Shape</label>
+      <input type="text" id="offer_shape" name="offer_shape" required maxlength="60" placeholder="e.g., baked goods, listening, ride, garden help, sourdough starter">
+
+      <label for="offer_time_window">When</label>
+      <input type="text" id="offer_time_window" name="offer_time_window" placeholder="e.g., Saturday mornings · by appointment · anytime">
+
+      <label for="offer_body">What you're offering</label>
+      <textarea id="offer_body" name="offer_body" required maxlength="600" placeholder="What you can give. Small is fine. Time, food, skill, presence, something you grew, something you'd otherwise throw away."></textarea>
+      <p class="hint">Up to 600 characters. The offer doesn't need to "match" your ask in any way. What's easy for you to give is what counts.</p>
+    </fieldset>
+
+    <div class="honey" aria-hidden="true">
+      <label>If you are human, leave this empty: <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <button type="submit" id="submit-btn">Post ask + offer</button>
+  </form>
+
+  <h2>What happens after you submit</h2>
+  <ol>
+    <li>Both records appear on the map at your zip's center within a few minutes (after the site rebuilds).</li>
+    <li>You get a confirmation email with a link to manage your submission (withdraw either record, re-up the expiry, view status).</li>
+    <li>When someone claims one of your records, you get a notification with their contact info; they get yours.</li>
+    <li>Either of you can decline cleanly. No ratings, no records of refusals.</li>
+    <li>Records expire 72 hours after posting unless you re-up. Withdraw any time via your management link.</li>
+  </ol>
+
+  <p>If you want to take a record down before someone claims it, use your management link. If you've lost it, contact via <a href="/request.html">the request page</a>.</p>
+
+  <nav class="page-tail" aria-label="Related pages">
+    <a href="/refusals.html">What this refuses</a>
+    <span class="sep">·</span>
+    <a href="/village-market-protocol.html">The protocol</a>
+    <span class="sep">·</span>
+    <a href="/village-market.html">Back to the map</a>
+  </nav>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/village-market.html">Market</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  const form = document.getElementById('market-form');
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+  const claimContainer = document.getElementById('claim-banner-container');
+  const submitIntro = document.getElementById('submit-intro');
+
+  function showStatus(message, kind) {
+    status.textContent = message;
+    status.className = 'form-status ' + kind;
+  }
+
+  // Claim mode — if URL has ?claim=<record_id>, switch to claim flow
+  const params = new URLSearchParams(window.location.search);
+  const claimId = params.get('claim');
+  if (claimId) {
+    claimContainer.innerHTML =
+      '<div class="claim-banner">Claiming record <strong>' +
+      claimId.replace(/[<>&"']/g, '') +
+      '</strong>. Fill in your contact info below; the other party will receive yours, and you\'ll receive theirs.</div>';
+    // Claim mode — hide everything except contact field; collapse all fieldsets except About-you
+    submitIntro.style.display = 'none';
+    document.querySelectorAll('fieldset').forEach(function (fs, idx) {
+      if (idx === 0) {
+        // keep "About you" only for the contact field; hide other fields in it
+        fs.querySelectorAll('label, input, .hint').forEach(function (el) {
+          if (el.getAttribute && (el.getAttribute('for') === 'contact' || el.id === 'contact')) return;
+          if (el.classList && el.classList.contains('hint')) {
+            // hide hints adjacent to non-contact fields
+            const prev = el.previousElementSibling;
+            if (prev && prev.id && prev.id !== 'contact') el.style.display = 'none';
+          } else if (el.tagName === 'LABEL' && el.getAttribute('for') !== 'contact') {
+            el.style.display = 'none';
+          } else if (el.tagName === 'INPUT' && el.id !== 'contact') {
+            el.style.display = 'none';
+          }
+        });
+      } else {
+        fs.style.display = 'none';
+      }
+    });
+    submitBtn.textContent = 'Claim this record';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.querySelector('input[name="company"]').value.trim() !== '') return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    const data = {};
+    new FormData(form).forEach(function (value, key) {
+      if (key !== 'company') data[key] = value;
+    });
+
+    if (claimId) {
+      data.claim_record_id = claimId;
+      data.action = 'claim';
+    } else {
+      data.action = 'submit';
+    }
+
+    fetch('/.netlify/functions/market-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function (r) {
+      return r.json().then(function (body) { return { ok: r.ok, body: body }; });
+    })
+    .then(function (result) {
+      if (result.ok) {
+        const msg = claimId
+          ? 'Claim received. The other party will reach out via the contact you provided. Their contact info has been sent to your email.'
+          : 'Posted. Your ask and offer will appear on the map within a few minutes. A management link is on its way to your email.';
+        showStatus(msg, 'ok');
+        form.style.display = 'none';
+      } else {
+        showStatus(result.body.error || 'Something went wrong. Try again or reach out via the request page.', 'err');
+        submitBtn.disabled = false;
+        submitBtn.textContent = claimId ? 'Claim this record' : 'Post ask + offer';
+      }
+    })
+    .catch(function () {
+      showStatus('Could not reach the server. The intake function may not yet be deployed. Try again later.', 'err');
+      submitBtn.disabled = false;
+      submitBtn.textContent = claimId ? 'Claim this record' : 'Post ask + offer';
+    });
+  });
+})();
+</script>
+</body>
+</html>

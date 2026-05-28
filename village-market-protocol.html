@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Village Market Protocol — Our Shared Gifts</title>
+<link rel="stylesheet" href="assets/css/core.css">
+<style>
+  .protocol main p,
+  .protocol main li {
+    max-width: 38rem;
+  }
+  .protocol h2 {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+  }
+  .protocol h3 {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+  }
+  .protocol .lead {
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-style: italic;
+    margin: 1rem 0 2rem;
+  }
+  .protocol .refusal-list,
+  .protocol .discipline-list {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .protocol .refusal-list li,
+  .protocol .discipline-list li {
+    padding: 0.7rem 0 0.7rem 1.2rem;
+    border-bottom: 1px solid var(--rule-soft);
+    position: relative;
+  }
+  .protocol .refusal-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--diff);
+    font-weight: bold;
+  }
+  .protocol .discipline-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--bound);
+    font-weight: bold;
+  }
+  .protocol .item-name {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .protocol .closing {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule-soft);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body class="protocol">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/village-market.html">Market</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker conn">Connection · Village Market Protocol</span>
+  <h1>Village Market Protocol</h1>
+  <div class="page-rule conn"></div>
+  <p class="subtitle">A local coordination fabric for asks and offers. One practitioner at a time, from wherever they are.</p>
+
+  <p class="lead">A protocol — not a platform.</p>
+
+  <p>If you are a practitioner who can hold a radius from your location, this document is what you need to do that. The data shape, the refusals, and the discipline are named below. The infrastructure that runs it is portable. Kevin holds his radius; you can hold yours.</p>
+
+  <p>The fabric is the center. Each practitioner is one node in it.</p>
+
+  <h2>The shape</h2>
+
+  <p>Every submission carries both an ask and an offer. Two records, one submitter, two shapes — both anonymized at zip-code resolution. Both are records, not people. No profile. No history.</p>
+
+  <p>The both-shapes requirement is protocol-level, not an instance choice. The reason is sustainability, not symmetry. A person who only gives burns out. A person who only takes loses the practice of giving. Each participant needs both shapes; the fabric only stays durable when each person carries both. Naming your ask is itself a practice. So is naming your offer. The discipline of finding both is part of what the protocol gives back to the person who uses it.</p>
+
+  <h3>The ask</h3>
+  <p>What you need. Cleaning. Organizing. Building. A meal. Space for an afternoon. A ride. Company. A skill you don't have. Anything one human can give another. The ask names what is needed, where (zip), when, and how to be reached when claimed.</p>
+
+  <h3>The offer</h3>
+  <p>What you have to give. Same shape as the ask. What is offered, where, when, how to be reached when claimed.</p>
+
+  <h2>The radius</h2>
+
+  <p>A radius bounded by what the practitioner can hold. Centered on the practitioner's location, traveling with them if their location moves.</p>
+
+  <p>If you live in a fixed place, the radius is a circle around your address. If your location moves, the radius moves with it; the current location surfaces on a <a href="/current.html">/current page</a> and the radius follows.</p>
+
+  <p>The radius is the geographic membrane. Inside it: you are available to claim asks, post offers, witness the local fabric. Outside it: another practitioner holds another radius, or the area is uncovered. There is no global view. There is no everywhere.</p>
+
+  <p>The specific number of miles is each practitioner's own — bounded by terrain, capacity, density of the local fabric, and the practitioner's own body. See <a href="#kevins-instance">Kevin's instance choices</a> for the number Kevin holds.</p>
+
+  <h2>What is refused</h2>
+
+  <p>The protocol's load-bearing refusals. Any infrastructure that holds this protocol enforces them.</p>
+
+  <ul class="refusal-list">
+    <li><span class="item-name">No profiles</span>Hosts post offers, not selves. Askers post asks, not selves. The unit of trust is the record, not the user.</li>
+    <li><span class="item-name">No reputation systems</span>No ratings, no reviews, no "trusted host" badges, no scores. A practitioner who behaves badly can be refused on next contact; that does not produce a permanent record of their behavior on the platform.</li>
+    <li><span class="item-name">No verification tiers</span>No "verified host," no "completed onboarding," no premium status. Everyone in the radius can post and claim.</li>
+    <li><span class="item-name">No matching-as-recommendation</span>The map shows asks and offers. Readers do their own matching. No algorithmic suggestion. No "you might like."</li>
+    <li><span class="item-name">No reputation-as-data</span>Claim history is not aggregated, displayed, or sold. The fact that you claimed an ask three months ago is not part of the public surface.</li>
+    <li><span class="item-name">No platform-take</span>If money moves between two people meeting through the map, it moves off-platform. The infrastructure does not process payments.</li>
+    <li><span class="item-name">No engagement optimization</span>No notifications designed to bring you back. No streaks. No "you have 3 unread asks." The infrastructure is silent unless you check it.</li>
+    <li><span class="item-name">No global aggregation</span>Each radius is local. The protocol does not aggregate across radii into a national or global view. Practitioners can talk to each other; their infrastructures don't merge.</li>
+  </ul>
+
+  <h2>The discipline</h2>
+
+  <ul class="discipline-list">
+    <li><span class="item-name">24-hour minimum notice on any claim</span>When you claim an ask or someone claims your offer, the meeting is at least 24 hours out. The body needs time to discriminate.</li>
+    <li><span class="item-name">Clean refusal is always available</span>Either side can withdraw a claim with no penalty, no rating impact, no friction. The clean no is what makes the yes carry weight.</li>
+    <li><span class="item-name">The body discriminates</span>No algorithm decides who is a good match. You read the ask or offer; you check your own body; you claim or don't.</li>
+    <li><span class="item-name">Pickup-ability is structural, not theoretical</span>If you stop holding your radius, the radius empties. Other practitioners can pick up other radii. There is no central operator who keeps the system running. The protocol IS the system; the infrastructure is replaceable.</li>
+    <li><span class="item-name">Shared meal at the sustained-engagement threshold</span>When a claim involves in-person work where the practitioner will be present for more than a few hours, the host or receiver shares a meal with the practitioner during the engagement. The meal is not separate from the work; it is the substrate the trust this model requires accumulates on. Co-regulation and unstructured time are not optional decoration. Kevin's instance uses a four-hour threshold; other practitioners adapt the specific shape to their cultural context, but the principle — architectural embedding of co-regulation in sustained engagement — holds across instances.</li>
+  </ul>
+
+  <h2>The minimum infrastructure</h2>
+
+  <p>You need three things to hold a radius:</p>
+
+  <ol>
+    <li>A way to receive ask and offer records. A form (web form, email intake, paper-and-phone — anything that captures the record fields).</li>
+    <li>A way to display them at zip-code resolution. A map (Leaflet, OpenStreetMap, hand-drawn on paper for a small radius) showing pins at zip-code center, not addresses.</li>
+    <li>A way to export the records. Whatever holds the records (Git repo, a spreadsheet, a markdown file) must support clean export so the substrate is portable.</li>
+  </ol>
+
+  <p>Kevin's instance runs on a Git repo as data substrate, serverless function intake for form submissions, and Leaflet + OpenStreetMap for the map. Static, FOSS-aligned, portable — fork-and-deploy. Other practitioners may use other tools. The protocol does not specify; only that the three capacities exist.</p>
+
+  <h2>What holding a radius requires of you</h2>
+
+  <p>The minimum infrastructure above is the visible substrate. It is not what makes the radius work. A radius works because a practitioner holds it. What that requires is named below.</p>
+
+  <h3>Local knowledge</h3>
+  <p>You need to know the area well enough that records arriving from inside it land coherently — which zip codes are which, what's reasonable to ask within ten miles versus forty, what kind of help travels and what kind doesn't. You do not have to be a native. You have to have done the work of knowing where you are.</p>
+
+  <h3>Capacity to be the discriminator</h3>
+  <p>When a record arrives that reads wrong — when the body says no — you are the one who acts. Not by deleting from a panel; by refusing cleanly through the channels the protocol provides. The body is the discriminator. You have to be willing to trust yours.</p>
+
+  <h3>Willingness to be a node, not a center</h3>
+  <p>The fabric is the center. You are one node in it. The protocol refuses container-holder dependence — but a radius needs a practitioner. The way to thread that: you hold the infrastructure (records, map, form). You do not hold the relationships that form inside it. The people who meet through your radius do their own meeting. You are not the matchmaker, the trust broker, or the mediator. You hold the membrane. They cross it themselves.</p>
+
+  <h3>Permission to act at this scale</h3>
+  <p>Most people who could hold a radius don't. The reason is rarely skill; it is permission — the threshold of believing that this work, at this scale, for this fabric, is worth doing at full rigor. The threshold is somatic. It does not yield to argument. The body crosses it or it doesn't.</p>
+
+  <h3>The clean exit</h3>
+  <p>If you stop being able to hold the radius, you stop. The records become read-only. The form goes inactive. You write a final post on your current page naming what is happening. Another practitioner can pick up the radius if they're ready, or the radius can stay empty for a season. Both are honest. What the protocol refuses is the practitioner who hangs on past their capacity because they are afraid the fabric will fail without them. The fabric tolerates emptiness. It does not tolerate performed continuation.</p>
+
+  <h2 id="kevins-instance">Kevin's instance choices</h2>
+
+  <p>The protocol above holds across any practitioner's instance. These are the choices Kevin's instance makes within that protocol — instance-level, not canonical. Other practitioners may choose otherwise.</p>
+
+  <ul>
+    <li><span class="item-name">45-mile radius</span>Kevin holds a 45-mile radius from his current location. The number is bounded by what Kevin can hold given terrain (Sierra foothills), the density of the local fabric, and the bus's reach. Other practitioners hold whatever radius fits their geography and capacity.</li>
+    <li><span class="item-name">First name opt-in</span>Receivers and posters may include a first name with their submission. If present, the first name appears on the public map alongside the zip code. If absent, only the zip appears. Sensitive needs can post without a name.</li>
+    <li><span class="item-name">Paired records share infrastructure</span>The paired ask and offer that come from one submitter share a record-ID prefix, a contact (held privately in storage that the public records never touch), a 72-hour lifetime, and a single withdrawal/management token. Either record can be claimed independently. The pairing requirement is protocol-level; the data-model coupling is Kevin's specific implementation.</li>
+    <li><span class="item-name">72-hour record lifetime</span>Every record expires 72 hours after creation. The submitter can re-up the expiry (extend by another 72 hours) via the link in their confirmation email. The short lifetime keeps the fabric fresh; the re-up keeps legitimate longer-arc needs visible.</li>
+    <li><span class="item-name">No standing offers</span>Kevin's instance does not have a separate "standing offer" record type. Hosts with recurring availability post a new offer when they have capacity, and re-up while it's open.</li>
+  </ul>
+
+  <p>If you fork this instance to hold your own radius, you can change any of these choices — or all of them. The protocol's load-bearing refusals (no profiles, no reputation, no verification, no matching-as-recommendation, no global aggregation, no platform-take, no engagement optimization, no reputation-as-data) hold regardless.</p>
+
+  <h2>For practitioners holding their own radius</h2>
+
+  <p>If you're holding a radius from your own location, the technical handoff lives at <a href="/market/README.md">/market/README.md</a>. It names the file structure, the environment variables for the serverless function, and the steps a practitioner takes to fork the substrate into their own deployment. Roughly thirty minutes of work for someone comfortable with the tech stack — and adaptable to other stacks the same protocol can run on.</p>
+
+  <p>What's in the fork: the data files (records · zip-code centroid lookup), the static pages (map · submission form · this protocol), the serverless function that handles intake and claim flow, and the cross-link substrate that makes the protocol legible to receivers arriving on any page.</p>
+
+  <p>What isn't in the fork (and is necessarily yours): your specific body of work, your specific local fabric, your specific zip codes, your specific refusals as they accrue.</p>
+
+  <h2>The license</h2>
+
+  <p>Use freely. Adapt as needed.</p>
+
+  <p>If you hold a radius and want to be listed alongside Kevin's, contact through <a href="/request.html">oursharedgifts.org/request.html</a>. The fabric becomes denser with each held radius.</p>
+
+  <p class="closing">This protocol is one practitioner's offering. Kevin holds his radius; you can hold yours. The fabric is the center. The body is the discriminator. The work is the gift.</p>
+
+  <p class="closing">4 · 6 · 4 · 1 · Use freely. Adapt as needed.</p>
+
+  <nav class="page-tail" aria-label="Related pages">
+    <a href="/refusals.html">What this refuses</a>
+    <span class="sep">·</span>
+    <a href="/village-market.html">Back to the map</a>
+    <span class="sep">·</span>
+    <a href="/library/">The body of work</a>
+  </nav>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/village-market.html">Market</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+</body>
+</html>

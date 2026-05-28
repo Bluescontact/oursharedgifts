@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Resolve claim — Our Shared Gifts</title>
+<link rel="stylesheet" href="assets/css/core.css">
+<style>
+  .resolve-intro {
+    margin: 1rem 0 2rem;
+  }
+  .record-card {
+    margin: 1.5rem 0;
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--arch);
+  }
+  .record-card dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 0.4rem 1rem;
+  }
+  .record-card dt {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    padding-top: 0.25rem;
+  }
+  .record-card dd {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .record-card .body {
+    font-family: var(--serif);
+    line-height: 1.5;
+  }
+  .status-pill {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid currentColor;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .status-pill.open { color: var(--bound); }
+  .status-pill.claimed { color: var(--arch); }
+  .status-pill.withdrawn,
+  .status-pill.met,
+  .status-pill.closed,
+  .status-pill.expired { color: var(--muted); }
+  .actions {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .actions h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .actions .hint {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0.4rem 0 1rem;
+  }
+  .action-btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    margin: 0.5rem 0.4rem 0.5rem 0;
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .action-btn:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .action-btn.primary {
+    border-color: var(--bound);
+    color: var(--bound);
+  }
+  .action-btn.primary:hover {
+    background: var(--bound);
+    color: var(--bg);
+  }
+  .action-btn.secondary {
+    border-color: var(--muted);
+    color: var(--muted);
+  }
+  .action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .status-message {
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--conn);
+    background: var(--bg-soft);
+    font-family: var(--serif);
+    font-size: 1rem;
+  }
+  .status-message.ok { border-color: var(--bound); }
+  .status-message.err { border-color: var(--diff); }
+  .status-message.hidden { display: none; }
+  .loading {
+    color: var(--muted);
+    font-style: italic;
+    padding: 2rem 0;
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/village-market.html">Market</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker conn">Connection · Village Market · Resolve</span>
+  <h1>Resolve claim</h1>
+  <div class="page-rule conn"></div>
+  <p class="subtitle">Mark the engagement complete, or release the record back to the map if it didn't happen.</p>
+
+  <div class="resolve-intro">
+    <p>You arrived here via the link in your claim email. The link authorizes you to close the loop on this specific engagement.</p>
+  </div>
+
+  <div id="status-message" class="status-message hidden"></div>
+  <div id="content"><p class="loading">Loading record…</p></div>
+
+  <nav class="page-tail" aria-label="Related pages">
+    <a href="/refusals.html">What this refuses</a>
+    <span class="sep">·</span>
+    <a href="/village-market.html">Back to the map</a>
+    <span class="sep">·</span>
+    <a href="/village-market-protocol.html">The protocol</a>
+  </nav>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/village-market.html">Market</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  const content = document.getElementById('content');
+  const statusEl = document.getElementById('status-message');
+
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function showStatus(msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status-message ' + (kind || 'ok');
+  }
+
+  function fail(msg, isExpiredToken) {
+    if (isExpiredToken) {
+      content.innerHTML =
+        '<p>This resolution link is no longer valid.</p>' +
+        '<p>Resolution links are time-limited and work for 30 days after a claim was made. If the engagement has already happened (or hasn\'t), the loop closes silently when the link expires — no action needed on your part.</p>' +
+        '<p>If you need to coordinate something out of band, reach out via the <a href="/request.html">request page</a>.</p>';
+      return;
+    }
+    content.innerHTML = '<p>' + escapeHtml(msg) + '</p><p>If this is unexpected, reach out via the <a href="/request.html">request page</a>.</p>';
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+  if (!token) {
+    fail('No token provided. This page requires the link from your claim email.');
+    return;
+  }
+
+  function callApi(action, extra) {
+    const body = Object.assign({ action: action, token: token }, extra || {});
+    return fetch('/.netlify/functions/market-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      return r.json().then(function (b) { return { ok: r.ok, body: b }; });
+    });
+  }
+
+  function render(rec, capability, party) {
+    const status = rec.status;
+    const canResolve = capability === 'resolve' && status === 'claimed';
+    const youAre = party === 'poster' ? 'You posted this record.' : 'You claimed this record.';
+
+    let statusNote = '';
+    if (status === 'met') {
+      statusNote = '<p>This engagement is already marked complete. Thank you for closing the loop.</p>';
+    } else if (status === 'open') {
+      statusNote = '<p>This record is back to open. Someone else may claim it. If you and the other party did meet, no further action needed here.</p>';
+    } else if (['withdrawn', 'closed', 'expired'].includes(status)) {
+      statusNote = '<p>This record has closed and can\'t be resolved further.</p>';
+    }
+
+    content.innerHTML =
+      '<div class="record-card">' +
+        '<dl>' +
+          '<dt>Status</dt><dd><span class="status-pill ' + status + '">' + status + '</span></dd>' +
+          '<dt>Your role</dt><dd>' + escapeHtml(party === 'poster' ? 'You posted it' : 'You claimed it') + '</dd>' +
+          '<dt>Type</dt><dd>' + escapeHtml(rec.record_type) + '</dd>' +
+          '<dt>Shape</dt><dd>' + escapeHtml(rec.shape || '') + '</dd>' +
+          '<dt>Zip</dt><dd>' + escapeHtml(rec.zip) + '</dd>' +
+          '<dt>Body</dt><dd class="body">' + escapeHtml(rec.body || '') + '</dd>' +
+        '</dl>' +
+      '</div>' +
+      (canResolve
+        ? '<div class="actions">' +
+            '<h2>How did it go?</h2>' +
+            '<p class="hint">Either of you can mark this. Marking met closes the record. Marking didn\'t-happen releases it back to the map so someone else can claim it.</p>' +
+            '<button class="action-btn primary" data-action="mark-met">It happened · mark complete</button>' +
+            '<button class="action-btn secondary" data-action="mark-not-met">It didn\'t happen · release</button>' +
+          '</div>'
+        : '<div class="actions">' + statusNote + '</div>');
+
+    document.querySelectorAll('[data-action]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const action = btn.dataset.action;
+        const confirmMsg = action === 'mark-met'
+          ? 'Mark this engagement complete? The record will close.'
+          : 'Release this record back to the map? Someone else will be able to claim it. The original poster will not be re-notified of new claims.';
+        if (!window.confirm(confirmMsg)) return;
+        btn.disabled = true;
+        const originalText = btn.textContent;
+        btn.textContent = 'Working…';
+        callApi(action).then(function (r) {
+          if (r.ok) {
+            showStatus(action === 'mark-met'
+              ? 'Marked complete. Thank you for closing the loop.'
+              : 'Released. The record is back on the map; someone else may claim it.', 'ok');
+            return callApi('peek').then(function (p) {
+              if (p.ok && p.body.record) render(p.body.record, p.body.capability, p.body.party);
+            });
+          } else {
+            showStatus(r.body.error || 'Action failed. Try again or reach out via the request page.', 'err');
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }
+        }).catch(function () {
+          showStatus('Could not reach the server. Try again in a moment.', 'err');
+          btn.disabled = false;
+          btn.textContent = originalText;
+        });
+      });
+    });
+  }
+
+  callApi('peek').then(function (r) {
+    if (!r.ok) {
+      const err = (r.body && r.body.error) || '';
+      const isExpired = /invalid or expired token/i.test(err);
+      fail(err || 'Could not load this record.', isExpired);
+      return;
+    }
+    render(r.body.record, r.body.capability, r.body.party);
+  }).catch(function () {
+    fail('Could not reach the server. Try again in a moment.');
+  });
+})();
+</script>
+</body>
+</html>

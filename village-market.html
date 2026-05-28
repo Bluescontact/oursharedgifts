@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Village Market — Our Shared Gifts</title>
+<link rel="stylesheet" href="assets/css/core.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+<style>
+  .market-intro {
+    margin: 1.5rem 0 2rem;
+  }
+  .market-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+  }
+  .market-controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+  .market-controls input[type="checkbox"] {
+    accent-color: var(--conn);
+  }
+  .market-controls .filter-group {
+    display: inline-flex;
+    gap: 0.75rem;
+    padding-right: 1rem;
+    border-right: 1px solid var(--rule-soft);
+  }
+  .market-controls .filter-group:last-of-type {
+    border-right: none;
+  }
+  .market-controls .post-link {
+    margin-left: auto;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--conn);
+    color: var(--conn);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+  }
+  .market-controls .post-link:hover {
+    background: var(--conn);
+    color: var(--bg);
+  }
+  #village-map {
+    height: 28rem;
+    margin: 1.5rem 0 1rem;
+    border: 1px solid var(--rule-soft);
+  }
+  .map-legend {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--faint);
+    margin: 0.5rem 0 1.5rem;
+  }
+  .map-legend span {
+    display: inline-block;
+    padding: 0 0.6rem;
+    border-left: 3px solid currentColor;
+  }
+  .map-legend .ask-key { color: var(--conn); }
+  .map-legend .offer-key { color: var(--arch); }
+  .map-legend .standing-key { color: var(--bound); }
+
+  .record-popup {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 18rem;
+  }
+  .record-popup .meta {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    margin-bottom: 0.4rem;
+  }
+  .record-popup .shape {
+    display: inline-block;
+    padding: 0.05rem 0.45rem;
+    border: 1px solid currentColor;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 0.4rem;
+  }
+  .record-popup .ask-tag { color: var(--conn); }
+  .record-popup .offer-tag { color: var(--arch); }
+  .record-popup .standing-tag { color: var(--bound); }
+  .record-popup .body {
+    margin: 0.5rem 0 0.7rem;
+  }
+  .record-popup .footer {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .record-popup .claim-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--conn);
+    background: transparent;
+    color: var(--conn);
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .record-popup .claim-btn:hover {
+    background: var(--conn);
+    color: var(--bg);
+  }
+  .record-popup .claimed {
+    margin-top: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--bg-soft);
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 2rem 1rem;
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+  .records-list {
+    margin: 2rem 0;
+  }
+  .records-list h2 {
+    font-size: 1.1rem;
+  }
+  .record-row {
+    display: grid;
+    grid-template-columns: 5rem 1fr auto;
+    gap: 0.4rem 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 0.9rem;
+    align-items: baseline;
+  }
+  .record-row .type {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .record-row .type.ask { color: var(--conn); }
+  .record-row .type.offer { color: var(--arch); }
+  .record-row .type.standing-offer { color: var(--bound); }
+  .record-row .zip {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--faint);
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="nav">
+  <a href="/">Index</a>
+  <a href="/offerings.html">Offerings</a>
+  <a href="/refusals.html">Refusals</a>
+  <a href="/current.html">Current</a>
+  <a href="/village-market.html" aria-current="page">Market</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+</header>
+
+<main id="main">
+  <span class="vertex-marker conn">Connection · Village Market</span>
+  <h1>Village Market</h1>
+  <div class="page-rule conn"></div>
+  <p class="subtitle">Asks and offers within 45 miles of wherever the bus is parked.</p>
+
+  <div class="market-intro">
+    <p>What people in the local fabric are asking for and what they have to give. Each submission carries both — one ask and one offer — so nobody shows up to only take or only give. Records live on the map for 72 hours unless the submitter re-ups; after that they expire. First names appear when posters choose to share them.</p>
+    <p>Current radius: 45 miles around Grass Valley, CA. When the bus moves, the radius moves. See <a href="/current.html">Current</a> for the live location. See <a href="/village-market-protocol.html">the protocol</a> for what this is and isn't.</p>
+  </div>
+
+  <div class="market-controls">
+    <div class="filter-group">
+      <label><input type="checkbox" data-filter="ask" checked> Asks</label>
+      <label><input type="checkbox" data-filter="offer" checked> Offers</label>
+    </div>
+    <a class="post-link" href="/village-market-submit.html">Post an ask + offer →</a>
+  </div>
+
+  <div id="village-map" aria-label="Map of village market asks and offers"></div>
+  <p class="map-legend">
+    <span class="ask-key">Ask</span>
+    <span class="offer-key">Offer</span>
+  </p>
+
+  <div class="records-list">
+    <h2>Open records, list view</h2>
+    <div id="records-list-container"></div>
+  </div>
+
+  <h2>About this map</h2>
+  <p>Each pin sits at zip-code center, not at a specific address. Asks and offers from the same submitter are offset slightly so both are visible. Contact information is held privately and revealed only to the person who claims a record. Open records appear here; claimed, withdrawn, met, and expired records drop off the public view.</p>
+  <p>If you want to participate, <a href="/village-market-submit.html">post an ask and an offer</a> — the submission carries both. If you can meet one of the open asks or take up one of the open offers, click the pin and claim it.</p>
+  <p>This is Kevin's instance, held from wherever the bus is parked. Anyone can hold their own radius from somewhere else — see <a href="/village-market-protocol.html">the protocol</a> for how.</p>
+
+  <nav class="page-tail" aria-label="Related pages">
+    <a href="/refusals.html">What this refuses</a>
+    <span class="sep">·</span>
+    <a href="/village-market-protocol.html">The protocol</a>
+    <span class="sep">·</span>
+    <a href="/library/">The body of work</a>
+  </nav>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="/">Index</a>
+    <a href="/offerings.html">Offerings</a>
+    <a href="/refusals.html">Refusals</a>
+    <a href="/current.html">Current</a>
+    <a href="/village-market.html">Market</a>
+    <a href="/request.html">Request</a>
+    <a href="/about.html">About</a>
+    <a href="/library/">Library</a>
+    <a href="/toolkits/">Toolkits</a>
+    <a href="/automation/">Automation</a>
+  </nav>
+  <p>Our Shared Gifts · <a href="/">oursharedgifts.org</a></p>
+  <p>Use freely. Adapt as needed.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<script src="/assets/js/village-market.js"></script>
+</body>
+</html>
