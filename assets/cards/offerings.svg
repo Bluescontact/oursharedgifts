@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <!-- Dark warm field -->
+    <radialGradient id="field" cx="50%" cy="42%" r="80%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="45%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <!-- Standard vertex glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Bright central source point -->
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.85"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Dim node glow -->
+    <radialGradient id="glow_dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Field -->
+  <rect width="1200" height="675" fill="url(#field)"/>
+
+  <!-- ===================================================== -->
+  <!-- FIGURE: one source, six offered rays to soft nodes    -->
+  <!-- centered at (600, 300)                                 -->
+  <!-- ===================================================== -->
+  <g>
+    <!-- Rays from center to six nodes (radius 132), spare gold lines -->
+    <g stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.55" fill="none">
+      <line x1="600" y1="300" x2="600"    y2="168"/>
+      <line x1="600" y1="300" x2="714.32" y2="234"/>
+      <line x1="600" y1="300" x2="714.32" y2="366"/>
+      <line x1="600" y1="300" x2="600"    y2="432"/>
+      <line x1="600" y1="300" x2="485.68" y2="366"/>
+      <line x1="600" y1="300" x2="485.68" y2="234"/>
+    </g>
+
+    <!-- Faint connecting hexagon ring (auxiliary geometry, sparing) -->
+    <polygon points="600,168 714.32,234 714.32,366 600,432 485.68,366 485.68,234"
+      fill="none" stroke="#4a4a4a" stroke-width="0.8" stroke-opacity="0.5"/>
+
+    <!-- Soft node glows -->
+    <g>
+      <circle cx="600"    cy="168" r="26" fill="url(#glow_dim)"/>
+      <circle cx="714.32" cy="234" r="26" fill="url(#glow_dim)"/>
+      <circle cx="714.32" cy="366" r="26" fill="url(#glow_dim)"/>
+      <circle cx="600"    cy="432" r="26" fill="url(#glow_dim)"/>
+      <circle cx="485.68" cy="366" r="26" fill="url(#glow_dim)"/>
+      <circle cx="485.68" cy="234" r="26" fill="url(#glow_dim)"/>
+    </g>
+    <!-- Node points -->
+    <g fill="#f0c674">
+      <circle cx="600"    cy="168" r="3"/>
+      <circle cx="714.32" cy="234" r="3"/>
+      <circle cx="714.32" cy="366" r="3"/>
+      <circle cx="600"    cy="432" r="3"/>
+      <circle cx="485.68" cy="366" r="3"/>
+      <circle cx="485.68" cy="234" r="3"/>
+    </g>
+
+    <!-- Luminous central source vertex — the signature glow -->
+    <circle cx="600" cy="300" r="80" fill="url(#point_bright)"/>
+    <circle cx="600" cy="300" r="4.5" fill="#fff4d6"/>
+  </g>
+
+  <!-- Vertex marker label -->
+  <text x="600" y="118" text-anchor="middle"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="300"
+    font-size="17" letter-spacing="4.5" fill="#9a8d76">CONNECTION · OFFERINGS</text>
+
+  <!-- Title: the one concept -->
+  <text x="600" y="548" text-anchor="middle"
+    font-family="'Cormorant Garamond', 'Cinzel', Georgia, serif" font-weight="500"
+    font-size="74" letter-spacing="13" fill="#e8dcc4">OFFERINGS</text>
+
+  <!-- Subtitle: from the page -->
+  <text x="600" y="592" text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="400"
+    font-size="25" letter-spacing="1.5" fill="#9a8d76">What Kevin gives in the gift zone</text>
+
+  <!-- Site mark -->
+  <text x="600" y="648" text-anchor="middle"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="300"
+    font-size="14" letter-spacing="3" fill="#9a8d76">oursharedgifts.org</text>
+
+  <!-- Vignette on top -->
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>

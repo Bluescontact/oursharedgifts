@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="field" cx="50%" cy="46%" r="80%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="45%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line_threshold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#f0c674" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0.15"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Field -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  <rect width="1200" height="675" fill="url(#field)"/>
+
+  <!-- ============================================ -->
+  <!-- FIGURE: the cycle line, present moment marked -->
+  <!-- A horizontal axis (the unfolding cycle) with one luminous  -->
+  <!-- vertex at center = NOW. Spare marks flank it = past / next. -->
+  <!-- ============================================ -->
+
+  <!-- soft halo behind the present moment -->
+  <circle cx="600" cy="372" r="120" fill="url(#glow)" opacity="0.55"/>
+
+  <!-- the cycle axis -->
+  <line x1="320" y1="372" x2="880" y2="372" stroke="url(#line_threshold)" stroke-width="1.4"/>
+
+  <!-- prior-state tick (dim) -->
+  <circle cx="420" cy="372" r="3" fill="#d4af6a" opacity="0.55"/>
+  <!-- next-state tick (dim) -->
+  <circle cx="780" cy="372" r="3" fill="#d4af6a" opacity="0.55"/>
+
+  <!-- the present moment: bright luminous vertex -->
+  <circle cx="600" cy="372" r="60" fill="url(#point_bright)"/>
+  <circle cx="600" cy="372" r="4.2" fill="#fff4d6"/>
+
+  <!-- a vertical breath line through now, fading up and down -->
+  <line x1="600" y1="318" x2="600" y2="426" stroke="#d4af6a" stroke-width="1" opacity="0.4"/>
+
+  <!-- ============================================ -->
+  <!-- TYPE -->
+  <!-- ============================================ -->
+
+  <!-- vertex marker label -->
+  <text x="600" y="150" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="300"
+        font-size="20" letter-spacing="6" fill="#9a8d76">CONNECTION &#183; CURRENT STATE</text>
+
+  <!-- title -->
+  <text x="600" y="248" text-anchor="middle"
+        font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif" font-weight="500"
+        font-size="92" letter-spacing="14" fill="#e8dcc4">CURRENT STATE</text>
+
+  <!-- subtitle -->
+  <text x="600" y="548" text-anchor="middle"
+        font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif" font-style="italic"
+        font-size="32" letter-spacing="2" fill="#9a8d76">What&#8217;s true now.</text>
+
+  <!-- footer -->
+  <text x="600" y="638" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="300"
+        font-size="16" letter-spacing="4" fill="#9a8d76" opacity="0.85">oursharedgifts.org</text>
+
+  <!-- vignette -->
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>

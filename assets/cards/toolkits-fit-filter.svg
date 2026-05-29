@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="field" cx="50%" cy="46%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Field -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  <rect width="1200" height="675" fill="url(#field)"/>
+
+  <!-- ============================================ -->
+  <!-- FIGURE: one input node sorting to three outcomes -->
+  <!-- convergence vertex is the luminous signature -->
+  <!-- node geometry centered horizontally at x=600 -->
+  <!-- ============================================ -->
+  <g>
+    <!-- input stem rising into the sorting vertex -->
+    <line x1="600" y1="158" x2="600" y2="232" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.85"/>
+
+    <!-- three diverging paths from the vertex -->
+    <line x1="600" y1="232" x2="470" y2="350" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.7"/>
+    <line x1="600" y1="232" x2="600" y2="356" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.7"/>
+    <line x1="600" y1="232" x2="730" y2="350" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.7"/>
+
+    <!-- terminal markers (the three outcomes) -->
+    <circle cx="470" cy="350" r="22" fill="url(#glow_dim)"/>
+    <circle cx="470" cy="350" r="4.2" fill="#f0c674"/>
+    <circle cx="600" cy="356" r="22" fill="url(#glow_dim)"/>
+    <circle cx="600" cy="356" r="4.2" fill="#f0c674"/>
+    <circle cx="730" cy="350" r="22" fill="url(#glow_dim)"/>
+    <circle cx="730" cy="350" r="4.2" fill="#f0c674"/>
+
+    <!-- input marker -->
+    <circle cx="600" cy="158" r="3.4" fill="#e8dcc4" fill-opacity="0.9"/>
+
+    <!-- the sorting vertex — luminous convergence (signature glow) -->
+    <circle cx="600" cy="232" r="58" fill="url(#glow)"/>
+    <circle cx="600" cy="232" r="30" fill="url(#point_bright)"/>
+    <circle cx="600" cy="232" r="6" fill="#fff4d6"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- TYPE -->
+  <!-- ============================================ -->
+
+  <!-- vertex marker label -->
+  <text x="600" y="448" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="17" font-weight="300" letter-spacing="6"
+        fill="#9a8d76">TOOLKIT &#183; FIT FILTER</text>
+
+  <!-- primary concept -->
+  <text x="600" y="520" text-anchor="middle"
+        font-family="Cormorant Garamond, 'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+        font-size="78" font-weight="500" letter-spacing="11"
+        fill="#e8dcc4">FIT FILTER</text>
+
+  <!-- one-line italic subtitle -->
+  <text x="600" y="572" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="24" font-style="italic" letter-spacing="1"
+        fill="#9a8d76">Five questions. Self-routing.</text>
+
+  <!-- footer wordmark -->
+  <text x="600" y="638" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="15" font-weight="300" letter-spacing="3"
+        fill="#7d735f">oursharedgifts.org</text>
+
+  <!-- vignette -->
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>

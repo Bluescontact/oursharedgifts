@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="field" cx="50%" cy="44%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#0a0a0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0.3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Field -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  <rect width="1200" height="675" fill="url(#field)"/>
+
+  <!-- ============================================ -->
+  <!-- FIGURE: the general framework (broad spread) -->
+  <!-- converging onto one specific situation (a    -->
+  <!-- single luminous point). Lines narrow inward. -->
+  <!-- ============================================ -->
+  <g transform="translate(600,276)" fill="none" stroke="#d4af6a" stroke-width="1.1">
+
+    <!-- broad lines fanning in from the field, meeting at the point -->
+    <line x1="-210" y1="-78" x2="0" y2="0" stroke-opacity="0.55"/>
+    <line x1="-150" y1="-104" x2="0" y2="0" stroke-opacity="0.7"/>
+    <line x1="-72"  y1="-118" x2="0" y2="0" stroke-opacity="0.85"/>
+    <line x1="72"   y1="-118" x2="0" y2="0" stroke-opacity="0.85"/>
+    <line x1="150"  y1="-104" x2="0" y2="0" stroke-opacity="0.7"/>
+    <line x1="210"  y1="-78" x2="0" y2="0" stroke-opacity="0.55"/>
+
+    <line x1="-210" y1="78"  x2="0" y2="0" stroke-opacity="0.55"/>
+    <line x1="-150" y1="104" x2="0" y2="0" stroke-opacity="0.7"/>
+    <line x1="-72"  y1="118" x2="0" y2="0" stroke-opacity="0.85"/>
+    <line x1="72"   y1="118" x2="0" y2="0" stroke-opacity="0.85"/>
+    <line x1="150"  y1="104" x2="0" y2="0" stroke-opacity="0.7"/>
+    <line x1="210"  y1="78"  x2="0" y2="0" stroke-opacity="0.55"/>
+
+    <!-- the bounding arc of the framework -->
+    <circle cx="0" cy="0" r="138" stroke="#9a8d76" stroke-opacity="0.28" stroke-width="0.9"/>
+
+    <!-- secondary node glints where outer lines touch the arc -->
+    <circle cx="-72"  cy="-118" r="22" fill="url(#glow_dim)" stroke="none"/>
+    <circle cx="72"   cy="-118" r="22" fill="url(#glow_dim)" stroke="none"/>
+    <circle cx="-72"  cy="118"  r="22" fill="url(#glow_dim)" stroke="none"/>
+    <circle cx="72"   cy="118"  r="22" fill="url(#glow_dim)" stroke="none"/>
+  </g>
+
+  <!-- The signature luminous vertex: the single specific situation -->
+  <circle cx="600" cy="276" r="120" fill="url(#glow)"/>
+  <circle cx="600" cy="276" r="60" fill="url(#point_bright)"/>
+  <circle cx="600" cy="276" r="4.5" fill="#fff4d6"/>
+
+  <!-- ============================================ -->
+  <!-- TEXT                                         -->
+  <!-- ============================================ -->
+
+  <!-- vertex-marker / label -->
+  <text x="600" y="492" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="300"
+        font-size="20" letter-spacing="6" fill="#9a8d76">BOUNDARIES &#183; AUTOMATION</text>
+
+  <!-- primary concept -->
+  <text x="600" y="566" text-anchor="middle"
+        font-family="'Cormorant Garamond', 'Crimson Text', Georgia, 'Times New Roman', serif"
+        font-size="78" letter-spacing="14" fill="#e8dcc4">CONSULTATIONS</text>
+
+  <!-- subtitle -->
+  <text x="600" y="612" text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif" font-style="italic"
+        font-size="26" letter-spacing="1" fill="#9a8d76">Where the framework gets applied to your specific situation.</text>
+
+  <!-- site mark -->
+  <text x="600" y="650" text-anchor="middle"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="300"
+        font-size="15" letter-spacing="3" fill="#9a8d76" opacity="0.75">oursharedgifts.org</text>
+
+  <!-- vignette -->
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>

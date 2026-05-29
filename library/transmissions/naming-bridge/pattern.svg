@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <!-- inlined from assets/defs.svg -->
+    <radialGradient id="field_flat" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line_threshold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#field_flat)"/>
+
+  <!-- Title -->
+  <text x="800" y="120" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="50" font-weight="400" letter-spacing="8"
+        fill="#e8dcc4">THE NAMING BRIDGE</text>
+
+  <!-- ============================================ -->
+  <!-- The triangle: three registers, one idea.     -->
+  <!-- Apex = Structural (the holding middle).       -->
+  <!-- Base = Philosophical + Operational.           -->
+  <!-- The edges ARE the bridge.                      -->
+  <!-- Apex (800,300) · base-left (470,710) · base-right (1130,710) -->
+  <!-- ============================================ -->
+
+  <!-- Bridge edges (the translation that holds the three in alignment) -->
+  <line x1="800" y1="300" x2="470" y2="710" stroke="url(#line_threshold)" stroke-width="1.8" stroke-opacity="0.95"/>
+  <line x1="800" y1="300" x2="1130" y2="710" stroke="url(#line_threshold)" stroke-width="1.8" stroke-opacity="0.95"/>
+  <line x1="470" y1="710" x2="1130" y2="710" stroke="url(#line_threshold)" stroke-width="1.8" stroke-opacity="0.95"/>
+
+  <!-- Centroid: the one idea the three register-namings translate -->
+  <circle cx="800" cy="573" r="120" fill="url(#glow)" opacity="0.30"/>
+  <circle cx="800" cy="573" r="3.5" fill="#d4af6a" fill-opacity="0.8"/>
+  <text x="800" y="540" text-anchor="middle" font-family="Inter, Helvetica, sans-serif"
+        font-size="15" font-weight="300" letter-spacing="3" fill="#9a8d76">ONE IDEA</text>
+
+  <!-- Apex vertex — Structural (load-bearing middle) -->
+  <circle cx="800" cy="300" r="58" fill="url(#point_bright)"/>
+  <circle cx="800" cy="300" r="7" fill="#fff4d6"/>
+  <text x="800" y="248" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif"
+        font-size="30" font-weight="400" letter-spacing="5" fill="#e8dcc4">STRUCTURAL</text>
+  <text x="800" y="274" text-anchor="middle" font-family="Inter, Helvetica, sans-serif"
+        font-size="14" font-weight="300" letter-spacing="2" fill="#9a8d76" font-style="italic">the form that holds the other two</text>
+
+  <!-- Base-left vertex — Philosophical -->
+  <circle cx="470" cy="710" r="48" fill="url(#glow)"/>
+  <circle cx="470" cy="710" r="6" fill="#f0c674"/>
+  <text x="470" y="772" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif"
+        font-size="28" font-weight="400" letter-spacing="5" fill="#e8dcc4">PHILOSOPHICAL</text>
+  <text x="470" y="797" text-anchor="middle" font-family="Inter, Helvetica, sans-serif"
+        font-size="13" font-weight="300" letter-spacing="2" fill="#9a8d76" font-style="italic">portable, but not yet operable</text>
+
+  <!-- Base-right vertex — Operational -->
+  <circle cx="1130" cy="710" r="48" fill="url(#glow)"/>
+  <circle cx="1130" cy="710" r="6" fill="#f0c674"/>
+  <text x="1130" y="772" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif"
+        font-size="28" font-weight="400" letter-spacing="5" fill="#e8dcc4">OPERATIONAL</text>
+  <text x="1130" y="797" text-anchor="middle" font-family="Inter, Helvetica, sans-serif"
+        font-size="13" font-weight="300" letter-spacing="2" fill="#9a8d76" font-style="italic">actionable, but not yet portable</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="858" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="22" font-style="italic" font-weight="300"
+        fill="#9a8d76">The same idea, held in alignment across three registers.</text>
+</svg>

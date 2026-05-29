@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <!-- field_flat — figure carries everything -->
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <!-- standard vertex glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="22%" stop-color="#f0c674" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="800" y="108" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="50" font-weight="400" letter-spacing="9"
+        fill="#e8dcc4">THE FOUR SUBSTRATES</text>
+
+  <!-- ===== 2×2 SMALL-MULTIPLE — same form, four grounds =====
+       The INVARIANT tetrahedron is inlined explicitly once per quadrant
+       (no <use>, no shared <g id> — ImageMagick-safe). Each instance is the
+       IDENTICAL four-node form, translated to its quadrant center:
+       (470,360) (1130,360) (470,640) (1130,640). Only the ground label changes.
+       Geometry (origin at figure center): apex up at (0,-90), two front base
+       nodes (-78,58)/(78,58), one rear-depth node (0,14). -->
+
+  <!-- BIOLOGICAL — top left -->
+  <g transform="translate(470,360)">
+    <!-- Front edges (solid, full gold) -->
+    <line x1="0" y1="-90" x2="-78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="0" y1="-90" x2="78"  y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="-78" y1="58" x2="78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <!-- Rear edges (dashed, dimmer — depth) -->
+    <line x1="0" y1="-90" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="-78" y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="78"  y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <!-- Four luminous vertices -->
+    <circle cx="0"   cy="-90" r="30" fill="url(#glow)"/>
+    <circle cx="0"   cy="-90" r="4.5" fill="#fff4d6"/>
+    <circle cx="-78" cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="-78" cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="78"  cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="78"  cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="0"   cy="14"  r="24" fill="url(#glow)"/>
+    <circle cx="0"   cy="14"  r="4" fill="#fff4d6"/>
+  </g>
+  <text x="470" y="490" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="17" font-weight="300" letter-spacing="5" fill="#e8dcc4">BIOLOGICAL</text>
+
+  <!-- INSTITUTIONAL — top right -->
+  <g transform="translate(1130,360)">
+    <!-- Front edges (solid, full gold) -->
+    <line x1="0" y1="-90" x2="-78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="0" y1="-90" x2="78"  y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="-78" y1="58" x2="78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <!-- Rear edges (dashed, dimmer — depth) -->
+    <line x1="0" y1="-90" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="-78" y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="78"  y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <!-- Four luminous vertices -->
+    <circle cx="0"   cy="-90" r="30" fill="url(#glow)"/>
+    <circle cx="0"   cy="-90" r="4.5" fill="#fff4d6"/>
+    <circle cx="-78" cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="-78" cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="78"  cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="78"  cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="0"   cy="14"  r="24" fill="url(#glow)"/>
+    <circle cx="0"   cy="14"  r="4" fill="#fff4d6"/>
+  </g>
+  <text x="1130" y="490" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="17" font-weight="300" letter-spacing="5" fill="#e8dcc4">INSTITUTIONAL</text>
+
+  <!-- RELATIONAL — bottom left -->
+  <g transform="translate(470,640)">
+    <!-- Front edges (solid, full gold) -->
+    <line x1="0" y1="-90" x2="-78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="0" y1="-90" x2="78"  y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="-78" y1="58" x2="78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <!-- Rear edges (dashed, dimmer — depth) -->
+    <line x1="0" y1="-90" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="-78" y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="78"  y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <!-- Four luminous vertices -->
+    <circle cx="0"   cy="-90" r="30" fill="url(#glow)"/>
+    <circle cx="0"   cy="-90" r="4.5" fill="#fff4d6"/>
+    <circle cx="-78" cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="-78" cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="78"  cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="78"  cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="0"   cy="14"  r="24" fill="url(#glow)"/>
+    <circle cx="0"   cy="14"  r="4" fill="#fff4d6"/>
+  </g>
+  <text x="470" y="770" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="17" font-weight="300" letter-spacing="5" fill="#e8dcc4">RELATIONAL</text>
+
+  <!-- TECHNICAL — bottom right -->
+  <g transform="translate(1130,640)">
+    <!-- Front edges (solid, full gold) -->
+    <line x1="0" y1="-90" x2="-78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="0" y1="-90" x2="78"  y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <line x1="-78" y1="58" x2="78" y2="58" stroke="#d4af6a" stroke-width="1.5" stroke-opacity="0.95"/>
+    <!-- Rear edges (dashed, dimmer — depth) -->
+    <line x1="0" y1="-90" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="-78" y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <line x1="78"  y1="58" x2="0" y2="14" stroke="#d4af6a" stroke-width="1.1" stroke-opacity="0.5" stroke-dasharray="4,4"/>
+    <!-- Four luminous vertices -->
+    <circle cx="0"   cy="-90" r="30" fill="url(#glow)"/>
+    <circle cx="0"   cy="-90" r="4.5" fill="#fff4d6"/>
+    <circle cx="-78" cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="-78" cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="78"  cy="58"  r="30" fill="url(#glow)"/>
+    <circle cx="78"  cy="58"  r="4.5" fill="#fff4d6"/>
+    <circle cx="0"   cy="14"  r="24" fill="url(#glow)"/>
+    <circle cx="0"   cy="14"  r="4" fill="#fff4d6"/>
+  </g>
+  <text x="1130" y="770" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="17" font-weight="300" letter-spacing="5" fill="#e8dcc4">TECHNICAL</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="852" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="24" font-style="italic" font-weight="300"
+        fill="#9a8d76">Same form. Different ground.</text>
+</svg>

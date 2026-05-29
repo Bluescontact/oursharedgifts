@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="field_flat" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#field_flat)"/>
+
+  <!-- Title -->
+  <text x="800" y="118" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="54" font-weight="400" letter-spacing="8"
+        fill="#e8dcc4">THE GIFT FORM</text>
+
+  <!-- ============================================================ -->
+  <!-- Tetrahedron: 4 vertices, 6 edges = the gift form's six axes  -->
+  <!-- Apex (Differentiation) top; base triangle below.            -->
+  <!--   Differentiation : (800, 300)                              -->
+  <!--   Connection      : (470, 700)  (front-left)                -->
+  <!--   Boundaries      : (1130, 700) (front-right)               -->
+  <!--   Architecture    : (800, 600)  (rear, depth)               -->
+  <!-- ============================================================ -->
+
+  <!-- Front / solid edges -->
+  <line x1="800" y1="300" x2="470" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+  <line x1="800" y1="300" x2="1130" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+  <line x1="470" y1="700" x2="1130" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+
+  <!-- Rear / depth edges (to Architecture) -->
+  <line x1="800" y1="300" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+  <line x1="470" y1="700" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+  <line x1="1130" y1="700" x2="800" y2="600" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+
+  <!-- ============================================================ -->
+  <!-- Edge labels — the six axes (light sans, midpoints)           -->
+  <!-- ============================================================ -->
+  <!-- Diff–Connection : Self-Knowledge / Relationship cluster -> axis 1+2 region, left edge -->
+  <text x="600" y="490" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="15" letter-spacing="3" fill="#9a8d76">RELATIONSHIP</text>
+  <!-- Diff–Boundaries : Self-Knowledge -->
+  <text x="1000" y="490" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="15" letter-spacing="3" fill="#9a8d76">SELF&#8211;KNOWLEDGE</text>
+  <!-- Connection–Boundaries : Consent (front base) -->
+  <text x="800" y="735" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="15" letter-spacing="3" fill="#9a8d76">CONSENT</text>
+  <!-- Diff–Architecture : Gift -->
+  <text x="852" y="448" text-anchor="start" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="14" letter-spacing="3" fill="#7a6d56">GIFT</text>
+  <!-- Connection–Architecture : Circulation -->
+  <text x="600" y="668" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="14" letter-spacing="3" fill="#7a6d56">CIRCULATION</text>
+  <!-- Boundaries–Architecture : Deployment -->
+  <text x="1000" y="668" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="14" letter-spacing="3" fill="#7a6d56">DEPLOYMENT</text>
+
+  <!-- ============================================================ -->
+  <!-- Vertices — luminous gold points                              -->
+  <!-- ============================================================ -->
+  <!-- Differentiation (apex) -->
+  <circle cx="800" cy="300" r="46" fill="url(#glow)"/>
+  <circle cx="800" cy="300" r="6" fill="#fff4d6"/>
+  <text x="800" y="258" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="20" letter-spacing="4" fill="#e8dcc4">DIFFERENTIATION</text>
+
+  <!-- Connection (front-left) -->
+  <circle cx="470" cy="700" r="46" fill="url(#glow)"/>
+  <circle cx="470" cy="700" r="6" fill="#fff4d6"/>
+  <text x="410" y="748" text-anchor="end" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="20" letter-spacing="4" fill="#e8dcc4">CONNECTION</text>
+
+  <!-- Boundaries (front-right) -->
+  <circle cx="1130" cy="700" r="46" fill="url(#glow)"/>
+  <circle cx="1130" cy="700" r="6" fill="#fff4d6"/>
+  <text x="1190" y="748" text-anchor="start" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="20" letter-spacing="4" fill="#e8dcc4">BOUNDARIES</text>
+
+  <!-- Architecture (rear) -->
+  <circle cx="800" cy="600" r="38" fill="url(#glow)"/>
+  <circle cx="800" cy="600" r="5" fill="#f0c674"/>
+  <text x="800" y="568" text-anchor="middle" font-family="Inter, Helvetica Neue, sans-serif"
+        font-size="18" letter-spacing="4" fill="#cdbf9f">ARCHITECTURE</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="838" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="23" font-style="italic" font-weight="300"
+        fill="#9a8d76">Four vertices, six axes. Remove one, and the gift shadows into extraction.</text>
+</svg>

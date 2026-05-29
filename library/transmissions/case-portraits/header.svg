@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <!-- inlined from assets/defs.svg -->
+    <radialGradient id="field" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <radialGradient id="halo_wide" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.55"/>
+      <stop offset="25%" stop-color="#d4af6a" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#a8854f" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#field)"/>
+
+  <!-- wide central halo = the single source -->
+  <circle cx="800" cy="450" r="430" fill="url(#halo_wide)"/>
+
+  <!-- faint emanation lines drifting outward into the dark -->
+  <g stroke="#d4af6a" stroke-width="0.7" stroke-opacity="0.18">
+    <line x1="800" y1="450" x2="800"  y2="70"/>
+    <line x1="800" y1="450" x2="1130" y2="262"/>
+    <line x1="800" y1="450" x2="1210" y2="640"/>
+    <line x1="800" y1="450" x2="975"  y2="845"/>
+    <line x1="800" y1="450" x2="625"  y2="845"/>
+    <line x1="800" y1="450" x2="390"  y2="640"/>
+    <line x1="800" y1="450" x2="470"  y2="262"/>
+  </g>
+
+  <!-- faint terminal points, soft dim -->
+  <g>
+    <circle cx="800"  cy="70"  r="20" fill="url(#glow_dim)" opacity="0.5"/>
+    <circle cx="1130" cy="262" r="20" fill="url(#glow_dim)" opacity="0.5"/>
+    <circle cx="1210" cy="640" r="20" fill="url(#glow_dim)" opacity="0.5"/>
+    <circle cx="975"  cy="845" r="20" fill="url(#glow_dim)" opacity="0.45"/>
+    <circle cx="625"  cy="845" r="20" fill="url(#glow_dim)" opacity="0.45"/>
+    <circle cx="390"  cy="640" r="20" fill="url(#glow_dim)" opacity="0.5"/>
+    <circle cx="470"  cy="262" r="20" fill="url(#glow_dim)" opacity="0.5"/>
+  </g>
+
+  <!-- bright core -->
+  <circle cx="800" cy="450" r="7" fill="#fff4d6"/>
+</svg>

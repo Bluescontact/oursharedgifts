@@ -17,11 +17,11 @@ What lives here, what needs setup to make it operational, what stays manual.
 - Pin popups show record details + Claim button
 - Protocol page at `/village-market-protocol.html`
 
-You can deploy these right now and the map will render the 6 seed records that ship with this folder. The form will submit, fail with a clean error, and the user will know the function isn't yet configured.
+You can deploy these right now and the map will render the 8 demo records (4 paired ask+offer submissions) that ship with this folder. The form will submit, fail with a clean error, and the user will know the function isn't yet configured.
 
 ## What needs external setup to make the form operational
 
-The Netlify Function `market-submit.js` needs five environment variables set in the Netlify dashboard. Once these are set, the form posts a real record → commits to the repo → triggers a rebuild → record appears on the map within a few minutes.
+The Netlify Function `market-submit.js` needs eight environment variables set in the Netlify dashboard. Once these are set, the form posts a real record → commits to the repo → triggers a rebuild → record appears on the map within a few minutes.
 
 In Netlify → Site settings → Environment variables → Add:
 
@@ -34,7 +34,7 @@ In Netlify → Site settings → Environment variables → Add:
 | `RESEND_API_KEY` | your existing Resend API key | Already in motion from c43 work — same key |
 | `FROM_EMAIL` | `kevin@oursharedgifts.org` (or whatever's verified in Resend) | Existing from c43 |
 | `KEVIN_NOTIFY_EMAIL` | your email | Where you want claim notifications + new-record pings to land |
-| `HASH_SECRET` | any random string | Generate one with `openssl rand -hex 32` or pick any unguessable string. Used to one-way-hash contact info in the public record. |
+| `HASH_SECRET` | a random string (≥32 chars) | Generate one with `openssl rand -hex 32`. Signs the HMAC management/resolve tokens (withdraw, re-up, mark-met/not-met). **Contact info is never hashed into the public record** — it lives in Netlify Blobs and never enters the repo. |
 
 Total time: ~10 minutes if you already have Resend set up. ~20 minutes if Resend needs first-time setup.
 

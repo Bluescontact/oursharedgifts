@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="field" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1c1611"/>
+      <stop offset="40%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="halo_wide" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.55"/>
+      <stop offset="25%" stop-color="#d4af6a" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#8a6f3f" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#field)"/>
+
+  <!-- Wide halo behind the form -->
+  <circle cx="800" cy="470" r="430" fill="url(#halo_wide)"/>
+
+  <!-- Suspended luminous tetrahedron, no labels -->
+  <g opacity="0.92">
+    <!-- Front edges -->
+    <line x1="800" y1="270" x2="560" y2="660" stroke="#f0c674" stroke-width="2" stroke-opacity="0.9"/>
+    <line x1="800" y1="270" x2="1040" y2="660" stroke="#f0c674" stroke-width="2" stroke-opacity="0.9"/>
+    <line x1="560" y1="660" x2="1040" y2="660" stroke="#f0c674" stroke-width="2" stroke-opacity="0.9"/>
+    <!-- Rear edges (depth) -->
+    <line x1="800" y1="270" x2="800" y2="545" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.45" stroke-dasharray="5,5"/>
+    <line x1="560" y1="660" x2="800" y2="545" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.45" stroke-dasharray="5,5"/>
+    <line x1="1040" y1="660" x2="800" y2="545" stroke="#d4af6a" stroke-width="1.4" stroke-opacity="0.45" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Vertex glows -->
+  <circle cx="800" cy="270" r="55" fill="url(#glow)"/>
+  <circle cx="800" cy="270" r="5" fill="#f0c674"/>
+  <circle cx="560" cy="660" r="50" fill="url(#glow)"/>
+  <circle cx="560" cy="660" r="5" fill="#f0c674"/>
+  <circle cx="1040" cy="660" r="50" fill="url(#glow)"/>
+  <circle cx="1040" cy="660" r="5" fill="#f0c674"/>
+  <circle cx="800" cy="545" r="40" fill="url(#glow)"/>
+  <circle cx="800" cy="545" r="4" fill="#f0c674"/>
+
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>

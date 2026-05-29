@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="field_flat" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="point_bright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff4d6" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#f0c674" stop-opacity="0.8"/>
+      <stop offset="55%" stop-color="#d4af6a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix"
+        values="0 0 0 0 0.05
+                0 0 0 0 0.045
+                0 0 0 0 0.035
+                0 0 0 0.08 0"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#field_flat)"/>
+
+  <!-- Title -->
+  <text x="800" y="118" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="50" font-weight="400" letter-spacing="8"
+        fill="#e8dcc4">THE 4·6·4·1 FORM</text>
+
+  <!-- ============================================ -->
+  <!-- Tetrahedron                                  -->
+  <!-- Apex (front-top):   800, 250                 -->
+  <!-- Base-left (front):  500, 700                 -->
+  <!-- Base-right (front): 1100, 700                -->
+  <!-- Base-rear (depth):  800, 560                 -->
+  <!-- ============================================ -->
+
+  <!-- Six edges -->
+  <line x1="800" y1="250" x2="500" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+  <line x1="800" y1="250" x2="1100" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+  <line x1="500" y1="700" x2="1100" y2="700" stroke="#d4af6a" stroke-width="1.6"/>
+  <line x1="800" y1="250" x2="800" y2="560" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+  <line x1="500" y1="700" x2="800" y2="560" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+  <line x1="1100" y1="700" x2="800" y2="560" stroke="#d4af6a" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4,4"/>
+
+  <!-- Center (the one) -->
+  <circle cx="800" cy="553" r="46" fill="url(#glow)" opacity="0.7"/>
+  <circle cx="800" cy="553" r="4" fill="#fff4d6"/>
+  <text x="800" y="600" text-anchor="middle"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="15" font-weight="300" letter-spacing="3" fill="#9a8d76">CENTER</text>
+
+  <!-- Vertex 1 — apex -->
+  <circle cx="800" cy="250" r="50" fill="url(#point_bright)"/>
+  <circle cx="800" cy="250" r="6" fill="#fff4d6"/>
+  <text x="800" y="208" text-anchor="middle"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="22" font-weight="300" letter-spacing="4" fill="#e8dcc4">DIFFERENTIATION</text>
+
+  <!-- Vertex 2 — base-left -->
+  <circle cx="500" cy="700" r="50" fill="url(#point_bright)"/>
+  <circle cx="500" cy="700" r="6" fill="#fff4d6"/>
+  <text x="470" y="760" text-anchor="end"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="22" font-weight="300" letter-spacing="4" fill="#e8dcc4">CONNECTION</text>
+
+  <!-- Vertex 3 — base-right -->
+  <circle cx="1100" cy="700" r="50" fill="url(#point_bright)"/>
+  <circle cx="1100" cy="700" r="6" fill="#fff4d6"/>
+  <text x="1130" y="760" text-anchor="start"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="22" font-weight="300" letter-spacing="4" fill="#e8dcc4">BOUNDARIES</text>
+
+  <!-- Vertex 4 — base-rear -->
+  <circle cx="800" cy="560" r="42" fill="url(#glow)"/>
+  <circle cx="800" cy="560" r="5" fill="#f0c674"/>
+  <text x="800" y="525" text-anchor="middle"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="20" font-weight="300" letter-spacing="4" fill="#cdbf9f">ARCHITECTURE</text>
+
+  <!-- Subtitle -->
+  <text x="800" y="838" text-anchor="middle"
+        font-family="Cormorant Garamond, Garamond, serif"
+        font-size="23" font-style="italic" font-weight="300"
+        fill="#9a8d76">four vertices · six edges · four faces · one center</text>
+
+</svg>

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <!-- Dark field with subtle warm radial center -->
+    <radialGradient id="field" cx="50%" cy="46%" r="78%">
+      <stop offset="0%" stop-color="#1a1612"/>
+      <stop offset="45%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+
+    <!-- Standard vertex glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#d4af6a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Dim emanation for held-open (refused) vertices -->
+    <radialGradient id="glow_dim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c674" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Edge line — fades at the refused break -->
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#f0c674" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d4af6a" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="62%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Field -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  <rect width="1200" height="675" fill="url(#field)"/>
+
+  <!-- ============================================ -->
+  <!-- GEOMETRIC MARK                               -->
+  <!-- A four-vertex tetrahedron: one vertex luminous,  -->
+  <!-- the others held open. The lower edge breaks —    -->
+  <!-- negative space as structure: the refused form.   -->
+  <!-- Centered at (600, 300)                            -->
+  <!-- ============================================ -->
+  <g transform="translate(600 300)">
+
+    <!-- Vertices of a tetrahedron projection -->
+    <!-- apex (top), and three base points -->
+    <!-- apex: (0,-96)  left: (-96,58)  right: (96,58)  inner: (0,18) -->
+
+    <!-- Solid edges (the form that is held) -->
+    <g stroke="url(#edge)" stroke-width="1.4" fill="none" stroke-linecap="round">
+      <!-- apex to left -->
+      <line x1="0" y1="-96" x2="-96" y2="58"/>
+      <!-- apex to right -->
+      <line x1="0" y1="-96" x2="96" y2="58"/>
+      <!-- apex to inner -->
+      <line x1="0" y1="-96" x2="0" y2="18"/>
+      <!-- inner to left -->
+      <line x1="0" y1="18" x2="-96" y2="58"/>
+      <!-- inner to right -->
+      <line x1="0" y1="18" x2="96" y2="58"/>
+    </g>
+
+    <!-- The refused edge: base left-to-right, drawn as a broken gap -->
+    <!-- left segment -->
+    <line x1="-96" y1="58" x2="-34" y2="58" stroke="#9a8d76" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round"/>
+    <!-- right segment (gap in the middle = the refusal) -->
+    <line x1="34" y1="58" x2="96" y2="58" stroke="#9a8d76" stroke-width="1.1" stroke-opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Luminous apex vertex — the signature glow (the held vertex) -->
+    <circle cx="0" cy="-96" r="44" fill="url(#glow)"/>
+    <circle cx="0" cy="-96" r="3.4" fill="#fff4d6"/>
+
+    <!-- Three held-open vertices: dim emanation only, hollow centers -->
+    <circle cx="-96" cy="58" r="22" fill="url(#glow_dim)"/>
+    <circle cx="-96" cy="58" r="3.2" fill="none" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+
+    <circle cx="96" cy="58" r="22" fill="url(#glow_dim)"/>
+    <circle cx="96" cy="58" r="3.2" fill="none" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+
+    <circle cx="0" cy="18" r="20" fill="url(#glow_dim)"/>
+    <circle cx="0" cy="18" r="3" fill="none" stroke="#f0c674" stroke-width="1.1" stroke-opacity="0.85"/>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- TYPE                                          -->
+  <!-- ============================================ -->
+
+  <!-- Title -->
+  <text x="600" y="498"
+        text-anchor="middle"
+        font-family="'Cormorant Garamond', 'Cinzel', Georgia, 'Times New Roman', serif"
+        font-size="76"
+        font-weight="500"
+        letter-spacing="22"
+        fill="#e8dcc4">REFUSALS</text>
+
+  <!-- Subtitle (italic, muted khaki) -->
+  <text x="600" y="548"
+        text-anchor="middle"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-size="27"
+        font-style="italic"
+        letter-spacing="2"
+        fill="#9a8d76">What this practice does not do, and why.</text>
+
+  <!-- Footer wordmark -->
+  <text x="600" y="638"
+        text-anchor="middle"
+        font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+        font-size="15"
+        font-weight="300"
+        letter-spacing="4"
+        fill="#9a8d76"
+        fill-opacity="0.8">oursharedgifts.org</text>
+
+  <!-- Vignette -->
+  <rect width="1200" height="675" fill="url(#vignette)"/>
+</svg>
