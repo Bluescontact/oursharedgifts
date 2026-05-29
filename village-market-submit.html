@@ -119,7 +119,7 @@
   <a href="/offerings.html">Offerings</a>
   <a href="/refusals.html">Refusals</a>
   <a href="/current.html">Current</a>
-  <a href="/village-market.html">Market</a>
+  <a href="/village-market.html">Gift Circle</a>
   <a href="/library/">Library</a>
   <a href="/toolkits/">Toolkits</a>
 </header>
@@ -129,6 +129,10 @@
   <h1>Post to the Village Market</h1>
   <div class="page-rule conn"></div>
   <p class="subtitle">Every submission carries both — an ask and an offer. Records live on the map for 72 hours.</p>
+
+  <div role="note" style="margin:1.25rem 0;padding:1rem 1.25rem;border:1px solid var(--conn);background:var(--bg-soft);font-family:var(--sans);font-size:0.85rem;line-height:1.5;">
+    <strong style="color:var(--conn);">Demonstration.</strong> This is a preview of how the Gift Circle works. Go ahead and fill it in and post — the flow is <strong>simulated</strong>, so nothing is sent, stored, or shared. When the circle goes live, a post like this becomes a real ask and offer on the map.
+  </div>
 
   <div id="claim-banner-container"></div>
 
@@ -221,7 +225,7 @@
     <a href="/offerings.html">Offerings</a>
     <a href="/refusals.html">Refusals</a>
     <a href="/current.html">Current</a>
-    <a href="/village-market.html">Market</a>
+    <a href="/village-market.html">Gift Circle</a>
     <a href="/request.html">Request</a>
     <a href="/about.html">About</a>
     <a href="/library/">Library</a>
@@ -235,6 +239,11 @@
 <script>
 (function () {
   'use strict';
+
+  // DEMO MODE — clickable preview. The form walks the full flow but does NOT
+  // POST to the backend (no email, no commit, no contact exchange). Flip to
+  // false once Netlify env vars are set and the market goes live.
+  const DEMO_MODE = true;
 
   const form = document.getElementById('market-form');
   const status = document.getElementById('form-status');
@@ -296,6 +305,19 @@
       data.action = 'claim';
     } else {
       data.action = 'submit';
+    }
+
+    // Demo: simulate the outcome, send nothing. The short delay lets the
+    // "Submitting..." state register so the flow feels real.
+    if (DEMO_MODE) {
+      setTimeout(function () {
+        const msg = claimId
+          ? 'This is a demonstration — nothing was sent. In the live Gift Circle, your contact would now go to the person who posted this record, and theirs would come to you, so the two of you could arrange it directly. Either of you could decline cleanly.'
+          : 'This is a demonstration — nothing was posted or stored. In the live Gift Circle, your ask and offer would now appear on the map, and a private link to manage them would arrive in your email.';
+        showStatus(msg, 'ok');
+        form.style.display = 'none';
+      }, 600);
+      return;
     }
 
     fetch('/.netlify/functions/market-submit', {
