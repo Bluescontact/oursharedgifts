@@ -1,26 +1,39 @@
 // village-market.js
-// Renders ask + offer records from market/records.json onto a Leaflet +
-// OpenStreetMap map at zip-code centroid resolution. Reads
-// market/zip-coords.json for zip → lat/lng lookup. Records expire 72hr
-// after creation (c80); expired records are filtered client-side.
+// Renders the Gift Circle on a Leaflet + OpenStreetMap map from
+// market/records.json, at zip-code centroid resolution (market/zip-coords.json).
 //
-// First-name field is optional on the public surface: rendered when
-// present, omitted (just zip) when blank. Per c80 instance choice.
+// Record types:
+//   ask   — gift-work or support someone needs        (blue / --conn)
+//   offer — gift-work or support someone has to give   (gold / --arch)
+//   host  — a parking spot a host extends to the bus   (green / --bound)
+//   bus   — where Kevin + the bus are now / headed next (ink, larger pin)
 //
-// Pickup-practitioner: change CENTER_ZIP + RADIUS_MILES + (optionally) the
-// zip-coords table to your radius.
+// Back-office model: posting is mediated. A submission emails Kevin + the
+// back-office; records are curated into records.json and pushed. The map is
+// real and public; the intake routes through the back-office, not a server.
+//
+// Records expire 72hr after creation unless re-upped (host + bus records can
+// set their own longer 'expires'). Expired records are filtered client-side.
 
 (function () {
   'use strict';
 
   // Practitioner config — change to relocate a fork.
-  const CENTER_ZIP = '95945';        // Grass Valley, CA
+  const CENTER_ZIP = '95945';        // Grass Valley, CA (where the bus heads July 1)
   const RADIUS_MILES = 45;
   const CENTER_FALLBACK = [39.2191, -121.0611];
 
   const TYPE_COLORS = {
-    'ask': '#3a6a7e',    // var(--conn)
-    'offer': '#7e5a3a'   // var(--arch)
+    'ask': '#3d7ab5',    // --conn
+    'offer': '#a89030',  // --arch
+    'host': '#558a3e',   // --bound  (a spot for the bus)
+    'bus': '#2c2c2c'     // --ink    (where the bus is)
+  };
+
+  const CLAIM_LABEL = {
+    'ask': 'I can help with this',
+    'offer': 'I could use this',
+    'host': 'Ask about this spot'
   };
 
   let map = null;
@@ -49,11 +62,14 @@
     return new Date(rec.expires).getTime() < Date.now();
   }
 
-  // Offset paired records (ask + offer at same zip) so both pins are visible
+  // Offset paired records at the same zip so multiple pins are visible
   function offsetForType(rec) {
-    return rec.record_type === 'offer'
-      ? { lat: 0.0010, lng: 0.0015 }
-      : { lat: -0.0010, lng: -0.0015 };
+    switch (rec.record_type) {
+      case 'offer': return { lat: 0.0011, lng: 0.0016 };
+      case 'host':  return { lat: 0.0011, lng: -0.0016 };
+      case 'bus':   return { lat: 0, lng: 0 };
+      default:      return { lat: -0.0011, lng: -0.0016 }; // ask
+    }
   }
 
   function recordToPin(rec) {
@@ -62,12 +78,13 @@
     const off = offsetForType(rec);
     const coords = [base[0] + off.lat, base[1] + off.lng];
     const color = TYPE_COLORS[rec.record_type] || '#666';
+    const isBus = rec.record_type === 'bus';
     const marker = L.circleMarker(coords, {
-      radius: 9,
+      radius: isBus ? 12 : 9,
       fillColor: color,
       color: color,
-      weight: 2,
-      fillOpacity: 0.55
+      weight: isBus ? 3 : 2,
+      fillOpacity: isBus ? 0.85 : 0.55
     });
     marker.bindPopup(buildPopup(rec));
     return marker;
@@ -81,17 +98,27 @@
   }
 
   function buildPopup(rec) {
+    if (rec.record_type === 'bus') {
+      return '' +
+        '<div class="record-popup">' +
+          '<div class="meta"><span class="shape bus-tag">The bus</span> ' + escapeHtml(rec.zip) + '</div>' +
+          '<div class="body">' + escapeHtml(rec.body || '') + '</div>' +
+          (rec.time_window ? '<div class="footer">' + escapeHtml(rec.time_window) + '</div>' : '') +
+        '</div>';
+    }
     const typeLabel = rec.record_type.charAt(0).toUpperCase() + rec.record_type.slice(1);
-    const tagClass = rec.record_type === 'offer' ? 'offer-tag' : 'ask-tag';
+    const tagClass = rec.record_type === 'offer' ? 'offer-tag'
+                   : rec.record_type === 'host' ? 'host-tag' : 'ask-tag';
     const nameLine = rec.first_name
       ? '<strong>' + escapeHtml(rec.first_name) + '</strong> · '
       : '';
     const expiresIn = hoursUntil(rec.expires);
     const expiresLine = expiresIn !== null
-      ? '<div class="footer">Expires in ' + expiresIn + 'h</div>'
+      ? '<div class="footer">Open for ' + expiresIn + 'h more</div>'
       : '';
+    const label = CLAIM_LABEL[rec.record_type] || 'Reach out';
     const claimedBlock = rec.status === 'open'
-      ? '<button class="claim-btn" data-claim="' + escapeHtml(rec.record_id) + '">Claim this</button>'
+      ? '<button class="claim-btn" data-claim="' + escapeHtml(rec.record_id) + '">' + label + '</button>'
       : '<div class="claimed">' + escapeHtml(rec.status) + '</div>';
     return '' +
       '<div class="record-popup">' +
@@ -121,9 +148,10 @@
   function filteredRecords() {
     const f = getFilters();
     return allRecords.filter(function (rec) {
-      if (rec.status !== 'open') return false;
+      if (rec.record_type === 'bus') return true; // the bus pin always shows
+      if (rec.status && rec.status !== 'open') return false;
       if (isExpired(rec)) return false;
-      if (f.types.indexOf(rec.record_type) === -1) return false;
+      if (f.types.length && f.types.indexOf(rec.record_type) === -1) return false;
       return true;
     });
   }
@@ -143,13 +171,13 @@
   function renderList() {
     const container = document.getElementById('records-list-container');
     if (!container) return;
-    const recs = filteredRecords();
+    const recs = filteredRecords().filter(function (r) { return r.record_type !== 'bus'; });
     if (recs.length === 0) {
-      container.innerHTML = '<div class="empty-state">No open records in the current view. The fabric is quiet.</div>';
+      container.innerHTML = '<div class="empty-state">Nothing open in view right now. The fabric is quiet — or it is waiting for you to be the first.</div>';
       return;
     }
     const rows = recs.map(function (rec) {
-      const typeLabel = rec.record_type === 'ask' ? 'Ask' : 'Offer';
+      const typeLabel = rec.record_type.charAt(0).toUpperCase() + rec.record_type.slice(1);
       const namePart = rec.first_name
         ? '<span class="zip">' + escapeHtml(rec.first_name) + ' · ' + escapeHtml(rec.zip) + '</span>'
         : '<span class="zip">zip ' + escapeHtml(rec.zip) + '</span>';
@@ -175,14 +203,11 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    const radiusMeters = RADIUS_MILES * 1609.34;
-    L.circle(center, {
-      radius: radiusMeters,
-      color: '#999',
-      weight: 1,
-      fillOpacity: 0.04,
-      dashArray: '4 6'
-    }).addTo(map);
+    // If a bus record is present, center on it instead.
+    const bus = allRecords.find(function (r) { return r.record_type === 'bus'; });
+    if (bus && zipCoords[bus.zip]) {
+      map.setView(zipCoords[bus.zip], 10);
+    }
 
     renderPins();
   }
@@ -216,7 +241,7 @@
     console.error(err);
     const container = document.getElementById('records-list-container');
     if (container) {
-      container.innerHTML = '<div class="empty-state">Could not load records. The map will be available once the data files are in place.</div>';
+      container.innerHTML = '<div class="empty-state">Could not load the map data.</div>';
     }
   });
 })();

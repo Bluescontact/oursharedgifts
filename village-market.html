@@ -3,15 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Village Market — Our Shared Gifts</title>
-<link rel="stylesheet" href="assets/css/core.css">
+<title>Gift Circle — Our Shared Gifts</title>
+<link rel="stylesheet" href="/assets/css/core.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
   crossorigin=""/>
 <style>
-  .market-intro {
-    margin: 1.5rem 0 2rem;
-  }
   .market-controls {
     display: flex;
     flex-wrap: wrap;
@@ -25,163 +22,51 @@
     font-size: 0.85rem;
   }
   .market-controls label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--faint);
-    font-size: 0.7rem;
-    cursor: pointer;
-  }
-  .market-controls input[type="checkbox"] {
-    accent-color: var(--conn);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--faint); font-size: 0.7rem; cursor: pointer;
   }
   .market-controls .filter-group {
-    display: inline-flex;
-    gap: 0.75rem;
-    padding-right: 1rem;
-    border-right: 1px solid var(--rule-soft);
-  }
-  .market-controls .filter-group:last-of-type {
-    border-right: none;
+    display: inline-flex; gap: 0.75rem; flex-wrap: wrap;
   }
   .market-controls .post-link {
-    margin-left: auto;
-    padding: 0.4rem 0.9rem;
-    border: 1px solid var(--conn);
-    color: var(--conn);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.7rem;
+    margin-left: auto; padding: 0.4rem 0.9rem;
+    border: 1px solid var(--conn); color: var(--conn);
+    text-decoration: none; text-transform: uppercase;
+    letter-spacing: 0.08em; font-size: 0.7rem;
   }
-  .market-controls .post-link:hover {
-    background: var(--conn);
-    color: var(--bg);
-  }
-  #village-map {
-    height: 28rem;
-    margin: 1.5rem 0 1rem;
-    border: 1px solid var(--rule-soft);
-  }
-  .map-legend {
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    color: var(--faint);
-    margin: 0.5rem 0 1.5rem;
-  }
-  .map-legend span {
-    display: inline-block;
-    padding: 0 0.6rem;
-    border-left: 3px solid currentColor;
-  }
+  .market-controls .post-link:hover { background: var(--conn); color: var(--bg); }
+  #village-map { height: 28rem; margin: 1.5rem 0 1rem; border: 1px solid var(--rule-soft); }
+  .map-legend { font-family: var(--sans); font-size: 0.75rem; color: var(--faint); margin: 0.5rem 0 1.5rem; }
+  .map-legend span { display: inline-block; padding: 0 0.6rem; border-left: 3px solid currentColor; margin-bottom: 0.3rem; }
   .map-legend .ask-key { color: var(--conn); }
   .map-legend .offer-key { color: var(--arch); }
-  .map-legend .standing-key { color: var(--bound); }
-
-  .record-popup {
-    font-family: var(--serif);
-    font-size: 0.9rem;
-    line-height: 1.4;
-    max-width: 18rem;
-  }
-  .record-popup .meta {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--faint);
-    margin-bottom: 0.4rem;
-  }
-  .record-popup .shape {
-    display: inline-block;
-    padding: 0.05rem 0.45rem;
-    border: 1px solid currentColor;
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-right: 0.4rem;
-  }
+  .map-legend .host-key { color: var(--bound); }
+  .map-legend .bus-key { color: var(--ink); }
+  .record-popup { font-family: var(--serif); font-size: 0.9rem; line-height: 1.4; max-width: 18rem; }
+  .record-popup .meta { font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--faint); margin-bottom: 0.4rem; }
+  .record-popup .shape { display: inline-block; padding: 0.05rem 0.45rem; border: 1px solid currentColor; font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 0.4rem; }
   .record-popup .ask-tag { color: var(--conn); }
   .record-popup .offer-tag { color: var(--arch); }
-  .record-popup .standing-tag { color: var(--bound); }
-  .record-popup .body {
-    margin: 0.5rem 0 0.7rem;
-  }
-  .record-popup .footer {
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    color: var(--muted);
-  }
-  .record-popup .claim-btn {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid var(--conn);
-    background: transparent;
-    color: var(--conn);
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-  }
-  .record-popup .claim-btn:hover {
-    background: var(--conn);
-    color: var(--bg);
-  }
-  .record-popup .claimed {
-    margin-top: 0.4rem;
-    padding: 0.3rem 0.6rem;
-    background: var(--bg-soft);
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    color: var(--muted);
-  }
-  .empty-state {
-    text-align: center;
-    color: var(--muted);
-    padding: 2rem 1rem;
-    font-style: italic;
-    font-size: 0.95rem;
-  }
-  .records-list {
-    margin: 2rem 0;
-  }
-  .records-list h2 {
-    font-size: 1.1rem;
-  }
-  .record-row {
-    display: grid;
-    grid-template-columns: 5rem 1fr auto;
-    gap: 0.4rem 1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    font-size: 0.9rem;
-    align-items: baseline;
-  }
-  .record-row .type {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+  .record-popup .host-tag { color: var(--bound); }
+  .record-popup .bus-tag { color: var(--ink); }
+  .record-popup .body { margin: 0.5rem 0 0.7rem; }
+  .record-popup .footer { font-family: var(--sans); font-size: 0.7rem; color: var(--muted); }
+  .record-popup .claim-btn { display: inline-block; margin-top: 0.5rem; padding: 0.3rem 0.8rem; border: 1px solid var(--conn); background: transparent; color: var(--conn); font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; }
+  .record-popup .claim-btn:hover { background: var(--conn); color: var(--bg); }
+  .record-popup .claimed { margin-top: 0.4rem; padding: 0.3rem 0.6rem; background: var(--bg-soft); font-family: var(--sans); font-size: 0.7rem; color: var(--muted); }
+  .empty-state { text-align: center; color: var(--muted); padding: 2rem 1rem; font-style: italic; font-size: 0.95rem; }
+  .records-list { margin: 2rem 0; }
+  .records-list h2 { font-size: 1.1rem; }
+  .record-row { display: grid; grid-template-columns: 5rem 1fr auto; gap: 0.4rem 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.9rem; align-items: baseline; }
+  .record-row .type { font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
   .record-row .type.ask { color: var(--conn); }
   .record-row .type.offer { color: var(--arch); }
-  .record-row .type.standing-offer { color: var(--bound); }
-  .record-row .zip {
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    color: var(--faint);
-  }
+  .record-row .type.host { color: var(--bound); }
+  .record-row .zip { font-family: var(--sans); font-size: 0.7rem; color: var(--faint); }
 </style>
-<meta property="og:title" content="Village Market — Our Shared Gifts">
-<meta property="og:image" content="https://www.oursharedgifts.org/assets/cards/village-market.png">
+<meta property="og:title" content="Gift Circle — Our Shared Gifts">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.oursharedgifts.org/assets/cards/village-market.png">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -196,50 +81,45 @@
 </header>
 
 <main id="main">
-  <span class="vertex-marker conn">Connection · Village Market</span>
-  <h1>Village Market</h1>
+  <h1>Gift Circle</h1>
   <div class="page-rule conn"></div>
-  <p class="subtitle">Asks and offers within 45 miles of wherever the bus is parked.</p>
+  <p class="subtitle">Asks, offers, and a spot for the bus — within 45 miles of wherever it's parked.</p>
 
-  <div role="note" style="margin:1.25rem 0;padding:1rem 1.25rem;border:1px solid var(--conn);background:var(--bg-soft);font-family:var(--sans);font-size:0.85rem;line-height:1.5;">
-    <strong style="color:var(--conn);">Demonstration.</strong> The pins below are example asks and offers, here so you can see and feel how the Gift Circle works. Browsing, posting, and claiming are all <strong>simulated</strong> for now — nothing is sent or stored. When the circle goes live, these become real exchanges within the radius.
-  </div>
-
-  <div class="market-intro">
-    <p>What people in the local fabric are asking for and what they have to give. Each submission carries both — one ask and one offer — so nobody shows up to only take or only give. Records live on the map for 72 hours unless the submitter re-ups; after that they expire. First names appear when posters choose to share them.</p>
-    <p>Current radius: 45 miles around Grass Valley, CA. When the bus moves, the radius moves. See <a href="/current.html">Current</a> for the live location. See <a href="/village-market-protocol.html">the protocol</a> for what this is and isn't.</p>
-  </div>
+  <p>A living map of the local fabric. What people near here need a hand with, what they have to give, and where someone can offer the bus a place to land. It runs on one rule: <strong>the circle completes through recognition, not payment.</strong> Nothing here is a transaction. You won't end up owing anyone. A donation or a thank-you can flow back, freely — but it's never the price of asking.</p>
 
   <div class="market-controls">
     <div class="filter-group">
       <label><input type="checkbox" data-filter="ask" checked> Asks</label>
       <label><input type="checkbox" data-filter="offer" checked> Offers</label>
+      <label><input type="checkbox" data-filter="host" checked> Spots for the bus</label>
     </div>
-    <a class="post-link" href="/village-market-submit.html">Post an ask + offer →</a>
+    <a class="post-link" href="/village-market-submit.html">Add yours →</a>
   </div>
 
-  <div id="village-map" aria-label="Map of village market asks and offers"></div>
+  <div id="village-map" aria-label="Map of asks, offers, and parking spots"></div>
   <p class="map-legend">
-    <span class="ask-key">Ask</span>
-    <span class="offer-key">Offer</span>
+    <span class="ask-key">Ask — a hand needed</span>
+    <span class="offer-key">Offer — a hand to give</span>
+    <span class="host-key">A spot for the bus</span>
+    <span class="bus-key">Where the bus is</span>
   </p>
 
   <div class="records-list">
-    <h2>Open records, list view</h2>
+    <h2>Open in the circle right now</h2>
     <div id="records-list-container"></div>
   </div>
 
-  <h2>About this map</h2>
-  <p>Each pin sits at zip-code center, not at a specific address. Asks and offers from the same submitter are offset slightly so both are visible. Contact information is held privately and revealed only to the person who claims a record. Open records appear here; claimed, withdrawn, met, and expired records drop off the public view.</p>
-  <p>If you want to participate, <a href="/village-market-submit.html">post an ask and an offer</a> — the submission carries both. If you can meet one of the open asks or take up one of the open offers, click the pin and claim it.</p>
-  <p>This is Kevin's instance, held from wherever the bus is parked. Anyone can hold their own radius from somewhere else — see <a href="/village-market-protocol.html">the protocol</a> for how.</p>
+  <h2>How it works</h2>
+  <p>Pins sit at zip-code center, not at an address. When you add an ask or an offer, the submission carries both — one need and one gift — so no one shows up to only take or only give. A spot for the bus is its own kind of pin (see <a href="/host-the-bus.html">Host the Bus</a>).</p>
+  <p><strong>Posting is mediated, on purpose.</strong> When you add something, it routes to Kevin and the back-office, gets placed on the map, and goes live — usually within the hour. There's no account, no login, nothing harvested. Contact details stay private and are shared only with the person on the other end of a connection. Open records show here; claimed, met, and expired ones drop off.</p>
+  <p>The edges are plain, and they hold both ways: no negotiating, no references required to ask, no debt created by receiving. Recognition — a review, a thank-you, a donation if you want — is welcome and never owed. See <a href="/refusals.html">Refusals</a> for the lines this keeps.</p>
 
   <nav class="page-tail" aria-label="Related pages">
+    <a href="/host-the-bus.html">Host the bus</a>
+    <span class="sep">·</span>
     <a href="/refusals.html">What this refuses</a>
     <span class="sep">·</span>
-    <a href="/village-market-protocol.html">The protocol</a>
-    <span class="sep">·</span>
-    <a href="/library/">The body of work</a>
+    <a href="/current.html">Where the bus is</a>
   </nav>
 </main>
 
