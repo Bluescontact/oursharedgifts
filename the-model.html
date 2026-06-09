@@ -71,6 +71,62 @@
     padding-top: 1.5rem;
     margin-top: 2.5rem;
   }
+
+  /* --- infographics --- */
+  .ig { margin: 2rem 0 2.75rem; }
+  .ig-head {
+    font-family: var(--sans); font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--faint); margin: 0 0 1rem;
+  }
+  .ig-cap {
+    font-family: var(--sans); font-size: 0.8rem; color: var(--faint);
+    text-align: center; margin: 0.9rem 0 0; letter-spacing: 0.02em;
+  }
+
+  /* seven-layer stack */
+  .seven { display: flex; flex-direction: column; gap: 5px; }
+  .seven .row {
+    display: flex; align-items: center; gap: 0.85rem;
+    background: var(--bg-soft); border-left: 4px solid var(--muted);
+    padding: 0.65rem 1rem; border-radius: 4px;
+  }
+  .seven .n {
+    flex: 0 0 auto; width: 1.5rem; height: 1.5rem; line-height: 1.5rem;
+    text-align: center; border-radius: 50%; background: var(--muted);
+    color: var(--bg); font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
+  }
+  .seven .nm { font-family: var(--serif); font-size: 1.05rem; }
+  .seven .ro { font-family: var(--sans); font-size: 0.82rem; color: var(--muted); margin-left: auto; text-align: right; }
+  .seven .ground { border-color: var(--bound); } .seven .ground .n { background: var(--bound); }
+  .seven .hands  { border-color: var(--arch); }  .seven .hands .n  { background: var(--arch); }
+  .seven .vault  { border-color: var(--diff); }  .seven .vault .n  { background: var(--diff); }
+  .seven .face   { border-color: var(--conn); }  .seven .face .n   { background: var(--conn); }
+  .seven .mesh   { border-color: var(--bound); } .seven .mesh .n   { background: var(--bound); }
+  .seven .brake  { border-color: var(--diff); }  .seven .brake .n  { background: var(--diff); }
+  .seven .mind   { border-color: var(--conn); }  .seven .mind .n   { background: var(--conn); }
+
+  /* need-less vs earn-more distinction */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+  }
+  .compare .col { padding: 1.2rem 1.25rem 1.4rem; }
+  .compare .weak { background: var(--bg-soft); color: var(--muted); }
+  .compare .strong { background: var(--bg); border-left: 3px solid var(--arch); }
+  .compare .ch { font-family: var(--serif); font-size: 1.15rem; margin: 0 0 0.15rem; color: var(--ink); }
+  .compare .weak .ch { color: var(--muted); }
+  .compare .cs {
+    font-family: var(--sans); font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--faint); margin: 0 0 0.85rem;
+  }
+  .compare ol { margin: 0; padding-left: 1.1rem; font-size: 0.92rem; }
+  .compare li { margin-bottom: 0.4rem; }
+  .compare .end { margin: 0.9rem 0 0; font-family: var(--sans); font-size: 0.85rem; font-weight: 600; }
+  .compare .weak .end { color: var(--diff); }
+  .compare .strong .end { color: var(--bound); }
+  @media (max-width: 33rem) { .compare { grid-template-columns: 1fr; } }
+
+  .flywheel { width: 100%; max-width: 470px; height: auto; display: block; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -112,6 +168,20 @@
   <li><a href="#brake"><strong>6 · The Brake</strong></a> — what keeps me whole.</li>
   <li><a href="#mind"><strong>7 · The Mind</strong></a> — the part that keeps my head clear.</li>
 </ul>
+
+<figure class="ig">
+  <div class="ig-head">The seven layers, at a glance</div>
+  <div class="seven">
+    <div class="row ground"><span class="n">1</span><span class="nm">The Ground</span><span class="ro">what I own outright — the engine</span></div>
+    <div class="row hands"><span class="n">2</span><span class="nm">The Hands</span><span class="ro">the work I give</span></div>
+    <div class="row vault"><span class="n">3</span><span class="nm">The Vault</span><span class="ro">built once, keeps serving</span></div>
+    <div class="row face"><span class="n">4</span><span class="nm">The Face</span><span class="ro">how my name travels</span></div>
+    <div class="row mesh"><span class="n">5</span><span class="nm">The Mesh</span><span class="ro">the web I plug into</span></div>
+    <div class="row brake"><span class="n">6</span><span class="nm">The Brake</span><span class="ro">what keeps me whole</span></div>
+    <div class="row mind"><span class="n">7</span><span class="nm">The Mind</span><span class="ro">the head kept clear</span></div>
+  </div>
+  <figcaption class="ig-cap">Seven parts of one owned life. The Ground is the engine; everything else runs on the room it makes.</figcaption>
+</figure>
 
 <section class="layer ground" id="ground">
   <span class="layer-num">1</span>
@@ -190,11 +260,78 @@
 
 <h2>The move that ties it together: need less, not earn more</h2>
 <p>Most people try to get free by earning more. I'm doing it the other way, and it's the stronger way: <strong>get free by needing less.</strong> This is the center of the pattern — the one thing I'd hand anyone.</p>
+
+<figure class="ig">
+  <div class="ig-head">Two ways to get free</div>
+  <div class="compare">
+    <div class="col weak">
+      <p class="ch">Earn more</p>
+      <p class="cs">the common way</p>
+      <ol>
+        <li>Chase more money</li>
+        <li>Take any job to get it</li>
+        <li>Grind whatever hours it needs</li>
+        <li>Your free help curdles into a trap</li>
+      </ol>
+      <p class="end">→ caught</p>
+    </div>
+    <div class="col strong">
+      <p class="ch">Need less</p>
+      <p class="cs">the stronger way</p>
+      <ol>
+        <li>Own what you depend on</li>
+        <li>Burn drops near zero</li>
+        <li>"No" stays cheap</li>
+        <li>The gift stays a free choice</li>
+      </ol>
+      <p class="end">→ free</p>
+    </div>
+  </div>
+  <figcaption class="ig-cap">Same goal, opposite engines. Needing less is what keeps the "no" affordable and the gift real.</figcaption>
+</figure>
 <p>The near-zero burn and the owned bus and solar aren't just a frugal lifestyle. They're the <em>engine</em>. They're what lets the half-day stay a half-day, what lets the gift stay a gift instead of curdling into unpaid obligation I can't escape, what lets me walk away from a bad deal. If I needed a lot, I'd have to take any job and grind any hours, and my free help would turn into a trap. Because I keep my needs tiny, my generosity stays a real choice. The bus is just my way of getting there; yours will be your own.</p>
 <p>The other half of the same move: <strong>be needed for less, not for everything.</strong> There are two ways to be needed. One — nothing happens without you; every job, every question runs through your hands. That <em>feels</em> like being valued. It's a trap: the whole operation is capped at what one body can carry, and the day you're hurt or gone, it all stops. Two — you build things so they run <em>without</em> you in the middle, and you keep only the one gate that should stay yours: your name, your yes-or-no, your quality stamp. Everything else routes around you. A life that gets worse the more it runs through your hands is a monument with a man buried under it. I keep asking, cycle after cycle: is the count of things that can't happen without me going <em>down</em>?</p>
 
 <h2>The flywheel: one setup that feeds the next</h2>
 <p>Watch how it compounds. I built the pump and tank — one fixed cost, paid once in salvage. On top of that, the automatic watering system got built — now the farm waters itself. The water I set up freed my hands, and my freed hands can build the next thing. That's the wheel: each thing I put down becomes the floor the next thing stands on.</p>
+
+<figure class="ig">
+  <div class="ig-head">The flywheel</div>
+  <svg class="flywheel" viewBox="0 0 560 360" role="img" aria-label="A compounding cycle: build once, paid in salvage; it runs without you; it frees your hands and time; you build the next thing — each turn bigger.">
+    <defs>
+      <marker id="fw-ar" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+        <path d="M0,0 L9,5 L0,10 z" fill="#a89030"/>
+      </marker>
+    </defs>
+    <g fill="none" stroke="#a89030" stroke-width="2.5">
+      <path d="M280,70 A100,100 0 0 1 380,170" marker-end="url(#fw-ar)"/>
+      <path d="M380,170 A100,100 0 0 1 280,270" marker-end="url(#fw-ar)"/>
+      <path d="M280,270 A100,100 0 0 1 180,170" marker-end="url(#fw-ar)"/>
+      <path d="M180,170 A100,100 0 0 1 280,70"  marker-end="url(#fw-ar)"/>
+    </g>
+    <g>
+      <circle cx="280" cy="70"  r="8" fill="#558a3e"/>
+      <circle cx="380" cy="170" r="8" fill="#a89030"/>
+      <circle cx="280" cy="270" r="8" fill="#b06840"/>
+      <circle cx="180" cy="170" r="8" fill="#3d7ab5"/>
+    </g>
+    <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" text-anchor="middle">
+      <text x="280" y="38"  font-size="14.5" fill="#2c2c2c">Build once</text>
+      <text x="280" y="53"  font-size="11"   fill="#5a5a5a">paid once, in salvage</text>
+      <text x="476" y="166" font-size="14.5" fill="#2c2c2c">It runs</text>
+      <text x="476" y="182" font-size="14.5" fill="#2c2c2c">without you</text>
+      <text x="280" y="300" font-size="14.5" fill="#2c2c2c">Frees your hands</text>
+      <text x="280" y="315" font-size="11"   fill="#5a5a5a">and your time</text>
+      <text x="84"  y="166" font-size="14.5" fill="#2c2c2c">Build the</text>
+      <text x="84"  y="182" font-size="14.5" fill="#2c2c2c">next thing</text>
+    </g>
+    <g text-anchor="middle" font-family="Georgia,serif" fill="#2c2c2c">
+      <text x="280" y="165" font-size="15">each turn,</text>
+      <text x="280" y="184" font-size="15">bigger</text>
+    </g>
+  </svg>
+  <figcaption class="ig-cap">Each setup becomes the floor the next stands on — the easy work buys the time to build the big one.</figcaption>
+</figure>
 <p>Same with the support. The fast, easy work (boards, repairs, stools) brings back enough to free the time to build up to the showpiece. The showpiece, once it lands, brings back enough for tools and time for the next bigger thing. I don't make the hardest thing carry my living — I let the easy work buy me up the ladder, one rung that holds the next.</p>
 <p>And I phase it to the calendar. If the land has a fall gathering, I back up from that date and have my best pieces finishing <em>that week</em> — fresh, ready, peak. Between the big weekends, I keep a steady trickle going so there's always a little coming back. Aim the big swings at the days the crowd is biggest; coast steady the rest of the time.</p>
 
