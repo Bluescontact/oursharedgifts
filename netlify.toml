@@ -15,3 +15,13 @@
   from = "/village-market-protocol"
   to = "/village-market-protocol.html"
   status = 301
+
+# v1 manuscript retired 2026-06-10 — inbound links land on the June canon
+[[redirects]]
+  from = "/library/architecture-of-coherence.pdf"
+  to = "/library/architecture-of-coherence-suite.pdf"
+  status = 301
+[[redirects]]
+  from = "/library/architecture-of-coherence.md"
+  to = "/library/architecture-of-coherence-suite.pdf"
+  status = 301
