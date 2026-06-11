@@ -7,3 +7,6 @@ Thumbs.db
 .vscode/
 node_modules/
 *.log
+
+# pre-transform preservation copies (local only, never deploys)
+_source/

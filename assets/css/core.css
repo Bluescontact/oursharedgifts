@@ -194,6 +194,21 @@ a:focus {
   font-size: 0.95rem;
 }
 
+/* the descent — the one site-wide device marking where a page drops
+   from plain terms into structural language. Use identically everywhere:
+   a rule, then the standard line, then the deep layer. */
+.depth-gate {
+  margin: 3.5rem 0 2.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+}
+.depth-gate p {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
 /* refusals — four shadow axes */
 .axis {
   margin: 2.5rem 0;

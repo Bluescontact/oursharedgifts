@@ -10,6 +10,44 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.oursharedgifts.org/assets/cards/toolkits.png">
+<style>
+  .tool-card {
+    margin: 1.5rem 0;
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--arch);
+  }
+  .tool-card h3 {
+    margin: 0 0 0.6rem;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: normal;
+    letter-spacing: -0.01em;
+  }
+  .tool-card h3 a { text-decoration: none; }
+  .tool-card h3 a:hover { text-decoration: underline; }
+  .tool-card p { margin: 0 0 0.75rem; font-size: 0.97rem; }
+  .tool-card .specs {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+  .tool-card .specs strong {
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+  .tool-card .specs .sep { margin: 0 0.5rem; color: var(--rule); }
+  @media (max-width: 30rem) {
+    .tool-card { padding: 1.25rem 1rem; }
+    .tool-card .specs .sep { display: block; visibility: hidden; height: 0.2rem; }
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -18,61 +56,67 @@
   <a href="/offerings.html">What I Do</a>
   <a href="/about.html">The Work</a>
   <a href="/the-model.html">The Model</a>
-  <a href="/current.html">Current</a>
   <a href="/refusals.html">Refusals</a>
+  <a href="/village-market.html">Gift Circle</a>
+  <a href="/library/">Library</a>
+  <a href="/toolkits/">Toolkits</a>
+  <a href="/current.html">Current</a>
   <a href="/request.html">Ask</a>
 </header>
 
 <main id="main">
-  <span class="vertex-marker arch">Architecture · Toolkits</span>
+  <span class="vertex-marker arch">Take and use</span>
   <h1>Toolkits</h1>
   <div class="page-rule arch"></div>
-  <p class="subtitle">What persists without Kevin.</p>
+  <p class="subtitle">Things you can take whole and use without me.</p>
 
-  <p>The Architecture vertex. Tools that operate the framework in the receiver's hands. No login, no account, no data captured. Each tool reads the receiver's own answers back through the framework — no AI grading, no scoring, no leaderboard.</p>
+  <p>This page is a parts shelf, not a reading list. Each thing on it does one job, tells you what you need and how long it takes, and works without an account, an email, or a connection back to me. Every one is a plain file — save it and it keeps working offline, on your machine, forever. Take what's useful, no attribution needed.</p>
 
-  <p class="invitation">A tool you use is substrate. A tool you read about is content. Notice which mode you're in right now.</p>
+  <p class="invitation">No data leaves any of these pages. Your answers stay in your browser and disappear when you close it.</p>
 
-  <h2>Live</h2>
-  <ul class="framed">
-    <li>
-      <em><a href="/toolkits/quick-diagnostic.html">Quick Diagnostic</a></em>
-      <span class="frame">Four questions, one per vertex. Twelve minutes. For any system you're inside — a team, a relationship, a project. Reads your own answers back to identify which capacity is weak. Standalone HTML; runs in your browser; no data leaves the page.</span>
-    </li>
-    <li>
-      <em><a href="/toolkits/fit-filter.html">Fit Filter</a></em>
-      <span class="frame">Consultation intake. Five questions. Routes a prospective receiver to one of three outcomes — fit (proceed to calendar), substrate first (read or run a tool, come back), or outside the consultation tier (refusal as information). Built from <a href="/automation/consult.html">consult.html</a> substrate.</span>
-    </li>
-    <li>
-      <em><a href="/toolkits/recognition-cards.html">48 Recognition Cards</a></em>
-      <span class="frame">Somatic activation across four movements (Differentiation · Connection · Boundaries · Architecture), twelve cards per movement. Each card has four layers: a recognition that mirrors you, an activation that lands it in your body, a seed that compresses the principle, and a transmission that turns you toward someone else. Standalone; runs in your browser; no data leaves the page.</span>
-    </li>
-    <li>
-      <em><a href="/toolkits/kit/">RI Kit</a></em>
-      <span class="frame">The full diagnostic instrument. 12-question audit → vertex diagnosis → substrate selection → prescription. Twelve statements rated on a four-point scale; the highest-sum vertex is your weakest; the kit then routes you to the substrate (Biological · Institutional · Relational · Technical) most relevant to your situation; you receive one of sixteen prescriptions specific to your vertex × substrate intersection. Standalone; runs in your browser; no data leaves the page. Editorial source at <a href="/toolkits/kit/README.md"><code>/toolkits/kit/</code></a>.</span>
-    </li>
-  </ul>
+  <h2>Diagnostics — for any group you're part of</h2>
 
-  <h2>Transmission</h2>
-  <ul class="framed">
-    <li>
-      <em>Transmission Engine</em>
-      <span class="frame">Kevin-side. Converts a finished article into a Substack-ready artifact set — recognition pattern (SVG), header-image prompt for Imagen 4, pull-quote share-cards. Pipeline: structural read → symbolic distillation → header prompt → pull-quotes. First validated run produced the <em>Recognition Threshold</em> artifact set.</span>
-    </li>
-  </ul>
+  <div class="tool-card">
+    <h3><a href="/toolkits/quick-diagnostic.html">Quick Diagnostic</a></h3>
+    <p>Four questions about a team, a relationship, a project — anything you're inside of that isn't working and you can't say why. It reads your own answers back and points at which of four basic capacities is the weak one.</p>
+    <p class="specs"><strong>Does</strong> finds the weak spot<span class="sep">·</span><strong>Needs</strong> a browser, your honesty<span class="sep">·</span><strong>Takes</strong> about 12 minutes</p>
+  </div>
 
-  <section class="edges">
-    <h2>Edges from here</h2>
-    <dl>
-      <dt><a href="/library/">Library</a> · Gift edge</dt>
-      <dd>Tools carry the framework's substrate embedded in them. Each tool grounds in a Library text.</dd>
-      <dt><a href="/">Public Face</a> · Circulation edge</dt>
-      <dd>Tools surface through where receivers arrive. Published transmissions land here.</dd>
-      <dt><a href="/automation/">Automation</a> · Deployment edge</dt>
-      <dd>Tools made operational with built-in limits. Each tool ships with explicit "what this is NOT."</dd>
-    </dl>
-  </section>
+  <div class="tool-card">
+    <h3><a href="/toolkits/kit/">The Full Kit</a></h3>
+    <p>The longer version of the same instrument. Twelve statements you rate, a diagnosis of where your system is weakest, and one specific prescription matched to your situation — out of sixteen, depending on where the weakness is and what kind of system it lives in (a body, an organization, a relationship, a technical setup).</p>
+    <p class="specs"><strong>Does</strong> diagnosis plus one concrete prescription<span class="sep">·</span><strong>Needs</strong> a browser<span class="sep">·</span><strong>Takes</strong> 20–30 minutes</p>
+  </div>
 
+  <div class="tool-card">
+    <h3><a href="/toolkits/recognition-cards.html">48 Recognition Cards</a></h3>
+    <p>A deck, not a test. Each card holds one recognition — a sentence that may land as <em>that's me</em> — and then walks it into your body, compresses it into a seed you can keep, and turns it toward someone else. Read one card or all forty-eight.</p>
+    <p class="specs"><strong>Does</strong> recognition, one card at a time<span class="sep">·</span><strong>Needs</strong> a browser, a quiet minute<span class="sep">·</span><strong>Takes</strong> minutes per card, you set the pace</p>
+  </div>
+
+  <h2>For asking me</h2>
+
+  <div class="tool-card">
+    <h3><a href="/toolkits/fit-filter.html">Fit Filter</a></h3>
+    <p>Five questions to run <em>before</em> you ask me for a sit-down consultation. It routes you honestly: a fit (go ahead and ask), something to read or run first (come back after), or a clean "this isn't what I do" with somewhere better to take it.</p>
+    <p class="specs"><strong>Does</strong> saves us both a wasted ask<span class="sep">·</span><strong>Needs</strong> a browser<span class="sep">·</span><strong>Takes</strong> about 5 minutes</p>
+  </div>
+
+  <h2>For a group, a co-op, a repo</h2>
+
+  <div class="tool-card">
+    <h3><a href="/toolkits/GOVERNANCE.md">GOVERNANCE.md — the Tri-Layer Governance Stack</a></h3>
+    <p>One plain-text file you drop into a project or hand to a community. Three layers: a diagnostic ledger that names what's going wrong from four field signs ("polite silence," "busy but stuck," "burnout," "rigid bureaucracy"), a 12-week protocol for moving a group from keeping score to working coherently, and the three laws that keep it from sliding back. Its one success test: the thing keeps running when the most active person steps away for 14 days.</p>
+    <p><em>Honest status: design spec, not yet proven by someone else's use. You could be the proof.</em></p>
+    <p class="specs"><strong>Does</strong> governance a group can run without its author<span class="sep">·</span><strong>Needs</strong> a text editor and a willing group<span class="sep">·</span><strong>Takes</strong> 10 minutes to read, 12 weeks to run</p>
+  </div>
+
+  <h2>If you use one</h2>
+  <p>No tracker tells me whether any of this gets used — that's on purpose. So if you took one of these and it worked, or it broke, telling me is the support: <a href="/request.html">a few plain lines through the Ask page</a>. A report that it failed is worth more to me than a thank-you.</p>
+
+  <p class="page-tail">
+    Each tool grounds in a text in the <a href="/library/">Library</a>, for the reader who wants the structure underneath. Finished articles leave here as <a href="/library/transmissions/">transmissions</a>.
+  </p>
 </main>
 
 <footer class="site">
@@ -81,12 +125,12 @@
     <a href="/offerings.html">What I Do</a>
     <a href="/about.html">The Work</a>
     <a href="/the-model.html">The Model</a>
-    <a href="/current.html">Current</a>
     <a href="/refusals.html">Refusals</a>
-    <a href="/request.html">Ask</a>
     <a href="/village-market.html">Gift Circle</a>
+    <a href="/library/">Library</a>
     <a href="/toolkits/">Toolkits</a>
-    <a href="/archive/">Archive</a>
+    <a href="/current.html">Current</a>
+    <a href="/request.html">Ask</a>
   </nav>
   <p>Our Shared Gifts &middot; <a href="/">oursharedgifts.org</a></p>
   <p>Use freely. Adapt as needed.</p>
