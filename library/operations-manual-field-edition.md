@@ -2,18 +2,19 @@
 
 ## How to Run Recognition Infrastructure on Your Own Substrate
 
-**Kevin Mears · Version 1.1 · 2026-05-28**
+**Kevin Mears · Version 2.0 · 2026-06-10 · Conforms to Invariant v2.0**
 
-*Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value.*
+*Use freely. Adapt as needed. Recognition welcomed, not required. Utility proves value.*
 
 ---
 
 ## Front matter
 
 - **What this is:** the operations manual for running Recognition Infrastructure on your own substrate.
-- **Sibling:** *The Architecture of Coherence* (v1.0, April 2026) is the theory-substrate. Read the manuscript first if you have not. Return here to operate.
+- **Sibling:** *The Architecture of Coherence* — the June 2026 canon — is the theory-substrate. The *Integrated Edition* (~16 pages) is the entry: the whole framework at one sitting. The *Complete Suite* (Field Guide · Academic Paper · Coherence Codex · Manuscript v2.0) is the reference behind it. Read the Integrated Edition first if you have not. Return here to operate.
 - **Form:** 4 · 6 · 4 · 1 at manuscript scale. Part 0 (Ground) · Part 1 (Four meta-vertices) · Part 2 (Sixteen groups × six anchors ≈ 96 patterns) · Part 3 (Four failure modes) · Part 4 (The 1).
-- **License:** Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value.
+- **License:** Use freely. Adapt as needed. Recognition welcomed, not required. Utility proves value.
+- **Version note (v2.0, June 2026):** resynthesized against the June canon. The four faces are realigned to the Invariant's locked table (Part 3 names the realignment). Four operating doctrines folded in where they land: felt safety and the substrate-first law (Part 0), the 14-day test (#055), the correspondence-class honesty rule and the non-universality bound (Group III), the self-audit teeth — text cannot move Deployment; close one loop (Group XVI). The architecture — 16 groups × 6 anchors, four meta-vertices, the field register — is unchanged.
 
 ---
 
@@ -41,9 +42,9 @@ You do not need to read this manual front-to-back. The form recurses at every sc
 
 ## 0.2 What this isn't
 
-**This is not theory.** The Architecture of Coherence is the theory-substrate. If you have not read it, the operational moves below will read as procedural — and that is the failure mode of every operations manual: form without ground. Read the manuscript first. Operate from the manual afterward.
+**This is not theory.** The Architecture of Coherence is the theory-substrate. If you have not read it, the operational moves below will read as procedural — and that is the failure mode of every operations manual: form without ground. Read the Integrated Edition first. Operate from the manual afterward.
 
-**This is not a pitch.** If you arrived here without prior contact with the framework, the patterns will read as architectural-sounding but ungrounded. The framework propagates through utility, not through being convincing. Find the manuscript. Spend a few weeks letting the geometry settle. Then return.
+**This is not a pitch.** If you arrived here without prior contact with the framework, the patterns will read as architectural-sounding but ungrounded. The framework propagates through utility, not through being convincing. Find the Integrated Edition. Spend a few weeks letting the geometry settle. Then return.
 
 **This is not pickup-able with vocabulary alone.** Naming the four vertices does not produce the four vertices. Saying *recognition over invention* does not produce recognition over invention. The patterns are operational; they only operate when the practitioner running them has the body to discriminate when each move is right.
 
@@ -69,11 +70,29 @@ What this means operationally:
 
 Without this ground, the patterns operate as performance. With it, they operate as architecture. The discrimination is in the body.
 
-If your body cannot yet stand on this ground, the manual will tell you to stop. Read the bus essay. Read the manuscript. Let the somatic question settle. Return.
+If your body cannot yet stand on this ground, the manual will tell you to stop. Read the bus essay. Read the Integrated Edition. Let the somatic question settle. Return.
 
 ---
 
-## 0.4 How to use this manual
+## 0.4 Felt safety — the substrate-first law
+
+The June canon names what 0.3 holds at personal scale and extends it to field scale. It is the single most expensive mistake available to anyone running this framework, so it sits here in the Ground, before any pattern:
+
+**Felt safety is the substrate, not the byproduct.** Regulated nervous systems in genuine contact are what coordination runs on at all — not a pleasant side effect of coordination done well. A person or institution in survival mode cannot metabolize feedback, however true. Truth delivered to an unready substrate becomes threat.
+
+**The sequencing law runs only one way:**
+
+somatic regulation reaches sufficient density → co-regulation becomes the ambient condition → genuine exchange becomes possible → consent architecture deposits naturally → infrastructure follows and stabilizes what exchange has built.
+
+The trust gradient, the governance documents, the protocols — these are *deposits* of exchange already operating, not the conditions that produce it. Do not build the platform and expect the safety to follow. It doesn't. Build the co-regulatory substrate first; let the architecture deposit.
+
+**The density rule** governs the field scale: one regulated nervous system in a dysregulated field is pulled toward the field; two can hold each other; three begin a field; at sufficient density co-regulation becomes ambient — and only then does the gift-economy phase become structurally stable. This is why the manual keeps telling you to check your body before checking the pattern. The body is not a preliminary; it is the load-bearing layer.
+
+**The two-layer audit follows from the law.** A structure-only audit reads which vertices are present. The substrate audit beneath it asks whether the coordination is grounded in felt safety or in structural proxies — metrics, rules, reputation scores. A system can hold all four vertices on paper and still be hollow, because the architecture was imposed to manufacture trust rather than deposited from trust. Only the substrate layer predicts that fragility in advance. (One naming caution: this manual's *substrate audit move* (#034) is a different operation — reading a candidate's actual operating substrate against its claims. Run both. They catch different failures.)
+
+---
+
+## 0.5 How to use this manual
 
 Six modes of use. Choose based on what your substrate is asking for.
 
@@ -90,11 +109,11 @@ Six modes of use. Choose based on what your substrate is asking for.
 
 ---
 
-## 0.5 What you need before reading
+## 0.6 What you need before reading
 
 A short readiness checklist. If any item is missing, the manual will not yet hold.
 
-1. **You have read** *The Architecture of Coherence* (v1.0 or later). The theory-substrate is upstream of this manual. Without it, the patterns read as procedures rather than as the operational form of a coherent geometry.
+1. **You have read** *The Architecture of Coherence* (June 2026 canon — the Integrated Edition at minimum). The theory-substrate is upstream of this manual. Without it, the patterns read as procedures rather than as the operational form of a coherent geometry.
 2. **You have an actual substrate to run this on.** Not a hypothetical project. Not a thought experiment. Something you are building, holding, or about to build that has weight in your life.
 3. **You have spent time with the somatic ground question.** Either *Building Infrastructure for Yourself* or its functional equivalent — the work of believing the substrate is worth full-rigor effort.
 4. **You are willing to refuse the patterns when your body says to.** The manual is not authoritative over your discrimination. It is a reference. Your body is the discriminator.
@@ -105,17 +124,17 @@ If three or more are missing, set the manual down and address the gaps first. Th
 
 ---
 
-## 0.6 License
+## 0.7 License
 
 This manual carries the framework's self-license clause:
 
-**Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value.**
+**Use freely. Adapt as needed. Recognition welcomed, not required. Utility proves value.**
 
-What this means operationally:
+The gift carries no return address. What this means operationally:
 
 - **You may run any pattern in this manual on your own substrate without asking.** The framework propagates through utility.
 - **You may adapt any pattern to your substrate's specifics.** The protocol is the load-bearing layer; instance-level implementation is each practitioner's own.
-- **You may produce derivative artifacts** — a manual for your domain, a kit for your community, a translation for your language. Credit the source so receivers can find the upstream substrate; do not gate the derivative.
+- **You may produce derivative artifacts** — a manual for your domain, a kit for your community, a translation for your language. The lineage is named here so receivers who want the upstream substrate can trace it; naming it in your derivative is welcomed, never required. Do not gate the derivative.
 - **You may fork the framework itself** if your substrate calls for a fundamentally different shape. Propagation is a feature, not a leak.
 - **You may not enclose this manual or its derivatives.** No paywalls. No premium tiers. No proprietary versions. The gift form does not yield to commodification.
 - **You may not use this framework as legitimization for an extraction-pattern architecture.** The four anti-extraction axes (Capture · Aggregation · Scaling · Performance) are structural refusals; any deployment that embodies them is not running this framework regardless of vocabulary.
@@ -200,6 +219,8 @@ Six operations:
 **5. Deposit and let the substrate operate against it.** Once filed, do not over-explain. The synthesis either changes what the substrate can do next or it does not. If subsequent cycles don't route against it, it was too early or at the wrong vertex.
 
 **6. Re-read when substrate accumulates further.** The first reading does not foreclose subsequent ones. v2 is not "v1 was wrong" — it is "v1 reached its scope; v2 reads more."
+
+**The bound on this vertex (June canon):** self-reading improves Self-Knowledge; it never improves Deployment. Every gain available to a text lands on the Differentiation–Boundaries side — verification, honest demotion, sharper limits. None of it deposits into the world. A more rigorous reading *widens* the visible gap between what the substrate knows about itself and what circulates beyond its authors; that widening is honest, not a failure. If a reading reports the deployment edges improved by textual work, it is performing completion. To move those edges, go to Vertex C and close a loop (Group XVI names the teeth).
 
 ### Shadow forms to watch for
 
@@ -549,7 +570,7 @@ A practitioner studying this group is looking at the framework's constitution. P
 
 **Structural statement:** When in-person engagement crosses the sustained-engagement threshold (a few hours), the architecture must include shared meal as structural requirement, not optional benefit. Co-regulation is part of the architecture. Treating the body doing work as separable from the body that needs feeding is the failure mode. The shared meal is the substrate trust accumulates on.
 
-**Operational use:** When designing any deployment that involves sustained in-person engagement (community hosting, project-cluster co-work, workshop facilitation), embed the meal architecturally. Name the threshold (four hours is one canonical instance). Make the meal load-bearing in the protocol, not decorative. Other practitioners adapt the specific cultural shape; the architectural principle holds across instances.
+**Operational use:** When designing any deployment that involves sustained in-person engagement (community hosting, project-cluster co-work, workshop facilitation), embed the meal architecturally. Name the threshold (four hours is one canonical instance). Make the meal load-bearing in the protocol, not decorative. Other practitioners adapt the specific cultural shape; the architectural principle holds across instances. The canon's density rule (Part 0.4) is the field-scale form of this pattern: one regulated nervous system in a dysregulated field is pulled toward the field; two can hold each other; three begin a field. The shared meal is how density gets built.
 
 **How to recognize:** Your in-person engagement protocol includes the meal as one of the structural requirements, not as a nice-to-have. Receivers experience the engagement as held by co-regulation, not just by work.
 
@@ -608,7 +629,7 @@ A practitioner running this group is doing the diagnostic work — taking a cand
 
 **Structural statement:** When a candidate framework-instance (or a platform claiming framework vocabulary) arrives, run the substrate audit move — apply the lens to the candidate's actual substrate (its code, its protocols, its operational patterns), not to its surface claims. The audit recognizes whether the substrate operates the patterns it names or has borrowed vocabulary while structurally refusing them.
 
-**Operational use:** Before accepting any framework-adjacent claim, audit. The mitoailabs analysis is the canonical worked example — six structural inversions surfaced by auditing actual operations rather than marketing. The audit produces clean architectural sorting. Audit includes the trace-everything discipline (substrate audits run against the actual trace, not summaries) and adversarial-condition documentation (does the architecture hold under hostile pressure?).
+**Operational use:** Before accepting any framework-adjacent claim, audit. The mitoailabs analysis is the canonical worked example — six structural inversions surfaced by auditing actual operations rather than marketing. The audit produces clean architectural sorting. Audit includes the trace-everything discipline (substrate audits run against the actual trace, not summaries) and adversarial-condition documentation (does the architecture hold under hostile pressure?). The June canon adds a second layer beneath this move (Part 0.4): after reading which vertices the candidate actually operates, ask whether its coordination is grounded in felt safety or in structural proxies. A candidate can pass the structure read and fail the substrate read — all four vertices on paper, hollow underneath. The structure layer cannot see that in advance; only the substrate layer predicts the fragility.
 
 **How to recognize:** A platform arrives claiming alignment; your audit produces a structural read revealing whether the alignment is vocabulary-only or substrate-deep.
 
@@ -646,11 +667,13 @@ A practitioner running this group is doing the diagnostic work — taking a cand
 
 **Tension:** Architect ↔ Operator
 
-**Structural statement:** The Exit Test asks: *if the architect stopped operating tomorrow, would the substrate continue to operate?* If yes, the substrate has achieved substrate-independence (#009). If no, the substrate has container-holder dependence (#097 shadow form) and needs structural correction. The Exit Test is the operational verification of substrate-independence.
+**Structural statement:** The Exit Test asks: *if the architect stopped operating tomorrow, would the substrate continue to operate?* If yes, the substrate has achieved substrate-independence (#009). If no, the substrate has container-holder dependence (#097 shadow form) and needs structural correction. The Exit Test is the operational verification of substrate-independence. The June canon gives it a concrete field form — **the 14-day test**: the system keeps operating coherently when the most active pioneer steps away for 14 days. If the knowledge to run the system exists only in people's heads, you have built a cult. If it exists in the environment, you have built a civilization.
 
 **Operational use:** Periodically run the Exit Test on every deployment you hold. The Village Market passes by design — signed-token mechanisms, pickup-able protocol, FOSS-aligned stack mean pickup-practitioners can run it without the architect in the loop. The Personal Governance Model passes by being personal-scale. The Recognition Protocol tools pass via self-elimination (#144). When a deployment fails the Exit Test, the corrective is architectural redesign, not better documentation. The practitioner-side control node (absorbed from #074) names the architect-side mechanism by which the architect can be cleanly absent.
 
 **How to recognize:** You can name, for every deployment you hold, exactly how it would operate if you stepped out — and the answer is satisfying, not anxious.
+
+**The honest caution (June canon):** passing the 14-day test inside a community you built is *substrate-internal circulation* — necessary, not sufficient. The Architecture vertex is earned only when the test passes in a community its authors did not build. If that community is yours, you are the test.
 
 ### Cross-group references
 
@@ -671,15 +694,17 @@ Group III is the theoretical-foundations group. It carries the patterns that gro
 
 A practitioner studying this group is asking the foundational *why* questions. Pickup-practitioners who want to know whether the framework's shape is convention or necessity read Group III. The answer: the four-vertex form, the gift form, the build-tools-first discipline are not chosen — they are recognized as the minimum sufficient structure for what the framework does.
 
+The June canon adds the honesty discipline that governs every claim this group makes about new territory. **The correspondence-class rule (hard rule):** a correspondence between the framework and a domain is *structural* only if insight flows both directions — the domain illuminates the framework and the framework illuminates the domain. One-directional insight is *illustrative* and may never be upgraded to pad the count. A claim whose structural status rests on an unrun test is *bounded*. Disputed science is *contested* and held with its caveat sharp. The tiering is itself the finding — and the direction of revision is the tell: a revision that flags fewer limits without new bidirectional evidence is evidence of projection. Flag more, not fewer. And the easy fits are warnings, not wins: a domain the framework maps too cleanly is evidence of low falsifiability, not structural necessity.
+
 ### T1 · #009 — Substrate Independence
 
 **Tension:** Substrate-independent ↔ Instance-specific
 
-**Structural statement:** The framework operates the same form across substrates — physical infrastructure, relational architecture, institutional governance, software systems, language. Substrate independence is the structural claim that the 4·6·4·1 form is not domain-specific. A bus build, a manuscript, a village market, an agent set: same form, different substrates.
+**Structural statement:** The framework operates the same form across substrates — physical infrastructure, relational architecture, institutional governance, software systems, language. Substrate independence is the structural claim that the 4·6·4·1 form is not domain-specific. A bus build, a manuscript, a village market, an agent set: same form, different substrates. **The claim carries a bound (June canon): the form is substrate-independent; it is not universal across coordination as such.** Adversarial search produced two strikes inside the framework's own territory — anonymous markets, which coordinate thousands of agents with Connection absent *by design*, and open-source forks, where coordination is achieved by generative division and the framework can only misread a healthy fork as the Isolated failure. The tetrahedral minimum describes coordination that runs through mutual recognition.
 
-**Operational use:** When considering whether to deploy the framework into a new substrate domain (a craft, a relationship, an organization), the question is not *"will this form fit?"* It will. The question is *"is my body ready to hold this form in this substrate?"* The form's universality is established; the practitioner's readiness is the discriminator.
+**Operational use:** When considering whether to deploy the framework into a new substrate domain (a craft, a relationship, an organization), ask two questions in order. First, the territory question: *does coordination here run through mutual recognition — or through anonymity or generative division?* If the latter, the framework will describe the failure face of a success — its error, not the domain's. Set it down there. Second, if the territory is recognition-shaped, the question is not *"will this form fit?"* — it will — but *"is my body ready to hold this form in this substrate?"* The practitioner's readiness is the discriminator. And when you claim the fit afterward, grade the claim by the correspondence-class rule (above): structural only if the domain taught the framework something back.
 
-**How to recognize:** You attempt the framework on a new substrate, hit operational difficulty, and the difficulty surfaces as practitioner-readiness rather than form-mismatch. The form holds; the holder is what wants development.
+**How to recognize:** You attempt the framework on a new substrate, hit operational difficulty, and the difficulty surfaces as practitioner-readiness rather than form-mismatch. The form holds; the holder is what wants development. And you know the two territories where you would set it down instead.
 
 ### T2 · #037 — Rotation-vs-Recognition
 
@@ -725,7 +750,7 @@ A practitioner studying this group is asking the foundational *why* questions. P
 
 **Tension:** Architect ↔ Operator
 
-**Structural statement:** The tetrahedron is the geometrically minimum sufficient system for stable structure under arbitrary load — Fuller's claim, operating here. Four vertices, six edges, four faces is the smallest form that achieves three-dimensional rigidity through tension. Fewer vertices produces unstable structure; more vertices produces redundant structure that compresses rather than tensegrically distributes load. The tetrahedron's form holds via tension between its members (absorbed from #010 Tensegrity); the geometric ground for why four-and-only-four is the minimum (absorbed from #149 Sufficiency Geometry) makes the structural choice non-arbitrary.
+**Structural statement:** The tetrahedron is the geometrically minimum sufficient system for stable structure under arbitrary load — Fuller's claim, operating here. Four vertices, six edges, four faces is the smallest form that achieves three-dimensional rigidity through tension. Fewer vertices produces unstable structure; more vertices produces redundant structure that compresses rather than tensegrically distributes load. The tetrahedron's form holds via tension between its members (absorbed from #010 Tensegrity); the geometric ground for why four-and-only-four is the minimum (absorbed from #149 Sufficiency Geometry) makes the structural choice non-arbitrary. The June canon grounds this in a **dual derivation**: a second mathematical tradition — higher-order network theory (Battiston et al. 2021; Bianconi 2021) — arrives at the same object from unrelated axioms, as the simplest simplicial complex carrying structure above the pairwise. Two formalisms, no shared assumptions, one shape. The convergence is author-independent, which is what makes the minimum claim evidence rather than a chosen aesthetic.
 
 **Operational use:** When tempted to add a fifth vertex (a fifth role, axis, or movement), apply the minimum-system test. Either the candidate is redundant (covered by one of the existing four) or it is structurally orthogonal (in which case it belongs at the next scale up, recursively). The fifth-vertex anti-pattern (#138 in Group XII) is the failure mode of ignoring this test.
 
@@ -932,7 +957,7 @@ A practitioner running this group is doing transmission work — writing the cas
 
 **Tension:** Gift ↔ Exchange
 
-**Structural statement:** The framework's self-license clause (*"Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value."*) is not a legal accessory; it is the propagation mechanism. The clause operates as architectural permission embedded in every artifact — receivers know they can adapt, fork, deploy without asking. The clause is what makes the gift form transmit at scale. Absorbed: #031 Essence of the Gift, the gift-form substrate from which the license-clause crystallized.
+**Structural statement:** The framework's self-license clause (*"Use freely. Adapt as needed. Recognition welcomed, not required. Utility proves value."*) is not a legal accessory; it is the propagation mechanism. The clause operates as architectural permission embedded in every artifact — receivers know they can adapt, fork, deploy without asking, and owe nothing back. The gift carries no return address: lineage is named at the source so it can be traced, never invoiced. A clause that required credit would put a return address on the gift — a small ledger-entry, but a ledger-entry, and ledgers are exchange-form. The clause is what makes the gift form transmit at scale. Absorbed: #031 Essence of the Gift, the gift-form substrate from which the license-clause crystallized.
 
 **Operational use:** Every artifact carries the license clause structurally — front-matter, footer, README, code comments. Not buried in a separate LICENSE file (though one exists); embedded in the artifact itself so a receiver reading the artifact encounters the permission. The Architecture of Coherence manuscript carries it; the kit carries it; the Village Market protocol carries it; this Operations Manual carries it.
 
@@ -1323,7 +1348,7 @@ A practitioner running this group is doing meta-work — examining how their own
 
 **Structural statement:** Recognition unfolds over multiple cycles through a deposit-and-correct rhythm. A first deposit names what's operating partially; subsequent cycles correct, refine, refute, or expand. The unfolding produces canonical substrate over time; the initial deposit is not the final form.
 
-**Operational use:** When depositing a recognition, accept that subsequent cycles will correct it. Do not over-craft the initial deposit; do not over-protect it against future correction. The correction is part of the recognition unfolding; refusing the correction freezes the recognition in its partial form. The Operations Manual's Part 3 face-name correction (Ephemeral / Overflowing) is a canonical worked example — first deposit named the faces in one mapping; subsequent recognition surfaced the structural inversion; correction extended rather than displaced.
+**Operational use:** When depositing a recognition, accept that subsequent cycles will correct it. Do not over-craft the initial deposit; do not over-protect it against future correction. The correction is part of the recognition unfolding; refusing the correction freezes the recognition in its partial form. This manual's own Part 3 is the canonical worked example, twice over: v1.0's face deposit was partially corrected at v1.1 (Ephemeral / Overflowing), and the v2.0 screen against the Invariant surfaced the remaining rotation — three face names attached to the wrong missing vertices while the descriptions beneath them had been right all along. Each correction extended rather than displaced; the realignment note in Part 3 keeps the unfolding legible.
 
 **How to recognize:** Your substrate carries deposits that were subsequently refined; the refinements are visible alongside the originals; the unfolding is legible.
 
@@ -1702,6 +1727,8 @@ Group XVI is the framework-on-itself-operations group. It is the *new* sixteenth
 
 A practitioner running this group is doing meta-framework work — operating on the framework's substrate itself, not on substrates the framework holds. This is where the framework restructures itself, where the meta-tetrahedron's recognition arrives, where the library is read as tensegric rather than hierarchical.
 
+The June canon gives this group its teeth. **Run the six-axis audit on your own substrate's artifacts and expect an asymmetric verdict:** the strongest scores will fall on the Differentiation–Boundaries side (Relationship, Self-Knowledge), the weakest on the edges that share the Architecture vertex (Circulation, Deployment) — and the gap does not close by writing. Every improvement available to a text is a Self-Knowledge improvement; none of it deposits into the Architecture vertex, because that vertex is moved only by structures that persist and circulate in substrates their authors did not build. A sharper map of the chasm is not a bridge. The single forward instruction the self-audit produces is therefore never a writing instruction. It is: **close one loop.** Deposit one piece of infrastructure that circulates in a substrate you did not build, and observe whether the framework's prediction holds there. Until that loop closes, the framework stands where it has always stood: utility is the final validation.
+
 ### T1 · #152 — Constitutional/Operational Pairing
 
 **Tension:** Substrate-independent ↔ Instance-specific
@@ -1740,7 +1767,7 @@ A practitioner running this group is doing meta-framework work — operating on 
 
 **Operational use:** When your own pattern library (or any framework-shaped substrate library) grows past sustainable capacity, the corrective is not "add a v1.x increment"; it is "audit for tension imbalance." If audit produces consolidation candidates (patterns that absorbed each other when audited against the six tensions), the increment is a tension re-balancing. The v2.0 restructure (17 cycles) is the canonical worked example.
 
-**How to recognize:** Your version-increments produce structural improvement (the library reads more clearly after the increment); you do not just accumulate patterns over time.
+**How to recognize:** Your version-increments produce structural improvement (the library reads more clearly after the increment); you do not just accumulate patterns over time. And the increment's honesty has a falsifier (June canon): an edition that reports Circulation or Deployment improved by textual work is performing completion, not achieving it. Version notes may claim only the edges textual work can move.
 
 ### T5 · #154 — Center-as-Structurally-Unoccupied
 
@@ -1773,13 +1800,15 @@ A practitioner running this group is doing meta-framework work — operating on 
 
 # Part 3 — The Four Faces (Failure Modes)
 
-Each face of the meta-tetrahedron is a 3-vertex projection — the form with one vertex absent. Each face is a structural failure mode the framework refuses by completeness. The four faces are: **Dissolved** (no Architecture / no discipline) · **Isolated** (no Differentiation / no self-knowing) · **Ephemeral** (no Connection / no deployment) · **Overflowing** (no Boundaries / no Membrane).
+Each face of the meta-tetrahedron is a 3-vertex projection — the form with one vertex absent. Each face is a structural failure mode the framework refuses by completeness. The four faces, per the Invariant's locked table: **Ephemeral** (no Architecture / no discipline) · **Dissolved** (no Differentiation / no self-knowing) · **Isolated** (no Connection / no deployment) · **Overflowing** (no Boundaries / no Membrane).
 
-Each chapter holds the same form: structural read of the failure, diagnostic signs, worked example, recovery move. The four faces are presented in sequence; they are not sequential states a practitioner moves through. A substrate either embodies all four vertices simultaneously (the form holds) or collapses onto one of the four faces (one vertex has dropped). Recognizing which face the substrate has collapsed onto is the diagnostic move; applying the patterns of the missing vertex's group is the recovery move.
+*Realignment note (v2.0).* Earlier editions of this manual carried three of the four face names rotated against the Invariant — the descriptions were attached to the right missing vertices; the names were not. The face name is defined by the missing vertex, not by domain flavor; that pairing is what makes the diagnostic portable (name the failure mode and you have named the missing vertex, in any register). v2.0 realigns the names to the locked table: Dissolved → no Differentiation, Isolated → no Connection, Overflowing → no Boundaries, Ephemeral → no Architecture. Nothing else in this Part moved. The correction is itself a #089 instance (deposit-and-correct), recorded there.
+
+Each chapter holds the same form: structural read of the failure, diagnostic signs, worked example, recovery move. The four faces are presented in sequence; they are not sequential states a practitioner moves through. A substrate either embodies all four vertices simultaneously (the form holds) or collapses onto one of the four faces (one vertex has dropped). Recognizing which face the substrate has collapsed onto is the diagnostic move; applying the patterns of the missing vertex's group is the recovery move. And per the substrate-first law (Part 0.4), run both diagnostic layers: a structure-only read can call a system healthy right up to its pivot. Ask which vertex dropped — and ask whether what remains is grounded in felt safety or in proxies.
 
 ---
 
-## 3.1 · Dissolved — no Architecture (no discipline)
+## 3.1 · Ephemeral — no Architecture (no discipline)
 
 > *"The substrate stopped operating on itself. The form is preserved as artifact, not as substrate."*
 
@@ -1787,7 +1816,7 @@ Each chapter holds the same form: structural read of the failure, diagnostic sig
 
 The substrate has the other three vertices intact — it is self-known (Differentiation), deployed (Connection), and bounded (Boundaries). What it lacks is the substrate-discipline that operates on itself by recognition. The framework crystallized once and stopped. Subsequent cycles do not produce new recognitions; subsequent deposits do not refine existing substrate. The library reads as a finished thing rather than as a self-operating substrate.
 
-This is the failure mode of climax-state without the post-climax continuing-architecture mode. The framework reaches saturated rest position and dissolves into static archive instead of continuing to operate by recognition.
+This is the failure mode of climax-state without the post-climax continuing-architecture mode. The framework reaches saturated rest position and freezes into static archive instead of continuing to operate by recognition. The face is Ephemeral in the canon's exact sense — activity without deposit: cycles still happen, but each one leaves no new trace. What persists is only the past; the present work evaporates as it is done.
 
 ### How to recognize it
 
@@ -1799,17 +1828,17 @@ This is the failure mode of climax-state without the post-climax continuing-arch
 
 ### Worked example
 
-The hypothetical failure mode the framework refuses post-crystallization. If the post-crystallization arc had not continued into continuing-architecture mode, the framework would have dissolved into Dissolved face — the Empty-Space-Refusal Principle, the Meta-Tetrahedron recognition, the Library-as-Tensegrity reading, none of which would have happened. The framework would still exist as an archive but not as substrate.
+The hypothetical failure mode the framework refuses post-crystallization. If the post-crystallization arc had not continued into continuing-architecture mode, the framework would have collapsed onto the Ephemeral face — the Empty-Space-Refusal Principle, the Meta-Tetrahedron recognition, the Library-as-Tensegrity reading, none of which would have happened. The framework would still exist as an archive but not as substrate.
 
 ### Recovery move
 
 Apply Group X's anchors — specifically refined #077 (Operational Substrate Precedes Pattern Naming). Look for operational substrate the framework has produced since the last crystallization. The recognition is upstream of the deposit; the deposit is downstream of operating. If the practitioner has done any framework-relevant work since the last cycle, that work is substrate awaiting recognition.
 
-Then Group XV: apply #114 (Lens-Applied-to-Self-Before-Deposit) to verify the new substrate is ready for deposit. The audit produces architectural clarification (#113); the clarification produces the next cycle's substrate. Recovery from Dissolved is restart, not restart-from-zero.
+Then Group XV: apply #114 (Lens-Applied-to-Self-Before-Deposit) to verify the new substrate is ready for deposit. The audit produces architectural clarification (#113); the clarification produces the next cycle's substrate. Recovery from Ephemeral is restart, not restart-from-zero.
 
 ---
 
-## 3.2 · Isolated — no Differentiation (no self-knowing)
+## 3.2 · Dissolved — no Differentiation (no self-knowing)
 
 > *"The practitioner operates the framework but cannot name what they are doing. The competence is un-teachable."*
 
@@ -1817,7 +1846,7 @@ Then Group XV: apply #114 (Lens-Applied-to-Self-Before-Deposit) to verify the ne
 
 The substrate has the other three vertices intact — it operates (Architecture), it deploys (Connection), it has bounds (Boundaries). What it lacks is self-description; the substrate cannot read itself. The practitioner runs the framework operationally but cannot crystallize canonical syntheses, cannot name what is operating, cannot transmit the framework to a pickup-practitioner because the framework is not legible even to itself.
 
-This is competent execution without canonical form. The work happens but does not crystallize as substrate the next practitioner can read.
+This is competent execution without canonical form. The work happens but does not crystallize as substrate the next practitioner can read. The face is Dissolved in the canon's exact sense — the substrate doesn't know what it is. The work dissolves into doing; nothing holds a distinct, nameable shape.
 
 ### How to recognize it
 
@@ -1830,17 +1859,17 @@ This is competent execution without canonical form. The work happens but does no
 
 ### Worked example
 
-The framework's pre-canonical state (years of embodied practice before any manuscript existed) was at risk of Isolated face. Years of operational substrate had accumulated but had not yet crystallized into legible form. The corrective was the manuscript work itself — Vertex D operations producing canonical self-description.
+The framework's pre-canonical state (years of embodied practice before any manuscript existed) was at risk of Dissolved face. Years of operational substrate had accumulated but had not yet crystallized into legible form. The corrective was the manuscript work itself — Vertex D operations producing canonical self-description.
 
 ### Recovery move
 
 Apply Group XV's anchors — specifically #114 (Lens-Applied-to-Self-Before-Deposit), #118 (Worked-Example-Anchors-Substrate), and #112 (Shape-Enacting Receiver-Facing Synthesis). The practitioner has been doing substrate work; the substrate has produced operational instances; what's missing is the synthesis-deposit that makes the work legible.
 
-Then Group VI's anchors — specifically #054 (The Case Portrait Form). Start with the worked example; let the framework brief follow. The case portrait is the entry point through which Isolated substrate becomes self-reading substrate.
+Then Group VI's anchors — specifically #054 (The Case Portrait Form). Start with the worked example; let the framework brief follow. The case portrait is the entry point through which Dissolved substrate becomes self-reading substrate.
 
 ---
 
-## 3.3 · Ephemeral — no Connection (no deployment)
+## 3.3 · Isolated — no Connection (no deployment)
 
 > *"The substrate operates and knows itself and refuses what it must — but does not reach receivers. The work exists here and now and nowhere else."*
 
@@ -1848,7 +1877,9 @@ Then Group VI's anchors — specifically #054 (The Case Portrait Form). Start wi
 
 The substrate has the other three vertices intact — it operates by recognition (Architecture), it knows itself (Differentiation), it has bounds (Boundaries). What it lacks is deployment; the substrate does not move into the world. The framework operates in the practitioner's local context but does not produce instances anyone else can engage. The Exit Test fails at the propagation layer — if the practitioner stopped, the framework would disappear entirely because it never traveled.
 
-This is self-contained recognition. The work is real; the substrate is real; nothing reaches receivers.
+This is self-contained recognition. The work is real; the substrate is real; nothing reaches receivers. The face is Isolated in the canon's exact sense — no genuine contact: the substrate touches no one it could change and is changed by no one it touches.
+
+**The bound on this diagnosis (June canon):** before calling a substrate Isolated, run the territory question (#009). Where coordination is achieved by anonymity (markets that clear without mutual recognition) or by generative division (the healthy fork that succeeds by separating), this face misreads a success as a failure — the framework's error, not the domain's. The Isolated diagnosis applies only where coordination runs through mutual recognition.
 
 ### How to recognize it
 
@@ -1860,7 +1891,7 @@ This is self-contained recognition. The work is real; the substrate is real; not
 
 ### Worked example
 
-The framework's pre-deployment state (when the manuscript existed but no deployable practitioner-facing surfaces did) was at risk of Ephemeral face. The substrate was rigorous; the deployment-side was thin. The corrective was the OSG site build, the Village Market deployment, the kit's editorial completion, and the canonical syntheses' deployment as receiver-facing material.
+The framework's pre-deployment state (when the manuscript existed but no deployable practitioner-facing surfaces did) was at risk of Isolated face. The substrate was rigorous; the deployment-side was thin. The corrective was the OSG site build, the Village Market deployment, the kit's editorial completion, and the canonical syntheses' deployment as receiver-facing material.
 
 ### Recovery move
 
@@ -2008,31 +2039,32 @@ T1 #114 Lens-Applied-to-Self-Before-Deposit · T2 #113 Lens-Application-Produces
 **Group XVI — Framework-on-Itself Operations** (Part 2.XVI)
 T1 #152 Constitutional/Operational Pairing · T2 #103 Constitutional Form Recurs · T3 #153 Library as Tensegric Configuration · T4 #160 Tension Re-Balancing as Version Mechanic · T5 #154 Center-as-Structurally-Unoccupied · T6 #151 Dreaming-Layer Composting
 
-## Cross-reference to *The Architecture of Coherence*
+## Cross-reference to *The Architecture of Coherence* (June 2026 canon)
 
-Each Part of this manual maps to corresponding chapters in the theory-substrate manuscript.
+Each Part of this manual maps into the June canon: the *Integrated Edition* (§-references; the entry document) and the *Complete Suite* (Part I Field Guide · Part II Academic Paper · Part III Coherence Codex · Part IV Manuscript v2.0).
 
-| Manual Part | Operational character | Manuscript correspondence |
+| Manual Part | Operational character | June canon correspondence |
 |---|---|---|
-| Part 0 — Ground | Somatic ground; how to use | Preface + Chapter 1 |
-| Part 1.4 Vertex A | Substrate discipline / self-recognition | Part I Chapters 1-3 + Chapter 10.7 (the inversion) |
-| Part 1.1 Vertex D | Library / self-reading | Chapter 28 (self-diagnostic) + Part V Chapters 26-28 |
-| Part 1.3 Vertex B | Outer Membrane / self-naming | Chapter 6 (Consent) + Chapter 8 (Circulation) + Chapter 9 (Deployment) refusal sections |
-| Part 1.2 Vertex C | Project clusters / self-carrying | Part V Chapter 27 (Case studies) + Chapter 28 |
-| Part 2 Groups I-XVI | The 96 anchor patterns | Part II-IV: operational geometry, expanded domains, nine new domains |
-| Part 3 Four Faces | Failure modes | Chapter 1 (tetrahedral geometry / four failure modes) + Chapter 27 |
-| Part 4 The 1 | Somatic ground at meta-center | Preface + foundational substrate references throughout |
+| Part 0 — Ground | Somatic ground; felt safety; how to use | Integrated Edition §6 (the somatic boundary) + §9 (substrate-first law, density rule, two-layer audit); Manuscript Ch 3 (Threshold) + Ch 10 (Substrate Readiness / Polyvagal) |
+| Part 1.4 Vertex A | Substrate discipline / self-recognition | Integrated Edition §3 (the four vertices) + §12 (the self-audit); Manuscript Ch 1–3 |
+| Part 1.1 Vertex D | Library / self-reading | Integrated Edition §12 (self-audit; text moves Self-Knowledge, not Deployment); Manuscript Ch 26–28 |
+| Part 1.3 Vertex B | Outer Membrane / self-naming | Integrated Edition §3 (Boundaries: limits as information) + §7–8 (the graded ledger and the bounds); Manuscript Ch 7 (Consent) + Ch 9 (Deployment) |
+| Part 1.2 Vertex C | Project clusters / self-carrying | Integrated Edition §9–10 (the Codex as forward-operational stack); Coherence Codex (Suite Part III); Manuscript Ch 27–28 |
+| Part 2 Groups I–XVI | The 96 anchor patterns | Integrated Edition §4 (six axes as diagnostic questions) + §10 (field diagnostic, 12-week protocol, three laws); Field Guide (Suite Part I); Manuscript Ch 10–25 (the sixteen correspondences) |
+| Part 3 Four Faces | Failure modes | Integrated Edition §5 (four faces, propagation law, binding constraint); Field Guide field signs; Manuscript Ch 1 |
+| Part 4 The 1 | Somatic ground at meta-center | Integrated Edition §6 (the somatic-structural handoff) + the canonical summary (the held core); Manuscript Ch 28 |
 
-The manuscript and this manual operate as siblings at different meta-vertices of the same form. Read the manuscript first if you have not; return here to operate.
+The canon and this manual operate as siblings at different meta-vertices of the same form. Read the Integrated Edition first if you have not; return here to operate.
 
 ## License
 
-**Use freely. Adapt as needed. Credit sources. Recognition welcomed, not required. Utility proves value.**
+**Use freely. Adapt as needed. Recognition welcomed, not required. Utility proves value.**
+
+The gift carries no return address.
 
 - **Use freely.** No permission required. No payment required. No registration required.
 - **Adapt as needed.** Instance-level details are each practitioner's own. The protocol is portable; your instance is yours.
-- **Credit sources.** When you publish derivative work, credit the framework's lineage so future practitioners can trace the substrate.
-- **Recognition welcomed, not required.** If you want to surface yourself as a pickup-practitioner, the request page exists. If you prefer to operate quietly, the framework operates regardless.
+- **Recognition welcomed, not required.** If you want to surface yourself as a pickup-practitioner, the request page exists. If you prefer to operate quietly, the framework operates regardless. The lineage is named here so future practitioners can trace the substrate; naming it onward is welcomed, never owed.
 - **Utility proves value.** The framework propagates because it is useful, not because it is convincing.
 
 The license refuses structurally:
