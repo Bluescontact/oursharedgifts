@@ -800,13 +800,15 @@ What the geometry contributes is real and worth noting:
 
 That this particular four-vertex arrangement is the *minimum viable architecture* for coherent coordination at personal scale — or that any sustained practice will arrive at exactly four roles arranged this way — is asserted in the document's rhetoric. It is not demonstrated. Could a practice work with three roles? Five? A different four? The framework does not close the question, and a reader from outside this lineage would be right to feel it open.
 
+**Since this was written (June 2026):** the canon has worked that question at the capacity layer, in both directions at once. The minimum-four claim for the *capacities* (Differentiation · Connection · Boundaries · Architecture) no longer rests on rhetoric — two independent mathematical traditions, Fuller's structural economy and the topology of simplicial complexes, arrive at the tetrahedron without consulting each other, and an author does not choose that convergence. And the same canon bounds the claim it grounds: adversarial search produced two genuine strikes — anonymous markets and generative forks coordinate well with no mutual recognition at all — so the minimum is four *where coordination runs through mutual recognition*, and the framework misreads success where it doesn't. The *role*-layer question this section holds open (Library · Public Face · Principles · Kit as exactly four) stays open: the roles are composed, not derived, exactly as stated above. The full argument lives in the Complete Suite.
+
 The document earlier softened "the form predicts its shadow operations" to "the form organizes its shadow operations" because the shadow operations were observed first and the geometry was matched to them. The earlier wording dressed recognition as derivation.
 
 ### How to hold the framework
 
 As a working discipline for one practitioner: the geometry earns its place. The arrangement makes the practice holdable, auditable, teachable, and propagable. The framework operates by recognition of its own roles and refusals, and the discipline of arranging them tetrahedrally costs the practitioner less than holding eleven separate items.
 
-As a claim about coordination-in-general: the framework holds at the level of "here is a way that works for one practitioner, and here are the conditions under which it can travel." It does not hold at the level of "this is the form coherent coordination must take." That stronger claim would require evidence the framework does not produce.
+As a claim about coordination-in-general: the framework holds at the level of "here is a way that works for one practitioner, and here are the conditions under which it can travel." It does not hold at the level of "this is the form coherent coordination must take." That stronger claim — with its derivation and its honest bound stated together — now lives in the June canon, not in this document, and this document doesn't need to carry it.
 
 The form is not invalidated by being scaffolding. It is honest about being scaffolding only by saying so. This section says so.
 
