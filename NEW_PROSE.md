@@ -1,4 +1,17 @@
-# NEW_PROSE — every passage of genuinely new writing in the unified build
+# NEW_PROSE — every passage of genuinely new writing
+*Newest first.*
+
+## Visual-layer pass (2026-06-10, after the unified build)
+
+- **refusals.html** — surface seed line (new): *"Every 'no' on this page comes with an 'instead.' A no without an instead is just a wall."* Plus the glance figure's caption and the scale map's row descriptions (short fragments restating page content).
+- **offerings.html** — the four-step "how asking works" strip (new fragments, no new claims: every step restates what the page and the Ask page already say). Seed line is the page's own sentence, promoted, not new.
+- **about.html** — no new words. One existing sentence promoted to a seed.
+- **village-market.html** — the four-step "how a pin works" strip (new fragments restating the "How it works" section below it; checked against the protocol — no new claims, no 72-hour figure since the page doesn't state one).
+- **the-model.html** — no new words. Storyboard deviation, deliberate: the planned seed promotion is skipped because lifting bolded sentences out of canon paragraphs would restructure them, and the page's inline bolds already carry the skim. The Model got the weight pass only (its images: ~7.7 MB → ~0.9 MB).
+
+---
+
+# The unified build (2026-06-10, earlier)
 *2026-06-10 · for Kevin's review before anything is pushed. Everything not listed here is either untouched, a nav block, or recovered verbatim from the site's own history.*
 
 ## The descent device (site-wide, used twice)

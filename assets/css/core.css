@@ -8,7 +8,7 @@
   --bg-soft: #f3f0e9;
   --ink: #2c2c2c;
   --muted: #5a5a5a;
-  --faint: #999;
+  --faint: #75716a; /* was #999 — failed contrast (2.8:1) for the small text it carries; this holds 4.5:1 on the paper field */
   --rule: #e4e2dd;
   --rule-soft: #efedea;
   --link: #2c2c2c;
@@ -198,7 +198,7 @@ a:focus {
    from plain terms into structural language. Use identically everywhere:
    a rule, then the standard line, then the deep layer. */
 .depth-gate {
-  margin: 3.5rem 0 2.5rem;
+  margin: 3.5rem 0 0;
   border-top: 1px solid var(--rule);
   padding-top: 1.5rem;
 }
@@ -207,6 +207,117 @@ a:focus {
   color: var(--muted);
   font-size: 0.95rem;
   margin: 0;
+}
+
+/* the depth zone — the field below the gate shifts, so depth is felt
+   before it's read. Soft tint, one structural rule at the top. */
+.depth-zone {
+  background: var(--bg-soft);
+  margin: 2rem -1.25rem 0;
+  padding: 0.75rem 1.25rem 2rem;
+  border-top: 3px solid var(--ink);
+}
+.depth-zone .axis table { background: transparent; }
+.depth-zone .axis th { color: #87827a; }
+
+/* seed line — the one sentence a section stands on, set so a skimming
+   reader catches it. One per section at most; it must earn the size. */
+.seed {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--ink);
+  border-left: 3px solid var(--ink);
+  padding: 0.35rem 0 0.35rem 1.25rem;
+  margin: 2.25rem 0;
+}
+.seed.diff { border-left-color: var(--diff); }
+.seed.conn { border-left-color: var(--conn); }
+.seed.bound { border-left-color: var(--bound); }
+.seed.arch { border-left-color: var(--arch); }
+
+/* glance figure — one inline SVG near the top of a page that carries
+   the page's whole shape in five seconds. Paper register: site palette,
+   system fonts, no dark field (that register belongs to transmissions). */
+.glance { margin: 2rem 0 2.5rem; }
+.glance svg { width: 100%; height: auto; display: block; }
+.glance figcaption {
+  margin-top: 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--faint);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* glance strip — a four-step flow in plain HTML so it reflows on a
+   phone. Use for "how this works" at the top of an action page. */
+ol.glance-strip {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 2rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  font-family: var(--sans);
+}
+ol.glance-strip li {
+  background: var(--bg-soft);
+  border-top: 3px solid var(--muted);
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+ol.glance-strip li:nth-child(1) { border-top-color: var(--conn); }
+ol.glance-strip li:nth-child(2) { border-top-color: var(--diff); }
+ol.glance-strip li:nth-child(3) { border-top-color: var(--arch); }
+ol.glance-strip li:nth-child(4) { border-top-color: var(--bound); }
+ol.glance-strip li::before {
+  counter-increment: step;
+  content: counter(step);
+  display: inline-block;
+  width: 1.3rem; height: 1.3rem; line-height: 1.3rem;
+  text-align: center; border-radius: 50%;
+  background: var(--muted); color: var(--bg);
+  font-size: 0.7rem; font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+ol.glance-strip .t { display: block; font-size: 0.86rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+ol.glance-strip .d { display: block; font-size: 0.78rem; line-height: 1.45; color: var(--muted); }
+@media (max-width: 38rem) {
+  ol.glance-strip { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 24rem) {
+  ol.glance-strip { grid-template-columns: 1fr; }
+}
+
+/* scale map — small-multiples row used in depth layers to show the
+   architecture of a long list before the reader enters it. */
+.scale-map { margin: 2rem 0 2.5rem; font-family: var(--sans); }
+.scale-map .row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.scale-map .row:last-child { border-bottom: none; }
+.scale-map .lbl { font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink); }
+.scale-map .lbl .n { color: var(--faint); margin-left: 0.35rem; }
+.scale-map .dots { line-height: 1; }
+.scale-map .dots span {
+  display: inline-block; width: 0.55rem; height: 0.55rem;
+  margin: 0 0.25rem 0.25rem 0; border-radius: 1px;
+  background: var(--muted);
+}
+.scale-map .dots span.conn  { background: var(--conn); }
+.scale-map .dots span.diff  { background: var(--diff); }
+.scale-map .dots span.arch  { background: var(--arch); }
+.scale-map .dots span.bound { background: var(--bound); }
+.scale-map .what { grid-column: 2; font-size: 0.82rem; color: var(--muted); }
+@media (max-width: 30rem) {
+  .scale-map .row { grid-template-columns: 1fr; }
+  .scale-map .what { grid-column: 1; }
 }
 
 /* refusals — four shadow axes */
