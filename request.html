@@ -89,6 +89,89 @@
     margin-top: 0.7rem; font-family: var(--sans); font-size: 0.8rem;
     color: var(--faint); text-align: center; letter-spacing: 0.02em;
   }
+
+  /* Contact form */
+  .contact-form {
+    margin: 2.5rem 0 0;
+    padding: 2rem 0 0;
+    border-top: 2px solid var(--rule);
+  }
+  .contact-form h2 { margin: 0 0 0.35rem; font-size: 1.3rem; font-weight: normal; }
+  .contact-form .sub { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.75rem; }
+  .cfield { margin-bottom: 1.2rem; }
+  .cfield label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+    margin-bottom: 0.35rem;
+  }
+  .cfield input,
+  .cfield textarea,
+  .cfield select {
+    width: 100%;
+    font-family: var(--serif);
+    font-size: 1rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink);
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cfield select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+    cursor: pointer;
+  }
+  .cfield textarea { min-height: 6rem; resize: vertical; }
+  .cfield input:focus, .cfield textarea:focus, .cfield select:focus {
+    outline: 2px solid var(--conn);
+    outline-offset: 0;
+    border-color: var(--conn);
+  }
+  .submit-wrap { margin-top: 1.5rem; }
+  .submit-btn {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    background: var(--conn);
+    color: #fff;
+    border: none;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  .submit-btn:hover { background: var(--ink); }
+  .form-note { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 0.85rem; }
+  [data-fs-success] {
+    display: none;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--bound);
+    background: var(--bg-soft);
+    font-size: 0.95rem;
+  }
+  .form-error {
+    display: none;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid #c0392b;
+    background: #fdf2f2;
+    font-size: 0.9rem;
+    color: #c0392b;
+  }
+  .field-error {
+    display: none;
+    font-size: 0.82rem;
+    color: #c0392b;
+    font-family: var(--sans);
+    margin-top: 0.25rem;
+  }
 </style>
 </head>
 <body>
@@ -117,7 +200,7 @@
     <figcaption>No form. No calendar. Just a few lines to a person.</figcaption>
   </figure>
 
-  <p>This isn't a calendar. There's no <em>Book Now</em>, no form with required fields. You just write me an email and tell me what you need. That's the whole thing.</p>
+  <p>This isn't a calendar. There's no <em>Book Now</em>, no required fields, no funnel. Use the form at the bottom — or read through the three paths below and it'll tell you what to put in it.</p>
 
   <div class="pre-fill" id="pre-fill">
     <div class="label">You arrived asking about</div>
@@ -130,20 +213,17 @@
 
   <article class="path-card">
     <h3>You need something built or fixed</h3>
-    <p>A repair, some welding, a build, a hand with a project — write me and say what it is. If you saw something on the <a href="/offerings.html">Offerings</a> page, name it. If it's not on there, just describe it. There's a short list further down of what's useful to put in the email — not rules, just the stuff that helps me give you a straight answer fast.</p>
-    <a class="send-btn" id="gift-mail" href="mailto:kevin.mears@gmail.com?subject=Asking%20about%20a%20gift%20offering">Send the ask →</a>
+    <p>A repair, some welding, a build, a hand with a project — use the form below and say what it is. If you saw something on the <a href="/offerings.html">Offerings</a> page, name it. If it's not on there, just describe it. There's a short list further down of what's useful to include — not rules, just the stuff that helps me give you a straight answer fast.</p>
   </article>
 
   <article class="path-card">
     <h3>You want to talk through how I work</h3>
-    <p>If you're thinking about living this way — owning your setup, keeping your burn low, building things once that keep paying — write me and tell me where you're at. Some of it's already written down free in <a href="/the-model.html">The Model</a>; read that first and you may not even need me. If you do, say so and I'll find a time to talk.</p>
-    <a class="send-btn alt" href="mailto:kevin.mears@gmail.com?subject=Asking%20about%20how%20you%20work">Write me →</a>
+    <p>If you're thinking about living this way — owning your setup, keeping your burn low, building things once that keep paying — use the form below and tell me where you're at. Some of it's already written down free in <a href="/the-model.html">The Model</a>; read that first and you may not even need me.</p>
   </article>
 
   <article class="path-card">
     <h3>Anything else</h3>
-    <p>A question, a note, you're a neighbor near Wheatland and you're not sure what you need yet. Just write directly.</p>
-    <a class="send-btn" href="mailto:kevin.mears@gmail.com">Send a note →</a>
+    <p>A question, a note, you're a neighbor near Wheatland and you're not sure what you need yet. Use the form — no categories required.</p>
   </article>
 
   <p>Some asks aren't really for me — they're for the people around here. If a neighbor is better placed to meet it, the <a href="/village-market.html">Gift Circle</a> pairs asks with offers close by.</p>
@@ -173,6 +253,64 @@
   <p>I read the email. If I can help, you'll hear back with the next step — a time to talk, a yes or no, or a pointer to someone better placed than me. If I can't, you'll get a straight no that tells you why, usually with somewhere else to try. No sales sequence. No <em>you might also like</em>. When it's done, it's done.</p>
 
   <p>I can only carry so much at once. The <a href="/current.html">Current</a> page says what's open right now. If I'm full when you write, I hold the ask until there's room, and that page updates when there is.</p>
+
+  <section class="contact-form" id="contact">
+    <h2>Send the ask</h2>
+    <p class="sub">Goes straight to me. I read in batches — a few days, not a few minutes.</p>
+
+    <!-- Success and form-level error — shown/hidden by Formspree SDK -->
+    <div data-fs-success class="sent-msg">
+      Sent. I'll read it when I surface — usually a few days. If it's a fit, you'll get a clear next step. If not, a straight no that tells you where to go instead.
+    </div>
+    <div data-fs-error class="form-error"></div>
+
+    <form id="ask-form"
+          action="https://formspree.io/f/mojzypeo"
+          method="POST">
+
+      <!-- Honeypot — hidden spam filter -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" id="form-subject" value="OSG ask">
+
+      <div class="cfield">
+        <label for="f-kind">What kind of ask</label>
+        <select id="f-kind" name="kind" required data-fs-field>
+          <option value="" disabled selected>— choose one —</option>
+          <option value="Built or fixed">Something built or fixed</option>
+          <option value="How you work">Talking through how you work</option>
+          <option value="Something else">Something else</option>
+        </select>
+        <span data-fs-error="kind" class="field-error"></span>
+      </div>
+
+      <div class="cfield">
+        <label for="f-name">Your name</label>
+        <input type="text" id="f-name" name="name" required data-fs-field>
+        <span data-fs-error="name" class="field-error"></span>
+      </div>
+
+      <div class="cfield">
+        <label for="f-location">Roughly where you are</label>
+        <input type="text" id="f-location" name="location" placeholder="town, or how far from Wheatland" data-fs-field>
+      </div>
+
+      <div class="cfield">
+        <label for="f-message">What's going on</label>
+        <textarea id="f-message" name="message" placeholder="What you need — no need to make it tidy." required data-fs-field></textarea>
+        <span data-fs-error="message" class="field-error"></span>
+      </div>
+
+      <div class="cfield">
+        <label for="f-reply">Best way to reach you back</label>
+        <input type="text" id="f-reply" name="reply_to" placeholder="email or phone — your call" data-fs-field>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="submit-btn" data-fs-submit-btn>Send it →</button>
+        <p class="form-note">No obligation either way. Take what's useful, leave the rest.</p>
+      </div>
+    </form>
+  </section>
 </main>
 
 <footer class="site">
@@ -191,5 +329,48 @@
   <p>Our Shared Gifts &middot; <a href="/">oursharedgifts.org</a></p>
   <p>Use freely. Adapt as needed.</p>
 </footer>
+<!-- Pre-fill ?offering= URL param + update email subject on kind change -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var offering = params.get('offering');
+  if (offering) {
+    var labels = {
+      'witnessing': 'Witnessing',
+      'thinking-partner': 'Talking through how you work',
+      'cleaning-organizing': 'Something built or fixed',
+      'building': 'Something built or fixed',
+      'partner-dance': 'Something else'
+    };
+    document.getElementById('pre-fill-name').textContent = labels[offering] || offering;
+    document.getElementById('pre-fill').classList.add('show');
+  }
+  var kindEl = document.getElementById('f-kind');
+  var subjectEl = document.getElementById('form-subject');
+  if (kindEl && subjectEl) {
+    kindEl.addEventListener('change', function() {
+      subjectEl.value = 'OSG ask — ' + (kindEl.value || 'general');
+    });
+  }
+})();
+</script>
+
+<!-- Formspree SDK -->
+<script>
+  window.formspree = window.formspree || function() { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#ask-form', formId: 'mojzypeo' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<!-- Ko-fi floating support button -->
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('oursharedgifts', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#5cb85c',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
 </body>
 </html>
