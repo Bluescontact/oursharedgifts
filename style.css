@@ -634,6 +634,36 @@ footer {
 footer a { color: var(--text-faint); }
 footer a:hover { color: var(--text-secondary); }
 
+/* ── CLUSTER VISUALS ── */
+.cluster-figure {
+  margin: 0 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #F6F3EC;
+}
+
+.cluster-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cluster-caption {
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.cluster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   nav { padding: 0 16px; }
@@ -648,4 +678,5 @@ footer a:hover { color: var(--text-secondary); }
   .center-hero h1 { font-size: 1.8rem; }
   .ask-row { grid-template-columns: 1fr; }
   .ask-label { border-right: none; border-bottom: 1px solid var(--border); }
+  .cluster-grid { grid-template-columns: 1fr; }
 }

@@ -1,0 +1,136 @@
+<svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" width="680" height="520">
+  <defs>
+    <filter id="c9-paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" seed="9" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 0.99  0 0 0 0 0.98  0 0 0 0 0.95  0 0 0 -2.8 3.4"
+        in="noise" result="paper-tone"/>
+      <feBlend in="SourceGraphic" in2="paper-tone" mode="multiply"/>
+    </filter>
+    <filter id="c9-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0.6" dy="1.4" stdDeviation="2" flood-color="#1A0E04" flood-opacity="0.15"/>
+    </filter>
+    <radialGradient id="c9-node" cx="34%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#F5F1E7"/>
+      <stop offset="60%" stop-color="#EAE4D6"/>
+      <stop offset="100%" stop-color="#D8D0BF"/>
+    </radialGradient>
+    <linearGradient id="c9-band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAE5D8"/>
+      <stop offset="100%" stop-color="#E0D9CB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="520" fill="#F6F3EC" filter="url(#c9-paper)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="680" height="48" fill="url(#c9-band)"/>
+  <line x1="0" y1="48" x2="680" y2="48" stroke="#AFA898" stroke-width="0.8"/>
+  <text x="340" y="24" font-size="16" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.025em">The Container Architecture</text>
+  <text x="340" y="41" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" letter-spacing="0.09em">VILLAGE vs SYSTEM CONTAINER · EJECTION IMMUNITY · LEGAL AS FLOOR</text>
+
+  <!-- ====== SYSTEM CONTAINER (left) ====== -->
+  <rect x="22" y="62" width="308" height="248" rx="3" fill="none" stroke="#AFA898" stroke-width="1.3" stroke-dasharray="4,3"/>
+  <rect x="22" y="62" width="308" height="24" rx="3" fill="url(#c9-band)"/>
+  <line x1="22" y1="86" x2="330" y2="86" stroke="#AFA898" stroke-width="0.6"/>
+  <text x="176" y="79" font-size="8.5" fill="#4A3828" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.04em">SYSTEM CONTAINER</text>
+  <text x="176" y="99" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" font-style="italic">holds while legibly productive</text>
+
+  <!-- HUB (central control) -->
+  <circle cx="176" cy="196" r="26" fill="url(#c9-node)" stroke="#4A3828" stroke-width="1.5" filter="url(#c9-shadow)"/>
+  <text x="176" y="193" font-size="8" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle">HUB</text>
+  <text x="176" y="205" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">control</text>
+  <!-- Ejection lever marks below hub -->
+  <line x1="164" y1="218" x2="188" y2="218" stroke="#4A3828" stroke-width="1.3"/>
+  <line x1="176" y1="218" x2="176" y2="226" stroke="#4A3828" stroke-width="1.3"/>
+  <text x="192" y="222" font-size="8" fill="#4A3828" font-family="Georgia,serif" font-style="italic">lever</text>
+
+  <!-- Node A (top-left) -->
+  <circle cx="90" cy="134" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="90" y="139" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">A</text>
+  <line x1="103" y1="142" x2="151" y2="173" stroke="#AFA898" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <!-- "conditional" label near A's link -->
+  <text x="120" y="152" font-size="8" fill="#9A8878" font-family="Georgia,serif" font-style="italic">conditional</text>
+
+  <!-- Node B (top-right) -->
+  <circle cx="262" cy="134" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="262" y="139" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">B</text>
+  <line x1="249" y1="142" x2="201" y2="173" stroke="#AFA898" stroke-width="1.2" stroke-dasharray="3,2"/>
+
+  <!-- Node C (bottom-left) -->
+  <circle cx="90" cy="256" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="90" y="261" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">C</text>
+  <line x1="103" y1="246" x2="151" y2="215" stroke="#AFA898" stroke-width="1.2" stroke-dasharray="3,2"/>
+
+  <!-- Node D (bottom-right) — ejected (faded, dashed) -->
+  <circle cx="262" cy="256" r="14" fill="url(#c9-node)" stroke="#CEC8B8" stroke-width="1" stroke-dasharray="2,2" opacity="0.55"/>
+  <text x="262" y="261" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" opacity="0.55">D</text>
+  <!-- D's link (cut) -->
+  <line x1="249" y1="246" x2="210" y2="215" stroke="#CEC8B8" stroke-width="1" stroke-dasharray="2,2"/>
+  <!-- Cut mark (X) on D's link -->
+  <line x1="235" y1="232" x2="243" y2="225" stroke="#4A3828" stroke-width="1.5"/>
+  <line x1="243" y1="232" x2="235" y2="225" stroke="#4A3828" stroke-width="1.5"/>
+  <text x="262" y="277" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">ejected</text>
+
+  <!-- Pattern label -->
+  <text x="176" y="298" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Village Container vs System Container</text>
+
+  <!-- ====== VILLAGE CONTAINER (right) ====== -->
+  <rect x="350" y="62" width="308" height="248" rx="3" fill="none" stroke="#7A5C10" stroke-width="1.3"/>
+  <rect x="350" y="62" width="308" height="24" rx="3" fill="url(#c9-band)"/>
+  <line x1="350" y1="86" x2="658" y2="86" stroke="#AFA898" stroke-width="0.6"/>
+  <text x="504" y="79" font-size="8.5" fill="#4A3828" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.04em">VILLAGE CONTAINER</text>
+  <text x="504" y="99" font-size="8" fill="#7A5C10" font-family="Georgia,serif" text-anchor="middle" font-style="italic">holds through illegibility</text>
+
+  <!-- Mesh lines (peer connections) -->
+  <line x1="433" y1="136" x2="497" y2="118" stroke="#CEC8B8" stroke-width="1"/>
+  <line x1="523" y1="116" x2="583" y2="133" stroke="#CEC8B8" stroke-width="1"/>
+  <line x1="596" y1="154" x2="588" y2="228" stroke="#CEC8B8" stroke-width="1"/>
+  <line x1="566" y1="242" x2="448" y2="250" stroke="#CEC8B8" stroke-width="1"/>
+  <line x1="430" y1="234" x2="426" y2="150" stroke="#CEC8B8" stroke-width="1"/>
+  <!-- Cross-links -->
+  <line x1="434" y1="142" x2="568" y2="232" stroke="#CEC8B8" stroke-width="0.7" stroke-dasharray="2,3"/>
+  <line x1="498" y1="118" x2="446" y2="236" stroke="#CEC8B8" stroke-width="0.7" stroke-dasharray="2,3"/>
+
+  <!-- Node 1 -->
+  <circle cx="420" cy="136" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="420" y="141" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">1</text>
+  <!-- Node 2 -->
+  <circle cx="510" cy="110" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="510" y="115" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">2</text>
+  <!-- Node 3 -->
+  <circle cx="596" cy="142" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="596" y="147" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">3</text>
+  <!-- Node 4 -->
+  <circle cx="580" cy="242" r="14" fill="url(#c9-node)" stroke="#AFA898" stroke-width="1.1"/>
+  <text x="580" y="247" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">4</text>
+  <!-- Node 5 — OWN NODE (highlighted, gold border) -->
+  <circle cx="430" cy="250" r="18" fill="url(#c9-node)" stroke="#7A5C10" stroke-width="2" filter="url(#c9-shadow)"/>
+  <text x="430" y="246" font-size="8" fill="#4A3828" font-family="Georgia,serif" font-weight="bold" text-anchor="middle">OWN</text>
+  <text x="430" y="257" font-size="8" fill="#4A3828" font-family="Georgia,serif" font-weight="bold" text-anchor="middle">NODE</text>
+  <!-- "no lever to pull" below OWN NODE -->
+  <text x="430" y="276" font-size="8" fill="#7A5C10" font-family="Georgia,serif" text-anchor="middle" font-style="italic">no lever to pull</text>
+
+  <!-- Pattern label -->
+  <text x="504" y="298" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Ejection Immunity — Personal Node</text>
+
+  <!-- ====== LEGAL RECOGNITION FLOOR (spans both) ====== -->
+  <rect x="22" y="318" width="636" height="30" rx="2" fill="#F0EDE4" stroke="#AFA898" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="340" y="331" font-size="8" fill="#6A5848" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.06em">LEGAL RECOGNITION FLOOR</text>
+  <text x="340" y="343" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">gift form currently tolerated, not protected — the floor neither container yet has</text>
+  <!-- Pattern label -->
+  <text x="340" y="362" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Legal as Floor</text>
+
+  <!-- ====== SYSTEM FALSIFIER ====== -->
+  <line x1="20" y1="384" x2="660" y2="384" stroke="#AFA898" stroke-width="0.6" stroke-dasharray="3,3"/>
+  <text x="340" y="400" font-size="8" fill="#7A5C10" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.09em">SYSTEM FALSIFIER</text>
+  <text x="340" y="416" font-size="9" fill="#1A1005" font-family="Georgia,serif" text-anchor="middle">Is the container's retention logic holding people through illegibility —</text>
+  <text x="340" y="431" font-size="9" fill="#1A1005" font-family="Georgia,serif" text-anchor="middle">or only while they're legibly productive?</text>
+
+  <!-- Footer -->
+  <rect x="0" y="502" width="680" height="18" fill="url(#c9-band)"/>
+  <line x1="0" y1="502" x2="680" y2="502" stroke="#AFA898" stroke-width="0.8"/>
+  <text x="20" y="515" font-size="7.5" fill="#6A5848" font-family="Georgia,serif">Our Shared Gifts · oursharedgifts.org</text>
+  <text x="660" y="515" font-size="7.5" fill="#6A5848" font-family="Georgia,serif" text-anchor="end">c9 · the-container-architecture</text>
+</svg>

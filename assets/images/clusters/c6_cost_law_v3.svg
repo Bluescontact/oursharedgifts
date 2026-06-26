@@ -1,0 +1,148 @@
+<svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" width="680" height="520">
+  <defs>
+    <filter id="c6-paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" seed="6" result="noise"/>
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 0.99  0 0 0 0 0.98  0 0 0 0 0.95  0 0 0 -2.8 3.4"
+        in="noise" result="paper-tone"/>
+      <feBlend in="SourceGraphic" in2="paper-tone" mode="multiply"/>
+    </filter>
+    <filter id="c6-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0.6" dy="1.4" stdDeviation="2" flood-color="#1A0E04" flood-opacity="0.15"/>
+    </filter>
+    <radialGradient id="c6-node" cx="34%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#F5F1E7"/>
+      <stop offset="60%" stop-color="#EAE4D6"/>
+      <stop offset="100%" stop-color="#D8D0BF"/>
+    </radialGradient>
+    <radialGradient id="c6-gold" cx="36%" cy="30%" r="68%">
+      <stop offset="0%" stop-color="#F4EDD4"/>
+      <stop offset="100%" stop-color="#D8C898"/>
+    </radialGradient>
+    <linearGradient id="c6-band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAE5D8"/>
+      <stop offset="100%" stop-color="#E0D9CB"/>
+    </linearGradient>
+    <marker id="c6-ar-gold" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6Z" fill="#7A5C10"/>
+    </marker>
+    <marker id="c6-ar-dark" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6Z" fill="#4A3828"/>
+    </marker>
+    <marker id="c6-ar-muted" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6Z" fill="#AFA898"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="520" fill="#F6F3EC" filter="url(#c6-paper)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="680" height="48" fill="url(#c6-band)"/>
+  <line x1="0" y1="48" x2="680" y2="48" stroke="#AFA898" stroke-width="0.8"/>
+  <text x="340" y="24" font-size="16" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.025em">The Cost Law</text>
+  <text x="340" y="41" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" letter-spacing="0.09em">CONSENTED LEDGER · CATALYSIS WITHOUT CLAIM · THE GOVERNOR</text>
+
+  <!-- ====== LEDGER TABLE ====== -->
+  <rect x="22" y="56" width="636" height="272" rx="2" fill="none" stroke="#AFA898" stroke-width="1.2"/>
+  <!-- Header row -->
+  <rect x="22" y="56" width="636" height="26" fill="url(#c6-band)"/>
+  <line x1="22" y1="82" x2="658" y2="82" stroke="#AFA898" stroke-width="0.8"/>
+  <!-- Column dividers -->
+  <line x1="198" y1="56" x2="198" y2="328" stroke="#AFA898" stroke-width="0.8"/>
+  <line x1="388" y1="56" x2="388" y2="328" stroke="#AFA898" stroke-width="0.8"/>
+  <line x1="548" y1="56" x2="548" y2="328" stroke="#AFA898" stroke-width="1" stroke-dasharray="3,2"/>
+  <!-- Column headers -->
+  <text x="110" y="74" font-size="8.5" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.05em">CIRCULATED</text>
+  <text x="293" y="74" font-size="8.5" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.05em">REFUSED</text>
+  <text x="468" y="74" font-size="8.5" fill="#1A1005" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.05em">CONSENTED LEAK</text>
+  <text x="603" y="74" font-size="8" fill="#9A8878" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" font-style="italic">HIDDEN LEAK</text>
+
+  <!-- === COL 1: CIRCULATED — Catalysis Without Claim === -->
+  <!-- Cost enters arrow -->
+  <line x1="110" y1="82" x2="110" y2="104" stroke="#AFA898" stroke-width="1.3" marker-end="url(#c6-ar-muted)"/>
+  <!-- "absorbed as gift" rect -->
+  <rect x="60" y="106" width="100" height="26" rx="2" fill="url(#c6-node)" stroke="#AFA898" stroke-width="0.9" filter="url(#c6-shadow)"/>
+  <text x="110" y="124" font-size="8" fill="#1A1005" font-family="Georgia,serif" text-anchor="middle">absorbed as gift</text>
+  <!-- Claim X mark -->
+  <line x1="110" y1="132" x2="110" y2="148" stroke="#AFA898" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <line x1="76" y1="162" x2="102" y2="148" stroke="#4A3828" stroke-width="1.3"/>
+  <line x1="76" y1="148" x2="102" y2="162" stroke="#4A3828" stroke-width="1.3"/>
+  <text x="110" y="177" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">claim forfeited</text>
+  <!-- Dashed line to substrate -->
+  <line x1="110" y1="182" x2="110" y2="202" stroke="#7A5C10" stroke-width="1" stroke-dasharray="3,2"/>
+  <!-- "residue = substrate" rect (gold dashed) -->
+  <rect x="58" y="202" width="104" height="26" rx="2" fill="none" stroke="#7A5C10" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="110" y="220" font-size="8" fill="#7A5C10" font-family="Georgia,serif" text-anchor="middle">residue = substrate</text>
+  <!-- Outward gift arrow -->
+  <line x1="110" y1="228" x2="110" y2="258" stroke="#7A5C10" stroke-width="1.5" marker-end="url(#c6-ar-gold)"/>
+  <text x="110" y="271" font-size="8" fill="#7A5C10" font-family="Georgia,serif" text-anchor="middle">exits as gift</text>
+  <!-- Pattern label -->
+  <text x="110" y="312" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Catalysis Without Claim</text>
+
+  <!-- === COL 2: REFUSED — The Governor === -->
+  <!-- Cost enters arrow -->
+  <line x1="293" y1="82" x2="293" y2="104" stroke="#AFA898" stroke-width="1.5" marker-end="url(#c6-ar-muted)"/>
+  <!-- GOVERNOR gate rect (gold gradient — it's the gate) -->
+  <rect x="233" y="106" width="120" height="26" rx="2" fill="url(#c6-gold)" stroke="#4A3828" stroke-width="1.3" filter="url(#c6-shadow)"/>
+  <text x="293" y="124" font-size="8" fill="#3A2808" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.04em">THE GOVERNOR</text>
+  <!-- Three steps: feel → name → refuse -->
+  <text x="238" y="152" font-size="8" fill="#4A3828" font-family="Georgia,serif">feel it</text>
+  <line x1="261" y1="149" x2="270" y2="149" stroke="#4A3828" stroke-width="0.8" marker-end="url(#c6-ar-dark)"/>
+  <text x="274" y="152" font-size="8" fill="#4A3828" font-family="Georgia,serif">name it</text>
+  <line x1="300" y1="149" x2="309" y2="149" stroke="#4A3828" stroke-width="0.8" marker-end="url(#c6-ar-dark)"/>
+  <text x="313" y="152" font-size="8" fill="#4A3828" font-family="Georgia,serif">refuse it</text>
+  <!-- Dashed fail line -->
+  <line x1="293" y1="156" x2="293" y2="182" stroke="#AFA898" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <!-- DEPOSIT STOP rect -->
+  <rect x="243" y="182" width="100" height="26" rx="2" fill="url(#c6-node)" stroke="#AFA898" stroke-width="0.9"/>
+  <text x="293" y="200" font-size="8" fill="#4A3828" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" font-style="italic">DEPOSIT STOP</text>
+  <!-- Fail-closed note -->
+  <path d="M 293 208 C 293 226 270 240 270 240" stroke="#4A3828" stroke-width="1.3" fill="none" stroke-dasharray="3,2"/>
+  <text x="252" y="253" font-size="8" fill="#4A3828" font-family="Georgia,serif" font-style="italic">fail-closed</text>
+  <!-- Pattern label -->
+  <text x="293" y="312" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">The Governor</text>
+
+  <!-- === COL 3: CONSENTED LEAK === -->
+  <!-- Circles A and B -->
+  <circle cx="432" cy="106" r="14" fill="none" stroke="#AFA898" stroke-width="1.2"/>
+  <text x="432" y="111" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">A</text>
+  <circle cx="504" cy="106" r="14" fill="none" stroke="#AFA898" stroke-width="1.2"/>
+  <text x="504" y="111" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">B</text>
+  <!-- Arrow between A and B -->
+  <line x1="446" y1="106" x2="490" y2="106" stroke="#AFA898" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#c6-ar-muted)"/>
+  <!-- Labels -->
+  <text x="468" y="134" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" font-style="italic">both parties see it</text>
+  <line x1="468" y1="138" x2="468" y2="162" stroke="#AFA898" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <!-- "acknowledged" rect -->
+  <rect x="418" y="162" width="100" height="26" rx="2" fill="none" stroke="#AFA898" stroke-width="0.8"/>
+  <text x="468" y="180" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle">acknowledged</text>
+  <!-- Notes -->
+  <text x="468" y="202" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" font-style="italic">present, not hidden</text>
+  <text x="468" y="216" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">not refused or circulated</text>
+  <!-- Pattern label -->
+  <text x="468" y="312" font-size="8" fill="#4A3828" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Consented Ledger</text>
+
+  <!-- === COL 4: HIDDEN LEAK (forbidden) === -->
+  <rect x="549" y="57" width="109" height="271" fill="#F0EDE4" opacity="0.5"/>
+  <line x1="548" y1="82" x2="658" y2="328" stroke="#CEC8B8" stroke-width="1.2"/>
+  <line x1="658" y1="82" x2="548" y2="328" stroke="#CEC8B8" stroke-width="1.2"/>
+  <text x="603" y="185" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">abundance moves</text>
+  <text x="603" y="198" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">without naming as cost</text>
+  <text x="603" y="216" font-size="8" fill="#9A8878" font-family="Georgia,serif" text-anchor="middle" font-style="italic">(forbidden column)</text>
+
+  <!-- Sub-label below table -->
+  <text x="290" y="342" font-size="8" fill="#6A5848" font-family="Georgia,serif" text-anchor="middle" font-style="italic">Consented Ledger: which column a cost is in = structure, not intent</text>
+
+  <!-- ====== SYSTEM FALSIFIER ====== -->
+  <line x1="20" y1="366" x2="660" y2="366" stroke="#AFA898" stroke-width="0.6" stroke-dasharray="3,3"/>
+  <text x="340" y="382" font-size="8" fill="#7A5C10" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="0.09em">SYSTEM FALSIFIER</text>
+  <text x="340" y="398" font-size="9" fill="#1A1005" font-family="Georgia,serif" text-anchor="middle">Which column is the current cost in —</text>
+  <text x="340" y="413" font-size="9" fill="#1A1005" font-family="Georgia,serif" text-anchor="middle">and does the witness confirm the column the agent believes it's in?</text>
+
+  <!-- Footer -->
+  <rect x="0" y="502" width="680" height="18" fill="url(#c6-band)"/>
+  <line x1="0" y1="502" x2="680" y2="502" stroke="#AFA898" stroke-width="0.8"/>
+  <text x="20" y="515" font-size="7.5" fill="#6A5848" font-family="Georgia,serif">Our Shared Gifts · oursharedgifts.org</text>
+  <text x="660" y="515" font-size="7.5" fill="#6A5848" font-family="Georgia,serif" text-anchor="end">c6 · the-cost-law</text>
+</svg>
