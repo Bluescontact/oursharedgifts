@@ -4,9 +4,9 @@
     {
       "record_id": "bus-current",
       "record_type": "bus",
-      "zip": "95692",
-      "body": "The bus is parked near Wheatland through late June, then heading to the Grass Valley area around July 1. After that it moves every couple of weeks.",
-      "time_window": "Wheatland now → Grass Valley ~July 1",
+      "zip": "95945",
+      "body": "In the Grass Valley area through July 1. Where the bus lands next is still open — self-contained, near-zero footprint, moves every couple of weeks.",
+      "time_window": "Grass Valley through July 1 · next landing open",
       "status": "open",
       "expires": null
     },
