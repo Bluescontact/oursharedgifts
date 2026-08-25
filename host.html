@@ -152,10 +152,12 @@
       they don't appear on this page until Kevin publishes them above.
     </p>
     <!--
-      EDIT ME — Kevin: same Formspree setup as the contact page. Replace
-      YOUR_FORM_ID with your real form ID from formspree.io.
+      Submits via assets/forms-relay.js to a small Netlify relay site --
+      see netlify_forms_relay/README.md. No email address appears
+      anywhere in this file or anywhere else on the public site.
     -->
-    <form class="stack" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="stack" name="host-review" data-relay>
+      <input type="hidden" name="form-name" value="host-review">
       <div>
         <label for="rname">Name (or how you'd like to be credited)</label>
         <input type="text" id="rname" name="name" required>
@@ -209,5 +211,6 @@
 </footer>
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 <script src="assets/nav.js"></script>
+<script src="assets/forms-relay.js"></script>
 </body>
 </html>

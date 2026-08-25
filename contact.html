@@ -44,12 +44,12 @@
     <div class="grid grid-2">
       <div>
         <!--
-          EDIT ME — Kevin: this form posts to a Formspree endpoint placeholder.
-          To make it live: create a free form at formspree.io, and replace
-          YOUR_FORM_ID below with the ID it gives you. Until then, the mailto
-          fallback link under the form still works.
+          Submits via assets/forms-relay.js to a small Netlify relay site --
+          see netlify_forms_relay/README.md. No email address appears
+          anywhere in this file or anywhere else on the public site.
         -->
-        <form class="stack" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="stack" name="contact" data-relay>
+          <input type="hidden" name="form-name" value="contact">
           <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -74,10 +74,6 @@
           </div>
           <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send message</button>
         </form>
-        <p class="note">
-          Prefer email directly? Write to
-          <a href="mailto:kevin.mears@gmail.com">kevin.mears@gmail.com</a>.
-        </p>
       </div>
 
       <div>
@@ -123,5 +119,6 @@
 </footer>
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 <script src="assets/nav.js"></script>
+<script src="assets/forms-relay.js"></script>
 </body>
 </html>
