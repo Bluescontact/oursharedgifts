@@ -3,9 +3,7 @@
 // in the repo root). Netlify emails the submission privately -- no email
 // address ever appears in this site's source.
 //
-// EDIT ME -- Kevin: replace with your relay site's real .netlify.app URL
-// once you've deployed netlify_forms_relay/ (see its README.md).
-const RELAY_URL = "https://REPLACE-WITH-YOUR-RELAY-SITE.netlify.app/";
+const RELAY_URL = "https://fascinating-elf-93a9b6.netlify.app/";
 
 function encodeForm(form) {
   const data = new FormData(form);
