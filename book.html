@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book — OurSharedGifts</title>
+<meta name="description" content="Schedule a consult with Kevin Mears on systems design, off-grid infrastructure, or gift-economy tooling.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Our<span>Shared</span>Gifts</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="library.html">Library</a>
+      <a href="host.html">Host</a>
+      <a href="book.html" class="active">Book</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px">
+  <div class="wrap">
+    <div class="eyebrow">Book a conversation</div>
+    <h1 style="max-width:22ch">Time to talk systems, funding, or a build.</h1>
+    <p class="lede">
+      A first call is for figuring out fit — what you need, what OurSharedGifts
+      actually does well, and whether it's a match. No pitch deck required on
+      either side.
+    </p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="grid grid-3" style="margin-bottom:40px">
+      <div class="card">
+        <h3>Systems &amp; design consult</h3>
+        <p>Recognition mechanics, non-scoring feedback systems, game systems design review.</p>
+      </div>
+      <div class="card">
+        <h3>Off-grid infrastructure</h3>
+        <p>Solar/battery/water sizing consult grounded in a real, running build.</p>
+      </div>
+      <div class="card">
+        <h3>Funding / partnership</h3>
+        <p>For funders and studios exploring a commission, grant, or collaboration.</p>
+      </div>
+    </div>
+
+    <!--
+      EDIT ME — Kevin: replace the src below with your real Calendly (or Cal.com /
+      SavvyCal) scheduling link. Sign up free at calendly.com, create an event type,
+      and swap "kevin-mears/consult" for your actual link slug. Everything else on
+      this page works as-is once that one URL is real.
+    -->
+    <div class="embed-frame">
+      <iframe
+        src="https://calendly.com/kevin-mears/consult?hide_gdpr_banner=1&background_color=faf6ee&text_color=2b2620&primary_color=b5502c"
+        width="100%"
+        height="700"
+        frameborder="0"
+        title="Schedule a call with Kevin Mears">
+      </iframe>
+    </div>
+
+    <p class="note">
+      If the calendar above doesn't load, OurSharedGifts's booking link hasn't been
+      connected yet — use <a href="contact.html">the contact page</a> in the
+      meantime and a time will be arranged by email.
+    </p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="library.html">Library</a></li>
+          <li><a href="host.html">Host Kevin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Work with OurSharedGifts</h4>
+        <ul>
+          <li><a href="book.html">Book a call</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div><p class="fine">© <span id="y"></span> OurSharedGifts. A project of Kevin Mears.</p></div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>

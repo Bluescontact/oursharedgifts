@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — OurSharedGifts</title>
+<meta name="description" content="Get in touch with Kevin Mears about projects, funding, or the library.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Our<span>Shared</span>Gifts</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="library.html">Library</a>
+      <a href="host.html">Host</a>
+      <a href="book.html">Book</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h1 style="max-width:20ch">Say what you need, plainly.</h1>
+    <p class="lede">
+      For scheduling, use <a href="book.html">the booking page</a> — it's faster
+      for both of us. Use this form for anything that needs context first: a
+      funding inquiry, a library request, or a project that doesn't fit a 30-minute
+      slot yet.
+    </p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div>
+        <!--
+          EDIT ME — Kevin: this form posts to a Formspree endpoint placeholder.
+          To make it live: create a free form at formspree.io, and replace
+          YOUR_FORM_ID below with the ID it gives you. Until then, the mailto
+          fallback link under the form still works.
+        -->
+        <form class="stack" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="reason">What's this about</label>
+            <select id="reason" name="reason">
+              <option>Funding / partnership</option>
+              <option>Commission or consult</option>
+              <option>Library request</option>
+              <option>Off-grid infrastructure question</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="What you need, what you're working on, and any relevant timeline."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send message</button>
+        </form>
+        <p class="note">
+          Prefer email directly? Write to
+          <a href="mailto:kevin.mears@gmail.com">kevin.mears@gmail.com</a>.
+        </p>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Response time</h3>
+          <p>Most messages get a reply within a few business days. Funding and
+          commission inquiries with clear scope tend to move fastest.</p>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <h3>Before you write</h3>
+          <p>Check <a href="projects.html">Projects</a> and the
+          <a href="library.html">Library</a> first — a lot of "is this possible"
+          questions are already answered by what's running today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="library.html">Library</a></li>
+          <li><a href="host.html">Host Kevin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Work with OurSharedGifts</h4>
+        <ul>
+          <li><a href="book.html">Book a call</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div><p class="fine">© <span id="y"></span> OurSharedGifts. A project of Kevin Mears.</p></div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>

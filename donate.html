@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — OurSharedGifts</title>
+<meta name="description" content="Support Kevin Mears's systems design, off-grid infrastructure, and gift-economy work directly.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Our<span>Shared</span>Gifts</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="library.html">Library</a>
+      <a href="host.html">Host</a>
+      <a href="book.html">Book</a>
+      <a href="donate.html" class="active">Donate</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px">
+  <div class="wrap">
+    <div class="eyebrow">Donate</div>
+    <h1 style="max-width:22ch">Fund the work directly. No middle layer.</h1>
+    <p class="lede">
+      Donations go straight to keeping the build running — infrastructure
+      maintenance, project time, and the tools and frameworks released free through
+      the <a href="library.html">library</a>. There's no product being sold here;
+      this is direct support for ongoing, published work.
+    </p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="donate-tiers" style="margin-bottom:44px">
+      <div class="card">
+        <div class="amount">$25</div>
+        <h3>Keep a light on</h3>
+        <p>Covers a slice of the monthly infrastructure and hosting cost for the
+        library and the game build.</p>
+      </div>
+      <div class="card">
+        <div class="amount">$100</div>
+        <h3>Fund a build day</h3>
+        <p>A day's dedicated time on a Field Kit, a library release, or a NESI
+        instrument — named at your request if you'd like.</p>
+      </div>
+      <div class="card">
+        <div class="amount">Custom</div>
+        <h3>Recurring / larger support</h3>
+        <p>For ongoing monthly support or a larger one-time gift — reach out via
+        <a href="contact.html">contact</a> to talk specifics first.</p>
+      </div>
+    </div>
+
+    <!--
+      EDIT ME — Kevin: these three buttons point to placeholder accounts.
+      Replace each href with your real payment link before publishing:
+        - Stripe: create a Payment Link in the Stripe dashboard, paste its URL.
+        - Ko-fi:  ko-fi.com/<your-username>
+        - PayPal: paypal.me/<your-username>
+      Any one of the three is enough to launch — you don't need all three live.
+    -->
+    <div class="grid grid-3">
+      <div class="card" style="text-align:center">
+        <h3>Stripe</h3>
+        <p>One-time or recurring, card or wallet.</p>
+        <a class="btn btn-primary" href="https://donate.stripe.com/REPLACE_WITH_YOUR_LINK" target="_blank" rel="noopener">Give via Stripe</a>
+      </div>
+      <div class="card" style="text-align:center">
+        <h3>Ko-fi</h3>
+        <p>Simple one-time support, no account needed.</p>
+        <a class="btn btn-outline" href="https://ko-fi.com/REPLACE_WITH_YOUR_USERNAME" target="_blank" rel="noopener">Give via Ko-fi</a>
+      </div>
+      <div class="card" style="text-align:center">
+        <h3>PayPal</h3>
+        <p>For anyone who already has PayPal set up.</p>
+        <a class="btn btn-outline" href="https://paypal.me/REPLACE_WITH_YOUR_USERNAME" target="_blank" rel="noopener">Give via PayPal</a>
+      </div>
+    </div>
+
+    <p class="note">
+      These links are placeholders until the accounts above are connected — see
+      the HTML comment in this page's source for the three-step swap, or ask for
+      help wiring them up.
+    </p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Where it goes</h2>
+    <ul class="check" style="max-width:60ch">
+      <li>Off-grid infrastructure upkeep — solar, battery, and aquaponics maintenance that keeps the reference build (and the studio) running.</li>
+      <li>Time on free releases — Field Kits, working papers, and instruments published in the <a href="library.html">library</a> at no cost.</li>
+      <li>NESI development — the personal recognition system, built in the open.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="library.html">Library</a></li>
+          <li><a href="host.html">Host Kevin</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Work with OurSharedGifts</h4>
+        <ul>
+          <li><a href="book.html">Book a call</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div><p class="fine">© <span id="y"></span> OurSharedGifts. A project of Kevin Mears.</p></div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>
