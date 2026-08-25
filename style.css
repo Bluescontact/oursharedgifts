@@ -1,6 +1,6 @@
 /* ===========================================================
    Kevin Mears — public site
-   Shared stylesheet for all 7 pages.
+   Shared stylesheet for all 8 pages.
    Palette: warm off-white field, dark earth ink, single ember accent.
    =========================================================== */
 
@@ -133,10 +133,6 @@ h2{
 
 .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 @media (max-width:860px){.pillars{grid-template-columns:1fr}}
-
-.stat-row{display:flex; gap:40px; flex-wrap:wrap; margin-top:8px}
-.stat b{display:block; font-family:var(--serif); font-size:1.8rem; color:var(--ember-deep)}
-.stat span{color:var(--ink-soft); font-size:.85rem}
 
 blockquote.pull{
   font-family:var(--serif); font-size:1.3rem; line-height:1.5;
