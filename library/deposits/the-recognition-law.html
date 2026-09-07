@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Recognition Law</title>
+<style>
+  :root{
+    --bg:#faf8f4; --ink:#26221c; --ink-soft:#5c554a; --rule:#d8d2c6;
+    --accent:#7a5c2e; --card:#f1ede4;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16140f; --ink:#e8e3d8; --ink-soft:#a89f8e; --rule:#3a352b;
+           --accent:#c9a35f; --card:#201c15; }
+  }
+  html{ color-scheme: light dark; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family: Georgia, "Times New Roman", ui-serif, serif;
+    line-height:1.65; font-size:17px;
+  }
+  main{ max-width:44rem; margin:0 auto; padding:3rem 1.25rem 4rem; }
+  h1{ font-size:1.9rem; line-height:1.2; margin:0 0 .4rem; }
+  h2{ font-size:1.15rem; margin:2.4rem 0 .6rem; letter-spacing:.02em;
+      text-transform:uppercase; color:var(--accent);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  p{ margin:0 0 1rem; }
+  blockquote{
+    margin:1.4rem 0; padding:1rem 1.25rem; background:var(--card);
+    border-left:3px solid var(--accent); font-size:1.08rem;
+  }
+  blockquote p{ margin:0; }
+  ol{ padding-left:1.4rem; }
+  ol li{ margin:0 0 .7rem; }
+  em{ font-style:italic; }
+  strong{ font-weight:700; }
+  .eyebrow{
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:1.6rem;
+  }
+  hr{ border:0; border-top:1px solid var(--rule); margin:2.4rem 0; }
+  .recognition{ color:var(--ink-soft); font-size:.95rem; }
+  .recognition a{ color:var(--accent); }
+  @media print{
+    body{ background:#fff; color:#000; font-size:11.5pt; }
+    main{ max-width:100%; padding:0; }
+    h2{ color:#000; }
+    blockquote{ background:none; border-left:2px solid #000; }
+    .recognition a{ color:#000; text-decoration:none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">A deposit</div>
+  <h1>The Recognition Law</h1>
+
+  <h2>What this is</h2>
+  <p>A design constraint for systems that emit outputs about persons — feedback tools, reflection apps, classroom practices, care-team check-ins, community platforms:</p>
+  <blockquote><p><strong>A score may speak only where the scored thing is the real thing. Wherever a score stands proxy for something it cannot contain — growth, care, judgment, worth — the mechanism must only surface, and a person must make the read; and that person's read must be answerable.</strong></p></blockquote>
+  <p>The short form, where the condition holds: <em>a recognition mechanism never does the recognizing.</em></p>
+  <p>Three commitments, each earned below rather than assumed. First, the empirical one: where a score is a proxy, the measured thing tends to bend toward the measure — Goodhart's observation, a tendency with a large documented record (citation counts breeding citation gaming; activity leaderboards breeding falsified activity), not an iron law. Second, the boundary: some scores are not proxies. A race clock, a game rating, a thermometer — there the scored act constitutes the thing, the gap is near zero, and decades of willing use show such scores can track and even feed the real skill. The law does not apply to them, and this boundary is fixed here, in advance, not invoked after a counterexample lands. Third, the condition on the human side: handing the verdict to a person does not make it safe — human ratings carry the rater's bias as heavily as the ratee's performance. What a person's read has that a mechanism's output lacks is not purity but answerability: it can be asked <em>why</em>, and it can be revised by the asking. A read that cannot be questioned is just a score with a face.</p>
+  <p>One honesty owed here: surfacing is not neutral. What a system logs, keeps, and sets side by side is an editorial act — a log is already a choice about what exists to be recognized. The difference the law banks on is one of degree, and it matters for a specific reason: a record leaves the conclusion unformed, so a person still has to make it and can be asked why they did; a rank arrives with the conclusion already made and no one to ask. The law narrows the mechanism's editorial power to selection; it cannot remove it.</p>
+
+  <h2>Who it is for</h2>
+  <p>Anyone designing or running a system that emits per-person outputs: teachers, designers of reflection or journaling tools, facilitators of peer-support groups, maintainers of community platforms, managers rebuilding a performance process. The law will tell you which of your outputs it even applies to; you do not need to agree with it in advance.</p>
+
+  <h2>The turn</h2>
+  <blockquote><p><strong>Is the scored thing the real thing here — and if not, who, or what, emits the verdict?</strong></p></blockquote>
+  <p>Two questions in sequence. The first is the proxy-gap test: does the scored act constitute what you actually care about (finishing the race <em>is</em> the running), or does it stand for something the number cannot contain (pages read standing for a reading life)? If the score is the thing, the law is silent — score away. If it is a proxy, trace the output to where a conclusion about the person forms. If a mechanism forms it — computes it, ranks it, colors it — the law is broken there. If the mechanism stops at surfacing and an answerable person makes the read, it holds.</p>
+
+  <h2>The worked example</h2>
+  <p>A teacher wants students to read more, and considers a leaderboard of pages read. Run the turn. Proxy gap: pages stand for reading, and reading here stands for a life with books — large gap; the law applies. Verdict: the leaderboard emits it — a published ordinal position is a conclusion about standing whatever the surrounding copy says, because every student can read their own rank off it without the teacher saying a word.</p>
+  <p>The redesign under the law: the system keeps each student's log — what they read, one sentence about it. Once a term, each student rereads their own log, marks the entry that mattered most, and says why, to the teacher or the class as they choose. The system surfaced; the student made the read; the teacher can ask <em>why that one</em> — the read is answerable.</p>
+  <p>The honest cost: this does not directly maximize pages, and the law does not pretend it does. The leaderboard would produce more pages — including padded, skimmed, and fabricated pages, which is the gap doing its work. The redesign has a smaller gaming surface, not none: a log can be padded, a "why" can be performed. What it protects is the thing the pages were a proxy for. A teacher whose true goal is the count itself has a near-zero gap and the law's permission to just count — most teachers, asked, will find the count was never the goal.</p>
+
+  <h2>The operation</h2>
+  <p>To audit an existing system:</p>
+  <ol>
+    <li>List every output the system produces about a person: numbers, ranks, badges, colors, streaks, sorted lists.</li>
+    <li>Run each through the proxy-gap test, then the verdict test. Three borderline rulings to calibrate against: a <em>word-count display</em> on a writing tool — near-zero gap if the goal is volume, verdict-emitting the moment it is compared across people or framed as progress toward worth; a <em>"last active" timestamp</em> — surfacing, until it is sorted, colored, or thresholded, at which point the mechanism has concluded something about standing; a <em>streak counter</em> — measurement of continuity, becoming a worth-verdict through placement, celebration copy, comparison, or loss-framing. The observable features that convert a measure into a verdict: publication, ranking, thresholds with praise or shame attached, cross-person comparison.</li>
+    <li>For each output marked as a verdict in a proxy-gap domain, name the hand-back concretely: which person makes the read instead, at what moment, from what record — and to whom that read is answerable. "The team lead, at the quarterly one-on-one, from the shared work log, answerable to the person being read" is an answer. "We'll be more thoughtful" is not.</li>
+    <li>End with the marked list.</li>
+  </ol>
+
+  <h2>The falsifier</h2>
+  <p>The boundary is fixed above, so the escape hatch is closed: a counterexample cannot be waved off afterward as "just measurement" unless it passes the proxy-gap test as written. What kills the law: a <em>large-gap</em> domain — reading, care, reflection, community standing — where a mechanism-emitted worth-verdict ran for years on willing participants and the measured thing demonstrably did not bend toward the measure — the scored behavior's distribution stayed stable, and no gaming pattern (padding, farming, performance-to-the-metric) emerged at more than the margins. Find one and the law is wrong. And if, applying the proxy-gap test, you find every one of your scores landing on the "score is the thing" side, check whether the test is doing the work or your wishes are; a boundary that never excludes anything has stopped being a boundary.</p>
+
+  <h2>The closure line</h2>
+  <p>A run ends with the marked list: which outputs the law is silent on, which emit verdicts in proxy-gap territory, and for each of those, the named hand-back. What to change, and when, belongs to whoever holds the system. The law constrains what you build next; it does not administer it.</p>
+
+  <hr>
+  <p class="recognition">This rule is free to cite, apply, and build against. If it held weight for you and you want to hold the work in return: <a href="https://www.oursharedgifts.org/donate.html">oursharedgifts.org/donate</a>.</p>
+</main>
+</body>
+</html>
