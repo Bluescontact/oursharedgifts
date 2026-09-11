@@ -1,369 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Library — OurSharedGifts</title>
-<meta name="description" content="Writings, frameworks, and downloadable resources from Kevin Mears's systems and gift-economy work.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Library — Our Shared Gifts</title>
+<style>
+:root{
+  --bg:#f7f5f0; --fg:#1d1c1a; --muted:#6b675f; --rule:#d9d4c9; --card:#ffffff;
+  --accent:#2d4a3e;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#171613; --fg:#ebe7de; --muted:#a39e93; --rule:#33312c; --card:#1f1e1a;
+    --accent:#8fb8a5;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:17px/1.6 Georgia,"Times New Roman",serif;padding:2.5rem 1.2rem 4rem}
+main{max-width:680px;margin:0 auto}
+header h1{font-size:1.6rem;margin:0 0 .2rem}
+header .steward{font-style:italic;color:var(--muted);margin:0 0 1rem}
+header .closure{border-left:3px solid var(--accent);padding:.2rem 0 .2rem 1rem;
+  margin:0 0 2.4rem;max-width:60ch}
+.card{background:var(--card);border:1px solid var(--rule);
+  padding:1.1rem 1.3rem;margin:0 0 1.1rem}
+.card .kind{font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.card h2{font-size:1.15rem;margin:.15rem 0 .35rem}
+.card p{margin:.3rem 0;max-width:62ch}
+.card a{color:var(--accent)}
+.return{border-top:1px solid var(--rule);margin-top:2.6rem;padding-top:1.4rem;
+  color:var(--muted);max-width:62ch}
+.return a{color:var(--accent)}
+</style>
 </head>
 <body>
+<main>
 
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">Our<span>Shared</span>Gifts</a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <nav class="primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="library.html" class="active">Library</a>
-      <a href="host.html">Host</a>
-      <a href="book.html">Book</a>
-      <a href="donate.html">Support</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+<header>
+  <h1>Our Shared Gifts — the Library</h1>
+  <p class="steward">a steward is measured by what remains after they leave</p>
+  <p class="closure">A gift completes when nothing remains outstanding. Returns
+  that close inside the exchange are part of the gift. A handle is any claim
+  that survives the exchange.</p>
 </header>
 
-<section class="hero" style="padding-bottom:40px">
-  <div class="wrap">
-    <div class="eyebrow">Library</div>
-    <h1 style="max-width:20ch">Frameworks, writing, and field-ready tools.</h1>
-    <p class="lede">
-      Some of this is free to read and use today. Some is available on request.
-      Everything here is labeled with what it actually is — a finished framework,
-      a working paper, or a live instrument — so you can tell the difference.
-    </p>
-  </div>
-</section>
+<div class="card">
+  <div class="kind">Finished framework</div>
+  <h2>The Gift Lens</h2>
+  <p>How an exchange completes, when a return is part of the gift and when it
+  becomes a handle. Six framework edges read through the gift lens, five
+  derived gift operations, and two tools inside — the Handle Check and the
+  Receiver's Frame.</p>
+  <p><a href="deposits/the-gift-lens.html">Open</a></p>
+</div>
 
-<section class="alt">
-  <div class="wrap">
-    <h2>The gifts</h2>
-    <p class="section-intro" style="max-width:70ch">
-      Short, self-contained pieces — each one complete on its own, nothing
-      outstanding once you've read it. Organized by relationship, the way
-      Architecture of Coherence maps them: four vertices, six edges between
-      them.
-    </p>
+<div class="card">
+  <div class="kind">Deposit</div>
+  <h2>The Deposit</h2>
+  <p>Twenty self-contained pieces, carried whole. Each stands alone — take
+  any one and the rest owe you nothing.</p>
+  <p><a href="deposits/the-deposit.html">Open</a></p>
+</div>
 
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Relationship</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Differentiation ↔ Connection</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Two Grounds, One Route</h3>
-        <p>A connection between two people exists only when both are standing
-        on their own ground. It isn't a channel one side opens into the other
-        — it's the intersection of two independent participations. Effort
-        from one side alone cannot create it; a route half-built stays a
-        wish, not a connection.</p>
-      </div>
-      <div class="card">
-        <h3>The Weaker Link Sets the Strength</h3>
-        <p>A relationship's integrity is set by its weaker participant, not
-        its stronger one. Measuring only your own effort — how much you're
-        giving, how hard you're trying — tells you nothing about whether the
-        connection will actually hold.</p>
-      </div>
-      <div class="card">
-        <h3>What a Second Presence Changes</h3>
-        <p>Adding a second real presence to something one person was
-        carrying alone isn't a scaling event — it's a change in kind. Alone,
-        there's nothing to betray, because there's no shared structure yet
-        to violate. The moment a second person is actually load-bearing, the
-        one who was holding everything is now held too.</p>
-      </div>
-      <div class="card">
-        <h3>Membership Is Crossed, Not Given</h3>
-        <p>Membership in a group isn't a status the group hands out — it's a
-        threshold a person crosses themselves, and it only exists once it
-        runs both ways: part of your survival genuinely carried by the
-        group, part of the group's functioning genuinely carried by you.
-        Pull the person out, then pull the group out — if both come back
-        empty, there was no membership, just proximity.</p>
-      </div>
-    </div>
+<div class="card">
+  <div class="kind">Live instrument</div>
+  <h2>The Recognition Law</h2>
+  <p>A recognition mechanic must never do the recognizing. The full form: the
+  proxy-gap test, a worked example, the audit operation, and the condition
+  that would prove the law wrong.</p>
+  <p><a href="deposits/the-recognition-law.html">Open</a></p>
+</div>
 
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Self-Knowledge</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Differentiation ↔ Boundaries</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Open Grammar, Closed Verdict</h3>
-        <p>Watch whether a role that looks open actually is. Some
-        invitations to weigh in are grammatically open but semantically
-        closed — the acceptable answer is already fixed, no matter how the
-        invitation is worded. Knowing yourself here means noticing the gap
-        between the form of the question and the answer it will accept.</p>
-      </div>
-      <div class="card">
-        <h3>Grade the Object, Not Its Neighbor</h3>
-        <p>A check that means anything has to examine the actual thing it
-        claims to verify — not a nearby stand-in that's easier to look at.
-        An instrument that reads a proxy grades the proxy. If you want to
-        know what you actually did, look at the thing itself.</p>
-      </div>
-      <div class="card">
-        <h3>Who's Carrying the Cost</h3>
-        <p>When a person's real competence gets mistaken for room to keep
-        asking more of them, the correction has to happen at the level of
-        the shared structure, not by asking the competent person to want
-        less. A boundary held only at the individual level keeps reading as
-        availability.</p>
-      </div>
-      <div class="card">
-        <h3>The Edge Is What Makes You a Giver</h3>
-        <p>What makes something you hand over land as a gift, rather than
-        just get absorbed as raw material, isn't the size of it — it's a
-        held boundary, a maintained edge that keeps you a distinct party in
-        the exchange. Remove that edge and there's no longer a giver and a
-        receiver. There's just more material for whatever's on the other
-        side to absorb.</p>
-      </div>
-    </div>
+<div class="return">
+  <p>Everything above is complete when you close it. If something here held
+  weight for you, there is one place to set something down, and one place to
+  ask for an hour.</p>
+  <p><a href="https://www.oursharedgifts.org/donate.html">Donate</a> ·
+  <a href="https://www.oursharedgifts.org/book.html">Book a call</a></p>
+</div>
 
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Gift</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Differentiation ↔ Architecture</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>The System Never Scores You</h3>
-        <p>A recognition mechanism should never be the one doing the
-        recognizing. Its only job is to surface something and hold the
-        tension of it — the actual read stays entirely with the person it's
-        about. The instant a system starts emitting a verdict, it has
-        quietly taken over a judgment that was never its to make.</p>
-      </div>
-      <div class="card">
-        <h3>Give Without Opening a Door Back to You</h3>
-        <p>It's possible to deposit something real and useful into a shared
-        structure while declining the credit that would come with it — no
-        byline, no claim on authorship. The gift lands and does its work
-        either way; what changes is whether the giver's name has to travel
-        with it.</p>
-      </div>
-      <div class="card">
-        <h3>Producing Is Not the Same as Marking</h3>
-        <p>There's a real difference between making something and declaring
-        it finished. The second one is a deliberate act by someone with
-        standing to make it — and a real version of that act can always
-        answer a simple question afterward: who marked it, and why, at that
-        specific moment.</p>
-      </div>
-      <div class="card">
-        <h3>A Gift Needs a Name on It</h3>
-        <p>A gift whose receiver is actually known, before it's given, can
-        complete. One aimed at no one in particular doesn't fail — it just
-        doesn't finish; it sits in a kind of suspension, waiting for a name
-        to attach to. Naming who it's for isn't a courtesy. It's the
-        condition the gift needs to actually close.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Consent</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Connection ↔ Boundaries</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>"I Don't Know" Means Two Different Things</h3>
-        <p>The same words land differently depending on where they're said
-        from. Said by someone standing outside a shared effort, they close
-        the conversation. Said by someone genuinely inside the work,
-        alongside you, they're just a marker on the map — a place to route
-        around, not a door shutting.</p>
-      </div>
-      <div class="card">
-        <h3>Would You Say It in the Open?</h3>
-        <p>A clean test for whether an exchange respects the other person:
-        hold the whole mechanism up to them, mid-exchange, and ask whether
-        they'd still proceed if they could see all of it. If showing your
-        hand changes their answer, what you were running wasn't consent —
-        it was extraction wearing consent's clothes.</p>
-      </div>
-      <div class="card">
-        <h3>Only One Kind of Cost Is Forbidden</h3>
-        <p>A real cost inside an exchange can move in three ways: passed
-        forward openly as part of the gift, felt fully and consciously
-        declined before it's taken on, or absorbed quietly without anyone
-        naming it. Only the third one is actually forbidden.</p>
-      </div>
-      <div class="card">
-        <h3>A Yes Only Means Something If a No Was Possible</h3>
-        <p>A gift only registers as a gift where the receiver's ability to
-        say no is real and working. Acceptance from someone who couldn't
-        have refused isn't reception — it's absorption wearing reception's
-        clothes. Where that refusal-capacity doesn't exist yet, the fix
-        isn't asking more carefully. It's building the structure that lets a
-        no actually hold.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Circulation</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Connection ↔ Architecture</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Delegation Moves the View, Not the Weight</h3>
-        <p>Authority can be handed off in a title. Cost can't — it stays
-        physical, and it travels with whoever's actually standing close to
-        it. Delegate without also moving proximity, and you've built a
-        structure where the person deciding can't feel what the decision
-        costs.</p>
-      </div>
-      <div class="card">
-        <h3>Build the Blind Spot Out of the Structure</h3>
-        <p>If two sides of a relationship can each only see their own half
-        of the cost, the fix isn't asking them to imagine harder — it's
-        putting the missing half where both of them actually have to look
-        at it. A structure that surfaces the whole load closes a blind spot
-        that goodwill alone never will.</p>
-      </div>
-      <div class="card">
-        <h3>Infrastructure Tested by Whether It Holds Alone</h3>
-        <p>The real test of something you've built isn't whether it works
-        with you standing next to it. It's whether a person who arrives
-        cold, with no one there to explain it, can still find something
-        genuine in it — something that doesn't need the builder present to
-        be real.</p>
-      </div>
-      <div class="card">
-        <h3>More Bodies Isn't More Wiring</h3>
-        <p>Putting people in the same room changes how much surface area
-        the cost can spread across — it doesn't shrink the total cost, and
-        it doesn't guarantee the spreading actually happens. Bodies being
-        present isn't the same thing as the wiring that would let cost
-        actually redistribute between them. Without that wiring, cost still
-        finds its way back to whoever was already carrying it.</p>
-      </div>
-    </div>
-
-    <h3 style="font-family:var(--serif); font-size:1.25rem; margin:36px 0 4px">Deployment</h3>
-    <p class="section-intro" style="max-width:70ch; margin-bottom:20px">Boundaries ↔ Architecture</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>A Gate the Machine Can't Talk Past</h3>
-        <p>The strongest kind of rule isn't an instruction someone has to
-        keep remembering to follow — it's a fact built into the structure
-        itself: a file that has to exist, a value that has to match, a door
-        that's actually locked. A rule you have to keep restating is a
-        suggestion. A rule the structure enforces is a gate.</p>
-      </div>
-      <div class="card">
-        <h3>Make the Bad Outcome Impossible, Not Forbidden</h3>
-        <p>The strongest version of a rule doesn't just forbid a bad outcome
-        — it removes the path to it entirely, so that even something
-        operating exactly as designed still couldn't produce the harm. If
-        you can imagine a fully compliant version of the system still
-        causing the problem, the rule isn't finished yet.</p>
-      </div>
-      <div class="card">
-        <h3>A Veto Without an Exit Is a Pump</h3>
-        <p>Holding a permanent "no" over something, with no stated condition
-        under which that "no" ever gets released, isn't a boundary —
-        structurally, it's a mechanism for continuously pulling resources
-        toward whoever's holding the veto, whether or not that's the
-        intention.</p>
-      </div>
-      <div class="card">
-        <h3>A "No" Only Counts If It Changes What Happens Next</h3>
-        <p>A decline only actually functions as a decline if it changes the
-        system's behavior afterward — if whoever's making the next offer has
-        to check what was declined before making it again. A "no" that gets
-        said and then quietly ignored on the next round is decoration.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Frameworks &amp; field kits</h2>
-    <p class="section-intro">Ready-to-use apparatus, built for someone other than Kevin to pick up and run.</p>
-    <div class="grid grid-3">
-      <div class="card">
-        <span class="tag">Framework</span>
-        <h3>Field Kit template</h3>
-        <p>The structural-audit-to-apparatus process used to turn a civic or consumer
-        dispute into a distributable action packet.</p>
-        <a href="contact.html">Request access →</a>
-      </div>
-      <div class="card">
-        <span class="tag">Working paper</span>
-        <h3>Load-Bearing Patterns</h3>
-        <p>A design-pattern library reduced to the subset with confirmed live use —
-        what actually holds weight versus what's still archival.</p>
-        <a href="contact.html">Request access →</a>
-      </div>
-      <div class="card">
-        <span class="tag">Instrument</span>
-        <h3>The recognition law</h3>
-        <p>The single governing rule behind NESI's design: a recognition mechanic
-        must never do the recognizing. Short, citable, reusable anywhere a
-        number would distort what it measures.</p>
-        <a href="projects.html#nesi">Read in context →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>Writing &amp; pattern references</h2>
-    <p class="section-intro">The theory underneath the builds — citable, not shelved.</p>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Architecture of Coherence</h3>
-        <p>The full manuscript — the design philosophy behind how this studio's
-        systems are built, tested, and held accountable to their own rules.</p>
-        <a href="contact.html">Request access →</a>
-      </div>
-      <div class="card">
-        <h3>The Load-Bearing Patterns</h3>
-        <p>23 patterns that cleared a hard bar: each one cited by name inside code
-        or a governing document that's actually running today.</p>
-        <a href="projects.html#writing">See the build →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>Not yet public</h2>
-    <p class="section-intro" style="max-width:70ch">
-      A larger body of working notes, logs, and in-progress design documents exists
-      behind this library — the raw material these frameworks are distilled from.
-      It isn't published wholesale; pieces are released deliberately as they're
-      ready. If there's a specific topic you need (recognition-system design,
-      off-grid sizing, gift-economy tooling, civic Field Kits), say so and it'll be
-      considered for release.
-    </p>
-    <a class="btn btn-primary" href="contact.html">Ask about a specific topic</a>
-  </div>
-</section>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="host.html">Host Kevin</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Work with OurSharedGifts</h4>
-        <ul>
-          <li><a href="book.html">Book a call</a></li>
-          <li><a href="donate.html">Support</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div><p class="fine">© <span id="y"></span> OurSharedGifts. A project of Kevin Mears.</p></div>
-  </div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="assets/nav.js"></script>
+</main>
 </body>
 </html>

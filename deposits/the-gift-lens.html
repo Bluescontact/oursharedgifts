@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gift Lens</title>
+<style>
+  :root{
+    --ground:#16130d;
+    --raise:#1f1b12;
+    --raise-2:#262116;
+    --line:#37301f;
+    --bone:#ddd5c2;
+    --dim:#8f8674;
+    --faint:#5e574a;
+    --leaf:#7ba37f;
+    --leaf-dim:#4e6b53;
+    --cut:#b0563f;
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--ground);
+    color:var(--bone);
+    font-family:var(--mono);
+    font-size:14px;
+    line-height:1.65;
+    min-height:100vh;
+  }
+  a{color:var(--leaf)}
+  ::selection{background:var(--leaf-dim);color:var(--bone)}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px 80px}
+
+  /* ---------- header ---------- */
+  header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--leaf);letter-spacing:.18em;font-size:11px;text-transform:uppercase}
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(30px,5.5vw,44px);
+    letter-spacing:.01em;
+    margin:10px 0 18px;
+  }
+  .status{
+    display:inline-block;
+    border:1px solid var(--line);
+    background:var(--raise);
+    padding:12px 16px;
+    font-size:12px;
+    color:var(--dim);
+    white-space:pre;
+    line-height:1.8;
+  }
+  .status b{color:var(--bone);font-weight:400}
+  .status .leaf{color:var(--leaf)}
+
+  /* ---------- tabs ---------- */
+  nav{
+    position:sticky;top:0;z-index:5;
+    background:var(--ground);
+    border-bottom:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:0;
+  }
+  nav button{
+    appearance:none;background:none;border:none;
+    color:var(--dim);
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+    padding:14px 16px;cursor:pointer;
+    border-bottom:2px solid transparent;
+    text-transform:uppercase;
+  }
+  nav button:hover{color:var(--bone)}
+  nav button:focus-visible{outline:2px solid var(--leaf);outline-offset:-2px}
+  nav button[aria-selected="true"]{color:var(--leaf);border-bottom-color:var(--leaf)}
+
+  section[role="tabpanel"]{display:none;padding-top:34px}
+  section[role="tabpanel"].live{display:block}
+
+  h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:24px;margin-bottom:6px;
+  }
+  .sub{color:var(--dim);font-size:12.5px;margin-bottom:26px;max-width:62ch}
+  .mine{color:var(--faint);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .mine::before{content:"◇ ";color:var(--leaf-dim)}
+
+  /* ---------- exchange ---------- */
+  .turn{margin-bottom:26px}
+  .turn .who{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .turn.k .who{color:var(--leaf)}
+  .turn.c .who{color:var(--dim)}
+  .turn .said{
+    border-left:2px solid var(--line);
+    padding:4px 0 4px 18px;
+    max-width:68ch;
+  }
+  .turn.k .said{border-left-color:var(--leaf-dim);font-family:var(--serif);font-size:16px;line-height:1.6}
+  .turn.c .said{color:var(--bone)}
+  .turn .said p{margin-bottom:10px}
+  .turn .said p:last-child{margin-bottom:0}
+  .turn .said em{color:var(--dim);font-style:normal}
+
+  /* ---------- six relationships ---------- */
+  .tetra-row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+  .tetra-fig{flex:0 0 300px;max-width:100%}
+  .tetra-fig svg{width:100%;height:auto;display:block}
+  .edge-line{stroke:var(--line);stroke-width:2;cursor:pointer}
+  .edge-line:hover{stroke:var(--dim)}
+  .edge-line.on{stroke:var(--leaf);stroke-width:2.5}
+  .vertex{fill:var(--raise-2);stroke:var(--dim);stroke-width:1}
+  .vlabel{fill:var(--bone);font-family:var(--mono);font-size:12px}
+  .vname{fill:var(--faint);font-family:var(--mono);font-size:8.5px;letter-spacing:.05em}
+  .edge-list{flex:1;min-width:260px}
+  .edge-btn{
+    display:block;width:100%;text-align:left;
+    appearance:none;background:var(--raise);border:1px solid var(--line);
+    color:var(--bone);font-family:var(--mono);font-size:12.5px;
+    padding:10px 14px;margin-bottom:6px;cursor:pointer;
+  }
+  .edge-btn:hover{border-color:var(--dim)}
+  .edge-btn:focus-visible{outline:2px solid var(--leaf);outline-offset:1px}
+  .edge-btn.on{border-color:var(--leaf);color:var(--leaf)}
+  .edge-read{
+    margin-top:22px;border:1px solid var(--line);background:var(--raise);
+    padding:20px 22px;
+  }
+  .edge-read h3{font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:4px}
+  .edge-read .en{color:var(--leaf);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+  .edge-read p{max-width:64ch;margin-bottom:10px}
+  .edge-read .from{color:var(--dim);font-size:12px}
+
+  /* ---------- four faces / tiles ---------- */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .stone{
+    background:var(--raise);border:1px solid var(--line);
+    padding:20px 20px 18px;
+    border-radius:14px 6px 16px 8px;
+    cursor:pointer;
+    transition:border-color .15s;
+  }
+  .stone:hover{border-color:var(--dim)}
+  .stone:focus-visible{outline:2px solid var(--leaf);outline-offset:1px}
+  .stone.open{border-color:var(--leaf)}
+  .stone h3{font-family:var(--serif);font-weight:400;font-size:18px;margin-bottom:6px}
+  .stone .tag{color:var(--leaf);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+  .stone .gist{color:var(--dim);font-size:12.5px}
+  .stone .body{display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .stone.open .body{display:block}
+  .stone .body p{margin-bottom:10px;font-size:13px}
+  .stone .lbl{color:var(--faint);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin:12px 0 5px}
+  .stone .lbl:first-child{margin-top:0}
+  .prompt-box{
+    background:var(--ground);border:1px solid var(--line);
+    padding:12px 14px;font-size:12.5px;color:var(--bone);
+    white-space:pre-wrap;position:relative;
+  }
+  .copy{
+    appearance:none;border:1px solid var(--line);background:var(--raise-2);
+    color:var(--dim);font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 10px;margin-top:8px;cursor:pointer;
+  }
+  .copy:hover{color:var(--bone);border-color:var(--dim)}
+  .copy:focus-visible{outline:2px solid var(--leaf)}
+  .copy.done{color:var(--leaf);border-color:var(--leaf)}
+  ol.proc{margin:4px 0 0 20px}
+  ol.proc li{margin-bottom:6px;font-size:13px}
+
+  /* ---------- tools ---------- */
+  .tool{border:1px solid var(--line);background:var(--raise);padding:24px;margin-bottom:28px}
+  .tool h3{font-family:var(--serif);font-weight:400;font-size:20px;margin-bottom:4px}
+  .tool .sub{margin-bottom:18px}
+  textarea,input[type=text]{
+    width:100%;background:var(--ground);border:1px solid var(--line);
+    color:var(--bone);font-family:var(--mono);font-size:13.5px;
+    padding:12px;resize:vertical;
+  }
+  textarea:focus,input[type=text]:focus{outline:2px solid var(--leaf-dim);border-color:var(--leaf-dim)}
+  .q{margin:18px 0 6px;font-size:13.5px}
+  .q .qi{color:var(--leaf);margin-right:8px}
+  .ans{display:flex;gap:8px;flex-wrap:wrap}
+  .ans button{
+    appearance:none;background:var(--raise-2);border:1px solid var(--line);
+    color:var(--dim);font-family:var(--mono);font-size:12px;
+    padding:6px 16px;cursor:pointer;
+  }
+  .ans button:hover{color:var(--bone);border-color:var(--dim)}
+  .ans button:focus-visible{outline:2px solid var(--leaf)}
+  .ans button.picked{border-color:var(--leaf);color:var(--leaf)}
+  .ans button.picked.warn{border-color:var(--cut);color:var(--cut)}
+  .verdict{
+    margin-top:22px;border-left:2px solid var(--leaf);
+    padding:6px 0 6px 18px;font-family:var(--serif);font-size:16px;
+    display:none;max-width:60ch;
+  }
+  .verdict.warned{border-left-color:var(--cut)}
+  .verdict.show{display:block}
+  .verdict .vnote{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px}
+  .row{display:flex;gap:10px;margin-top:10px}
+  .row input{flex:1}
+  .row button,.reset{
+    appearance:none;background:var(--raise-2);border:1px solid var(--line);
+    color:var(--bone);font-family:var(--mono);font-size:12px;
+    padding:8px 16px;cursor:pointer;white-space:nowrap;
+  }
+  .row button:hover,.reset:hover{border-color:var(--leaf);color:var(--leaf)}
+  .reset{margin-top:18px;color:var(--dim)}
+  .frame-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:600px){.frame-cols{grid-template-columns:1fr}}
+  .fcol{border:1px solid var(--line);background:var(--ground);padding:14px;min-height:90px}
+  .fcol h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .fcol.theirs h4{color:var(--leaf)}
+  .fcol.bleed h4{color:var(--cut)}
+  .fitem{
+    display:flex;justify-content:space-between;align-items:center;gap:8px;
+    border-bottom:1px solid var(--line);padding:6px 0;font-size:13px;
+  }
+  .fitem:last-child{border-bottom:none}
+  .fitem button{
+    appearance:none;background:none;border:1px solid var(--line);
+    color:var(--dim);font-family:var(--mono);font-size:10px;
+    padding:3px 8px;cursor:pointer;letter-spacing:.06em;
+  }
+  .fitem button:hover{color:var(--bone);border-color:var(--dim)}
+  .empty-note{color:var(--faint);font-size:12px;font-style:normal}
+
+  footer{
+    margin-top:60px;border-top:1px solid var(--line);padding-top:20px;
+    color:var(--faint);font-size:11.5px;line-height:1.9;white-space:pre-wrap;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Take it · change it · pass it on · nothing stored</div>
+  <h1>The Gift Lens</h1>
+  <div class="status">LANDING:  <b>wherever it lands</b>
+CARRIED:  <span class="leaf">by no one — this page has no author it needs</span>
+CLAIMED:  <b>nothing. cut what doesn't hold; keep what works.</b>
+STORED:   <b>nothing. close the page and it is gone.</b></div>
+</header>
+
+<nav role="tablist" aria-label="Sections">
+  <button role="tab" id="t0" aria-selected="true"  aria-controls="p0">The Lens</button>
+  <button role="tab" id="t1" aria-selected="false" aria-controls="p1">Six Relationships</button>
+  <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Four Faces</button>
+  <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Derived Gifts</button>
+  <button role="tab" id="t4" aria-selected="false" aria-controls="p4">Tools</button>
+</nav>
+
+<!-- ============ TAB 0 · THE EXCHANGE ============ -->
+<section role="tabpanel" id="p0" aria-labelledby="t0" class="live">
+  <h2>The lens</h2>
+  <p class="sub">A way of reading exchange. Turn it on a gift you are considering, a practice you already run, or an offer that went wrong and you want to know where.</p>
+
+  <div class="edge-read" style="margin-top:0">
+    <div class="en">The rule</div>
+    <h3>A gift completes when nothing remains outstanding</h3>
+    <p>A return that closes inside the exchange — the thanks, the reflection, the smile — is part of the gift. A handle is any claim that survives it: a record, an expectation, an account kept. And the test runs toward the giver: what the thing itself asks of the receiver is its weight, not a handle.</p>
+    <p class="from">Everything else on this page is this rule, turned.</p>
+  </div>
+
+  <div class="turn c" style="margin-top:30px">
+    <div class="who">Five operations</div>
+    <div class="said">
+      <p><b>1 · Boundary, not softness.</b> A gift that completes cleanly is a boundary working — mutual recognition, not one-way charity. Nothing lingers as debt in either direction.</p>
+      <p><b>2 · Legibility without accusation.</b> Hand a lens, not a charge. Name the structure, not the actor — and lean on nothing the receiver doesn't hold.</p>
+      <p><b>3 · One offering.</b> Choice demanded before anything is given is a toll. Choice offered inside a field already given is recognition.</p>
+      <p><b>4 · Load the transactional object.</b> Take the thing everyone knows how to receive and let it carry the relational move — without ceasing to be itself.</p>
+      <p><b>5 · Read the reception.</b> What a person does with a gift is a signal the review can't counterfeit.</p>
+    </div>
+  </div>
+
+  <p class="sub" style="margin-top:26px;margin-bottom:0">Each operation is opened as a working stone under <b>The Gifts</b>. The geometry behind them sits under <b>Six Relationships</b> and <b>Four Faces</b>. Two instruments you can run right now sit under <b>Tools</b>.</p>
+</section>
+
+<!-- ============ TAB 1 · SIX RELATIONSHIPS ============ -->
+<section role="tabpanel" id="p1" aria-labelledby="t1">
+  <h2>The six relationships</h2>
+  <p class="sub">The six edges among Differentiation · Connection · Boundaries · Architecture, each read through the gift lens. Click an edge on the figure or in the list.</p>
+  
+  <div class="tetra-row">
+    <div class="tetra-fig">
+      <svg viewBox="0 0 300 280" role="img" aria-label="Tetrahedron projection: four vertices D, C, B, A with six clickable edges">
+        <!-- edges: D(150,34) C(38,246) B(262,246) A(150,168) -->
+        <line class="edge-line" data-e="0" x1="150" y1="34" x2="38"  y2="246"/>
+        <line class="edge-line" data-e="1" x1="150" y1="34" x2="262" y2="246"/>
+        <line class="edge-line" data-e="2" x1="150" y1="34" x2="150" y2="168"/>
+        <line class="edge-line" data-e="3" x1="38"  y1="246" x2="262" y2="246"/>
+        <line class="edge-line" data-e="4" x1="38"  y1="246" x2="150" y2="168"/>
+        <line class="edge-line" data-e="5" x1="262" y1="246" x2="150" y2="168"/>
+        <circle class="vertex" cx="150" cy="34"  r="15"/>
+        <circle class="vertex" cx="38"  cy="246" r="15"/>
+        <circle class="vertex" cx="262" cy="246" r="15"/>
+        <circle class="vertex" cx="150" cy="168" r="15"/>
+        <text class="vlabel" x="150" y="38"  text-anchor="middle">D</text>
+        <text class="vlabel" x="38"  y="250" text-anchor="middle">C</text>
+        <text class="vlabel" x="262" y="250" text-anchor="middle">B</text>
+        <text class="vlabel" x="150" y="172" text-anchor="middle">A</text>
+        <text class="vname" x="150" y="14"  text-anchor="middle">DIFFERENTIATION</text>
+        <text class="vname" x="38"  y="270" text-anchor="middle">CONNECTION</text>
+        <text class="vname" x="262" y="270" text-anchor="middle">BOUNDARIES</text>
+        <text class="vname" x="150" y="196" text-anchor="middle">ARCHITECTURE</text>
+      </svg>
+    </div>
+    <div class="edge-list" role="group" aria-label="Edge list">
+      <button class="edge-btn" data-e="0">D — C · the crossing</button>
+      <button class="edge-btn" data-e="1">D — B · the handle</button>
+      <button class="edge-btn" data-e="2">D — A · the one offering</button>
+      <button class="edge-btn" data-e="3">C — B · the completion</button>
+      <button class="edge-btn" data-e="4">C — A · the circulation</button>
+      <button class="edge-btn" data-e="5">B — A · the receiver's frame</button>
+    </div>
+  </div>
+
+  <div class="edge-read" id="edgeRead" aria-live="polite">
+    <div class="en" id="erEn">Differentiation — Connection</div>
+    <h3 id="erName">The crossing</h3>
+    <p id="erBody">A gift only exists between two who remain distinct. Merge them and it becomes self-provision; separate them fully and nothing passes. A recognition reflected back is this edge working: the receiver stays other, and the recognition crosses anyway — a return that closes inside the exchange, which is exactly why it is not a handle.</p>
+    <p class="from" id="erFrom">In practice: the thanks that closes a small street gift — not for taking, but for reflecting it back. The return move that keeps two people two.</p>
+  </div>
+</section>
+
+<!-- ============ TAB 2 · FOUR FACES ============ -->
+<section role="tabpanel" id="p2" aria-labelledby="t2">
+  <h2>The four faces</h2>
+  <p class="sub">Four geometries of release — four ways a gift can leave a hand. Each one refuses a different failure.</p>
+  
+  <div class="tiles">
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Blind</div>
+      <h3>The released gift</h3>
+      <div class="gist">A sentence leaves as it is finished. Nothing accumulates. Nothing said.</div>
+      <div class="body">
+        <p>The gift you release without watching it land. The gift handed on in passing with nothing tracked — no record of who took what, no receipt, no watching. The blind face is the purest form of the completion rule: it is over the moment it leaves.</p>
+        <p>What it refuses: even the look. The strictest of the four geometries — where nothing accumulates, no account can.</p>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Sequential</div>
+      <h3>The held gift</h3>
+      <div class="gist">Everything visible. Nothing leaves until the giver acts.</div>
+      <div class="body">
+        <p>The gift held in full view until it is deliberately given. Nothing departs by accident; the giving is a chosen act, and nothing is erased behind it. This is the face of the prepared gift — the box assembled, the artifact finished, waiting for the moment of handoff to be picked, not triggered.</p>
+        <p>What it refuses: the leak. A gift that dribbles out was never given.</p>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Tiles</div>
+      <h3>The chosen gift</h3>
+      <div class="gist">Each sentence its own stone, in written order, grouped by run.</div>
+      <div class="body">
+        <p>The fan of ~20 stickered singles: each one a discrete, whole gift — and the whole fan is in the receiver's hands before any choice is made. The choosing happens inside possession, and the receiver's choice is what turns giving into recognition. One undifferentiated mass offers nothing to pick.</p>
+        <p>What it refuses: the bundle that forces all-or-nothing.</p>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">The Tarp</div>
+      <h3>The outward gift</h3>
+      <div class="gist">Eight rim regions, centre pile, outward only. Nothing returns. Single pass.</div>
+      <div class="body">
+        <p>The pure no-reciprocity geometry, built into a surface. Everything moves from the centre outward; nothing comes back; the fold commits nothing. And a region stays nameless until something lands in it — the receiver names the gift by what they do with it, which is operation 5 made physical.</p>
+        <p>What it refuses: the deferred claim. The surface has no inbound direction for one to ride.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 3 · DERIVED GIFTS ============ -->
+<section role="tabpanel" id="p3" aria-labelledby="t3">
+  <h2>The gifts</h2>
+  <p class="sub">The five operations, each returned to you as a working instrument: the pattern, a prompt you can hand any session, and a process you can run by hand. Click a stone to open it.</p>
+  
+  <div class="tiles">
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Gift 1</div>
+      <h3>The boundary gift</h3>
+      <div class="gist">A gift is a boundary-setting device, not softness. It completes with nothing outstanding.</div>
+      <div class="body">
+        <div class="lbl">Pattern</div>
+        <p>The receiver chooses; the giver thanks them for the reflection; the exchange closes as mutual recognition. This is the rule from the front of the page working at street level: nothing outstanding, so it can recur without debt — a next time that arrives as a first time.</p>
+        <div class="lbl">Prompt</div>
+        <div class="prompt-box" id="pr1">COMPLETION CHECK
+
+Before I offer this, name what remains outstanding
+after the handoff.
+A return that closes inside the exchange is part of the gift.
+A claim that survives it — a record, an expectation,
+a report back, an account kept — is a handle.
+Test toward the giver: what the thing asks of the receiver
+is its weight, not a handle.
+Redesign until nothing runs back to me
+past the moment of delivery.</div>
+        <button class="copy" data-for="pr1">Copy prompt</button>
+        <div class="lbl">Process — one working form, as steps</div>
+        <ol class="proc">
+          <li>Approach. Offer the choice, not the object.</li>
+          <li>Hand the whole set. Ask them to pick what is most true for them.</li>
+          <li>When they pick, thank them — for reflecting it back, not for taking.</li>
+          <li>Walk. No record, no glance back. It is complete.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Gift 2</div>
+      <h3>The legibility gift</h3>
+      <div class="gist">Hand a lens, not an accusation. Keep the receiver's frame clean.</div>
+      <div class="body">
+        <div class="lbl">Pattern</div>
+        <p>What makes the hardest offer receivable is that it names the architecture, not the actor — a structural flaw handed over with no personal claim attached. And the frame audit runs both ways: nothing the receiver doesn't hold belongs in their reading.</p>
+        <div class="lbl">Prompt</div>
+        <div class="prompt-box" id="pr2">FRAME AUDIT
+
+List everything this framing assumes the receiver knows.
+Strike every item they do not actually hold.
+What remains is the gift they can receive.
+Then strike every sentence that names a person
+where a structure would carry the same weight.</div>
+        <button class="copy" data-for="pr2">Copy prompt</button>
+        <div class="lbl">Process</div>
+        <ol class="proc">
+          <li>Write the offer as if the receiver were watching you write it.</li>
+          <li>List their actual field of view — only what they verifiably hold.</li>
+          <li>Cut the bleed: everything only you hold.</li>
+          <li>Replace names with load paths wherever the structure carries it.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Gift 3</div>
+      <h3>The one-offering gift</h3>
+      <div class="gist">Choosing among your offers is itself the transaction. Collapse to one.</div>
+      <div class="body">
+        <div class="lbl">Pattern</div>
+        <p>Three offerings presented side by side force the receiver to choose, and choosing is the transactional move. The fix is architectural, not tonal: one offering that holds the differences inside it, so the receiver enters instead of shops. The line that squares this with the fan of twenty: choice demanded <em>before</em> anything is given is a toll; choice offered <em>inside</em> a field already given is recognition. The first is the transaction. The second is the gift working.</p>
+        <div class="lbl">Prompt</div>
+        <div class="prompt-box" id="pr3">COUNT THE OFFERS
+
+Count what the receiver must choose among.
+If the count is above one, the choice is the price of entry
+and the exchange is already transactional.
+Collapse to one surface that unfolds on consent —
+"do you want to read X?" — where a yes opens
+and a no costs nothing.</div>
+        <button class="copy" data-for="pr3">Copy prompt</button>
+        <div class="lbl">Process — consent-gated disclosure</div>
+        <ol class="proc">
+          <li>One door. One question at the door.</li>
+          <li>On yes, that thing unfolds. On no, nothing is lost or owed.</li>
+          <li>Every branch inside repeats the same gate.</li>
+          <li>The whole tree is walkable without the author present.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Gift 4</div>
+      <h3>The material gift</h3>
+      <div class="gist">Take the most transactional object in the room and load it with the relational move.</div>
+      <div class="body">
+        <div class="lbl">Pattern</div>
+        <p>The most transactional object in the room is exactly the one worth loading: its own grammar can be inverted without destroying the medium, so the object becomes a carrier of presence while still working as what it was.</p>
+        <div class="lbl">Prompt</div>
+        <div class="prompt-box" id="pr4">MATERIAL READ
+
+Name the most transactional object in this situation.
+Ask what relational move it could carry
+without ceasing to be itself.
+The inversion only lands if the object
+still works as what it was.</div>
+        <button class="copy" data-for="pr4">Copy prompt</button>
+        <div class="lbl">Process</div>
+        <ol class="proc">
+          <li>Pick the object everyone already knows how to receive.</li>
+          <li>Add the smallest layer that changes what the exchange means.</li>
+          <li>Leave the object fully functional in its old grammar.</li>
+          <li>Let the receiver discover the second layer themselves.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="stone" tabindex="0" role="button" aria-expanded="false">
+      <div class="tag">Gift 5</div>
+      <h3>The diagnostic gift</h3>
+      <div class="gist">Read people by what they do with a gift, not by whether they liked it.</div>
+      <div class="body">
+        <div class="lbl">Pattern</div>
+        <p>Reception is a signal the review can't counterfeit — the verb spends something that words don't. Kept, passed on, displayed, discarded, hoarded, returned: each is a different sentence about how that person holds relation. The tarp's nameless regions are this: the landing names the gift.</p>
+        <div class="lbl">Prompt</div>
+        <div class="prompt-box" id="pr5">RECEPTION READ
+
+After the gift, watch the verb, not the review.
+What did they DO with it?
+Kept · used · passed on · displayed · discarded ·
+returned · matched · banked against you.
+Read the verb as their statement about relation,
+and let it outweigh the mood of the moment.</div>
+        <button class="copy" data-for="pr5">Copy prompt</button>
+        <div class="lbl">Process</div>
+        <ol class="proc">
+          <li>Give with the handle already cut (Gift 1), or the read is contaminated.</li>
+          <li>Wait. The verb takes longer than the reaction.</li>
+          <li>Name the verb without judging it — reading, not recording. Keep no ledger of it.</li>
+          <li>Let the verb set the shape of the next gift, or of no next gift.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 4 · TOOLS ============ -->
+<section role="tabpanel" id="p4" aria-labelledby="t4">
+  <h2>Tools</h2>
+  <p class="sub">Two working instruments. Everything runs here, in this page, in memory only. Choosing nothing is allowed. Closing the page erases everything.</p>
+
+  <!-- TOOL 1 -->
+  <div class="tool">
+    <h3>The Handle Check</h3>
+    <p class="sub">Walk a gift you are considering through five passes. Every question is skippable; a skip is an honest answer.</p>
+    <label for="hcGift" style="font-size:12px;color:var(--dim)">The gift, in a sentence (optional — this is for your eyes only):</label>
+    <textarea id="hcGift" rows="2" placeholder="What are you considering offering, and to whom?"></textarea>
+
+    <div id="hcQs"></div>
+
+    <div class="verdict" id="hcVerdict"></div>
+    <button class="reset" id="hcReset">Clear the check</button>
+  </div>
+
+  <!-- TOOL 2 -->
+  <div class="tool">
+    <h3>The Receiver's Frame</h3>
+    <p class="sub">List what your framing leans on. Mark each item: do they actually hold it? What lands in the bleed column gets cut before the offer leaves.</p>
+    <div class="row">
+      <input type="text" id="rfInput" placeholder="Something the framing assumes — a fact, a history, a context" aria-label="Item the framing assumes">
+      <button id="rfAdd">Add</button>
+    </div>
+    <div class="frame-cols">
+      <div class="fcol theirs">
+        <h4>In their frame — can carry weight</h4>
+        <div id="rfTheirs"><p class="empty-note">Nothing placed yet.</p></div>
+      </div>
+      <div class="fcol bleed">
+        <h4>The bleed — only you hold this. Cut it.</h4>
+        <div id="rfBleed"><p class="empty-note">Nothing placed yet.</p></div>
+      </div>
+    </div>
+    <button class="reset" id="rfReset">Clear the frame</button>
+  </div>
+</section>
+
+<footer>Nothing here is claimed and nothing is asked. Cut what doesn't hold; keep what works; pass on what you keep — with this page attached or without it.
+Nothing on this page is stored, sent, or counted. It completes here — nothing outstanding.</footer>
+
+</div>
+
+<script>
+(function(){
+  // ---------- tabs ----------
+  var tabs = document.querySelectorAll('nav [role="tab"]');
+  var panels = document.querySelectorAll('section[role="tabpanel"]');
+  function selectTab(tab){
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t===tab ? 'true':'false'); });
+    panels.forEach(function(p){ p.classList.toggle('live', p.id === tab.getAttribute('aria-controls')); });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      var j = null;
+      if(e.key==='ArrowRight') j=(i+1)%tabs.length;
+      if(e.key==='ArrowLeft')  j=(i-1+tabs.length)%tabs.length;
+      if(j!==null){ tabs[j].focus(); selectTab(tabs[j]); e.preventDefault(); }
+    });
+  });
+
+  // ---------- six relationships ----------
+  var edges = [
+    {en:"Differentiation — Connection", name:"The crossing",
+     body:"A gift only exists between two who remain distinct. Merge them and it becomes self-provision; separate them fully and nothing passes. A recognition reflected back is this edge working: the receiver stays other, and the recognition crosses anyway — a return that closes inside the exchange, which is exactly why it is not a handle.",
+     from:'In practice: the thanks that closes a small street gift — not for taking, but for reflecting it back. The return move that keeps two people two.'},
+    {en:"Differentiation — Boundaries", name:"The handle",
+     body:"The boundary that keeps a gift from becoming a claim on the receiver's difference. No tracking, no expectation, no recall — because a gift with a recall mechanism is not a gift. This edge is where the no-reciprocity rule lives: it protects the receiver's right to remain unchanged by what they were given.",
+     from:"In practice: nothing tracked, the gift completes at the handoff — and the giver, holding no lever, is the most defenseless party in any exchange. The rule protects them both."},
+    {en:"Differentiation — Architecture", name:"The one offering",
+     body:"Architecture holds the differences so the receiver doesn't have to. Three distinct bodies of work stay distinct — inside one offering. The structure absorbs the choosing that would otherwise be pushed onto the receiver as a price of entry.",
+     from:"In practice: three bodies of work, woven into a single offering — because three offers force a choice, and choosing is the transactional move."},
+    {en:"Connection — Boundaries", name:"The completion",
+     body:"The connection that closes cleanly is the only one that can recur without debt. Completion at the handoff is not coldness — it is the boundary that makes the next connection free. An exchange left open accrues; an exchange that completes can happen again as a first time.",
+     from:"In practice: the small thing changes hands, the thanks lands, and both walk away whole. Nothing outstanding."},
+    {en:"Connection — Architecture", name:"The circulation",
+     body:"Connection carried by structure instead of presence. An artifact designed to circulate without its author is this edge built: the relation persists in the thing's shape, so it can connect with people the giver will never meet. The steward is measured by what remains after they leave.",
+     from:"In practice: an artifact built to circulate without its author — one surface that lets a whole tree be explored alone. This page is trying to be one."},
+    {en:"Boundaries — Architecture", name:"The receiver's frame",
+     body:"Structure that refuses to bleed the giver's context onto the receiver. What the receiver actually holds defines the boundary of what the offer may lean on; the architecture of the offer is built inside that boundary, not around it. Frame discipline is what makes the hardest gifts receivable — not a courtesy.",
+     from:"In practice: a giver's whole story bleeding onto a receiver who held one page of it — caught mid-offer and cut. What they don't hold can't carry weight, so it doesn't ride."}
+  ];
+  var edgeLines = document.querySelectorAll('.edge-line');
+  var edgeBtns  = document.querySelectorAll('.edge-btn');
+  function showEdge(i){
+    document.getElementById('erEn').textContent   = edges[i].en;
+    document.getElementById('erName').textContent = edges[i].name;
+    document.getElementById('erBody').textContent = edges[i].body;
+    document.getElementById('erFrom').textContent = edges[i].from;
+    edgeLines.forEach(function(l){ l.classList.toggle('on', +l.dataset.e===i); });
+    edgeBtns.forEach(function(b){ b.classList.toggle('on', +b.dataset.e===i); });
+  }
+  edgeLines.forEach(function(l){ l.addEventListener('click', function(){ showEdge(+l.dataset.e); }); });
+  edgeBtns.forEach(function(b){ b.addEventListener('click', function(){ showEdge(+b.dataset.e); }); });
+  showEdge(0);
+
+  // ---------- stones (four faces + derived gifts) ----------
+  document.querySelectorAll('.stone').forEach(function(s){
+    function toggle(){ 
+      var open = s.classList.toggle('open');
+      s.setAttribute('aria-expanded', open ? 'true':'false');
+    }
+    s.addEventListener('click', function(e){
+      if(e.target.closest('.copy') || e.target.closest('.prompt-box')) return;
+      toggle();
+    });
+    s.addEventListener('keydown', function(e){
+      if((e.key==='Enter'||e.key===' ') && e.target===s){ toggle(); e.preventDefault(); }
+    });
+  });
+
+  // ---------- copy buttons ----------
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = document.getElementById(btn.dataset.for).textContent;
+      function done(){ btn.textContent='Copied'; btn.classList.add('done');
+        setTimeout(function(){ btn.textContent='Copy prompt'; btn.classList.remove('done'); },1600); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+      } else { fallback(); }
+      function fallback(){
+        var ta=document.createElement('textarea'); ta.value=text;
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); done(); }catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  // ---------- Tool 1: Handle Check ----------
+  var hcQuestions = [
+    {q:"Does anything remain outstanding after the handoff?", good:"no",
+     warn:"What's outstanding is the handle. A return that closes inside the exchange doesn't count; a claim that survives it does."},
+    {q:"Does any record or account of yours persist after delivery?", good:"no",
+     warn:"A kept account is a claim waiting to be presented."},
+    {q:"Does the framing lean on anything the receiver doesn't actually hold?", good:"no",
+     warn:"That's the bleed. Run it through the Receiver's Frame tool below."},
+    {q:"Must the receiver choose among multiple offers to receive anything?", good:"no",
+     warn:"The choice is the price of entry. Collapse to one."},
+    {q:"Can the receiver do nothing with it, and owe you nothing?", good:"yes",
+     warn:"If not using it wrongs you, the obligation runs back to the giver — a handle, not weight."}
+  ];
+  var hcState = new Array(hcQuestions.length).fill(null);
+  var hcWrap = document.getElementById('hcQs');
+  hcQuestions.forEach(function(item,i){
+    var q=document.createElement('div'); q.className='q';
+    q.innerHTML='<span class="qi">'+(i+1)+'</span>'+item.q;
+    var a=document.createElement('div'); a.className='ans';
+    ['yes','no','skip'].forEach(function(opt){
+      var b=document.createElement('button'); b.type='button';
+      b.textContent=opt==='skip'?'leave open':opt;
+      b.addEventListener('click',function(){
+        hcState[i]=opt;
+        a.querySelectorAll('button').forEach(function(x){x.classList.remove('picked','warn');});
+        b.classList.add('picked');
+        if(opt!=='skip' && opt!==item.good) b.classList.add('warn');
+        hcVerdictRender();
+      });
+      a.appendChild(b);
+    });
+    hcWrap.appendChild(q); hcWrap.appendChild(a);
+  });
+  function hcVerdictRender(){
+    var v=document.getElementById('hcVerdict');
+    var answered=hcState.filter(function(x){return x==='yes'||x==='no';}).length;
+    if(answered===0){ v.classList.remove('show'); return; }
+    var handles=[];
+    hcState.forEach(function(x,i){ if(x&&x!=='skip'&&x!==hcQuestions[i].good) handles.push(hcQuestions[i].warn); });
+    var open=hcState.filter(function(x){return x===null||x==='skip';}).length;
+    var main, warned=false;
+    if(handles.length===0 && open===0){ main="No handle found. It completes where it should. Give it."; }
+    else if(handles.length===0){ main="Nothing found yet — "+open+" pass"+(open>1?"es":"")+" left open. Open is allowed."; }
+    else { warned=true; main=(handles.length===1?"One handle found.":handles.length+" handles found.")+" Not a verdict on the gift — a map of where it still grips."; }
+    v.classList.toggle('warned',warned);
+    v.innerHTML=main + (handles.length?'<div class="vnote">'+handles.map(function(h){return '· '+h;}).join('<br>')+'</div>':'');
+    v.classList.add('show');
+  }
+  document.getElementById('hcReset').addEventListener('click',function(){
+    hcState=new Array(hcQuestions.length).fill(null);
+    document.getElementById('hcGift').value='';
+    hcWrap.querySelectorAll('button').forEach(function(b){b.classList.remove('picked','warn');});
+    var v=document.getElementById('hcVerdict'); v.classList.remove('show','warned'); v.innerHTML='';
+  });
+
+  // ---------- Tool 2: Receiver's Frame ----------
+  var rfItems=[]; // {text, theirs:null|true|false}
+  function rfRender(){
+    var t=document.getElementById('rfTheirs'), b=document.getElementById('rfBleed');
+    t.innerHTML=''; b.innerHTML='';
+    var anyT=false, anyB=false;
+    rfItems.forEach(function(it,idx){
+      var el=document.createElement('div'); el.className='fitem';
+      var span=document.createElement('span'); span.textContent=it.text;
+      var actions=document.createElement('span');
+      var mv=document.createElement('button');
+      mv.textContent = it.theirs ? 'they don\u2019t hold it' : 'they hold it';
+      mv.addEventListener('click',function(){ it.theirs=!it.theirs; rfRender(); });
+      var rm=document.createElement('button'); rm.textContent='cut'; rm.style.marginLeft='6px';
+      rm.addEventListener('click',function(){ rfItems.splice(idx,1); rfRender(); });
+      actions.appendChild(mv); actions.appendChild(rm);
+      el.appendChild(span); el.appendChild(actions);
+      if(it.theirs){ t.appendChild(el); anyT=true; } else { b.appendChild(el); anyB=true; }
+    });
+    if(!anyT) t.innerHTML='<p class="empty-note">Nothing placed yet.</p>';
+    if(!anyB) b.innerHTML='<p class="empty-note">Nothing placed yet.</p>';
+  }
+  function rfAdd(){
+    var inp=document.getElementById('rfInput');
+    var val=inp.value.trim();
+    if(!val) return;
+    rfItems.push({text:val, theirs:false}); // arrives in the bleed until proven held
+    inp.value=''; inp.focus();
+    rfRender();
+  }
+  document.getElementById('rfAdd').addEventListener('click',rfAdd);
+  document.getElementById('rfInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ rfAdd(); e.preventDefault(); } });
+  document.getElementById('rfReset').addEventListener('click',function(){ rfItems=[]; rfRender(); });
+})();
+</script>
+</body>
+</html>
