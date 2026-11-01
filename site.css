@@ -1,0 +1,96 @@
+/* Our Shared Gifts: rebuild 2026-10-29. One sheet for the new pages. */
+:root{
+  --paper:#faf6ee; --paper-2:#f2ecdf; --card:#fffdf8;
+  --ink:#2b2620; --ink-soft:#5a5347; --line:#ddd3bf;
+  --d:#a4472a; --c:#4c6a42; --b:#3d5a78; --a:#8a6420;
+  --maxw:1040px; --prose:660px;
+  --serif:"Iowan Old Style","Charter","Georgia",serif;
+  --sans:"Avenir Next","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{text-decoration-color:currentColor}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}body{font-size:18px}}
+
+.top{border-bottom:1px solid var(--line)}
+.top-row{display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;justify-content:space-between;padding-top:18px;padding-bottom:16px}
+.mark{font-family:var(--sans);font-weight:600;letter-spacing:.01em;text-decoration:none;font-size:17px}
+.top nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--sans);font-size:15px}
+.top nav a{text-decoration:none;color:var(--ink-soft)}
+.top nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+
+.hero{padding-top:72px;padding-bottom:28px}
+.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.14;font-weight:500;max-width:20ch;margin:0 0 22px;letter-spacing:-.01em}
+.lede{font-size:clamp(19px,2.2vw,22px);color:var(--ink-soft);max-width:44ch;margin:0}
+@media (max-width:600px){.hero{padding-top:44px}}
+
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:28px;padding-bottom:56px}
+@media (max-width:900px){.four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.four{grid-template-columns:1fr}}
+.tile{display:flex;flex-direction:column;gap:10px;padding:22px 20px 20px;background:var(--card);border:1px solid var(--line);border-top:5px solid var(--k);border-radius:10px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(43,38,32,.08)}
+.tile-word{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.tile-line{font-size:20px;line-height:1.35;flex:1}
+.tile-go{font-family:var(--sans);font-size:14px;color:var(--ink-soft)}
+.d{--k:var(--d)} .c{--k:var(--c)} .b{--k:var(--b)} .a{--k:var(--a)}
+
+.band{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding-top:40px;padding-bottom:40px;border-top:1px solid var(--line)}
+.band h2{font-size:28px;font-weight:500;margin:0 0 12px}
+.band p{max-width:40ch}
+@media (max-width:760px){.band{grid-template-columns:1fr}}
+.closing{padding-bottom:72px}
+.closing p{max-width:52ch;color:var(--ink-soft)}
+
+.tetra{width:100%;max-width:440px;height:auto;display:block;margin:8px auto}
+.tetra .edge{stroke:var(--ink);stroke-width:1.6}
+.tetra .edge.back{stroke:var(--ink-soft);stroke-dasharray:5 6;stroke-width:1.2}
+.tetra .vx{stroke:var(--paper);stroke-width:3}
+.tetra .vx.d{fill:var(--d)} .tetra .vx.c{fill:var(--c)} .tetra .vx.b{fill:var(--b)} .tetra .vx.a{fill:var(--a)}
+.tetra .vl{font-family:var(--sans);font-size:14px;fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:6px;stroke-linejoin:round}
+.tetra a:hover .vl{text-decoration:underline}
+.tetra a:hover .vx{stroke:var(--ink)}
+
+.prose{max-width:calc(var(--prose) + 48px);padding-top:56px;padding-bottom:24px}
+.prose h1{font-size:clamp(32px,4.6vw,44px);font-weight:500;line-height:1.15;margin:4px 0 28px}
+.prose h2{font-size:26px;font-weight:500;margin:52px 0 12px}
+.prose p{margin:0 0 1.05em}
+.eyebrow{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--k,var(--ink-soft));margin:0}
+blockquote{margin:0 0 1.2em;padding:4px 0 4px 20px;border-left:3px solid var(--ink);font-size:22px;line-height:1.45}
+.vlist{list-style:none;padding:0;margin:0 0 20px}
+.vlist li{padding:10px 0 10px 18px;border-left:4px solid var(--k);margin-bottom:8px}
+.vlist a{font-family:var(--sans);font-size:15px;color:var(--ink-soft);margin-left:4px}
+.states{margin:0 0 1.2em}
+.states dt{font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-top:16px}
+.states dd{margin:4px 0 0}
+.next{margin-top:40px}
+.piece h1{margin-bottom:32px}
+.others{padding-top:8px;padding-bottom:72px;border-top:1px solid var(--line);margin-top:32px}
+.others h2{margin-top:32px}
+.others ul,.shelf ul{padding-left:0;list-style:none}
+.others li{padding:6px 0 6px 14px;border-left:4px solid var(--k);margin-bottom:6px}
+.shelf{padding-bottom:72px}
+.shelf li{margin-bottom:10px}
+
+.check{border-left:4px solid var(--k);padding:4px 0 4px 18px;margin:0 0 24px}
+.check h3{font-size:20px;font-weight:600;margin:0 0 6px;font-family:var(--sans)}
+.check h3 span{font-weight:400;color:var(--ink-soft);font-size:15px;margin-left:6px}
+.tostate{display:block;margin-top:10px;padding:8px 12px;background:#fff1cf;border:1px dashed #b38a2c;border-radius:6px;font-family:var(--sans);font-size:15px}
+.steward{margin-top:40px;font-style:italic;color:var(--ink-soft)}
+
+.foot{border-top:1px solid var(--line);background:var(--paper-2)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:22px;padding-bottom:26px;font-family:var(--sans);font-size:15px;color:var(--ink-soft)}
+.foot p{margin:0}
+
+/* 2026-11-01: library groups, the booking frame, the contact form. */
+.group{border-left:4px solid var(--k,var(--line));padding:2px 0 2px 18px;margin:36px 0 0}
+.group h2{margin:0 0 4px}
+.group-line{color:var(--ink-soft);margin:0 0 8px}
+.group ul{padding-left:18px;margin:0}
+.group li{margin:4px 0}
+.cal{width:100%;height:720px;border:1px solid var(--line);border-radius:10px;background:var(--card);margin:8px 0 16px}
+.form{display:flex;flex-direction:column;gap:6px;max-width:520px}
+.form label{font-family:var(--sans);font-size:15px;margin-top:10px}
+.form input,.form textarea{font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.form button{align-self:flex-start;margin-top:16px;font-family:var(--sans);font-size:16px;padding:10px 22px;border:0;border-radius:8px;background:var(--ink);color:var(--paper);cursor:pointer}

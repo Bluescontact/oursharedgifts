@@ -1,105 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book — OurSharedGifts</title>
-<meta name="description" content="Schedule a consult with Kevin Mears on systems design, applied writing, or gift-economy tooling.">
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an Hour · Our Shared Gifts</title>
+<meta name="description" content="Book an hour with Kevin Mears.">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">Our<span>Shared</span>Gifts</a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-    <nav class="primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="library.html">Library</a>
-      <a href="host.html">Host</a>
-      <a href="book.html" class="active">Book</a>
-      <a href="donate.html">Support</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero" style="padding-bottom:32px">
-  <div class="wrap">
-    <div class="eyebrow">Book a conversation</div>
-    <h1 style="max-width:22ch">Time to talk systems, funding, or a build.</h1>
-    <p class="lede">
-      A first call is for figuring out fit — what you need, what OurSharedGifts
-      actually does well, and whether it's a match. No pitch deck required on
-      either side.
-    </p>
-  </div>
-</section>
-
-<section class="tight">
-  <div class="wrap">
-    <div class="grid grid-3" style="margin-bottom:40px">
-      <div class="card">
-        <h3>Systems &amp; design consult</h3>
-        <p>Recognition mechanics, non-scoring feedback systems, NESI's design.</p>
-      </div>
-      <div class="card">
-        <h3>Applied writing</h3>
-        <p>Architecture of Coherence or the Load-Bearing Patterns — where the framework applies to your own system.</p>
-      </div>
-      <div class="card">
-        <h3>Funding / partnership</h3>
-        <p>For funders and studios exploring a commission, grant, or collaboration.</p>
-      </div>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="mark" href="index.html">Our Shared Gifts</a>
+      <nav aria-label="Site">
+        <a href="index.html">The four</a>
+        <a href="library.html">Library</a>
+        <a href="toolkits.html">Toolkits</a>
+        <a href="https://bluescontact.github.io/tetra/">Kevin</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI</a>
+        <a href="gives.html">How this site gives</a>
+      </nav>
     </div>
-
-    <div class="embed-frame">
-      <iframe
-        src="https://cal.com/kevin-mears/initial"
-        width="100%"
-        height="700"
-        frameborder="0"
-        title="Schedule an initial consultation with Kevin Mears">
-      </iframe>
+  </header>
+  <main>
+    <section class="wrap prose">
+      <p class="eyebrow">Book an hour</p>
+      <h1>Book an hour</h1>
+      <p>A first hour is for finding out whether, and how, we'd work together. If you'd rather write first, <a href="contact.html">write to Kevin</a>. What an hour can hold is on <a href="https://bluescontact.github.io/tetra/#can">his page</a>, and the ways to give are on <a href="gives.html">How this site gives</a>.</p>
+      <iframe class="cal" src="https://cal.com/kevin-mears/initial" title="Book an hour with Kevin Mears" loading="lazy"></iframe>
+      <p>If the calendar doesn't load (some privacy tools block it), book directly at <a href="https://cal.com/kevin-mears/initial">cal.com/kevin-mears/initial</a>.</p>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <p>Take what holds. Nothing here is tracked, and nothing is owed back.</p>
+      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
     </div>
-
-    <p class="note">
-      If the calendar above doesn't load (some ad-blockers or privacy tools
-      block scheduling embeds), book directly at
-      <a href="https://cal.com/kevin-mears/initial" target="_blank" rel="noopener">cal.com/kevin-mears/initial</a>,
-      or use <a href="contact.html">the contact page</a> and a time will be
-      arranged by email.
-    </p>
-  </div>
-</section>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="host.html">Host Kevin</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Work with OurSharedGifts</h4>
-        <ul>
-          <li><a href="book.html">Book a call</a></li>
-          <li><a href="donate.html">Support</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div><p class="fine">© <span id="y"></span> OurSharedGifts. A project of Kevin Mears.</p></div>
-  </div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script src="assets/nav.js"></script>
+  </footer>
 </body>
 </html>
