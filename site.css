@@ -42,8 +42,8 @@ h1,h2{font-family:var(--display);font-weight:500;letter-spacing:.005em}
 .ln{stroke:var(--ink);stroke-width:1.4;fill:none}
 .ln.thin{stroke-width:.9}
 .ln.back{stroke:var(--ink-soft);stroke-width:1;stroke-dasharray:4 5}
-.lab{font-family:var(--sans);font-size:9px;letter-spacing:.14em;fill:var(--gold)}
-.it{font-family:var(--display);font-style:italic;font-size:13px;fill:var(--gold)}
+.lab{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;fill:var(--gold)}
+.it{font-family:var(--display);font-style:italic;font-size:17px;fill:var(--gold)}
 .tetra{display:block;width:100%;height:auto;max-width:460px;margin:0 auto}
 .tetra .vx{stroke:var(--paper);stroke-width:3;transition:r .2s}
 .tetra a:hover .vx,.tetra a:focus .vx{stroke:var(--ink)}
@@ -92,8 +92,9 @@ blockquote{margin:8px 0 1.4em;padding:2px 0 2px 22px;border-left:3px solid var(-
 .center-fig{margin:10px 0 24px}
 .vlist{list-style:none;padding:0;margin:0 0 20px}
 .vlist li{padding:10px 0 10px 18px;border-left:4px solid var(--k);margin-bottom:8px}
-.vlist a{font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-left:4px}
-.morph-fig{margin:6px auto 18px;max-width:240px}
+.vlist a{font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-left:4px;white-space:nowrap}
+.morph-fig{margin:6px auto 18px;max-width:220px}
+.morph-fig figcaption{margin-top:0}
 .states{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 1.4em}
 .states>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
 .states .fig{max-width:110px;margin:0 auto 6px}

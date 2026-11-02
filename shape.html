@@ -29,8 +29,8 @@
       <figure class="center-fig"><svg viewBox="0 0 420 330" class="tetra" role="img" aria-labelledby="tt">
       <title id="tt">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
       <g class="ln"><path d="M210 30 L52 268 L368 268 Z"/></g>
-      <g class="ln back"><path d="M210 30 L250 196 M52 268 L250 196 M368 268 L250 196"/></g>
-      <a href="library.html#architecture"><circle cx="250" cy="196" r="10" fill="#8a6420" class="vx"/><text x="250" y="226" class="vl" text-anchor="middle">ARCHITECTURE</text></a>
+      <g class="ln back"><path d="M210 30 L190 196 M52 268 L190 196 M368 268 L190 196"/></g>
+      <a href="library.html#architecture"><circle cx="190" cy="196" r="10" fill="#8a6420" class="vx"/><text x="200" y="178" class="vl" style="letter-spacing:.06em">ARCHITECTURE</text></a>
       <a href="library.html#differentiation"><circle cx="210" cy="30" r="10" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle">DIFFERENTIATION</text></a>
       <a href="library.html#connection"><circle cx="52" cy="268" r="10" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle">CONNECTION</text></a>
       <a href="library.html#boundaries"><circle cx="368" cy="268" r="10" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle">BOUNDARIES</text></a>
@@ -71,7 +71,7 @@
     function shape(t) { // t: 0 open, 1 closed
       var pts = [];
       for (var i = 0; i < 6; i++) {
-        var a = -Math.PI / 2 + i * Math.PI / 3 + t * 0.35;
+        var a = -Math.PI / 2 + i * Math.PI / 3 + Math.sin(Math.PI * t) * 0.35;
         var r = 74 - 24 * t;
         if (i % 2) r *= 1 - 0.5 * t; // every other corner folds in until three are left
         pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]);
