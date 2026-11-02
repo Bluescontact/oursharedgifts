@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Give Something Back · Our Shared Gifts</title>
+<meta name="description" content="If something here was useful, you can give something back: a few words, or a thing you made with it.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="mark" href="index.html">Our Shared Gifts</a>
+      <nav aria-label="Site">
+        <a href="index.html">The four</a>
+        <a href="library.html">Library</a>
+        <a href="toolkits.html">Toolkits</a>
+        <a href="kevin.html">Kevin</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI app</a>
+        <a href="gives.html">How this site gives</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap prose">
+      <p class="eyebrow">Give something back</p>
+      <h1>A few words, or a thing you made with it</h1>
+      <p>If something here was useful to you, you can tell Kevin what you did with it. Nothing is owed, and no reply is owed either way.</p>
+      <form class="form" name="contact" method="post" action="https://fascinating-elf-93a9b6.netlify.app/" data-relay id="give">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="name" id="g-name-out">
+        <input type="hidden" name="message" id="g-msg-out">
+        <input type="hidden" name="reason" value="Given back">
+        <label for="g-gift">What it answers <span class="req">(required)</span></label>
+        <input id="g-gift" list="g-gifts" required>
+        <datalist id="g-gifts"><option value="Care Can Be Invisible"><option value="Recognition Flows Backward"><option value="What the Room Notices First"><option value="Who Holds the Name"><option value="The Cost of Kindness"><option value="Where the Cost Sits"><option value="Separating Cost from Ask"><option value="When the Gift Becomes Extraction"><option value="When Burnout Is Actually Something Else"><option value="What a No Costs Here"><option value="Two Kinds of Yes"><option value="The Consent You Can Feel"><option value="Terms of Gift"><option value="The Trim Tab Boundary"><option value="Setting the Floor"><option value="Who Pays for the Wait?"><option value="Informal Power Needs a Floor"><option value="Without One of Them Owning It"><option value="The Accounting of Deferred Cost"><option value="The Meta-Tetrahedron"><option value="What Buckminster Fuller's Geometry Couldn't See"><option value="Five Words, One Shape"><option value="Pick a room"><option value="Your room"><option value="Setting the Floor (the kit)"><option value="The Record That Holds Up"><option value="Your Tetra (the kit)"><option value="NESI"><option value="Something else"></datalist>
+        <label for="g-line">A short line <span class="req">(required)</span></label>
+        <textarea id="g-line" rows="3" maxlength="400" required></textarea>
+        <label for="g-link">A link to your own copy, if you have one</label>
+        <input id="g-link" type="url" placeholder="https://">
+        <fieldset class="choice"><legend>Your name on the page</legend>
+          <label><input type="radio" name="g-show" value="name" checked> Show my name: <input id="g-name" type="text" autocomplete="name" aria-label="Your name"></label>
+          <label><input type="radio" name="g-show" value="none"> No name</label>
+        </fieldset>
+        <label for="g-email">Email <span class="req">(required, never shown)</span></label>
+        <input id="g-email" name="email" type="email" autocomplete="email" required>
+        <p class="hint">So a take-down can be matched to whoever gave it.</p>
+        <p class="notice">Once a page is public, copies can outlast it. You can take this down any time by the same route, and it will come down. The form service keeps a copy of messages until Kevin deletes them.</p>
+        <label class="yes"><input id="g-yes" type="checkbox" required> Yes, Kevin may place this on the site.</label>
+        <button type="submit" class="button" id="g-send" disabled>Send</button>
+        <noscript><p class="hint">This form needs JavaScript to put your words together before sending. You can also <a href="contact.html">write to Kevin</a>.</p></noscript>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="quiet">Kevin places what comes in by hand, when he has room, with no time promised. The page of what's been given back opens with its first entry.</p>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <p>Take what holds. Nothing here is tracked, and nothing is owed back.</p>
+      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="give.html">Give something back</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
+    </div>
+  </footer>
+  <script>
+  (function () {
+    var f = document.getElementById("give"), v = function (id) { return document.getElementById(id).value.trim(); };
+    document.getElementById("g-send").disabled = false;
+    f.addEventListener("submit", function () {
+      var show = f.querySelector("input[name=g-show]:checked").value === "name";
+      document.getElementById("g-name-out").value = show ? (v("g-name") || "(name left blank)") : "(no name)";
+      document.getElementById("g-msg-out").value = ["GIVEN BACK", "Answers: " + v("g-gift"), "Line: " + v("g-line"),
+        "Their copy: " + (v("g-link") || "none"), "Name on the page: " + (show ? (v("g-name") || "(blank)") : "no name"),
+        "Yes to placing it: given on " + new Date().toISOString().slice(0, 10)].join("\n");
+    });
+  })();
+  </script>
+  <script src="assets/forms-relay.js?v=2"></script>
+</body>
+</html>

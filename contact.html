@@ -25,7 +25,7 @@
     <section class="wrap prose">
       <p class="eyebrow">Write to Kevin</p>
       <h1>Say what you need, in your own words</h1>
-      <p>There's no list of categories to fit it into. Your message goes to Kevin directly. To talk instead, <a href="book.html">book an hour</a>.</p>
+      <p>There's no list of categories to fit it into. Your message goes to Kevin by email, through Netlify's form service. To talk instead, <a href="book.html">book an hour</a>.</p>
       <form class="form" name="contact" method="post" action="https://fascinating-elf-93a9b6.netlify.app/" data-relay>
         <input type="hidden" name="form-name" value="contact">
         <label for="name">Name <span class="req">(required)</span></label>
@@ -36,6 +36,8 @@
         <textarea id="message" name="message" required rows="6"></textarea>
         <label for="offer">What you could offer, if anything</label>
         <textarea id="offer" name="reason" rows="3"></textarea>
+        <label for="limit">If you'd like, tell me your limit.</label>
+        <textarea id="limit" rows="2"></textarea>
         <button type="submit" class="button">Send</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -44,9 +46,16 @@
   <footer class="foot">
     <div class="wrap foot-row">
       <p>Take what holds. Nothing here is tracked, and nothing is owed back.</p>
-      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
+      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="give.html">Give something back</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
     </div>
   </footer>
+  <script>
+  // The relay keeps only name, email, reason and message, so the limit travels inside the message.
+  document.querySelector("form[name=contact]").addEventListener("submit", function () {
+    var lim = document.getElementById("limit"), msg = document.getElementById("message");
+    if (lim.value.trim()) { msg.value += "\n\nMy limit: " + lim.value.trim(); lim.value = ""; }
+  });
+  </script>
   <script src="assets/forms-relay.js?v=2"></script>
 </body>
 </html>

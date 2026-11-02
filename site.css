@@ -212,3 +212,28 @@ main a[href^="http"]:not([href*="oursharedgifts.org"]):not(.card)::after,
 .taken li{margin:0 0 6px}
 .cards:has(>.card:nth-child(4):last-child){grid-template-columns:repeat(2,1fr)}
 @media (max-width:540px){.cards:has(>.card:nth-child(4):last-child){grid-template-columns:1fr}}
+
+/* 2026-11-02, the revision: Your room, seasons, Give something back, Your Tetra, Given back */
+.chip-yours{border-style:dashed}
+.chip-yours[aria-pressed="true"]{border-style:solid}
+.yours{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 22px;display:flex;flex-direction:column;gap:6px}
+.yours h3{font-family:var(--display);font-size:28px;font-weight:500;margin:0}
+.yours label{font-family:var(--sans);font-size:14px;margin-top:10px}
+.yours label b{font-weight:600;color:var(--k)}
+.yours input,.yours textarea{font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--field);border-radius:8px;background:var(--paper);color:var(--ink);width:100%}
+.yours-act{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.yours-act .pause{margin:0}
+.season{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0}
+.choice{border:0;padding:0;margin:12px 0 0}
+.choice legend{font-family:var(--sans);font-size:14px;padding:0}
+.choice label{display:flex;align-items:center;gap:8px;margin-top:8px;font-family:var(--sans);font-size:15px}
+.choice input[type=text]{flex:1}
+.notice{font-family:var(--sans);font-size:14px;background:var(--paper-2);border-radius:8px;padding:10px 12px;margin:14px 0 0}
+.yes{display:flex;gap:8px;align-items:flex-start}
+.given{list-style:none;padding:0}
+.given li{border-left:3px solid var(--ink);padding:6px 0 6px 16px;margin:0 0 14px;display:flex;flex-direction:column;gap:2px}
+.given .g-line{font-family:var(--display);font-size:22px;line-height:1.35}
+.given .g-meta{font-family:var(--sans);font-size:13px;color:var(--ink-soft)}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;margin:4px 0 0;flex:none;accent-color:var(--ink)}
+.choice input[type=text]{flex:1;min-width:0}
+.yes{font-family:var(--sans);font-size:15px;margin-top:12px}

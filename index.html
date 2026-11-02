@@ -45,8 +45,25 @@
     <section class="wrap rooms-band" aria-labelledby="rooms-h">
       <h2 id="rooms-h" class="eyebrow-h">Pick a room you know</h2>
       <p class="hint">The four questions below change to fit the room you pick.</p>
-      <div class="chips" role="group" aria-label="Rooms"><button type="button" class="chip" data-room="0" data-slug="friendship" aria-pressed="true">A friendship</button><button type="button" class="chip" data-room="1" data-slug="crew" aria-pressed="false">A crew</button><button type="button" class="chip" data-room="2" data-slug="dance-floor" aria-pressed="false">A dance floor</button><button type="button" class="chip" data-room="3" data-slug="care-team" aria-pressed="false">A care team</button><button type="button" class="chip" data-room="4" data-slug="household" aria-pressed="false">A household</button><button type="button" class="chip" data-room="5" data-slug="gift" aria-pressed="false">A gift</button></div>
+      <div class="chips" role="group" aria-label="Rooms"><button type="button" class="chip" data-room="0" data-slug="friendship" aria-pressed="true">A friendship</button><button type="button" class="chip" data-room="1" data-slug="crew" aria-pressed="false">A crew</button><button type="button" class="chip" data-room="2" data-slug="dance-floor" aria-pressed="false">A dance floor</button><button type="button" class="chip" data-room="3" data-slug="care-team" aria-pressed="false">A care team</button><button type="button" class="chip" data-room="4" data-slug="household" aria-pressed="false">A household</button><button type="button" class="chip" data-room="5" data-slug="gift" aria-pressed="false">A gift</button><button type="button" class="chip chip-yours" data-room="yours" data-slug="yours" aria-pressed="false" aria-controls="yours">Your room</button></div>
       <p class="sr-only" id="room-said" aria-live="polite"></p>
+      <section class="yours" id="yours" hidden aria-labelledby="yours-h">
+        <h3 id="yours-h">Your room</h3>
+        <p class="hint">For a room you hold or belong to, in your own words. It isn't a test of anyone. Nothing is saved by the site: download it or print it when you're done.</p>
+        <label for="yr-name">The room</label>
+        <input id="yr-name" type="text" placeholder="A crew, a household, a class, a team…">
+        <label for="yr-d"><b class="d">Differentiation.</b> A person can be distinguishable. What do you see here?</label>
+        <textarea id="yr-d" rows="3"></textarea>
+        <label for="yr-c"><b class="c">Connection.</b> Capacity can find need. What do you see here?</label>
+        <textarea id="yr-c" rows="3"></textarea>
+        <label for="yr-b"><b class="b">Boundaries.</b> A limit can be stated and received. What do you see here?</label>
+        <textarea id="yr-b" rows="3"></textarea>
+        <label for="yr-a"><b class="a">Architecture.</b> The load has a named holder, with a named fallback. What do you see here?</label>
+        <textarea id="yr-a" rows="3"></textarea>
+        <label for="yr-load">Think of the last time this room was under load. Which corner showed?</label>
+        <textarea id="yr-load" rows="3"></textarea>
+        <div class="yours-act"><button type="button" class="button" id="yr-dl">Download as text</button> <button type="button" class="pause" id="yr-print">Print</button></div>
+      </section>
       <div class="four">
         <article class="tile d" id="differentiation">
           <svg viewBox="0 0 240 120" class="fig" role="img"><title>Five people, each one distinct from the others</title>
@@ -110,7 +127,7 @@
   <footer class="foot">
     <div class="wrap foot-row">
       <p>Take what holds. Nothing here is tracked, and nothing is owed back.</p>
-      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
+      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="give.html">Give something back</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
     </div>
   </footer>
   <script>
@@ -119,9 +136,15 @@
   (function () {
     var rooms = [["Does each of you get to be known as you are now, not as who you were when you met?","When one of you needs something, does it get said, and does it reach the one who can help?","Can either of you say no without the friendship paying for it?","When something heavy comes up, is it clear who carries it, and who steps in if they can't?"],["Is each person seen for what they actually do, not only for their title or their speed?","When someone spots a problem or needs a hand, does it reach someone who can act?","Can someone stop the work and say “not safe” without paying for it later?","Who owns the decision nobody was assigned, and who covers it when they're out?"],["Can each dancer be seen as themselves, not as “the new one” or “the good lead”?","When someone needs a partner, a break, or help, does it reach someone who can give it?","When someone says no to a dance, does the night stay easy for them?","When something goes wrong on the floor, who handles it, and who if they can't?"],["Is the person being cared for seen as themselves, not as a diagnosis or a chart?","Does what they need reach whoever can give it, without them having to chase it?","Can the person, or a carer, say no to something and be heard the first time?","Is it written down who holds each task, and who takes it when that person can't?"],["Does each person in the house get to be different, with their own needs and rhythms?","When someone needs help, can they ask, and does someone with room to help hear it?","Can anyone say “not tonight” or “not me” and have it land as information, not betrayal?","For each job in the house, is there a named person, and a named backup?"],["Is the gift for this person as they are, or for anyone who'd take it?","Does it meet a need they actually have, or one the giver imagined?","Can they say no to it, or hand it back, with nothing owed?","Once it's given, is anything still claimable, and who carries what's left?"]];
     var chips = document.querySelectorAll(".chip"), said = document.getElementById("room-said");
+    var panel = document.getElementById("yours");
     function pick(c, announce) {
-      var n = +c.dataset.room;
       chips.forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); });
+      panel.hidden = c.dataset.room !== "yours";
+      if (!panel.hidden) {
+        if (announce) { said.textContent = "Your room: write what you see at each corner. Nothing is saved by the site."; document.getElementById("yr-name").focus(); }
+        return;
+      }
+      var n = +c.dataset.room;
       document.querySelectorAll(".tile-q").forEach(function (q) {
         q.textContent = rooms[n][+q.dataset.q];
         q.classList.remove("flash"); void q.offsetWidth; q.classList.add("flash");
@@ -136,6 +159,28 @@
     });
     var want = new URLSearchParams(location.search).get("room");
     chips.forEach(function (c) { if (c.dataset.slug === want) pick(c, false); });
+    var corners = [["d","Differentiation","A person can be distinguishable."],["c","Connection","Capacity can find need."],["b","Boundaries","A limit can be stated and received."],["a","Architecture","The load has a named holder, with a named fallback."]];
+    function text() {
+      var out = ["Your room: " + (document.getElementById("yr-name").value.trim() || "(unnamed)"), ""];
+      corners.forEach(function (c) { out.push(c[1] + ". " + c[2]); out.push(document.getElementById("yr-" + c[0]).value.trim() || "—"); out.push(""); });
+      out.push("The last time this room was under load, which corner showed?");
+      out.push(document.getElementById("yr-load").value.trim() || "—");
+      out.push("", "The four, from oursharedgifts.org. Yours to keep, change, and pass on.");
+      return out.join("\n");
+    }
+    document.getElementById("yr-dl").addEventListener("click", function () {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([text()], { type: "text/plain" }));
+      a.download = "your-room.txt"; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+    document.getElementById("yr-print").addEventListener("click", function () {
+      var f = document.createElement("iframe"); f.style.cssText = "position:fixed;width:0;height:0;border:0";
+      document.body.appendChild(f);
+      var d = f.contentDocument; d.open(); d.write("<pre style='font:15px/1.6 Georgia,serif;white-space:pre-wrap'></pre>"); d.close();
+      d.querySelector("pre").textContent = text();
+      f.contentWindow.focus(); f.contentWindow.print(); setTimeout(function () { f.remove(); }, 1500);
+    });
   })();
   </script>
 </body>

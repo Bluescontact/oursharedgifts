@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Tetra · Our Shared Gifts</title>
+<meta name="description" content="A blank kit for your own outward face in four parts.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="mark" href="index.html">Our Shared Gifts</a>
+      <nav aria-label="Site">
+        <a href="index.html">The four</a>
+        <a href="library.html">Library</a>
+        <a href="toolkits.html">Toolkits</a>
+        <a href="kevin.html">Kevin</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI app</a>
+        <a href="gives.html">How this site gives</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap prose">
+      <p class="eyebrow">Toolkits · a blank kit</p>
+      <h1>Your Tetra</h1>
+      <p>Your outward face in four parts. Fill in what's true for you, make your page, and keep it or host it anywhere. It comes with no support. That's part of what keeps it free. Nothing is saved by the site.</p>
+      <form class="form kit" id="kit" onsubmit="return false">
+        <label for="k-name">Your name</label>
+        <input id="k-name" type="text" autocomplete="name">
+        <label for="k-line">One line about you</label>
+        <input id="k-line" type="text">
+        <label for="k-now"><b>Where I am now.</b> What you need, and where you are.</label>
+        <textarea id="k-now" rows="4"></textarea>
+        <label for="k-share"><b>What I can share.</b> What you can do or give.</label>
+        <textarea id="k-share" rows="4"></textarea>
+        <label for="k-know"><b>What I know.</b> What you've learned, made, or written.</label>
+        <textarea id="k-know" rows="4"></textarea>
+        <label for="k-meet"><b>How to meet me.</b> Your limit, and how someone can meet you.</label>
+        <textarea id="k-meet" rows="4"></textarea>
+        <button type="button" class="button" id="k-make">Make my page</button>
+      </form>
+      <p class="quiet">Your page downloads as one HTML file. Open it in any browser, send it, or put it on any web host.</p>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <p>Take what holds. Nothing here is tracked, and nothing is owed back.</p>
+      <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="give.html">Give something back</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
+    </div>
+  </footer>
+  <script>
+  (function () {
+    var faces = [["now","Where I am now","What you need, and where you are."],["share","What I can share","What you can do or give."],["know","What I know","What you've learned, made, or written."],["meet","How to meet me","Your limit, and how someone can meet you."]], col = ["#a4472a", "#3f6b47", "#3d5a78", "#8a6420"];
+    function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    function v(id) { return document.getElementById(id).value.trim(); }
+    document.getElementById("k-make").addEventListener("click", function () {
+      var name = v("k-name") || "My Tetra";
+      var tri = ["M120 8 L84 62 L156 62 Z", "M84 62 L48 116 L120 116 Z", "M156 62 L120 116 L192 116 Z", "M84 62 L156 62 L120 116 Z"];
+      var lab = [[120, 46], [84, 100], [156, 100], [120, 80]];
+      var net = '<svg viewBox="0 0 240 124" width="320" role="img" aria-label="Four faces">' + faces.map(function (f, i) {
+        return '<a href="#' + f[0] + '"><path d="' + tri[i] + '" fill="' + col[i] + '" stroke="#f7f5f0" stroke-width="2.5"/><text x="' + lab[i][0] + '" y="' + lab[i][1] + '" fill="#fff" font-size="7.5" text-anchor="middle" font-family="sans-serif">' + esc(f[1]) + '</text></a>';
+      }).join("") + "</svg>";
+      var body = faces.map(function (f, i) {
+        var t = v("k-" + f[0]);
+        return '<section id="' + f[0] + '" style="border-top:5px solid ' + col[i] + ';margin:22px 0;padding-top:8px"><h2>' + esc(f[1]) + "</h2>" +
+          (t ? t.split(/\n+/).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") : "<p><i>Not yet.</i></p>") + "</section>";
+      }).join("");
+      var html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + esc(name) +
+        '</title><style>body{margin:0;background:#f7f5f0;color:#1a1408;font:18px/1.65 Georgia,serif}main{max-width:680px;margin:0 auto;padding:36px 16px}h1{font-weight:500;margin:0}h2{font-weight:500}</style></head><body><main><h1>' +
+        esc(name) + "</h1>" + (v("k-line") ? "<p>" + esc(v("k-line")) + "</p>" : "") + net + body +
+        '<p style="color:#5e5440;font-size:14px">Made with the blank Tetra kit from oursharedgifts.org.</p></main></body></html>';
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+      a.download = "my-tetra.html"; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+  })();
+  </script>
+</body>
+</html>
