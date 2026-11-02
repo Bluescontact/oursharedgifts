@@ -16,7 +16,7 @@
         <a href="library.html">Library</a>
         <a href="toolkits.html">Toolkits</a>
         <a href="kevin.html">Kevin</a>
-        <a href="https://bluescontact.github.io/NESI/">NESI</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI app</a>
         <a href="gives.html">How this site gives</a>
       </nav>
     </div>
@@ -26,14 +26,15 @@
       <p class="eyebrow">The shape</p>
       <h1>Four corners</h1>
       <p>Put the four together and they make the simplest solid there is: four corners, each joined to every other one.</p>
-      <figure class="center-fig"><svg viewBox="0 0 420 330" class="tetra" role="img" aria-labelledby="tt">
-      <title id="tt">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
+      <figure class="center-fig"><svg viewBox="0 0 420 330" class="tetra" role="group" aria-labelledby="tt-shape">
+      <title id="tt-shape">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
+      <path d="M210 30 L52 268 L190 196 Z" class="face f1"/><path d="M210 30 L368 268 L190 196 Z" class="face f2"/><path d="M52 268 L368 268 L190 196 Z" class="face f3"/>
       <g class="ln"><path d="M210 30 L52 268 L368 268 Z"/></g>
-      <g class="ln back"><path d="M210 30 L190 196 M52 268 L190 196 M368 268 L190 196"/></g>
-      <a href="library.html#architecture"><circle cx="190" cy="196" r="10" fill="#8a6420" class="vx"/><text x="200" y="178" class="vl" style="letter-spacing:.06em">ARCHITECTURE</text></a>
-      <a href="library.html#differentiation"><circle cx="210" cy="30" r="10" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle">DIFFERENTIATION</text></a>
-      <a href="library.html#connection"><circle cx="52" cy="268" r="10" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle">CONNECTION</text></a>
-      <a href="library.html#boundaries"><circle cx="368" cy="268" r="10" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle">BOUNDARIES</text></a>
+      <g class="ln inner"><path d="M210 30 L190 196 M52 268 L190 196 M368 268 L190 196"/></g>
+      <a href="library.html#differentiation" aria-label="Differentiation: a person can be distinguishable"><circle cx="210" cy="30" r="11" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle" aria-hidden="true">DIFFERENTIATION</text></a>
+      <a href="library.html#connection" aria-label="Connection: capacity can find need"><circle cx="52" cy="268" r="11" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle" aria-hidden="true">CONNECTION</text></a>
+      <a href="library.html#boundaries" aria-label="Boundaries: a limit can be stated and received"><circle cx="368" cy="268" r="11" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle" aria-hidden="true">BOUNDARIES</text></a>
+      <a href="library.html#architecture" aria-label="Architecture: the load has a named holder, with a named fallback"><circle cx="190" cy="196" r="11" fill="#8a6420" class="vx"/><text x="200" y="178" class="vl" style="letter-spacing:.06em" aria-hidden="true">ARCHITECTURE</text></a>
     </svg></figure>
       <ul class="vlist">
         <li class="d"><strong>Differentiation.</strong> A person can be distinguishable. <a href="library.html#differentiation">Read on this</a></li>
@@ -46,7 +47,7 @@
       <p>Each corner is something a group can do. Each line between two corners is something the group has made impossible. A group holds its shape because of what it has ruled out ahead of time, more than because of what it offers.</p>
       <h2>Three states</h2>
       <p>A container doesn't sit still. It is in one of three states.</p>
-      <figure class="morph-fig" aria-hidden="true"><svg viewBox="0 0 200 180" class="fig"><polygon id="morph" class="ln" points=""/><path id="morph-in" class="ln back" d=""/></svg><figcaption id="morph-cap">at rest</figcaption></figure>
+      <figure class="morph-fig"><svg viewBox="0 0 200 180" class="fig" aria-hidden="true"><polygon id="morph" class="ln" points=""/><path id="morph-in" class="ln back" d=""/></svg><figcaption id="morph-cap" aria-hidden="true">at rest</figcaption><button type="button" class="pause" id="morph-btn" aria-pressed="false">Pause</button></figure>
       <div class="states">
         <div><svg viewBox="0 0 120 110" class="fig" role="img"><title>At rest: open, with the most room inside</title><polygon points="60,10 103,35 103,85 60,110 17,85 17,35" class="ln" transform="translate(0,-5) scale(1 .95)"/><path d="M17,33 L103,80 M103,33 L17,80 M60,10 L60,103" class="ln back"/></svg><h3>At rest</h3><p>Nothing is pressing. There is the most room inside, and many ways to move.</p></div>
         <div><svg viewBox="0 0 120 110" class="fig" role="img"><title>In motion: folding, the room inside shrinking</title><polygon points="60,18 92,46 84,86 44,92 24,58 34,30" class="ln"/><path d="M34,30 L84,86 M92,46 L24,58" class="ln back"/></svg><h3>In motion</h3><p>Load comes on. The shape folds and turns, and the room inside it shrinks.</p></div>
@@ -86,14 +87,27 @@
       cap.textContent = t < 0.2 ? "at rest" : t > 0.85 ? "under load" : "in motion";
     }
     draw(0);
-    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var start = performance.now(), period = 9000;
+    var btn = document.getElementById("morph-btn");
+    var mq = window.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)") : null;
+    var paused = false, elapsed = 0, last = performance.now(), period = 9000;
+    function still() { return paused || (mq && mq.matches); }
     function frame() {
-      var x = ((performance.now() - start) % period) / period; // 0..1 over one cycle
+      var now = performance.now();
+      if (!still()) elapsed += now - last;
+      last = now;
+      var x = (elapsed % period) / period;              // 0..1 over one cycle
       var t = x < 0.15 ? 0 : x < 0.45 ? (x - 0.15) / 0.3 : x < 0.65 ? 1 : x < 0.95 ? 1 - (x - 0.65) / 0.3 : 0;
       draw(0.5 - 0.5 * Math.cos(Math.PI * t));           // ease in and out
       setTimeout(frame, 40);
     }
+    function label() {
+      btn.hidden = !!(mq && mq.matches);
+      btn.textContent = paused ? "Play" : "Pause";
+      btn.setAttribute("aria-pressed", String(paused));
+    }
+    btn.addEventListener("click", function () { paused = !paused; label(); });
+    if (mq && mq.addEventListener) mq.addEventListener("change", label);
+    label();
     frame();
   })();
   </script>

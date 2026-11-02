@@ -16,7 +16,7 @@
         <a href="library.html">Library</a>
         <a href="toolkits.html">Toolkits</a>
         <a href="kevin.html">Kevin</a>
-        <a href="https://bluescontact.github.io/NESI/">NESI</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI app</a>
         <a href="gives.html">How this site gives</a>
       </nav>
     </div>
@@ -26,17 +26,18 @@
       <p class="eyebrow">Write to Kevin</p>
       <h1>Say what you need, in your own words</h1>
       <p>There's no list of categories to fit it into. Your message goes to Kevin directly. To talk instead, <a href="book.html">book an hour</a>.</p>
-      <form class="form" name="contact" data-relay>
+      <form class="form" name="contact" method="post" action="https://fascinating-elf-93a9b6.netlify.app/" data-relay>
         <input type="hidden" name="form-name" value="contact">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">What you need</label>
+        <label for="name">Name <span class="req">(required)</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+        <label for="email">Email <span class="req">(required)</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+        <label for="message">What you need <span class="req">(required)</span></label>
         <textarea id="message" name="message" required rows="6"></textarea>
         <label for="offer">What you could offer, if anything</label>
         <textarea id="offer" name="offer" rows="3"></textarea>
         <button type="submit" class="button">Send</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>

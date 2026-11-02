@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
         status.className = "form-status note";
         form.appendChild(status);
       }
-      status.textContent = "Sent — thanks, you'll hear back soon.";
-      status.style.color = "var(--moss)";
+      status.textContent = "Sent. It's with Kevin now.";
+      status.setAttribute("role", "status");
       if (submitBtn) submitBtn.disabled = false;
     });
   });

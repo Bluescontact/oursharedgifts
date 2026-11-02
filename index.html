@@ -16,7 +16,7 @@
         <a href="library.html">Library</a>
         <a href="toolkits.html">Toolkits</a>
         <a href="kevin.html">Kevin</a>
-        <a href="https://bluescontact.github.io/NESI/">NESI</a>
+        <a href="https://bluescontact.github.io/NESI/">NESI app</a>
         <a href="gives.html">How this site gives</a>
       </nav>
     </div>
@@ -28,21 +28,24 @@
         <p class="lede">A friendship, a crew, a dance floor, a care team, a household, a gift. Each one holds people, and each one rests on the same four. Look at any one of them where you are.</p>
       </div>
       <figure class="hero-fig">
-        <svg viewBox="0 0 420 330" class="tetra" role="img" aria-labelledby="tt">
-      <title id="tt">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
+        <svg viewBox="0 0 420 330" class="tetra" role="group" aria-labelledby="tt-home">
+      <title id="tt-home">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
+      <path d="M210 30 L52 268 L190 196 Z" class="face f1"/><path d="M210 30 L368 268 L190 196 Z" class="face f2"/><path d="M52 268 L368 268 L190 196 Z" class="face f3"/>
       <g class="ln"><path d="M210 30 L52 268 L368 268 Z"/></g>
-      <g class="ln back"><path d="M210 30 L190 196 M52 268 L190 196 M368 268 L190 196"/></g>
-      <a href="#architecture"><circle cx="190" cy="196" r="10" fill="#8a6420" class="vx"/><text x="200" y="178" class="vl" style="letter-spacing:.06em">ARCHITECTURE</text></a>
-      <a href="#differentiation"><circle cx="210" cy="30" r="10" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle">DIFFERENTIATION</text></a>
-      <a href="#connection"><circle cx="52" cy="268" r="10" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle">CONNECTION</text></a>
-      <a href="#boundaries"><circle cx="368" cy="268" r="10" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle">BOUNDARIES</text></a>
+      <g class="ln inner"><path d="M210 30 L190 196 M52 268 L190 196 M368 268 L190 196"/></g>
+      <a href="#differentiation" aria-label="Differentiation: a person can be distinguishable"><circle cx="210" cy="30" r="11" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle" aria-hidden="true">DIFFERENTIATION</text></a>
+      <a href="#connection" aria-label="Connection: capacity can find need"><circle cx="52" cy="268" r="11" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle" aria-hidden="true">CONNECTION</text></a>
+      <a href="#boundaries" aria-label="Boundaries: a limit can be stated and received"><circle cx="368" cy="268" r="11" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle" aria-hidden="true">BOUNDARIES</text></a>
+      <a href="#architecture" aria-label="Architecture: the load has a named holder, with a named fallback"><circle cx="190" cy="196" r="11" fill="#8a6420" class="vx"/><text x="200" y="178" class="vl" style="letter-spacing:.06em" aria-hidden="true">ARCHITECTURE</text></a>
     </svg>
         <figcaption>which of the four is missing where you are?</figcaption>
       </figure>
     </section>
     <section class="wrap rooms-band" aria-labelledby="rooms-h">
       <h2 id="rooms-h" class="eyebrow-h">Pick a room you know</h2>
-      <div class="chips" role="group" aria-label="Rooms"><button type="button" class="chip" data-room="0" aria-pressed="true">A friendship</button><button type="button" class="chip" data-room="1" aria-pressed="false">A crew</button><button type="button" class="chip" data-room="2" aria-pressed="false">A dance floor</button><button type="button" class="chip" data-room="3" aria-pressed="false">A care team</button><button type="button" class="chip" data-room="4" aria-pressed="false">A household</button><button type="button" class="chip" data-room="5" aria-pressed="false">A gift</button></div>
+      <p class="hint">The four questions below change to fit the room you pick.</p>
+      <div class="chips" role="group" aria-label="Rooms"><button type="button" class="chip" data-room="0" data-slug="friendship" aria-pressed="true">A friendship</button><button type="button" class="chip" data-room="1" data-slug="crew" aria-pressed="false">A crew</button><button type="button" class="chip" data-room="2" data-slug="dance-floor" aria-pressed="false">A dance floor</button><button type="button" class="chip" data-room="3" data-slug="care-team" aria-pressed="false">A care team</button><button type="button" class="chip" data-room="4" data-slug="household" aria-pressed="false">A household</button><button type="button" class="chip" data-room="5" data-slug="gift" aria-pressed="false">A gift</button></div>
+      <p class="sr-only" id="room-said" aria-live="polite"></p>
       <div class="four">
         <article class="tile d" id="differentiation">
           <svg viewBox="0 0 240 120" class="fig" role="img"><title>Five people, each one distinct from the others</title>
@@ -51,20 +54,20 @@
     <path d="M130 48 L141 70 L119 70 Z" fill="#a4472a" opacity=".55"/>
     <rect x="164" y="51" width="18" height="18" transform="rotate(45 173 60)" fill="#a4472a" opacity=".8"/>
     <circle cx="210" cy="60" r="9" fill="none" stroke="#a4472a" stroke-width="2" stroke-dasharray="3 3"/></svg>
-          <span class="tile-word">Differentiation</span>
+          <h3 class="tile-word">Differentiation</h3>
           <span class="tile-line">A person can be distinguishable.</span>
           <span class="tile-q" data-q="0">Does each of you get to be known as you are now, not as who you were when you met?</span>
-          <a class="tile-go" href="library.html#differentiation">Read on this →</a>
+          <a class="tile-go" href="library.html#differentiation">Read on Differentiation →</a>
         </article>
         <article class="tile c" id="connection">
           <svg viewBox="0 0 240 120" class="fig" role="img"><title>Need and capacity, meeting</title>
     <path d="M20 26 C80 26 100 60 124 60" class="ln"/><path d="M20 94 C80 94 100 60 124 60" class="ln"/>
     <path d="M124 60 L222 60" stroke="#3f6b47" stroke-width="2.2"/><circle cx="124" cy="60" r="5" fill="#3f6b47"/>
     <text x="22" y="18" class="lab">NEED</text><text x="22" y="112" class="lab">CAPACITY</text></svg>
-          <span class="tile-word">Connection</span>
+          <h3 class="tile-word">Connection</h3>
           <span class="tile-line">Capacity can find need.</span>
           <span class="tile-q" data-q="1">When one of you needs something, does it get said, and does it reach the one who can help?</span>
-          <a class="tile-go" href="library.html#connection">Read on this →</a>
+          <a class="tile-go" href="library.html#connection">Read on Connection →</a>
         </article>
         <article class="tile b" id="boundaries">
           <svg viewBox="0 0 240 120" class="fig" role="img"><title>The no, as a point: contact deepens on one side and fades on the other</title>
@@ -72,10 +75,10 @@
     <path d="M152 56 L172 56 M180 56 L194 56 M202 56 L210 56 M216 56 L220 56" class="ln thin" opacity=".5"/>
     <circle cx="120" cy="56" r="16" fill="#3d5a78" opacity=".12"/><circle cx="120" cy="56" r="4.5" fill="#3d5a78"/>
     <text x="120" y="88" class="it" text-anchor="middle">someone says no</text><text x="18" y="34" class="lab">CONTACT DEEPENS</text><text x="222" y="34" class="lab" text-anchor="end">OR ENDS</text></svg>
-          <span class="tile-word">Boundaries</span>
+          <h3 class="tile-word">Boundaries</h3>
           <span class="tile-line">A limit can be stated and received.</span>
           <span class="tile-q" data-q="2">Can either of you say no without the friendship paying for it?</span>
-          <a class="tile-go" href="library.html#boundaries">Read on this →</a>
+          <a class="tile-go" href="library.html#boundaries">Read on Boundaries →</a>
         </article>
         <article class="tile a" id="architecture">
           <svg viewBox="0 0 240 120" class="fig" role="img"><title>A load, its named holder, and a fallback under it</title>
@@ -83,10 +86,10 @@
     <path d="M120 34 L120 54" stroke="#1a1408" stroke-width="1.5"/><circle cx="120" cy="60" r="6" fill="#1a1408"/>
     <path d="M120 66 L120 88" class="ln thin" stroke-dasharray="3 3"/><circle cx="120" cy="94" r="6" fill="none" stroke="#1a1408" stroke-dasharray="2 2"/>
     <text x="134" y="64" class="lab">HOLDER</text><text x="134" y="98" class="lab">FALLBACK</text></svg>
-          <span class="tile-word">Architecture</span>
+          <h3 class="tile-word">Architecture</h3>
           <span class="tile-line">The load has a named holder, with a named fallback.</span>
           <span class="tile-q" data-q="3">When something heavy comes up, is it clear who carries it, and who steps in if they can't?</span>
-          <a class="tile-go" href="library.html#architecture">Read on this →</a>
+          <a class="tile-go" href="library.html#architecture">Read on Architecture →</a>
         </article>
       </div>
     </section>
@@ -111,16 +114,27 @@
   </footer>
   <script>
   // Pick a room: the four become questions in that room's words. Without this, the first room shows.
+  // Each room has its own address (?room=crew), so someone can send exactly the one that fits.
   (function () {
     var rooms = [["Does each of you get to be known as you are now, not as who you were when you met?","When one of you needs something, does it get said, and does it reach the one who can help?","Can either of you say no without the friendship paying for it?","When something heavy comes up, is it clear who carries it, and who steps in if they can't?"],["Is each person seen for what they actually do, not only for their title or their speed?","When someone spots a problem or needs a hand, does it reach someone who can act?","Can someone stop the work and say “not safe” without paying for it later?","Who owns the decision nobody was assigned, and who covers it when they're out?"],["Can each dancer be seen as themselves, not as “the new one” or “the good lead”?","When someone needs a partner, a break, or help, does it reach someone who can give it?","When someone says no to a dance, does the night stay easy for them?","When something goes wrong on the floor, who handles it, and who if they can't?"],["Is the person being cared for seen as themselves, not as a diagnosis or a chart?","Does what they need reach whoever can give it, without them having to chase it?","Can the person, or a carer, say no to something and be heard the first time?","Is it written down who holds each task, and who takes it when that person can't?"],["Does each person in the house get to be different, with their own needs and rhythms?","When someone needs help, can they ask, and does someone with room to help hear it?","Can anyone say “not tonight” or “not me” and have it land as information, not betrayal?","For each job in the house, is there a named person, and a named backup?"],["Is the gift for this person as they are, or for anyone who'd take it?","Does it meet a need they actually have, or one the giver imagined?","Can they say no to it, or hand it back, with nothing owed?","Once it's given, is anything still claimable, and who carries what's left?"]];
-    var chips = document.querySelectorAll(".chip");
+    var chips = document.querySelectorAll(".chip"), said = document.getElementById("room-said");
+    function pick(c, announce) {
+      var n = +c.dataset.room;
+      chips.forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); });
+      document.querySelectorAll(".tile-q").forEach(function (q) {
+        q.textContent = rooms[n][+q.dataset.q];
+        q.classList.remove("flash"); void q.offsetWidth; q.classList.add("flash");
+      });
+      if (announce) said.textContent = "Showing the four questions for " + c.textContent.toLowerCase() + ".";
+    }
     chips.forEach(function (c) {
       c.addEventListener("click", function () {
-        var n = +c.dataset.room;
-        chips.forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); });
-        document.querySelectorAll(".tile-q").forEach(function (q) { q.textContent = rooms[n][+q.dataset.q]; });
+        pick(c, true);
+        if (history.replaceState) history.replaceState(null, "", "?room=" + c.dataset.slug + location.hash);
       });
     });
+    var want = new URLSearchParams(location.search).get("room");
+    chips.forEach(function (c) { if (c.dataset.slug === want) pick(c, false); });
   })();
   </script>
 </body>
