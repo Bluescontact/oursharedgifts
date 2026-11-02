@@ -145,3 +145,24 @@ blockquote{margin:8px 0 1.4em;padding:2px 0 2px 22px;border-left:3px solid var(-
 .form label{font-family:var(--sans);font-size:14px;margin-top:12px}
 .form input,.form textarea{font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
 .form .button{align-self:flex-start;margin-top:18px}
+
+/* Kevin's page: his needs and how the site receives */
+.person.me{border-top:0;padding-top:0;padding-bottom:12px}
+.person.me h1{margin:2px 0 4px}
+.person.me blockquote{font-size:22px;margin:8px 0 0}
+.needs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 18px}
+@media (max-width:640px){.needs{grid-template-columns:1fr}}
+.need{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--nessie);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.need h3{font-family:var(--display);font-size:26px;font-weight:500;margin:0}
+.need p{font-size:16px;line-height:1.55;margin:0}
+.opens{list-style:none;padding:0;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:6px}
+.opens li{font-family:var(--sans);font-size:13px;padding:3px 10px;border-radius:99px;background:var(--paper-2);color:var(--ink-soft)}
+.opens li.lbl{background:none;padding-left:0;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--nessie)}
+.winter{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 8px}
+.winter h3{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 10px}
+.months span{text-align:center;font-family:var(--sans);font-size:14px;padding:10px 0;border-radius:8px;background:var(--nessie);color:var(--paper)}
+.winter p{margin:0;font-size:16px}
+.receive{padding-left:22px;margin:0 0 10px}
+.receive li{margin:0 0 12px;padding-left:4px}
+.receive b{font-family:var(--sans);font-size:15px}
