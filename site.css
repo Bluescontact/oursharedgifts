@@ -201,3 +201,14 @@ h3.tile-word{margin:0}
 /* Links that leave the site are marked; screen readers skip the arrow. */
 main a[href^="http"]:not([href*="oursharedgifts.org"]):not(.card)::after,
 .top nav a[href^="http"]::after{content:" \2197" / "";font-family:var(--sans);font-size:.85em}
+
+/* 2026-11-01, the seven fills */
+.hero .for{font-family:var(--sans);font-size:15px;color:var(--ink-soft);margin:-8px 0 16px}
+.hosts{margin:0 0 6px;display:grid;grid-template-columns:150px 1fr;gap:10px 18px}
+.hosts dt{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+.hosts dd{margin:0;font-size:17px;line-height:1.6}
+@media (max-width:640px){.hosts{grid-template-columns:1fr;gap:2px}.hosts dd{margin-bottom:10px}}
+.taken{padding-left:20px;margin:0 0 1em}
+.taken li{margin:0 0 6px}
+.cards:has(>.card:nth-child(4):last-child){grid-template-columns:repeat(2,1fr)}
+@media (max-width:540px){.cards:has(>.card:nth-child(4):last-child){grid-template-columns:1fr}}
