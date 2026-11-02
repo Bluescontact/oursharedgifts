@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Shared Gifts</title>
-<meta name="description" content="Every place that holds people does four things. When one is missing, someone pays for it.">
+<meta name="description" content="Anywhere people are held, four things have to happen. When one is missing, someone pays for it.">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -23,45 +23,78 @@
   </header>
   <main>
     <section class="hero wrap">
-      <h1>Every place that holds people does four things. When one is missing, someone pays for it.</h1>
-      <p class="lede">A friendship, a crew, a dance floor, a care team, a household, a gift. Each one holds people, and each one rests on the same four. Look at any one of them where you are.</p>
-    </section>
-    <section class="wrap four">
-      <a class="tile d" href="library.html#differentiation">
-        <span class="tile-word">Differentiation</span>
-        <span class="tile-line">A person can be distinguishable.</span>
-        <span class="tile-go">Read on this →</span>
-      </a>
-      <a class="tile c" href="library.html#connection">
-        <span class="tile-word">Connection</span>
-        <span class="tile-line">Capacity can find need.</span>
-        <span class="tile-go">Read on this →</span>
-      </a>
-      <a class="tile b" href="library.html#boundaries">
-        <span class="tile-word">Boundaries</span>
-        <span class="tile-line">A limit can be stated and received.</span>
-        <span class="tile-go">Read on this →</span>
-      </a>
-      <a class="tile a" href="library.html#architecture">
-        <span class="tile-word">Architecture</span>
-        <span class="tile-line">The load has a named holder, with a named fallback.</span>
-        <span class="tile-go">Read on this →</span>
-      </a>
-    </section>
-    <section class="wrap band">
-      <div class="band-text">
-        <h2>It belongs to no single field</h2>
-        <p>Care, consent, money, work and belonging each meet the same four, from a different side. That's why each is a way in, and none of them is the whole.</p>
-        <p><a href="shape.html">See the shape the four make →</a></p>
+      <div class="hero-text">
+        <h1>Anywhere people are held, four things have to happen. When one is missing, someone pays for it.</h1>
+        <p class="lede">A friendship, a crew, a dance floor, a care team, a household, a gift. Each one holds people, and each one rests on the same four. Look at any one of them where you are.</p>
       </div>
-      <svg class="tetra" viewBox="0 0 420 310" role="img" aria-label="A tetrahedron. Its four corners are Differentiation, Connection, Boundaries and Architecture.">
-      <line x1="210" y1="36" x2="252" y2="196" class="edge back"/><line x1="58" y1="262" x2="252" y2="196" class="edge back"/><line x1="362" y1="262" x2="252" y2="196" class="edge back"/>
-      <line x1="210" y1="36" x2="58" y2="262" class="edge"/><line x1="210" y1="36" x2="362" y2="262" class="edge"/><line x1="58" y1="262" x2="362" y2="262" class="edge"/>
-      <a href="library.html#architecture" aria-label="Architecture: read on this in the Library"><circle cx="252" cy="196" r="9" class="vx a"/><text x="266" y="186" text-anchor="start" class="vl">Architecture</text></a>
-      <a href="library.html#differentiation" aria-label="Differentiation: read on this in the Library"><circle cx="210" cy="36" r="9" class="vx d"/><text x="210" y="20" text-anchor="middle" class="vl">Differentiation</text></a>
-      <a href="library.html#connection" aria-label="Connection: read on this in the Library"><circle cx="58" cy="262" r="9" class="vx c"/><text x="58" y="292" text-anchor="middle" class="vl">Connection</text></a>
-      <a href="library.html#boundaries" aria-label="Boundaries: read on this in the Library"><circle cx="362" cy="262" r="9" class="vx b"/><text x="362" y="292" text-anchor="middle" class="vl">Boundaries</text></a>
+      <figure class="hero-fig">
+        <svg viewBox="0 0 420 330" class="tetra" role="img" aria-labelledby="tt">
+      <title id="tt">The shape the four make: a tetrahedron. Each corner is one of the four.</title>
+      <g class="ln"><path d="M210 30 L52 268 L368 268 Z"/></g>
+      <g class="ln back"><path d="M210 30 L250 196 M52 268 L250 196 M368 268 L250 196"/></g>
+      <a href="#architecture"><circle cx="250" cy="196" r="10" fill="#8a6420" class="vx"/><text x="250" y="226" class="vl" text-anchor="middle">ARCHITECTURE</text></a>
+      <a href="#differentiation"><circle cx="210" cy="30" r="10" fill="#a4472a" class="vx"/><text x="210" y="12" class="vl" text-anchor="middle">DIFFERENTIATION</text></a>
+      <a href="#connection"><circle cx="52" cy="268" r="10" fill="#3f6b47" class="vx"/><text x="52" y="298" class="vl" text-anchor="middle">CONNECTION</text></a>
+      <a href="#boundaries"><circle cx="368" cy="268" r="10" fill="#3d5a78" class="vx"/><text x="368" y="298" class="vl" text-anchor="middle">BOUNDARIES</text></a>
     </svg>
+        <figcaption>which of the four is missing where you are?</figcaption>
+      </figure>
+    </section>
+    <section class="wrap rooms-band" aria-labelledby="rooms-h">
+      <h2 id="rooms-h" class="eyebrow-h">Pick a room you know</h2>
+      <div class="chips" role="group" aria-label="Rooms"><button type="button" class="chip" data-room="0" aria-pressed="true">A friendship</button><button type="button" class="chip" data-room="1" aria-pressed="false">A crew</button><button type="button" class="chip" data-room="2" aria-pressed="false">A dance floor</button><button type="button" class="chip" data-room="3" aria-pressed="false">A care team</button><button type="button" class="chip" data-room="4" aria-pressed="false">A household</button><button type="button" class="chip" data-room="5" aria-pressed="false">A gift</button></div>
+      <div class="four">
+        <article class="tile d" id="differentiation">
+          <svg viewBox="0 0 240 120" class="fig" role="img"><title>A row of the same, and one person you can see</title>
+    <circle cx="40" cy="60" r="7" fill="#d6cdb8"/><circle cx="70" cy="60" r="7" fill="#d6cdb8"/><circle cx="100" cy="60" r="7" fill="#d6cdb8"/><circle cx="130" cy="60" r="7" fill="#d6cdb8"/>
+    <circle cx="186" cy="60" r="9" fill="#a4472a"/><circle cx="186" cy="60" r="17" fill="none" stroke="#a4472a" stroke-width="1"/></svg>
+          <span class="tile-word">Differentiation</span>
+          <span class="tile-line">A person can be distinguishable.</span>
+          <span class="tile-q" data-q="0">Does each of you get to be known as you are now, not as who you were when you met?</span>
+          <a class="tile-go" href="library.html#differentiation">Read on this →</a>
+        </article>
+        <article class="tile c" id="connection">
+          <svg viewBox="0 0 240 120" class="fig" role="img"><title>Need and capacity, meeting</title>
+    <path d="M20 26 C80 26 100 60 124 60" class="ln"/><path d="M20 94 C80 94 100 60 124 60" class="ln"/>
+    <path d="M124 60 L222 60" stroke="#3f6b47" stroke-width="2.2"/><circle cx="124" cy="60" r="5" fill="#3f6b47"/>
+    <text x="22" y="18" class="lab">NEED</text><text x="22" y="112" class="lab">CAPACITY</text></svg>
+          <span class="tile-word">Connection</span>
+          <span class="tile-line">Capacity can find need.</span>
+          <span class="tile-q" data-q="1">When one of you needs something, does it get said, and does it reach the one who can help?</span>
+          <a class="tile-go" href="library.html#connection">Read on this →</a>
+        </article>
+        <article class="tile b" id="boundaries">
+          <svg viewBox="0 0 240 120" class="fig" role="img"><title>The no, as a point: contact deepens on one side and fades on the other</title>
+    <path d="M18 56 L120 56" stroke="#1a1408" stroke-width="1.5"/><path d="M120 56 L142 56" class="ln thin"/>
+    <path d="M152 56 L172 56 M180 56 L194 56 M202 56 L210 56 M216 56 L220 56" class="ln thin" opacity=".5"/>
+    <circle cx="120" cy="56" r="16" fill="#3d5a78" opacity=".12"/><circle cx="120" cy="56" r="4.5" fill="#3d5a78"/>
+    <text x="120" y="84" class="it" text-anchor="middle">the no</text><text x="20" y="30" class="lab">CONTACT DEEPENS</text><text x="220" y="30" class="lab" text-anchor="end">OR ENDS</text></svg>
+          <span class="tile-word">Boundaries</span>
+          <span class="tile-line">A limit can be stated and received.</span>
+          <span class="tile-q" data-q="2">Can either of you say no without the friendship paying for it?</span>
+          <a class="tile-go" href="library.html#boundaries">Read on this →</a>
+        </article>
+        <article class="tile a" id="architecture">
+          <svg viewBox="0 0 240 120" class="fig" role="img"><title>A load, its named holder, and a fallback under it</title>
+    <rect x="102" y="10" width="36" height="24" fill="#8a6420"/>
+    <path d="M120 34 L120 54" stroke="#1a1408" stroke-width="1.5"/><circle cx="120" cy="60" r="6" fill="#1a1408"/>
+    <path d="M120 66 L120 88" class="ln thin" stroke-dasharray="3 3"/><circle cx="120" cy="94" r="6" fill="none" stroke="#1a1408" stroke-dasharray="2 2"/>
+    <text x="134" y="64" class="lab">HOLDER</text><text x="134" y="98" class="lab">FALLBACK</text></svg>
+          <span class="tile-word">Architecture</span>
+          <span class="tile-line">The load has a named holder, with a named fallback.</span>
+          <span class="tile-q" data-q="3">When something heavy comes up, is it clear who carries it, and who steps in if they can't?</span>
+          <a class="tile-go" href="library.html#architecture">Read on this →</a>
+        </article>
+      </div>
+    </section>
+    <section class="wrap person">
+      <img src="assets/img/kevin.jpg" alt="Kevin Mears, smiling, in front of his green school bus" width="160" height="160">
+      <div>
+        <p class="eyebrow">Given by</p>
+        <h2>Kevin Mears</h2>
+        <p>Builder, dancer, musician, friend.</p>
+        <p><a href="https://bluescontact.github.io/tetra/">Kevin's page: what he can share, and how to meet him →</a></p>
+      </div>
     </section>
     <section class="wrap closing">
       <p>Everything here is given. Take any piece, change it, pass it on. <a href="gives.html">How this site gives</a>, and how it tests itself against the four.</p>
@@ -73,5 +106,19 @@
       <p><a href="book.html">Book an hour</a> · <a href="contact.html">Write to Kevin</a> · <a href="dance.html">Dance</a> · <a href="somatic-witnessing.html">Somatic Witnessing</a></p>
     </div>
   </footer>
+  <script>
+  // Pick a room: the four become questions in that room's words. Without this, the first room shows.
+  (function () {
+    var rooms = [["Does each of you get to be known as you are now, not as who you were when you met?","When one of you needs something, does it get said, and does it reach the one who can help?","Can either of you say no without the friendship paying for it?","When something heavy comes up, is it clear who carries it, and who steps in if they can't?"],["Is each person seen for what they actually do, not only for their title or their speed?","When someone spots a problem or needs a hand, does it reach someone who can act?","Can someone stop the work and say “not safe” without paying for it later?","Who owns the decision nobody was assigned, and who covers it when they're out?"],["Can each dancer be seen as themselves, not as “the new one” or “the good lead”?","When someone needs a partner, a break, or help, does it reach someone who can give it?","When someone says no to a dance, does the night stay easy for them?","When something goes wrong on the floor, who handles it, and who if they can't?"],["Is the person being cared for seen as themselves, not as a diagnosis or a chart?","Does what they need reach whoever can give it, without them having to chase it?","Can the person, or a carer, say no to something and be heard the first time?","Is it written down who holds each task, and who takes it when that person can't?"],["Does each person in the house get to be different, with their own needs and rhythms?","When someone needs help, can they ask, and does someone with room to help hear it?","Can anyone say “not tonight” or “not me” and have it land as information, not betrayal?","For each job in the house, is there a named person, and a named backup?"],["Is the gift for this person as they are, or for anyone who'd take it?","Does it meet a need they actually have, or one the giver imagined?","Can they say no to it, or hand it back, with nothing owed?","Once it's given, is anything still claimable, and who carries what's left?"]];
+    var chips = document.querySelectorAll(".chip");
+    chips.forEach(function (c) {
+      c.addEventListener("click", function () {
+        var n = +c.dataset.room;
+        chips.forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); });
+        document.querySelectorAll(".tile-q").forEach(function (q) { q.textContent = rooms[n][+q.dataset.q]; });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
