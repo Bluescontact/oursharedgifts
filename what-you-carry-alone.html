@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What You Carry Alone</title>
+<style>
+:root{
+  --bg:#faf8f3; --card:#ffffff; --ink:#24221e; --muted:#6b665c; --line:#ddd7ca;
+  --accent:#4f6b3a; --accent-ink:#ffffff; --off:#cfc8b8;
+  --fn:122,74,46; --fc:79,107,58; --fh:46,90,122; --fo:150,112,24;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#1c1b18; --card:#262521; --ink:#ece8de; --muted:#a39d90; --line:#3a3832;
+    --accent:#8fae73; --accent-ink:#1c1b18; --off:#4a473f;
+    --fn:214,150,110; --fc:143,174,115; --fh:121,176,214; --fo:222,184,96; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 Georgia,"Times New Roman",serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.9rem;margin:0;font-weight:normal}
+.tag{color:var(--muted);margin:2px 0 14px}
+h2{font-size:1.35rem;margin:0 0 6px;font-weight:normal}
+.step{color:var(--muted);font-size:.95rem;margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px;margin-top:14px}
+label{display:block;font-size:.9rem;color:var(--muted);margin:12px 0 4px}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px}
+textarea{min-height:72px;resize:vertical}
+button{font:inherit;cursor:pointer;border-radius:6px;padding:10px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center}
+.shape{text-align:center;margin-bottom:4px;touch-action:pan-y}
+.shape svg{width:100%;max-width:340px;height:auto;cursor:grab}
+.shape text{fill:var(--muted);font:12px Georgia,serif}
+.state{font-size:.95rem;color:var(--muted);margin:2px 0 0}
+.face{border-left:4px solid var(--off);padding:2px 0 2px 12px;margin:18px 0 0}
+.face .q{margin:0 0 6px}
+.face .q b{font-weight:normal}
+.f-n{border-color:rgb(var(--fn))} .f-n b{color:rgb(var(--fn))}
+.f-c{border-color:rgb(var(--fc))} .f-c b{color:rgb(var(--fc))}
+.f-h{border-color:rgb(var(--fh))} .f-h b{color:rgb(var(--fh))}
+.f-o{border-color:rgb(var(--fo))} .f-o b{color:rgb(var(--fo))}
+.check{display:flex;gap:8px;align-items:center;margin-top:8px;color:var(--ink);font-size:.95rem}
+.check input{width:auto;transform:scale(1.2)}
+.private{font-size:.88rem;color:var(--muted);font-style:italic}
+.note{color:var(--muted);font-size:.85rem;margin-top:8px}
+.extra{margin-top:12px;padding-top:6px;border-top:1px dashed var(--line)}
+.result{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:12px}
+/* print carries only the outward face, black on white */
+@media print{
+  .no-print{display:none!important}
+  body,main,.card,.result{background:#fff!important;color:#000!important;border-color:#999!important}
+  .card{border:0;padding:0}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1 id="title" class="no-print"></h1>
+  <p class="tag no-print" id="tagline"></p>
+
+  <div class="shape no-print" id="shapeWrap"><div id="shape" role="img" aria-label="One tetrahedron. Three inward faces: unmet needs, capacities, held. One outward face: the channel."></div><p class="state" id="state" aria-live="polite"></p></div>
+
+  <section class="card no-print">
+    <h2 id="nameQ"></h2>
+    <input id="thing" aria-labelledby="nameQ">
+    <label for="who">Your name, if you want it on what you copy</label>
+    <input id="who">
+  </section>
+
+  <section class="card no-print">
+    <h2>The inward faces</h2>
+    <p class="step">These are for you. Write them at full size, the way you’d say them to yourself. They don’t go into what you copy or print unless you tick them below. Short answers and blanks are fine.</p>
+    <div id="insideQs"></div>
+  </section>
+
+  <section class="card no-print">
+    <h2>The outward face</h2>
+    <p class="step">This is what you’d actually say to someone: what can come in, and what can go out. It can be smaller than the need. It’s what Copy and Print carry, with anything you tick below.</p>
+    <div id="outQs"></div>
+    <div class="extra">
+      <p class="q" style="margin:6px 0 2px">Anything from the inward faces you want seen</p>
+      <p class="note" style="margin-top:0">Off unless you tick it. What you tick goes out word for word. Clearing a face clears its tick.</p>
+      <div id="showPick"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="no-print">What can be copied</h2>
+    <p class="step no-print">This is exactly what leaves when you copy or print. It changes as you write.</p>
+    <div class="result" id="result"></div>
+    <div class="actions no-print">
+      <button class="primary" id="copy">Copy it</button>
+      <button id="print">Print</button>
+      <button id="fresh">Start a new one</button>
+    </div>
+    <p class="note no-print" id="status" aria-live="polite"></p>
+    <p class="note no-print" id="changed"></p>
+  </section>
+
+  <section class="card no-print">
+    <h2>The questions</h2>
+    <p class="step">The face names stay. The questions under them are yours to change.</p>
+    <div id="editQ"></div>
+  </section>
+
+  <footer id="footer" class="no-print"></footer>
+</main>
+
+<script type="application/json" id="setup">{"v":2,"id":"alone","title":"What You Carry Alone","tag":"A cost no one asked you to carry, or no one knows you’re carrying. Name it.","nameQ":"What are you carrying that no one else sees?","thingHint":"For example: covering the gap in the shared bills","closing":"I’m naming this so it isn’t carried in silence. Naming it is not a bill.","faces":{"n":{"name":"Unmet needs","q":"What would you need for it not to be yours alone?"},"c":{"name":"Capacities","q":"How much more of it can you carry, honestly, and for how long?"},"h":{"name":"Held","q":"What has it cost you so far?"}},"out":{"name":"The channel","recv":{"name":"Receiving","q":"Who should know about it, and what would you ask of them?"},"give":{"name":"Giving","q":"What will you keep carrying by choice, and what are you setting down?"}},"footer":"\u003cb style=\"font-weight:normal;color:var(--ink)\">Why it's shaped like this.\u003c/b> A tetrahedron has four faces. Here three are the inward ones: what you need that isn't met, what you can do, and what you're holding. They're for you, at full size. The fourth is the outward face, the channel: what you're open to receiving and what you can give. It's what you'd actually say. Keeping the two apart lets a need be written whole without becoming an ask, and lets an ask be made without carrying the whole need. The room inside the shape is your option space: the moves open to you. A person isn't a relationship, and this page carries only your side. Use it for the costs that land on you without anyone deciding they should. A cost carried silently doesn’t get set down. Marking it yourself, before anyone notices, is where setting it down starts. Weight can be shared without becoming a claim on anyone. \u003cbr>\u003cbr>Your answers are saved only in this browser, on this device, and are sent nowhere. Anyone who uses this browser could open them; \"Start a new one\" clears them. Copy and Print carry only what's under \"What can be copied\".\u003cbr>A gift from Kevin Mears, written with AI assistance. It completes on delivery. Pass it on."}</script>
+<script>
+(function(){
+  var EMBED=JSON.parse(document.getElementById('setup').textContent);
+  var KEY='single-tetra2:'+EMBED.id;
+  var F=['n','c','h'];
+  function copyOf(x){ return JSON.parse(JSON.stringify(x)); }
+  function fresh(){ return { v:EMBED.v, base:copyOf(EMBED), set:copyOf(EMBED), thing:'', who:'',
+    inside:{n:'',c:'',h:''}, show:{n:false,c:false,h:false}, recv:'', give:'' }; }
+  var S; try{ S=JSON.parse(localStorage.getItem(KEY)); }catch(e){}
+  if(!S||!S.set||!S.inside) S=fresh();
+  var reworded=[];
+  if(S.v!==EMBED.v){ // new questions come in where the reader hadn't changed them; their answers are kept
+    var base=S.base||EMBED.prior||S.set, fresh2=copyOf(EMBED); delete fresh2.prior;
+    ['n','c','h'].forEach(function(k){ var mine=S.set.faces[k].q, was=base.faces[k].q;
+      if(mine!==was) fresh2.faces[k].q=mine; else if(was!==EMBED.faces[k].q&&(S.inside[k]||'').trim()) reworded.push(EMBED.faces[k].name); });
+    ['recv','give'].forEach(function(k){ var mine=S.set.out[k].q, was=base.out[k].q;
+      if(mine!==was) fresh2.out[k].q=mine; else if(was!==EMBED.out[k].q&&(S[k]||'').trim()) reworded.push(EMBED.out[k].name); });
+    S.v=EMBED.v; S.base=copyOf(EMBED); S.set=fresh2; save();
+  }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function has(t){ return !!(t&&String(t).trim()); }
+  function face(k){ return S.set.faces[k]; }
+
+  document.title=EMBED.title;
+  $('title').textContent=EMBED.title;
+  $('tagline').textContent=EMBED.tag;
+  $('nameQ').textContent=EMBED.nameQ;
+  $('thing').placeholder=EMBED.thingHint;
+  $('footer').innerHTML=EMBED.footer;
+  if(reworded.length) $('changed').textContent='Since you last wrote here, the question changed under: '+reworded.join(', ')+'. Your answers are as you left them.';
+
+  // the words that would cross, exactly as copied or printed
+  function outWritten(){ return has(S.recv)||has(S.give); }
+  function today(){ return new Date().toLocaleDateString(undefined,{day:'numeric',month:'long',year:'numeric'}); }
+  function outText(){
+    var who=has(S.who)?S.who.trim():'', L=[];
+    L.push(has(S.thing)?S.thing.trim():EMBED.title);
+    L.push('');
+    if(has(S.recv)) L.push(S.set.out.recv.name+': '+S.recv.trim());
+    if(has(S.give)) L.push(S.set.out.give.name+': '+S.give.trim());
+    F.forEach(function(k){ if(S.show[k]&&has(S.inside[k])) L.push(face(k).name+': '+S.inside[k].trim()); });
+    if(!outWritten()) L.push('(The outward face is blank.)');
+    L.push('');
+    L.push((who?'From '+who+', ':'')+today()+'.');
+    if(outWritten()) L.push(S.set.closing);
+    return L.join('\n');
+  }
+
+  // ---------- shape: one tetrahedron, turning ----------
+  var a=0.6, tilt=0.42, drag=null, still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var R=Math.sqrt(8)/3, P=[[0,1,0]];
+  for(var i=0;i<3;i++){ var t=Math.PI/2+i*2*Math.PI/3; P.push([R*Math.cos(t),-1/3,R*Math.sin(t)]); }
+  // P[0] is the corner the three inward faces share; the outward face is the one opposite it
+  var FACES=[{k:'n',v:[0,1,2]},{k:'c',v:[0,2,3]},{k:'h',v:[0,3,1]},{k:'o',v:[1,3,2]}];
+  var COL={};
+  function readColors(){ var css=getComputedStyle(document.documentElement); ['n','c','h','o'].forEach(function(k){ COL[k]=css.getPropertyValue('--f'+k).trim(); }); }
+  readColors();
+  if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){ readColors(); drawShape(); });
+  function rot(p){ var x=p[0]*Math.cos(a)+p[2]*Math.sin(a), z=-p[0]*Math.sin(a)+p[2]*Math.cos(a), y=p[1];
+    return [x, y*Math.cos(tilt)-z*Math.sin(tilt), y*Math.sin(tilt)+z*Math.cos(tilt)]; }
+  function lit(k){ return (k==='o'?outWritten():has(S.inside[k]))?0.38:0.05; }
+  function label(k){ return k==='o'?S.set.out.name:face(k).name; }
+  function drawShape(){
+    var Q=P.map(rot), W=340, H=300, s=118, cx=W/2, cy=H/2+14;
+    var pt=function(q){ return [cx+q[0]*s, cy-q[1]*s]; };
+    var fs=FACES.map(function(f){ var q=f.v.map(function(i){return Q[i];});
+      var u=[q[1][0]-q[0][0],q[1][1]-q[0][1],q[1][2]-q[0][2]], w=[q[2][0]-q[0][0],q[2][1]-q[0][1],q[2][2]-q[0][2]];
+      var c=[(q[0][0]+q[1][0]+q[2][0])/3,(q[0][1]+q[1][1]+q[2][1])/3,(q[0][2]+q[1][2]+q[2][2])/3];
+      var nz=u[0]*w[1]-u[1]*w[0]; // flip so the normal points away from the centre, then front = toward the viewer
+      if(c[0]*(u[1]*w[2]-u[2]*w[1])+c[1]*(u[2]*w[0]-u[0]*w[2])+c[2]*nz<0) nz=-nz;
+      return {k:f.k,q:q,c:c,front:nz>0}; });
+    fs.sort(function(x,y){ return x.c[2]-y.c[2]; });
+    var o='<svg viewBox="0 0 '+W+' '+H+'">';
+    fs.forEach(function(f){ var rgb=COL[f.k];
+      var pts=f.q.map(function(q){ return pt(q).map(function(v){return v.toFixed(1);}).join(','); }).join(' ');
+      o+='<polygon points="'+pts+'" fill="rgba('+rgb+','+lit(f.k)+')" stroke="rgb('+rgb+')" stroke-width="'+(f.front?2:1)+'"'+(f.front?'':' stroke-dasharray="4 4" stroke-opacity=".5"')+' stroke-linejoin="round"/>'; });
+    fs.forEach(function(f){ if(!f.front) return; var p=pt(f.c);
+      o+='<text x="'+p[0].toFixed(1)+'" y="'+(p[1]+4).toFixed(1)+'" text-anchor="middle">'+esc(label(f.k))+'</text>'; });
+    var core=pt(Q[0]);
+    o+='<circle cx="'+core[0].toFixed(1)+'" cy="'+core[1].toFixed(1)+'" r="6" fill="var(--ink)"/>';
+    o+='<text x="'+core[0].toFixed(1)+'" y="'+(core[1]-12).toFixed(1)+'" text-anchor="middle">'+esc(has(S.who)?S.who:'you')+'</text>';
+    $('shape').innerHTML=o+'</svg>';
+  }
+  var onScreen=true;
+  if(window.IntersectionObserver) new IntersectionObserver(function(es){ onScreen=es[0].isIntersecting; }).observe(document.getElementById('shapeWrap'));
+  function tick(){ if(!drag&&!still&&!document.hidden&&onScreen){ a+=0.004; drawShape(); } requestAnimationFrame(tick); }
+  var wrap=$('shapeWrap');
+  wrap.addEventListener('pointerdown',function(e){ drag={x:e.clientX,y:e.clientY,a:a,t:tilt,touch:e.pointerType==='touch'}; });
+  wrap.addEventListener('pointermove',function(e){ if(!drag) return; a=drag.a+(e.clientX-drag.x)*0.01;
+    if(!drag.touch) tilt=Math.max(-1.2,Math.min(1.2,drag.t+(e.clientY-drag.y)*0.01)); drawShape(); });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ wrap.addEventListener(ev,function(){ drag=null; }); });
+
+  // ---------- one page, everything open ----------
+  function refresh(){
+    F.forEach(function(k){ if(!has(S.inside[k])) S.show[k]=false; }); // a cleared face takes its tick with it
+    var n=F.filter(function(k){ return has(S.inside[k]); }).length;
+    $('state').textContent='Inward: '+n+' of 3 faces have words. The outward face '+(outWritten()?'has words.':'is blank.');
+    $('result').textContent=outText();
+    F.forEach(function(k){ var el=document.querySelector('[data-show="'+k+'"]'), w=has(S.inside[k]);
+      if(el){ el.checked=S.show[k]; el.parentNode.querySelector('.private').textContent=w?'':' (blank)'; } });
+    drawShape();
+  }
+  function renderAll(){
+    $('thing').value=S.thing; $('who').value=S.who;
+    $('insideQs').innerHTML=F.map(function(k){ var f=face(k);
+      return '<div class="face f-'+k+'"><p class="q" id="lq-'+k+'"><b>'+esc(f.name)+'.</b> <span data-qt="'+k+'">'+esc(f.q)+'</span></p><textarea data-in="'+k+'" aria-labelledby="lq-'+k+'">'+esc(S.inside[k])+'</textarea></div>'; }).join('');
+    $('outQs').innerHTML=['recv','give'].map(function(k){ var o=S.set.out[k];
+      return '<div class="face f-o"><p class="q" id="lq-'+k+'"><b>'+esc(o.name)+'.</b> <span data-qt="'+k+'">'+esc(o.q)+'</span></p><textarea data-out="'+k+'" aria-labelledby="lq-'+k+'">'+esc(S[k])+'</textarea></div>'; }).join('');
+    $('showPick').innerHTML=F.map(function(k){
+      return '<label class="check"><input type="checkbox" data-show="'+k+'"> '+esc(face(k).name)+'<span class="private"></span></label>'; }).join('');
+    var rows=F.map(function(k){ return [k,face(k)]; }).concat([['recv',S.set.out.recv],['give',S.set.out.give]]);
+    $('editQ').innerHTML=rows.map(function(r){ return '<label for="eq-'+r[0]+'">'+esc(r[1].name)+'</label><input id="eq-'+r[0]+'" data-q="'+r[0]+'" value="'+esc(r[1].q)+'">'; }).join('');
+    refresh();
+  }
+  document.querySelector('main').addEventListener('input',function(e){ var t=e.target, k;
+    if(t.id==='thing') S.thing=t.value;
+    else if(t.id==='who') S.who=t.value;
+    else if((k=t.getAttribute('data-in'))) S.inside[k]=t.value;
+    else if((k=t.getAttribute('data-out'))) S[k]=t.value;
+    else if((k=t.getAttribute('data-q'))){ (k==='recv'||k==='give'?S.set.out[k]:S.set.faces[k]).q=t.value;
+      var span=document.querySelector('[data-qt="'+k+'"]'); if(span) span.textContent=t.value; }
+    else return;
+    $('status').textContent='';
+    save(); refresh(); });
+  $('showPick').addEventListener('change',function(e){ var k=e.target.getAttribute('data-show'); if(!k) return;
+    S.show[k]=e.target.checked&&has(S.inside[k]); save(); refresh(); });
+  window.addEventListener('focus',refresh);
+  function copyText(txt,done){
+    var fallback=function(){ var t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select();
+      var ok=false; try{ ok=document.execCommand('copy'); }catch(e){} t.remove();
+      if(ok) done(); else $('status').textContent='Copy didn’t work here. Select the text above and copy it by hand.'; };
+    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(done,fallback); else fallback();
+  }
+  $('copy').onclick=function(){ refresh(); copyText(outText(),function(){ $('status').textContent='Copied. Only what’s shown above went with it.'; }); };
+  $('print').onclick=function(){ refresh(); window.print(); };
+  $('fresh').onclick=function(){ if(confirm('Start a new one? Everything on this one is cleared from this browser.')){ S=fresh(); save(); renderAll(); } };
+
+  renderAll(); requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
